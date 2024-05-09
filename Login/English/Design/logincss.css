@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 body {
-    background: url(/img/fondo1.jpg);
+    background: url(fondo1.jpg);
     text-align: center;
     background-size: cover;
     min-height: 98vh;
