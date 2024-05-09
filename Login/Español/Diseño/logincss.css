@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+html {
+    height: 100%;
+    overflow: hidden;
+}
 body {
     background: url(fondo1.jpg);
     text-align: center;
     background-size: cover;
-    min-height: 98vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,4 +52,7 @@ button {
     border-radius: 40px;
     border: none;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.all {
+    margin-top: -3%;
 }

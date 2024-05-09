@@ -8,17 +8,19 @@
     <link rel="shortcut icon" href="Diseño/logocer.jpg" type="image/x-icon">
 </head>
     <body>
-        <h1>Iniciar Sesión</h1>
-        <div class="login">
-            <form>
-                <p>Usuario</p>
-                <input type="text">
-                <p>Contraseña</p>
-                <input type="password">
-                <p>
-                <button>Ingresar</button>
-                </p>
-            </form>
+        <div class="all">
+            <h1>Iniciar Sesión</h1>
+            <div class="login">
+                <form>
+                    <p>Usuario</p>
+                    <input type="text">
+                    <p>Contraseña</p>
+                    <input type="password">
+                    <p>
+                    <button>Ingresar</button>
+                    </p>
+                </form>
+            </div>
         </div>
     </body>
 </html>

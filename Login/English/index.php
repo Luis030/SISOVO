@@ -8,17 +8,19 @@
     <link rel="shortcut icon" href="Design/fondo1.jpgs" type="image/x-icon">
 </head>
     <body>
-        <h1>Sign In</h1>
-        <div class="login">
-            <form>
-                <p>Username</p>
-                <input type="text">
-                <p>Password</p>
-                <input type="password">
-                <p>
-                <button>Sign In</button>
-                </p>
-            </form>
+        <div class="all">
+            <h1>Sign In</h1>
+            <div class="login">
+                <form>
+                    <p>Username</p>
+                    <input type="text">
+                    <p>Password</p>
+                    <input type="password">
+                    <p>
+                    <button>Sign In</button>
+                    </p>
+                </form>
+            </div>
         </div>
     </body>
 </html>
