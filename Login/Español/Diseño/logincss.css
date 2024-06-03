@@ -18,7 +18,7 @@ h1 {
     font-weight: normal;
     font-size: 40px;
     text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 .login {
     border: none;
@@ -48,12 +48,19 @@ button {
     font-family: "Montserrat", sans-serif;
     padding: 10px;
     font-size: 20px;
-    background: orange;
+    border: 3px solid orange;
     border-radius: 40px;
-    border: none;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
+    transition: 0.3s;
+    margin-top: 25px;
 }
 .all {
     margin-top: -3%;
+}
+button:hover {
+    background-color: orange;
+    color: white;
+    font-size: 30px;
+    border-color: darkorange;
 }
