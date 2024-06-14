@@ -31,6 +31,11 @@
                 <h1>Ian Volpi</h1>
         </div>
     </div>
-    <p>Somos estudiante de informatica de tercer año de UTU, y esta aplicación fue desarrollada por motivo de nuestro proyecto de fin de año</p>
+    <p id="parrafo-aboutus">Somos estudiante de informatica de tercer año de UTU, y esta aplicación fue desarrollada por motivo de nuestro proyecto de fin de año</p>
+    <div class="idiomas">
+        <input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/1200px-Flag_of_Uruguay.svg.png" id="logo-español">
+        <input type="image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png" id="logo-ingles">
+    </div>
+    
   </div>
 </div>

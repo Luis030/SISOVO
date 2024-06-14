@@ -189,6 +189,7 @@ body {
   }
   .contenido-overlay p {
     font-size: 20px;
+    margin-bottom: 60px;
   }
   .contenido-imagenes{
     display: flex;
@@ -210,4 +211,28 @@ body {
     height: 100px; 
     border-radius: 50%; 
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  .idiomas{
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .idiomas{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  .idiomas input[type="image"]{
+    width: 30px; 
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  #logo-español{
+    border: 3px solid blue;
+  }
+  #logo-ingles{
+    border: 3px solid black;
   }
