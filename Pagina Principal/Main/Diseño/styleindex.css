@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+FR+Moderne:wght@100..400&display=swap');
 
 body {
+    background-color: #F2FAFC;
     margin: 0px;
 }
 
@@ -10,7 +11,7 @@ body {
     width: 100%;
     height: 110px;
     display: flex;
-    background-color: #9CD7ED;
+    background-color: #8DCABC;
     text-align: center;
     align-items: center;
     gap: 45px;
@@ -22,25 +23,22 @@ body {
 }
 
 #goLogin {
+    background-color: #38A08D;
     font-size: 22px;
     padding: 12px;
     transition: 0.5s ease;
     border-radius: 30px;
     border: none;
-    background-color: transparent;
-    transition: 0.5s ease;
     cursor: pointer;
     position: absolute;
     left: 1%;
     text-decoration: none;
-    color: black;
+    color: #002921;
     font-family: "Open Sans", sans-serif;
 }
 
 #goLogin:hover {
     font-size: 25px;
-    background-color: #73B3CB;;
-    color: rebeccapurple;
 }
 
 #headInfo {
@@ -48,7 +46,7 @@ body {
     font-weight: 500;
     font-size: 30px;
     text-decoration: none;
-    color: #3C3C3B;
+    color: #002921;
     border-radius: 30px;
     border: none;
     background-color: transparent;
@@ -58,7 +56,7 @@ body {
 }
 
 #headInfo:hover {
-    background-color: #73B3CB;
+    background-color: #38A08D;
 }
 
 #titleCER {
@@ -80,7 +78,7 @@ body {
 
 #mainTitle {
     font-family: "Open Sans", sans-serif;
-    color: #60625F;
+    color: #007D95;
     font-weight: 800;
 }
 
@@ -88,20 +86,20 @@ body {
     font-family: "Quicksand", sans-serif;
     font-weight: 500;
     margin-top: -50px;
-    color: #60625F;
+    color: #0C3E48;
     font-size: 25px;
 }
 
 #textIndex {
     font-family: "Open Sans", sans-serif;
-    color: #60625F;
+    color: #0C3E48;
     font-weight: 400;
 }
 
 #footer {
     width: 100%;
     height: 40px;
-    background-color: #9CD7ED;
+    background-color: #8DCABC;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
@@ -118,10 +116,9 @@ body {
 #footerAboutUs {
     text-decoration: none;
     transition: 0.1s ease-in-out;
-    color: #527A89;
+    color: #002921;
 }
 
 #footerAboutUs:hover{
-    color: rebeccapurple;
     font-weight: 700;
 }

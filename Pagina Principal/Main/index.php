@@ -3,12 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+        <meta http-equiv="Pragma" content="no-cache">
         <title>Centro CER</title>
-        <link rel="stylesheet" href="Diseño/styleindex.css?">
+        <link rel="stylesheet" href="Diseño/styleindex.css?noandasino????">
     </head>
     <body>
         <div id="header">
-            <a href="../Login/index.php" id="goLogin">Iniciar<br> Sesión</a>
+            <a href="../Login/index.php" id="goLogin">Ingresar</a>
             <button id="headInfo">Servicios</button>
             <button id="headInfo">Colecciones</button>
             <a href="index.php" id="titleCER">
