@@ -16,13 +16,16 @@
             <a href="index.php" id="titleCER">
                 <h1>CER</h1>
             </a>
-            <button id="headInfo">Alumnos</button>
-            <button id="headInfo">Contactos</button>
+            <button id="headInfo">Quienes somos?</button>
+            <button id="headInfo">Contacto</button>
         </div>
         <div id="main">
             <h1 id="mainTitle">Centro de Reeducación CER</h1>
             <h2 id="mainTextMiddle">Para una educación mejor.</h2>
             <p id="textIndex">En nuestra institución contamos con una gran varidad<br> de profesores especializados en diferentes áreas.</p>
+        </div>
+        <div id="footer">
+            <p id="footerInfo">&copy;Centro CER | Developed by &copy;SISOVO Corp. | <a href="" id="footerAboutUs">Sobre nosotros</a></p>
         </div>
     </body>     
 </html>
