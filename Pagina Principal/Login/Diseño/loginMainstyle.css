@@ -121,6 +121,49 @@ button:hover {
 #footerAboutUs:hover{
     font-weight: 700;
 }
+.login-div{
+    background-color: #70CADF;
+    border: 2px solid #245148;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-family: "Quicksand", sans-serif;
+}
+.div-inputs-login{
+    text-align: left;
+    margin: 10px;
+    padding: 5px;
+    background-color: #84C1B3;
+    border-radius: 10px;
+}
+.input-login{
+    margin: 0;
+    width: 100%;
+    border-radius: 0px 10px 10px 10px;
+}
+.contenido-formulario label, .contenido-formulario input{
+    font-size: 30px;
+}
+.contenido-formulario{
+    margin: 20px;
+}
+.titulo-input{
+    display: inline-flex;
+    background-color: #1E8D7B;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+.div-titulo-login{
+    text-align: center;
+}
+.contenido-formulario-btn{
+    text-align: center;
+}
+.contenido-formulario-btn input[type="submit"]{
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #71CADF;
+}
 
 
 

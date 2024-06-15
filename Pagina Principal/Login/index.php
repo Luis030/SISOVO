@@ -25,12 +25,36 @@
         </div>
         <div id="Main">
             <p id="mainText">Ingrese aquí su cuenta para<br> poder iniciar sesión:</p>
-            <form action="" method="post">
-                <div id="loginDiv">
-                    
+            <div class="login-div">
+                <form action="" method="post">
+                    <div class="div-inputs-login">
+                        <div class="div-titulo-login">
+                            <h1>Iniciar Sesión</h1>
+                        </div>
+                        <div class="contenido-formulario">
+                            <div class="titulo-input">
+                                <label for="cedula">Cedula</label>
+                            </div>
+                            <div class="div-input-login">
+                                <input type="text" class="input-login" name="cedula" id="cedula">
+                            </div>
+                        </div>
+                        <div class="contenido-formulario">
+                            <div class="titulo-input">
+                                <label>Contraseña</label>
+                            </div>
+                            <div class="div-input-login">
+                                <input type="password" class="input-login">
+                            </div>
+                        </div>
+                        <div class="contenido-formulario-btn">
+                            <input type="submit">
+                        </div>
                     </div>
-                </div>
-            </form>
+                    
+                    
+                </form>
+            </div>
         </div>
         <div id="footer">
             <p id="footerInfo">&copy;Centro CER | Developed by &copy;SISOVO Corp. | <a href="" id="footerAboutUs">Sobre nosotros</a></p>
