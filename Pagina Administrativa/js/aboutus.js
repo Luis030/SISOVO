@@ -1,5 +1,5 @@
 window.onload = () => {
-    
+        setInterval(horaActual, 1000);
         const abrirabout = document.getElementById('aboutus');
         const overlay = document.getElementById('overlay');
         const cerrarabout = document.getElementById('cerrarabout');
@@ -7,6 +7,18 @@ window.onload = () => {
         const logoingles = document.getElementById('logo-ingles');
         const parrafoabout = document.getElementById('parrafo-aboutus');
       
+        function horaActual() {
+            var fechaHoraLocal = new Date(); 
+            var hora = fechaHoraLocal.getHours(); 
+            var minutos = fechaHoraLocal.getMinutes(); 
+        
+            
+            hora = hora < 10 ? '0' + hora : hora;
+            minutos = minutos < 10 ? '0' + minutos : minutos;
+        
+            var horaYMinutos = hora + ':' + minutos;
+            document.querySelector('.horaactual').textContent = horaYMinutos;
+        }
         logoespañol.addEventListener('click', () => {
             parrafoabout.textContent = "Somos estudiante de informatica de tercer año de UTU, y esta aplicación fue desarrollada por motivo de nuestro proyecto de fin de año";
             logoespañol.style.border = "3px solid blue";

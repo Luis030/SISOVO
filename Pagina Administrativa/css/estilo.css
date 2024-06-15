@@ -6,6 +6,7 @@ body {
 }
 
 .header{
+    display: inline;
     font-size: 30px;
     background-color: orange;
     position: fixed;
@@ -235,4 +236,7 @@ body {
   }
   #logo-ingles{
     border: 3px solid black;
+  }
+  .horaactual{
+    margin-left: 50%;
   }

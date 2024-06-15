@@ -1,8 +1,13 @@
 <script src="js/aboutus.js"></script>
 <div class="header">
-        20:55
-        USER
-        <a href="#">⚙️</a>
+        <nav class="horaactual">
+
+        </nav>
+        <nav class="usuario">
+                USER
+                <a href="#">⚙️</a>
+        </nav>
+                
 </div>
 <div class="sidebar">
         <h2>Menú</h2>
