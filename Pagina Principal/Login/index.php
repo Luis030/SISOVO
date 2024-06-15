@@ -15,13 +15,13 @@
             <a href="../Main/index.php" id="backMain" title="Volver">
                 <img src="Diseño/IMG/leftArrow.svg" alt="Volver" id="leftArrowHeader">
             </a>
-            <button id="headInfo">Servicios</button>
-            <button id="headInfo">Colecciones</button>
+            <a href="" id="headInfo">Servicios</a>
+            <a href="" id="headInfo">Colecciones</a>
             <a href="../Main/index.php" id="titleCER">
                 <h1>CER</h1>
             </a>
-            <button id="headInfo">Quienes somos?</button>
-            <button id="headInfo">Contacto</button>
+            <a href="" id="headInfo">Quienes somos?</a>
+            <a href="../Main/contacto.php" id="headInfo">Contacto</a>
         </div>
         <div id="Main">
             <p id="mainText">Ingrese aquí su cuenta para<br> poder iniciar sesión:</p>

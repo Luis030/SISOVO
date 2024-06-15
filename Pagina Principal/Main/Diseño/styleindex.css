@@ -74,7 +74,100 @@ body {
 #main {
     text-align: center;
     font-size: 30px;
+    display: grid;
+    justify-content: center;
 }
+
+#contactoDiv {
+    display: grid;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #8DCABC;
+    width: 1200px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
+#contactHere {
+    font-family: "Open Sans", sans-serif;
+    color: #0C3E48;
+    font-weight: 800;
+    font-size: 40px;
+}
+
+#redesDiv {
+    padding: 30px;
+    padding-bottom: 0px;
+    background-color: #007564;
+    width: 700px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
+#svgs {
+    width: 80px;
+    height: 80px;
+    margin-bottom: -20px;
+    background-color: #F2FAFC;
+    padding: 10px;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
+#svgsTexts {
+    background-color: #F2FAFC;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    font-family: "Quicksand", sans-serif;
+}
+
+#ubiDiv {
+    display: grid;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: #8DCABC;
+    width: 1200px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
+#ubiTitle {
+    font-family: "Open Sans", sans-serif;
+    color: #0C3E48;
+    font-weight: 800;
+    font-size: 40px;    
+}
+
+#mapDiv {
+    padding: 30px;
+    background-color: #007564;
+    width: 700px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
+#mapIframe {
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
 
 #mainTitle {
     font-family: "Open Sans", sans-serif;
