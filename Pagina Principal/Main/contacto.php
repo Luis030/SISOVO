@@ -22,10 +22,8 @@
             <a href="contacto.php" id="headInfo">Contacto</a>
         </div>
         <div id="main">
-            <h1 id="mainTitle">Centro de Reeducación CER</h1>
-            <h2 id="mainTextMiddle">Para una educación mejor.</h2>
-            <p id="textIndex">En nuestra institución contamos con una gran varidad<br> de profesores especializados en diferentes áreas.</p>
-        </div>
+            <p id="ContactoMain">hola contactame</p>
+        </div> 
         <div id="footer">
             <p id="footerInfo">&copy;Centro CER | Developed by &copy;SISOVO Corp. | <a href="" id="footerAboutUs">Sobre nosotros</a></p>
         </div>
