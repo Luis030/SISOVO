@@ -8,7 +8,7 @@ body {
 
 #header {
     width: 100%;
-    height: 110px;
+    height: 80px;
     display: flex;
     background-color: #9CD7ED;
     text-align: center;
@@ -21,85 +21,104 @@ body {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
 }
 
-#headIMG {
+#leftArrowHeader {
     width: 40px;
     height: 40px;
-    padding: 10px;
-    transition: 0.5s ease;
 }
 
-#IMGButton {
-    border-radius: 30px;
-    border: none;
-    background-color: transparent;
-    transition: 0.5s ease;
-    cursor: pointer;
+#backMain {
+    text-align: center;
+    display: flex;
     position: absolute;
     left: 1%;
-}
-
-#IMGButton:hover {
-    background-color: #73B3CB;
-}
-
-#headIMG:hover {
-    width: 50px;
-    height: 50px;
-}
-
-#headInfo {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-    font-size: 30px;
     text-decoration: none;
-    color: #3C3C3B;
-    border-radius: 30px;
-    border: none;
-    background-color: transparent;
-    transition: 0.5s ease;
+    color: #527A89;
     cursor: pointer;
-    padding: 15px;
+    padding: 12px;
+    transition: 0.5s ease;
+    border-radius: 30px;
 }
 
-#headInfo:hover {
+#backMain:hover {
+    font-size: 30px;
     background-color: #73B3CB;
 }
 
-#titleCER {
+#titleLogin {
     text-decoration: none;
-    font-family: "Playwrite FR Moderne", cursive;
+    font-family: "Quicksand", sans-serif;
     color: black;
     padding: 40px;
     transition: 0.5s ease;
 }
 
-#titleCER:hover {
-    font-size: 25px;
+#Main {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+
 }
 
-#main {
-    text-align: center;
+#mainText {
+    margin-top: 40px;
+    font-family: "Open Sans", sans-serif;
+    color: #60625F;
+    font-weight: 600;
     font-size: 30px;
 }
 
-#mainTitle {
-    font-family: "Open Sans", sans-serif;
-    color: #60625F;
-    font-weight: 800;
+#loginDiv {
+    margin-top: 20px;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #9CD7ED;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    margin-bottom: 30px;
 }
 
-#mainTextMiddle {
+#textUser, #textPass {
     font-family: "Quicksand", sans-serif;
-    font-weight: 500;
-    margin-top: -50px;
-    color: #60625F;
-    font-size: 25px;
+    font-weight: 600;
+    font-size: 30px;
 }
 
-#textIndex {
-    font-family: "Open Sans", sans-serif;
-    color: #60625F;
-    font-weight: 400;
+#inputUser, #inputPass {
+    margin-top: -25px;
+    padding: 10px;
+    border-radius: 20px;
+    border: solid #73B3CB 1px;
+    width: 50%;
+    transition: 0.5s ease;
+    font-size: 20px;
+}
+
+#inputUser:focus, #inputPass:focus {
+    width: 70%;
+}
+
+#loginStart {
+    margin-top: 20px;
+    border-radius: 20px;
+    border: solid #73B3CB 1px;
+    height: 40px;
+    width: 30%;
+    transition: 0.5s ease;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#loginStart:hover {
+    background-color: #73B3CB;
+    color: white;
+    width: 33%;
+    height: 44px;
 }
 
 #footer {
@@ -129,3 +148,6 @@ body {
     color: rebeccapurple;
     font-weight: 700;
 }
+
+
+

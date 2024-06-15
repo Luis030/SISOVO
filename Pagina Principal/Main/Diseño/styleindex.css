@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+FR+Moderne:wght@100..400&display=swap');
+
+body {
+    margin: 0px;
+}
+
+#header {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    background-color: #9CD7ED;
+    text-align: center;
+    align-items: center;
+    gap: 45px;
+    font-size: 20px;
+    justify-content: center;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+}
+
+#goLogin {
+    font-size: 22px;
+    padding: 12px;
+    transition: 0.5s ease;
+    border-radius: 30px;
+    border: none;
+    background-color: transparent;
+    transition: 0.5s ease;
+    cursor: pointer;
+    position: absolute;
+    left: 1%;
+    text-decoration: none;
+    color: black;
+    font-family: "Open Sans", sans-serif;
+}
+
+#goLogin:hover {
+    font-size: 25px;
+    background-color: #73B3CB;;
+    color: rebeccapurple;
+}
+
+#headInfo {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    text-decoration: none;
+    color: #3C3C3B;
+    border-radius: 30px;
+    border: none;
+    background-color: transparent;
+    transition: 0.5s ease;
+    cursor: pointer;
+    padding: 15px;
+}
+
+#headInfo:hover {
+    background-color: #73B3CB;
+}
+
+#titleCER {
+    text-decoration: none;
+    font-family: "Playwrite FR Moderne", cursive;
+    color: black;
+    padding: 40px;
+    transition: 0.5s ease;
+}
+
+#titleCER:hover {
+    font-size: 25px;
+}
+
+#main {
+    text-align: center;
+    font-size: 30px;
+}
+
+#mainTitle {
+    font-family: "Open Sans", sans-serif;
+    color: #60625F;
+    font-weight: 800;
+}
+
+#mainTextMiddle {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    margin-top: -50px;
+    color: #60625F;
+    font-size: 25px;
+}
+
+#textIndex {
+    font-family: "Open Sans", sans-serif;
+    color: #60625F;
+    font-weight: 400;
+}
+
+#footer {
+    width: 100%;
+    height: 40px;
+    background-color: #9CD7ED;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#footerInfo {
+    font-family: "Open Sans", sans-serif;
+}
+
+#footerAboutUs {
+    text-decoration: none;
+    transition: 0.1s ease-in-out;
+    color: #527A89;
+}
+
+#footerAboutUs:hover{
+    color: rebeccapurple;
+    font-weight: 700;
+}
