@@ -76,11 +76,7 @@ body {
 }
 
 #Main {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
+    margin-left: 5%;
 }
 
 #mainText {
@@ -164,6 +160,10 @@ button:hover {
     border-radius: 10px;
     background-color: #71CADF;
 }
-
+.login-principal{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
 
 
