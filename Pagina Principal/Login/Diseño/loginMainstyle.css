@@ -75,9 +75,7 @@ body {
     font-size: 25px;
 }
 
-#Main {
-    margin-left: 5%;
-}
+
 
 #mainText {
     margin-top: 40px;
@@ -87,9 +85,7 @@ body {
     font-size: 30px;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
+
 
 #footer {
     width: 100%;
@@ -118,17 +114,18 @@ button:hover {
     font-weight: 700;
 }
 .login-div{
-    background-color: #70CADF;
-    border: 2px solid #245148;
-    border-radius: 15px;
-    margin-bottom: 20px;
+    background-color: #5eced0;
+    /*border: 2px solid #245148;*/
+    /*border-radius: 0px 0px 15px 15px;*/
+    /*margin-bottom: 20px;*/
     font-family: "Quicksand", sans-serif;
+    border: 2px solid black;
 }
 .div-inputs-login{
     text-align: left;
     margin: 10px;
     padding: 5px;
-    background-color: #84C1B3;
+    background-color: #5eced0;
     border-radius: 10px;
 }
 .input-login{
@@ -137,7 +134,8 @@ button:hover {
     border-radius: 0px 10px 10px 10px;
 }
 .contenido-formulario label, .contenido-formulario input{
-    font-size: 30px;
+    font-size: 40px;
+    padding: 7px;
 }
 .contenido-formulario{
     margin: 20px;
@@ -150,20 +148,49 @@ button:hover {
 }
 .div-titulo-login{
     text-align: center;
+    font-size: 35px;
+    color: black;
 }
 .contenido-formulario-btn{
     text-align: center;
 }
 .contenido-formulario-btn input[type="submit"]{
-    font-size: 25px;
+    font-size: 40px;
     padding: 5px;
     border-radius: 10px;
-    background-color: #71CADF;
+    background-color: #1E8D7B;
+    width: 100%;
+    color: white;
+    font-weight: 400;
+    border: 2px solid black;
+    cursor: pointer;
 }
 .login-principal{
-    display: flex;
+    display: inline-flex;
     justify-content: left;
     align-items: left;
+    text-align: left;
 }
 
-
+.registro-a{
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.div-registro-login{
+    display: flex;
+    text-align: center;
+    font-size: 40px;
+    border-radius: 10px;
+    background-color: #1E8D7B;
+    width: 100%;
+    color: white;
+    padding: 0px 5px 5px 5px;
+    margin-right: 10px;
+    border: 2px solid black;
+}
+.register-p{
+    font-size: 20px;
+}
