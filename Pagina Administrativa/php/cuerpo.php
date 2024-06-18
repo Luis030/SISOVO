@@ -1,7 +1,7 @@
 <?php
         session_start();
 ?>
-<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/estilo.css?A">
 <script src="js/aboutus.js?d"></script>
 <div class="header">
         <div class="horaactual">
@@ -20,6 +20,7 @@
             <li><a href="index.php">Inicio</a></li>
             <li><a href="clases.php">Clases</a></li>
             <li><a href="añadiralumno.php">Añadir alumno</a></li>
+            <li><a href="añadirdocente.php">Añadir docente</a></li>
             <li><a href="informes.php">Buscar Informes</a></li>
             <li><a href="realizarinforme.php">Realizar Informe</a></li>
         </ul>

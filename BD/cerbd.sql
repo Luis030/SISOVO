@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2024 a las 16:08:43
+-- Tiempo de generación: 18-06-2024 a las 17:08:23
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -84,6 +84,13 @@ CREATE TABLE `docente` (
   `Especializacion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `docente`
+--
+
+INSERT INTO `docente` (`ID_Docente`, `Cedula`, `Nombre`, `Apellido`, `Especializacion`) VALUES
+(1, 35927380, 'Ian Andres', 'Volpi Samith', 'Psicologia Autodidacta');
+
 -- --------------------------------------------------------
 
 --
@@ -149,7 +156,8 @@ ALTER TABLE `clase`
 -- Indices de la tabla `docente`
 --
 ALTER TABLE `docente`
-  ADD PRIMARY KEY (`ID_Docente`);
+  ADD PRIMARY KEY (`ID_Docente`),
+  ADD UNIQUE KEY `Cedula` (`Cedula`);
 
 --
 -- Indices de la tabla `informes`
@@ -185,7 +193,7 @@ ALTER TABLE `clase`
 -- AUTO_INCREMENT de la tabla `docente`
 --
 ALTER TABLE `docente`
-  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`

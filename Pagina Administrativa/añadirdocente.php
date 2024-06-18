@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Añadir alumno</title>
+    <title>Añadir docente</title>
 </head>
 <body>
     <?php
     include("php/cuerpo.php");
     ?>
-    <div class="añadir-alumno-content">
-        <div class="añadir-alumno-div">
-            <form action="php/subiralumno.php" method="post">
+    <div class="añadir-docente-content">
+        <div class="añadir-docente-div">
+            <form action="php/subirdocente.php" method="post">
                 <div class="contenido-formulario">
                     <label for="cedula">Cedula</label>
                     <input type="text" name="cedula" id="cedula">
@@ -25,15 +25,11 @@
                     <input type="text" name="apellido" id="apellido">
                 </div>
                 <div class="contenido-formulario">
-                    <label for="fecha">Fecha de Nacimiento</label>
-                    <input type="date" name="fecha" id="fecha">
-                </div>
-                <div class="contenido-formulario">
-                    <label for="patologias">Patologias</label>
-                    <input type="text" name="patologias" id="patologias">
+                    <label for="especializacion">Especializacion</label>
+                    <input type="text" name="especializacion" id="especializacion">
                 </div>
                 <div class="contenido-formulario-btn">
-                    <input type="submit" value="Ingresar alumno">
+                    <input type="submit" value="Ingresar Docente">
                 </div>
             </form>
         </div>
