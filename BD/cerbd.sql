@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2024 a las 07:26:27
+-- Tiempo de generación: 18-06-2024 a las 16:08:43
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,8 +33,16 @@ CREATE TABLE `alumnos` (
   `Nombre` varchar(50) NOT NULL,
   `Apellido` varchar(50) NOT NULL,
   `Fecha_Nac` date NOT NULL,
-  `Patologia(s)` varchar(300) NOT NULL
+  `Patologias` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`ID_Alumno`, `Cedula`, `Nombre`, `Apellido`, `Fecha_Nac`, `Patologias`) VALUES
+(1, 56777350, 'Luis Manuel', 'Sosa Berroa', '2007-03-27', 'Ninguna'),
+(6, 56129975, 'Federico Simonelli', 'Simonelli Cavallo', '2006-09-21', 'De todo un poco');
 
 -- --------------------------------------------------------
 
@@ -120,7 +128,8 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 -- Indices de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  ADD PRIMARY KEY (`ID_Alumno`);
+  ADD PRIMARY KEY (`ID_Alumno`),
+  ADD UNIQUE KEY `Cedula` (`Cedula`);
 
 --
 -- Indices de la tabla `alumnos_clase`
@@ -164,7 +173,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `clase`

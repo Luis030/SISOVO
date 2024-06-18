@@ -1,5 +1,5 @@
 window.onload = () => {
-        setInterval(horaActual, 1000);
+        
         const abrirabout = document.getElementById('aboutus');
         const overlay = document.getElementById('overlay');
         const cerrarabout = document.getElementById('cerrarabout');
@@ -38,5 +38,7 @@ window.onload = () => {
           overlay.style.display = 'none';
           document.body.style.overflow = 'auto';
         });
+        horaActual();
+        setInterval(horaActual, 1000);
       
 }

@@ -6,10 +6,9 @@ body {
 }
 
 .header{
-    display: inline;
+    display: inline-flex;
     font-size: 30px;
     background-color: orange;
-    position: fixed;
     width: 100%;
     text-align: right;
 }
@@ -238,5 +237,18 @@ body {
     border: 3px solid black;
   }
   .horaactual{
-    margin-left: 50%;
+    margin-left: 85%;
+    margin-top: 0.3%;
+  }
+  
+  .despliegue-container{
+    display: none;
+  }
+  .añadir-alumno-content{
+    margin-left: 15%;
+    margin-top: 40px;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: inline;
   }

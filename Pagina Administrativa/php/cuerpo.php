@@ -1,21 +1,27 @@
-<script src="js/aboutus.js"></script>
+<?php
+        session_start();
+?>
+<link rel="stylesheet" href="css/estilo.css">
+<script src="js/aboutus.js?d"></script>
 <div class="header">
-        <nav class="horaactual">
+        <div class="horaactual">
 
-        </nav>
-        <nav class="usuario">
-                USER
+        </div>
+        <div class="usuario">
+                <?php
+                        echo $_SESSION['usuario'];
+                ?>
                 <a href="#">⚙️</a>
-        </nav>
-                
+        </div>         
 </div>
 <div class="sidebar">
         <h2>Menú</h2>
         <ul>
             <li><a href="index.php">Inicio</a></li>
             <li><a href="clases.php">Clases</a></li>
-            <li><a href="#">Horario</a></li>
-            <li><a href="informes.php">Informes</a></li>
+            <li><a href="añadiralumno.php">Añadir alumno</a></li>
+            <li><a href="informes.php">Buscar Informes</a></li>
+            <li><a href="realizarinforme.php">Realizar Informe</a></li>
         </ul>
         <a href="#" class="aboutus" id="aboutus">About Us</a>
 </div>
