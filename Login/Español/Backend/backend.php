@@ -5,11 +5,17 @@
 
     $usuario = $_POST['user'];
     $password = $_POST['pass'];
-
-    $consultaLogin = "SELECT Nombre FROM usuarios where Nombre='$usuario' and Contraseña='$password'";
+    $consultaLogin = "SELECT Nombre FROM usuarios where Nombre='$usuario' and Contraseña='$password';";
     $enviarConsulta = $conexion->query($consultaLogin);
 
     if ($enviarConsulta->num_rows > 0) {
+        $privilegio = "SELECT Nombre FROM usuarios where Nombre='$usuario' and Tipo='admin'";
+        $enviarconsulta2 = $conexion->query($privilegio);
+        if($enviarconsulta2->num_rows > 0){
+            $_SESSION['Privilegio'] = "Admin";
+        } else {
+            $_SESSION['Privilegio'] = "Alumno";
+        }
         $ver = true;
         $_SESSION["verificacion"] = $ver;
         $_SESSION["usuario"] = $usuario;
