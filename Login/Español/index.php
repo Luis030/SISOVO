@@ -11,11 +11,11 @@
         <div class="all">
             <h1>Iniciar Sesión</h1>
             <div class="login">
-                <form>
+                <form action="Backend/backend.php" method="POST">
                     <p>Usuario</p>
-                    <input type="text">
+                    <input type="text" name="user" required>
                     <p>Contraseña</p>
-                    <input type="password">
+                    <input type="password" name="pass" required>
                     <p>
                     <button>Ingresar</button>
                     </p>
