@@ -13,7 +13,8 @@
 </head>
 <body>
     <?php
-    include("php/cuerpo.php");
+        include("php/corroborarlogin.php");
+        include("php/cuerpo.php");
     ?>
 </body>
 </html>

@@ -12,7 +12,8 @@
 </head>
 <body>
     <?php
-    include("php/cuerpo.php");
+        include("php/corroborarlogin.php");
+        include("php/cuerpo.php");
     ?>
     <div class="content">
         <h1>Bienvenido, USER</h1>

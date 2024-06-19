@@ -7,6 +7,7 @@
     </head>
         <body>
             <?php
+                include("php/corroborarlogin.php");
                 include("php/cuerpo.php")
             ?>
             <div id="crearInformeDiv">
@@ -21,16 +22,16 @@
                         <input type="text" name="patologia" id="informeInput" required>
                     </div>
                     <div id="elementsInforme">
-                        <label for="obs">Observaciones: </label>
-                        <textarea name="obs" id="obs" required></textarea>
-                    </div>
-                    <div id="elementsInforme">
                         <label for="ciDocente">Cedula docente: </label>
                         <input type="number" name="ciDocente" id="informeInput" required>
                     </div>
                     <div id="elementsInforme">
                         <label for="ciAlumno">Cedula alumno: </label>
                         <input type="number" name="ciAlumno" id="informeInput" required>
+                    </div>
+                    <div id="elementsInforme">
+                        <label for="obs">Observaciones: </label>
+                        <textarea name="obs" id="obs" required></textarea>
                     </div>
                     <div id="elementsInforme">
                         <input type="submit" value="Crear Informe">

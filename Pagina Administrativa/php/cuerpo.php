@@ -1,7 +1,7 @@
 <?php
         session_start();
 ?>
-<link rel="stylesheet" href="css/estilo.css?Aaaaaaa">
+<link rel="stylesheet" href="css/estilo.css?Aaaaaaaaaa">
 <script src="js/aboutus.js?d"></script>
 <div class="header">
         <div class="horaactual">

@@ -256,21 +256,29 @@ body {
   }
 
   .añadir-alumno-content {
+    text-align: center;
     margin-left: 15%;
     margin-top: 40px;
-    height: 100%;
-    width: 100%;
+    padding: 20px;
     position: fixed;
-    display: inline;
+    border: #3C3C3B solid 1px;
+  }
+
+  #elementsAlumno {
+    padding: 20px;
   }
 
   .añadir-docente-content {
+    text-align: center;
     margin-left: 15%;
     margin-top: 40px;
-    height: 100%;
-    width: 100%;
+    padding: 20px;
     position: fixed;
-    display: inline;
+    border: #3C3C3B solid 1px;
+  }
+
+  #elementsDocente {
+    padding: 20px;
   }
 
   #crearInformeDiv {
@@ -282,10 +290,8 @@ body {
     border: #3C3C3B solid 1px;
   }
 
-
   #elementsInforme {
     padding: 20px;
-
   }
 
   #informeInput {
@@ -302,4 +308,8 @@ body {
     resize: none;
     height: 200px;
     width: 400px;
+  }
+
+  .usuario {
+    margin-left: 1.5%;
   }
