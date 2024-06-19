@@ -19,7 +19,7 @@
         $ver = true;
         $_SESSION["verificacion"] = $ver;
         $_SESSION["usuario"] = $usuario;
-        header("Location: ../../../Pagina Principal/Main/index.php");
+        header("Location: ../../Main/index.php");
     } else {
         echo "<div>";
         echo "Usuario o contraseña invalida";
