@@ -1,6 +1,6 @@
 <?php
 include("../../BD/conexionbd.php");
-if($_SESSION['REQUEST_METHOD'] == "POST"){
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $cedula = $_POST['cedula'];
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];

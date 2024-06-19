@@ -1,5 +1,5 @@
 <?php
-        session_start();
+        include("corroborarlogin.php");
 ?>
 <link rel="stylesheet" href="css/estilo.css?Aaaaaaaaaa">
 <script src="js/aboutus.js?d"></script>

@@ -7,7 +7,6 @@
     </head>
         <body>
             <?php
-                include("php/corroborarlogin.php");
                 include("php/cuerpo.php")
             ?>
             <div id="crearInformeDiv">

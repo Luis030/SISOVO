@@ -12,13 +12,12 @@
 </head>
 <body>
     <?php
-        include("php/corroborarlogin.php");
         include("php/cuerpo.php");
     ?>
     <div class="content">
         <h1>Bienvenido, USER</h1>
-        <h2>Lunes 90 Octubre</h2>
-        <p>20:55</p>
+        <h2>Fecha</h2>
+        <p>Hora</p>
     </div>
 </body>
 </html>
