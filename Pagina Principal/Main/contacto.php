@@ -8,15 +8,18 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Centro CER</title>
-        <link rel="stylesheet" href="Diseño/styleindex.css???????">
+        <link rel="stylesheet" href="Diseño/styleindex.css??????????">
     </head>
     <body>
         <?php
             include("Body/header.php");
         ?>
-        <div id="main">
+        <div id="mainContactos">
             <div id="contactoDiv">
                 <h1 id="contactHere">Contactenos aquí</h1>
+                <div id="noteDiv">
+                    <p id="note">*Los iconos llevan a su respectiva red social.</p>
+                </div>
                 <div id="redesDiv">
                     <div id="mail">
                         <a href="https://mail.google.com/mail/u/0/#inbox"><img id="svgs" class="mail" src="Diseño/IMG/mail.svg" alt="Mail"></a>
@@ -42,7 +45,6 @@
                     </div>
                 </div>
             </div>
-        </div>
             <div id="ubiDiv">
                 <p id="ubiTitle">¿Cómo llegar?</p>
                 <div id="mapDiv">
