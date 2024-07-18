@@ -55,4 +55,14 @@ h2 {
     text-align: center;
 }
 
+#bandera{
+    width: 50px;
+    height: 50px;
+    border: 1px black solid
+}
+
+#cambiarIdioma {
+    padding: 10px;
+    position: absolute;
+}
 

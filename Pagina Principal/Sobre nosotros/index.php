@@ -4,9 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Sobre nosotros</title>
-        <link rel="stylesheet" href="Diseño/style.css">
+        <link rel="stylesheet" href="Diseño/style.css??">
     </head>
     <body>
+        <div id="cambiarIdioma">
+            <a href="English/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png" alt="eeuu" id="bandera">
+            </a>
+        </div>
         <h1>SISOVO Corporation</h1>
         <div id="pic">
             <div id="pics">
