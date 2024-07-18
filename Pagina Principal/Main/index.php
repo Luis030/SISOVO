@@ -8,7 +8,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Centro CER</title>
-        <link rel="stylesheet" href="Diseño/styleindex.css?noandasino??????">
+        <link rel="stylesheet" href="Diseño/styleindex.css?noandasino???????">
     </head>
     <body>
         <?php
