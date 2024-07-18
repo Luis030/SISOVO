@@ -16,19 +16,19 @@
         <div id="pic">
             <div id="pics">
                 <div id="fotico">
-                    <img src="../Diseño/IMG/prueba.jpg" alt="Luis Sosa">
+                    <img src="../Diseño/IMG/perfil.avif" alt="Luis Sosa">
                 </div>
                 <p>Luis Sosa</p>
             </div>
             <div id="pics">
                 <div id="fotico">
-                    <img src="../Diseño/IMG/prueba.jpg" alt="Federico Simonelli">
+                    <img src="../Diseño/IMG/perfil.avif" alt="Federico Simonelli">
                 </div>
                 <p>Federico Simonelli</p>
             </div>
             <div id="pics">
                 <div id="fotico">
-                    <img src="../Diseño/IMG/prueba.jpg" alt="Ian Volpi">
+                    <img src="../Diseño/IMG/perfil.avif" alt="Ian Volpi">
                 </div>
                 <p>Ian Volpi</p>
             </div>
