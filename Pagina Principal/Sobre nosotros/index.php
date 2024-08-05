@@ -35,8 +35,7 @@
         </div>
         <div id="infoNosotros">
             <h2>Sobre nosotros</h2>
-            <p id="infotext">Somos estudiantes de 3ero de informática de la Escuela Superior Catalina Harriague de Castaños(UTU),<br> nos centramos en el diseño y desarrollo de páginas web, usando estructura HTML y lenguajes de programación<br>tales como PHP, JavaScript, entre otros.
-            </p>
+            <p id="infotext">Somos estudiantes de 3ero de informática de la Escuela Superior Catalina Harriague de Castaños(UTU),<br> nos centramos en el diseño y desarrollo de páginas web, usando estructura HTML y lenguajes de programación<br>tales como PHP, JavaScript, entre otros.</p>
         </div>
     </body>
 </html>
