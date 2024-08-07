@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-06-2024 a las 00:13:07
+-- Tiempo de generación: 08-08-2024 a las 01:49:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -29,20 +29,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumnos` (
   `ID_Alumno` int(11) NOT NULL,
+  `ID_Usuario` int(11) NOT NULL,
+  `Nombre` varchar(20) NOT NULL,
+  `Apellido` varchar(20) NOT NULL,
   `Cedula` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
   `Fecha_Nac` date NOT NULL,
-  `Patologias` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Volcado de datos para la tabla `alumnos`
---
-
-INSERT INTO `alumnos` (`ID_Alumno`, `Cedula`, `Nombre`, `Apellido`, `Fecha_Nac`, `Patologias`) VALUES
-(1, 56777350, 'Luis Manuel', 'Sosa Berroa', '2007-03-27', 'Ninguna'),
-(6, 56129975, 'Federico Simonelli', 'Simonelli Cavallo', '2006-09-21', 'De todo un poco');
+  `Mail_Padres` varchar(30) NOT NULL,
+  `Celular_Padres` varchar(9) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -51,11 +45,24 @@ INSERT INTO `alumnos` (`ID_Alumno`, `Cedula`, `Nombre`, `Apellido`, `Fecha_Nac`,
 --
 
 CREATE TABLE `alumnos_clase` (
-  `ID_Alumno` int(11) NOT NULL,
   `ID_Clase` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Horario` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `ID_Alumno` int(11) NOT NULL,
+  `Fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asistencias`
+--
+
+CREATE TABLE `asistencias` (
+  `ID_Asistencia` int(11) NOT NULL,
+  `ID_Clase` int(11) NOT NULL,
+  `ID_Alumno` int(11) NOT NULL,
+  `Fecha` date NOT NULL,
+  `Asistio` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -66,30 +73,49 @@ CREATE TABLE `alumnos_clase` (
 CREATE TABLE `clase` (
   `ID_Clase` int(11) NOT NULL,
   `ID_Docente` int(11) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
-  `Horario` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `Nombre` varchar(20) NOT NULL,
+  `Dia` varchar(10) NOT NULL,
+  `Inicio` time NOT NULL,
+  `Final` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `docente`
+-- Estructura de tabla para la tabla `docentes`
 --
 
-CREATE TABLE `docente` (
+CREATE TABLE `docentes` (
   `ID_Docente` int(11) NOT NULL,
+  `ID_Usuario` int(11) NOT NULL,
+  `Nombre` varchar(20) NOT NULL,
+  `Apellido` varchar(20) NOT NULL,
   `Cedula` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Apellido` varchar(50) NOT NULL,
-  `Especializacion` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `Mail` varchar(30) NOT NULL,
+  `Celular` varchar(9) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Volcado de datos para la tabla `docente`
+-- Estructura de tabla para la tabla `especializaciones`
 --
 
-INSERT INTO `docente` (`ID_Docente`, `Cedula`, `Nombre`, `Apellido`, `Especializacion`) VALUES
-(1, 35927380, 'Ian Andres', 'Volpi Samith', 'Psicologia Autodidacta');
+CREATE TABLE `especializaciones` (
+  `ID_Especializacion` int(11) NOT NULL,
+  `Nombre` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `especializacion_docente`
+--
+
+CREATE TABLE `especializacion_docente` (
+  `ID_Especializacion` int(11) NOT NULL,
+  `ID_Docente` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -98,13 +124,48 @@ INSERT INTO `docente` (`ID_Docente`, `Cedula`, `Nombre`, `Apellido`, `Especializ
 --
 
 CREATE TABLE `informes` (
-  `ID_Informes` int(11) NOT NULL,
+  `ID_Informe` int(11) NOT NULL,
   `ID_Docente` int(11) NOT NULL,
   `ID_Alumno` int(11) NOT NULL,
-  `Titulo` varchar(50) NOT NULL,
-  `Patologia` varchar(100) NOT NULL,
-  `Observaciones` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+  `Titulo` varchar(20) NOT NULL,
+  `Observaciones` text NOT NULL,
+  `Fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `llegada_docente`
+--
+
+CREATE TABLE `llegada_docente` (
+  `ID_Llegada` int(11) NOT NULL,
+  `ID_Docente` int(11) NOT NULL,
+  `Fecha` date NOT NULL,
+  `Hora` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `patologias`
+--
+
+CREATE TABLE `patologias` (
+  `ID_Patologia` int(11) NOT NULL,
+  `Nombre` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `patologia_alumno`
+--
+
+CREATE TABLE `patologia_alumno` (
+  `ID_Patologia` int(11) NOT NULL,
+  `ID_Alumno` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -116,17 +177,9 @@ CREATE TABLE `usuarios` (
   `ID_Usuario` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Cedula` int(11) NOT NULL,
-  `Contraseña` varchar(50) NOT NULL,
-  `Tipo` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
---
--- Volcado de datos para la tabla `usuarios`
---
-
-INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`) VALUES
-(1, 'Admin', 12345678, 'admin', 'admin'),
-(2, 'Alumno', 56777350, 'Alumno', 'alumno');
+  `Contraseña` varchar(20) NOT NULL,
+  `Tipo` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -137,14 +190,22 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`ID_Alumno`),
-  ADD UNIQUE KEY `Cedula` (`Cedula`);
+  ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
 -- Indices de la tabla `alumnos_clase`
 --
 ALTER TABLE `alumnos_clase`
-  ADD KEY `ID_Alumno` (`ID_Alumno`),
-  ADD KEY `ID_Clase` (`ID_Clase`);
+  ADD KEY `ID_Clase` (`ID_Clase`),
+  ADD KEY `ID_Alumno` (`ID_Alumno`);
+
+--
+-- Indices de la tabla `asistencias`
+--
+ALTER TABLE `asistencias`
+  ADD PRIMARY KEY (`ID_Asistencia`),
+  ADD KEY `ID_Clase` (`ID_Clase`),
+  ADD KEY `ID_Alumno` (`ID_Alumno`);
 
 --
 -- Indices de la tabla `clase`
@@ -154,19 +215,52 @@ ALTER TABLE `clase`
   ADD KEY `ID_Docente` (`ID_Docente`);
 
 --
--- Indices de la tabla `docente`
+-- Indices de la tabla `docentes`
 --
-ALTER TABLE `docente`
+ALTER TABLE `docentes`
   ADD PRIMARY KEY (`ID_Docente`),
-  ADD UNIQUE KEY `Cedula` (`Cedula`);
+  ADD KEY `ID_Usuario` (`ID_Usuario`);
+
+--
+-- Indices de la tabla `especializaciones`
+--
+ALTER TABLE `especializaciones`
+  ADD PRIMARY KEY (`ID_Especializacion`);
+
+--
+-- Indices de la tabla `especializacion_docente`
+--
+ALTER TABLE `especializacion_docente`
+  ADD KEY `ID_Especializacion` (`ID_Especializacion`),
+  ADD KEY `ID_Docente` (`ID_Docente`);
 
 --
 -- Indices de la tabla `informes`
 --
 ALTER TABLE `informes`
-  ADD PRIMARY KEY (`ID_Informes`),
-  ADD KEY `ID_Alumno` (`ID_Alumno`),
+  ADD PRIMARY KEY (`ID_Informe`),
+  ADD KEY `ID_Docente` (`ID_Docente`),
+  ADD KEY `ID_Alumno` (`ID_Alumno`);
+
+--
+-- Indices de la tabla `llegada_docente`
+--
+ALTER TABLE `llegada_docente`
+  ADD PRIMARY KEY (`ID_Llegada`),
   ADD KEY `ID_Docente` (`ID_Docente`);
+
+--
+-- Indices de la tabla `patologias`
+--
+ALTER TABLE `patologias`
+  ADD PRIMARY KEY (`ID_Patologia`);
+
+--
+-- Indices de la tabla `patologia_alumno`
+--
+ALTER TABLE `patologia_alumno`
+  ADD KEY `ID_Patologia` (`ID_Patologia`),
+  ADD KEY `ID_Alumno` (`ID_Alumno`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -182,7 +276,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `asistencias`
+--
+ALTER TABLE `asistencias`
+  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `clase`
@@ -191,46 +291,104 @@ ALTER TABLE `clase`
   MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `docente`
+-- AUTO_INCREMENT de la tabla `docentes`
 --
-ALTER TABLE `docente`
-  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `docentes`
+  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `especializaciones`
+--
+ALTER TABLE `especializaciones`
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informes` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `llegada_docente`
+--
+ALTER TABLE `llegada_docente`
+  MODIFY `ID_Llegada` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `patologias`
+--
+ALTER TABLE `patologias`
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
+-- Filtros para la tabla `alumnos`
+--
+ALTER TABLE `alumnos`
+  ADD CONSTRAINT `alumnos_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID_Usuario`);
+
+--
 -- Filtros para la tabla `alumnos_clase`
 --
 ALTER TABLE `alumnos_clase`
-  ADD CONSTRAINT `alumnos_clase_ibfk_1` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`),
-  ADD CONSTRAINT `alumnos_clase_ibfk_2` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`);
+  ADD CONSTRAINT `alumnos_clase_ibfk_1` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`),
+  ADD CONSTRAINT `alumnos_clase_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`),
+  ADD CONSTRAINT `alumnos_clase_ibfk_3` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`);
+
+--
+-- Filtros para la tabla `asistencias`
+--
+ALTER TABLE `asistencias`
+  ADD CONSTRAINT `asistencias_ibfk_1` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`),
+  ADD CONSTRAINT `asistencias_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`);
 
 --
 -- Filtros para la tabla `clase`
 --
 ALTER TABLE `clase`
-  ADD CONSTRAINT `clase_ibfk_1` FOREIGN KEY (`ID_Docente`) REFERENCES `docente` (`ID_Docente`);
+  ADD CONSTRAINT `clase_ibfk_1` FOREIGN KEY (`ID_Docente`) REFERENCES `docentes` (`ID_Docente`);
+
+--
+-- Filtros para la tabla `docentes`
+--
+ALTER TABLE `docentes`
+  ADD CONSTRAINT `docentes_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID_Usuario`);
+
+--
+-- Filtros para la tabla `especializacion_docente`
+--
+ALTER TABLE `especializacion_docente`
+  ADD CONSTRAINT `especializacion_docente_ibfk_1` FOREIGN KEY (`ID_Especializacion`) REFERENCES `especializaciones` (`ID_Especializacion`),
+  ADD CONSTRAINT `especializacion_docente_ibfk_2` FOREIGN KEY (`ID_Docente`) REFERENCES `docentes` (`ID_Docente`);
 
 --
 -- Filtros para la tabla `informes`
 --
 ALTER TABLE `informes`
-  ADD CONSTRAINT `informes_ibfk_1` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`),
-  ADD CONSTRAINT `informes_ibfk_2` FOREIGN KEY (`ID_Docente`) REFERENCES `docente` (`ID_Docente`);
+  ADD CONSTRAINT `informes_ibfk_1` FOREIGN KEY (`ID_Docente`) REFERENCES `docentes` (`ID_Docente`),
+  ADD CONSTRAINT `informes_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`);
+
+--
+-- Filtros para la tabla `llegada_docente`
+--
+ALTER TABLE `llegada_docente`
+  ADD CONSTRAINT `llegada_docente_ibfk_1` FOREIGN KEY (`ID_Docente`) REFERENCES `docentes` (`ID_Docente`);
+
+--
+-- Filtros para la tabla `patologia_alumno`
+--
+ALTER TABLE `patologia_alumno`
+  ADD CONSTRAINT `patologia_alumno_ibfk_1` FOREIGN KEY (`ID_Patologia`) REFERENCES `patologias` (`ID_Patologia`),
+  ADD CONSTRAINT `patologia_alumno_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
