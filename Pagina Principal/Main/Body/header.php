@@ -17,10 +17,12 @@
     <?php
         if (isset($_SESSION["verificacion"])) {
             echo $_SESSION['usuario'];
-            echo "<a href='Backend/cerrarsesion.php'>Cerrar Sesión</a>";
+            echo "<a href='cerrarsesion.php'>Cerrar Sesión</a>";
         }
-        if(@$_SESSION['Privilegio'] == "Admin"){
-            echo @"<a href='../../Pagina Administrativa/index.php'>Ir a administracion</a>";
+        if(isset($_SESSION['Privilegio'])){
+            if($_SESSION['Privilegio'] == "Admin"){
+                echo "<a href='../../Pagina Administrativa/index.php'>Ir a administracion</a>";
+            }
         }
     ?>
 </div>

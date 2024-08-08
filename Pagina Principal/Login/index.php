@@ -11,7 +11,7 @@
         <div class="all">
             <h1>Iniciar Sesión</h1>
             <div class="login">
-                <form action="Backend/backend.php" method="POST">
+                <form action="backend.php" method="POST">
                     <p>Usuario</p>
                     <input type="text" name="user" required>
                     <p>Contraseña</p>

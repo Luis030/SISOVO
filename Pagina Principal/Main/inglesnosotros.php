@@ -3,12 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+        <meta http-equiv="Pragma" content="no-cache">
         <title>About Us</title>
-        <link rel="stylesheet" href="../Diseño/style.css?">
+        <link rel="stylesheet" href="Diseño/styleaboutus.css">
     </head>
     <body>
         <div id="cambiarIdioma">
-            <a href="../">
+            <a href="sobrenosotros.php">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/1200px-Flag_of_Uruguay.svg.png" alt="esp" id="bandera">
             </a>
         </div>
@@ -16,19 +20,19 @@
         <div id="pic">
             <div id="pics">
                 <div id="fotico">
-                    <img src="../Diseño/IMG/perfil.avif" alt="Luis Sosa">
+                    <img src="Diseño/IMG/perfil.avif" alt="Luis Sosa">
                 </div>
                 <p>Luis Sosa</p>
             </div>
             <div id="pics">
                 <div id="fotico">
-                    <img src="../Diseño/IMG/perfil.avif" alt="Federico Simonelli">
+                    <img src="Diseño/IMG/perfil.avif" alt="Federico Simonelli">
                 </div>
                 <p>Federico Simonelli</p>
             </div>
             <div id="pics">
                 <div id="fotico">
-                    <img src="../Diseño/IMG/perfil.avif" alt="Ian Volpi">
+                    <img src="Diseño/IMG/perfil.avif" alt="Ian Volpi">
                 </div>
                 <p>Ian Volpi</p>
             </div>

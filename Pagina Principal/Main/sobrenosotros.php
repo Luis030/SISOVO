@@ -3,12 +3,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="Last-Modified" content="0">
+        <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+        <meta http-equiv="Pragma" content="no-cache">
         <title>Sobre nosotros</title>
-        <link rel="stylesheet" href="Diseño/style.css??">
+        <link rel="stylesheet" href="Diseño/styleaboutus.css">
     </head>
     <body>
         <div id="cambiarIdioma">
-            <a href="English/">
+            <a href="inglesnosotros.php">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png" alt="eeuu" id="bandera">
             </a>
         </div>

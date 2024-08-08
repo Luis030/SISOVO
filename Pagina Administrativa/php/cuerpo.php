@@ -1,7 +1,7 @@
 <?php
         include("corroborarlogin.php");
 ?>
-<link rel="stylesheet" href="css/estilo.css?Aaaaaaaaaa">
+<link rel="stylesheet" href="css/estilo.css">
 <script src="js/aboutus.js?d"></script>
 <div class="header">
         <div class="horaactual">

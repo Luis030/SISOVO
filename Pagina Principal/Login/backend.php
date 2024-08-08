@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include("../../../BD/conexionbd.php");
+    include("../../BD/conexionbd.php");
 
     $usuario = $_POST['user'];
     $password = $_POST['pass'];
@@ -19,12 +19,12 @@
         $ver = true;
         $_SESSION["verificacion"] = $ver;
         $_SESSION["usuario"] = $usuario;
-        header("Location: ../../Main/index.php");
+        header("Location: ../Main/index.php");
     } else {
         echo "<div>";
         echo "Usuario o contraseña invalida";
         echo "</br>";
-        echo "<a href='../index.php'>Volver</a>";
+        echo "<a href='index.php'>Volver</a>";
         echo "</div>";
     }  
 ?>
