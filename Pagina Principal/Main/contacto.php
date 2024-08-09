@@ -8,7 +8,8 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Centro CER</title>
-        <link rel="stylesheet" href="Diseño/styleindex.css???">
+        <link rel="stylesheet" href="Diseño/styleindex.css?">
+        <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
     </head>
     <body>
         <?php
@@ -22,13 +23,13 @@
                 </div>
                 <div id="redesDiv">
                     <div id="mail">
-                        <a href="https://mail.google.com/mail/u/0/#inbox"><img id="svgs" class="mail" src="Diseño/IMG/mail.svg" alt="Mail"></a>
+                        <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank"><img id="svgs" class="mail" src="Diseño/IMG/mail.svg" alt="Mail"></a>
                         <p id="svgsTexts">saltocentrocer@gmail.com</p>
                     </div>
                 </div>
                 <div id="redesDiv">
                     <div id="wsp">
-                        <a href="https://wa.me/598092706308"><img id="svgs" class="wsp" src="Diseño/IMG/wsp1.svg" alt="Celular"></a>  
+                        <a href="https://wa.me/598092706308" target="_blank"><img id="svgs" class="wsp" src="Diseño/IMG/wsp1.svg" alt="Celular"></a>  
                         <p id="svgsTexts">092 706 308</p>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
                 </div>
                 <div id="redesDiv">
                     <div id="dir">
-                        <a href="https://www.google.com/maps/place/Centro+CER+Salto/@-31.389823,-57.963097,18z/data=!4m6!3m5!1s0x95addd2a185d2f41:0xf560dec7caf4bce9!8m2!3d-31.3898643!4d-57.9630975!16s%2Fg%2F11bz_ynppd?hl=es-419&entry=ttu"><img id="svgs" src="Diseño/IMG/ubi.svg" alt="Dirección"></a>
+                        <a href="https://www.google.com/maps/place/Centro+CER+Salto/@-31.389823,-57.963097,18z/data=!4m6!3m5!1s0x95addd2a185d2f41:0xf560dec7caf4bce9!8m2!3d-31.3898643!4d-57.9630975!16s%2Fg%2F11bz_ynppd?hl=es-419&entry=ttu" target="_blank"><img id="svgs" src="Diseño/IMG/ubi.svg" alt="Dirección"></a>
                         <p id="svgsTexts">Rincón 184</p>
                     </div>
                 </div>
