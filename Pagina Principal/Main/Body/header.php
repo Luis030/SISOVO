@@ -20,10 +20,10 @@
             echo "<button id='botonUser' onclick='toggleMenu()'>".$_SESSION['usuario']."</button>";
             echo "<ul class='menuUser'>";
             if(isset($_SESSION['Privilegio'])){
-                if($_SESSION['Privilegio'] == "Admin"){
+                if($_SESSION['Privilegio'] == "admin"){
                     echo "<li><a href='../../Pagina Administrativa/index.php'>Administrador</a></li>";
                 }
-                if($_SESSION['Privilegio'] == "Alumno"){
+                if($_SESSION['Privilegio'] == "alumno"){
                     echo "<li><a href='#'>Panel de alumno</a></li>";
                 }
                 echo "<li><a href='#'>Ajustes</a></li>";

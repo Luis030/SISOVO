@@ -12,8 +12,8 @@
             <h1>Iniciar Sesión</h1>
             <div class="login">
                 <form action="backend.php" method="POST">
-                    <p>Usuario</p>
-                    <input type="text" name="user" required>
+                    <p>Cedula</p>
+                    <input type="text" name="cedula" required>
                     <p>Contraseña</p>
                     <input type="password" name="pass" required>
                     <p>
