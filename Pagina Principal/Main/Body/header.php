@@ -17,17 +17,24 @@
     <?php
         if (isset($_SESSION["verificacion"])) {
             echo "<div id='infoUser'>";
-            echo "Bienvenido, ".$_SESSION['usuario'].".";
+            echo "<button id='botonUser' onclick='toggleMenu()'>".$_SESSION['usuario']."</button>";
+            echo "<ul class='menuUser'>";
             if(isset($_SESSION['Privilegio'])){
                 if($_SESSION['Privilegio'] == "Admin"){
-                    echo "</br>";
-                    echo "<a href='../../Pagina Administrativa/index.php'>Ir a administracion</a>";
+                    echo "<li><a href='../../Pagina Administrativa/index.php'>Administrador</a></li>";
                 }
+                if($_SESSION['Privilegio'] == "Alumno"){
+                    echo "<li><a href='#'>Panel de alumno</a></li>";
+                }
+                echo "<li><a href='#'>Ajustes</a></li>";
+                echo "<li><a href='cerrarsesion.php'>Cerrar Sesión</a></li>";
             }
-            echo "</br>";
-            echo "<a href='cerrarsesion.php'>Cerrar Sesión</a>";
+            echo "</ul>";
             echo "</div>";
         }
     ?>
+    
 </div>
+<script src="JS/infousuario.js?h"></script>
+
 
