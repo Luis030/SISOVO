@@ -6,13 +6,22 @@ body {
 }
 
 .header {
-    display: inline-flex;
+    display: grid;
+    grid-template-areas: "header1 header3";
     font-size: 30px;
     background-color: orange;
     width: 100%;
     text-align: right;
+    grid-template-columns: 2fr 1fr;
+    place-items: right;
+    justify-content: center;
 }
-
+.horaactual{
+  grid-area: header1;
+}
+.usuario{
+  grid-area: header3;
+}
 .header a {
     text-decoration: none;
 }
@@ -245,11 +254,6 @@ body {
   #logo-ingles {
     border: 3px solid black;
   }
-
-  .horaactual {
-    margin-left: 85%;
-    margin-top: 0.3%;
-  }
   
   .despliegue-container {
     display: none;
@@ -308,8 +312,4 @@ body {
     resize: none;
     height: 200px;
     width: 400px;
-  }
-
-  .usuario {
-    margin-left: 1.5%;
   }
