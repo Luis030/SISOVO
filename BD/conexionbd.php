@@ -10,5 +10,4 @@
     if ($conexion->connect_error) {
         die ("Conexión perdida/no encontrada");
     }
-    echo "Conexion exitosa";
 ?>
