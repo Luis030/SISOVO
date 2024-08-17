@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-08-2024 a las 05:29:59
+-- Tiempo de generación: 17-08-2024 a las 20:24:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -53,8 +53,7 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567'),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678'),
 (10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789'),
-(14, 90, 'LUIS MANUEL', 'SOSA BERROA', 56777350, '2024-08-17', 'LManuelSosa@gmail.com', '09250944'),
-(15, 91, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2024-08-17', 'nopetif@gmail.com', '092503832');
+(19, 96, 'LUIS MANUEL', 'SOSA BERROA', 56777350, '2024-08-17', 'LManuelSosa@gmail.com', '092504454');
 
 -- --------------------------------------------------------
 
@@ -351,7 +350,7 @@ CREATE TABLE `usuarios` (
   `ID_Usuario` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Cedula` int(11) NOT NULL,
-  `Contraseña` varchar(20) NOT NULL,
+  `Contraseña` varchar(65) NOT NULL,
   `Tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -375,8 +374,7 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 (13, 'LUIS MANUEL SOSA BERROA', 13, 'admin', 'ADMIN'),
 (14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 14, 'alumno', 'ALUMNO'),
 (82, 'LUIS MANUEL SOSA BERROA', 15, 'admin', 'admin'),
-(90, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$7Du761RmVHpuW', 'alumno'),
-(91, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$YHMRjJ2WjrOWz', 'alumno');
+(96, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$dJSrmoD/M/4d4E0LHny/c.4gfWj81ioXkSIYr2mhgDwisZA/Z8jIK', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -475,7 +473,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencias`
@@ -523,7 +521,7 @@ ALTER TABLE `patologias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- Restricciones para tablas volcadas
