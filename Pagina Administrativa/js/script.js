@@ -9,6 +9,7 @@ function toggleDropdown() {
 }
 
 function updateTime() {
+    const indexhour = document.getElementById('horaactual');
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
@@ -16,7 +17,10 @@ function updateTime() {
     const timeString = `${hours}:${minutes}:${seconds}`;
     
     document.getElementById('time').textContent = timeString; // Actualiza la hora en el header
-    document.getElementById('horaactual').textContent = timeString; // Actualiza la hora en el index.php
+    if(indexhour){
+        document.getElementById('horaactual').textContent = timeString; // Actualiza la hora en el index.php
+    }
+    
 
     const dateString = now.toLocaleDateString('es-ES', {
         weekday: 'long',
@@ -24,7 +28,10 @@ function updateTime() {
         month: 'long',
         day: 'numeric'
     });
-    document.getElementById('date').textContent = dateString;
+    if(indexhour){
+        document.getElementById('date').textContent = dateString;
+    }
+    
 }
 
 setInterval(updateTime, 1000);
