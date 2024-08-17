@@ -6,8 +6,32 @@
     $password = $_POST['pass'];
     $cedula = $_POST['cedula'];
 
-
-    $consultadocente = "SELECT U.Nombre, Tipo FROM usuarios U, docentes D WHERE U.ID_Usuario=D.ID_Usuario AND D.Cedula='$cedula' AND U.Contraseña='$password'";
+    $verificarusuario = "SELECT Contraseña, Tipo, Nombre FROM usuarios WHERE Cedula='$cedula'";
+    $resultado = $conexion->query($verificarusuario);
+    if($resultado->num_rows > 0){
+        while($fila = $resultado->fetch_assoc()){
+            $contraencriptada = $fila['Contraseña'];
+            $_SESSION['Privilegio'] = strtolower($fila['Tipo']);
+            $_SESSION['usuario'] = $fila['Nombre'];
+        }
+        if(password_verify($password, $contraencriptada)){
+            $_SESSION['verificacion'] = true;
+            header("Location: ../Main/index.php");
+        } else {
+            $_SESSION['usuario'] = null;
+            $_SESSION['Privilegio'] = null;
+            echo "<div>";
+            echo "Usuario o contraseña invalida";
+            echo "</br>";
+            echo "<a href='index.php'>Volver</a>";
+            echo "</div>";
+        }
+    }
+    
+    
+    
+    
+    /*$consultadocente = "SELECT U.Nombre, Tipo FROM usuarios U, docentes D WHERE U.ID_Usuario=D.ID_Usuario AND D.Cedula='$cedula' AND U.Contraseña='$password'";
     $consultaalumno = "SELECT U.Nombre, Tipo FROM usuarios U, alumnos A WHERE U.ID_Usuario=A.ID_Usuario AND A.Cedula='$cedula' AND U.Contraseña='$password'";
     $enviardocente = $conexion->query($consultadocente);
     if($enviardocente->num_rows > 0){
@@ -34,6 +58,11 @@
             echo "</div>";
         }
     }
+*/
+    
+
+
+
 
     /*$usuario = $_POST['user'];*/
 

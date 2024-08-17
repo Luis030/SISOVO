@@ -32,7 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $digitoVerificador = substr($cedula, -1);
 
         $cedulacompleta = $num . '-' . $digitoVerificador;
+        echo $cedulacompleta;
         $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
+        echo $contraseña;
         $nombreusuario = "$nombre "."$apellido";
         
         $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula');";
