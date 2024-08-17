@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-08-2024 a las 23:56:05
+-- Tiempo de generación: 17-08-2024 a las 05:29:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -52,7 +52,9 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (7, 4, 'Fernando', 'Díaz', 99001122, '2007-07-20', 'fernando.diaz@padres.com', '555-3456'),
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567'),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678'),
-(10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789');
+(10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789'),
+(14, 90, 'LUIS MANUEL', 'SOSA BERROA', 56777350, '2024-08-17', 'LManuelSosa@gmail.com', '09250944'),
+(15, 91, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2024-08-17', 'nopetif@gmail.com', '092503832');
 
 -- --------------------------------------------------------
 
@@ -348,6 +350,7 @@ INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`) VALUES
 CREATE TABLE `usuarios` (
   `ID_Usuario` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
+  `Cedula` int(11) NOT NULL,
   `Contraseña` varchar(20) NOT NULL,
   `Tipo` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -356,22 +359,24 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Contraseña`, `Tipo`) VALUES
-(1, 'Juan Pérez', 'password1', 'docente'),
-(2, 'Ana García', 'password2', 'alumno'),
-(3, 'María López', 'password3', 'docente'),
-(4, 'José Martínez', 'password4', 'alumno'),
-(5, 'Elena Rodríguez', 'password5', 'docente'),
-(6, 'Carlos Sánchez', 'password6', 'alumno'),
-(7, 'Lucía Fernández', 'password7', 'docente'),
-(8, 'Miguel Gómez', 'password8', 'alumno'),
-(9, 'Laura Díaz', 'password9', 'docente'),
-(10, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 'alumno', 'alumno'),
-(11, 'admin', 'admin', 'admin'),
-(12, 'alumno', 'alumno', 'alumno'),
-(13, 'LUIS MANUEL SOSA BERROA', 'admin', 'ADMIN'),
-(14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 'alumno', 'ALUMNO'),
-(82, 'LUIS SOSA', 'admin', 'admin');
+INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`) VALUES
+(1, 'Juan Pérez', 1, 'password1', 'docente'),
+(2, 'Ana García', 2, 'password2', 'alumno'),
+(3, 'María López', 3, 'password3', 'docente'),
+(4, 'José Martínez', 4, 'password4', 'alumno'),
+(5, 'Elena Rodríguez', 5, 'password5', 'docente'),
+(6, 'Carlos Sánchez', 6, 'password6', 'alumno'),
+(7, 'Lucía Fernández', 7, 'password7', 'docente'),
+(8, 'Miguel Gómez', 8, 'password8', 'alumno'),
+(9, 'Laura Díaz', 9, 'password9', 'docente'),
+(10, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 10, 'alumno', 'alumno'),
+(11, 'admin', 11, 'admin', 'admin'),
+(12, 'alumno', 12, 'alumno', 'alumno'),
+(13, 'LUIS MANUEL SOSA BERROA', 13, 'admin', 'ADMIN'),
+(14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 14, 'alumno', 'ALUMNO'),
+(82, 'LUIS MANUEL SOSA BERROA', 15, 'admin', 'admin'),
+(90, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$7Du761RmVHpuW', 'alumno'),
+(91, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$YHMRjJ2WjrOWz', 'alumno');
 
 --
 -- Índices para tablas volcadas
@@ -382,6 +387,7 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Contraseña`, `Tipo`) VALUES
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`ID_Alumno`),
+  ADD UNIQUE KEY `Cedula` (`Cedula`),
   ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
@@ -458,7 +464,8 @@ ALTER TABLE `patologia_alumno`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_Usuario`);
+  ADD PRIMARY KEY (`ID_Usuario`),
+  ADD UNIQUE KEY `Cedula` (`Cedula`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -468,7 +475,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencias`
@@ -516,7 +523,7 @@ ALTER TABLE `patologias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- Restricciones para tablas volcadas

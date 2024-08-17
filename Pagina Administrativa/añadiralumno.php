@@ -35,9 +35,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
         $nombreusuario = "$nombre "."$apellido";
         
-        $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo) VALUES ('$nombreusuario','$contraseña', 'alumno');";
+        $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula');";
         if($conexion->query($sqluser) == "TRUE"){
-            $verusuario = "SELECT ID_Usuario FROM usuarios WHERE  Nombre='$nombreusuario';";
+            $verusuario = "SELECT ID_Usuario FROM usuarios WHERE  Nombre='$nombreusuario' AND Cedula='$cedula';";
             $consultausuario = $conexion->query($verusuario);
             if($consultausuario->num_rows > 0){
                 while($fila = $consultausuario->fetch_assoc()){
