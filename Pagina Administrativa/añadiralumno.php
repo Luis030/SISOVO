@@ -62,6 +62,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 echo "se añadieron todas las patologias.";
                             }
                         }
+                        header("Location: " . $_SERVER['REQUEST_URI']);
+                    } else {
+                        header("Location: " . $_SERVER['REQUEST_URI']);
                     }
                 }
             }
