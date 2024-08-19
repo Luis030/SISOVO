@@ -37,7 +37,8 @@ include("php/corroborarlogin.php");
                             <li><a href="#">Patologia</a></li>
                         </ul>
                     </li>
-                    <li><a href="php/cerrar.php">Cerrar Sesión</a></li>
+                    <li id="about-button"><a href="#" id="aboutus" class="aboutus">About Us</a></li>
+                    <li><a href="php/cerrar.php" id="cerrar-boton">Cerrar Sesión</a></li>
                 </ul>
             </nav>
         </aside>
