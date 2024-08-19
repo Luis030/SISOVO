@@ -1,3 +1,35 @@
+window.onload = function (){
+    const patologiasSelect = document.getElementById("patologias-select");
+
+
+    function obtenerPatologias(){
+        if(patologiasSelect){
+            fetch("php/obtenerpatologias.php")
+            .then(respuesta => respuesta.json())
+            .then(patologias => {
+                console.log(patologias);
+                patologiasSelect.innerHTML = '';
+                patologias.forEach(patologia => {
+                    const opcion = document.createElement('option');
+                    opcion.value = patologia.ID_Patologia;
+                    opcion.textContent = patologia.Nombre;
+                    patologiasSelect.appendChild(opcion);
+                });
+            })
+            .catch(error => console.error("Error al obtener patologias", error))
+            
+        }
+    }
+
+    if(patologiasSelect){
+        obtenerPatologias();
+    }
+    
+}
+
+
+
+
 function toggleSidebar() {
     var sidebar = document.getElementById("sidebar");
     sidebar.style.display = sidebar.style.display === "block" ? "none" : "block";

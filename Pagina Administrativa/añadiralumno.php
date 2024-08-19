@@ -28,6 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         @$clases = $_POST['clases'];
         @$patologias = $_POST['patologias'];
 
+        print_r($patologias);
         $num = substr($cedula, 0, 7);
         $digitoVerificador = substr($cedula, -1);
 
@@ -48,6 +49,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
                 if($conexion->query($añadiralumno) == TRUE){
                     echo "se hizo todo bien";
+                    if($patologias){
+                        $idalumno = "SELECT ID_Alumno FROM alumnos WHERE ID_Usuario='$IDusuario';";
+                        $enviar = $conexion->query($idalumno);
+                        while($fila = $enviar->fetch_assoc()){
+                            $nAalumno = $fila['ID_Alumno'];
+                        }
+
+                        foreach($patologias as $patologia){
+                            $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) VALUES ('$patologia', '$nAalumno');";
+                            if($conexion->query($añadirpat) == TRUE){
+                                echo "se añadieron todas las patologias.";
+                            }
+                        }
+                    }
                 }
             }
             
@@ -104,7 +119,7 @@ include("php/header_sidebar.php");
                 </div>
                 <div class="input-alumno">
                     <p>Patologia/s</p>
-                    <select name="patologias[]" multiple>
+                    <select name="patologias[]" id="patologias-select" multiple>
                         <option value="pat1">Patologia 1</option>
                         <option value="pat2">Patologia 2</option>
                         <option value="pat3">Patologia 3</option>
