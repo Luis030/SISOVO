@@ -8,7 +8,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>About Us</title>
-        <link rel="stylesheet" href="Diseño/styleaboutus.css">
+        <link rel="stylesheet" href="Diseño/styleaboutus.css?a">
     </head>
     <body>
         <div id="cambiarIdioma">
@@ -19,21 +19,15 @@
         <h1>SISOVO Corporation</h1>
         <div id="pic">
             <div id="pics">
-                <div id="fotico">
-                    <img src="Diseño/IMG/perfil.avif" alt="Luis Sosa">
-                </div>
+                <img src="Diseño/IMG/perfil.avif" alt="Luis Sosa">
                 <p>Luis Sosa</p>
             </div>
             <div id="pics">
-                <div id="fotico">
-                    <img src="Diseño/IMG/perfil.avif" alt="Federico Simonelli">
-                </div>
+                <img src="Diseño/IMG/perfil.avif" alt="Federico Simonelli">
                 <p>Federico Simonelli</p>
             </div>
             <div id="pics">
-                <div id="fotico">
-                    <img src="Diseño/IMG/perfil.avif" alt="Ian Volpi">
-                </div>
+                <img src="Diseño/IMG/perfil.avif" alt="Ian Volpi">
                 <p>Ian Volpi</p>
             </div>
         </div>
