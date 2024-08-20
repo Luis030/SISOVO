@@ -8,7 +8,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Centro CER</title>
-        <link rel="stylesheet" href="Diseño/styleindex.css?">
+        <link rel="stylesheet" href="Diseño/styleindex.css?aa">
         <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
     </head>
     <body>

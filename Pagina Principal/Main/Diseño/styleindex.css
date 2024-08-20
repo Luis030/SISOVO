@@ -386,7 +386,7 @@ body {
     margin-bottom: 20px;
 }   
 
-#servicioTitle {
+#servicioTitle, #quienesTitle, #imagesQuienesSomosTitle {
     font-family: "Open Sans", sans-serif;
     color: #0C3E48;
     font-weight: 800;
@@ -394,17 +394,22 @@ body {
     margin-top: 0px;
 }
 
-#servicioInfo2 {
+#servicioInfo2, #infoFondo, #sectorImages {
     background-color: #007564;
     border-radius: 20px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
-    margin-bottom: 10px;
     padding: 15px;
 }
 
-#miniServicio {
+#sectorImages {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#miniServicio, #infoYa, #imgCER {
     background-color: #F2FAFC;
     border-radius: 20px;
     padding: 20px;
@@ -465,6 +470,49 @@ body {
     width: 230px;
     height: 230px;
 }
+
+#mainQuienesSomos {
+    grid-template-columns: 2fr 3fr;
+    gap: 30px;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
+    display: grid;
+    align-content: start;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-areas: "fotos", "info";
+}
+
+#imagesQuienesomos {
+    grid-area: "images";
+    border-radius: 20px;
+    align-self: stretch;
+    background-color: #8DCABC;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+#infoGeneral {
+    grid-area: "info";
+    border-radius: 20px;
+    background-color: #8DCABC;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    padding: 30px;
+    margin-bottom: 20px;
+}
+
+
+
+
 
 
 

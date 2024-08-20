@@ -12,7 +12,7 @@
     <a href="index.php" id="titleCER">
         <h1>CER</h1>
     </a>
-    <a href="" id="headInfo">¿Quienes somos?</a>
+    <a href="quienessomos.php" id="headInfo">¿Quiénes somos?</a>
     <a href="contacto.php" id="headInfo">Contacto</a>
     <?php
         if (isset($_SESSION["verificacion"])) {
