@@ -2,6 +2,10 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
+body,html {
+    overflow-y: hidden;
+    height: 100%;
+}
 
 header {
     background-color: #333;
@@ -50,7 +54,9 @@ header .menu-toggle {
     header {
         flex-direction: column;
     }
-
+    body,html {
+        overflow-y: auto;
+    }
     header h1 {
         margin-bottom: 10px;
     }
@@ -152,7 +158,6 @@ header .menu-toggle {
     .container {
         flex-direction: column;
     }
-
     .sidebar {
         width: 100%;
         display: none;

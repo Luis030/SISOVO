@@ -1,5 +1,6 @@
 <?php
 include("../BD/conexionbd.php");
+
 function validarCedula($cedula){
     $cedula = str_replace(array('.', '-'), '', $cedula);
     if (strlen($cedula) != 8) {
@@ -17,6 +18,18 @@ function validarCedula($cedula){
     return $digitoCalculado == $digitoVerificador;
 }
 
+function generarPass($cedula){
+    $num = substr($cedula, 0, 7);
+    $digitoVerificador = substr($cedula, -1);
+
+    $cedulacompleta = $num . '-' . $digitoVerificador;
+    $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
+    return $contraseña;
+}
+
+$alumnoingresado = false;
+$ceduladuplicada = false;
+$cedulanoexiste = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $cedula = $_POST['cedula'];
     if (validarCedula($cedula)) {
@@ -28,16 +41,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         @$clases = $_POST['clases'];
         @$patologias = $_POST['patologias'];
 
-        print_r($patologias);
-        $num = substr($cedula, 0, 7);
-        $digitoVerificador = substr($cedula, -1);
+        $contraseña = generarPass($cedula);
 
-        $cedulacompleta = $num . '-' . $digitoVerificador;
-        echo $cedulacompleta;
-        $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
-        echo $contraseña;
         $nombreusuario = "$nombre "."$apellido";
-        
+        $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula';";
+
+        $cedulausadaverif = $conexion->query($cedulausada);
+        if($cedulausadaverif->num_rows > 0){
+            header("Location: " . $_SERVER['REQUEST_URI']."?errorid=1");
+            exit;
+        }
         $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula');";
         if($conexion->query($sqluser) == "TRUE"){
             $verusuario = "SELECT ID_Usuario FROM usuarios WHERE  Nombre='$nombreusuario' AND Cedula='$cedula';";
@@ -48,7 +61,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 }
                 $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
                 if($conexion->query($añadiralumno) == TRUE){
-                    echo "se hizo todo bien";
                     if($patologias){
                         $idalumno = "SELECT ID_Alumno FROM alumnos WHERE ID_Usuario='$IDusuario';";
                         $enviar = $conexion->query($idalumno);
@@ -58,13 +70,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                         foreach($patologias as $patologia){
                             $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) VALUES ('$patologia', '$nAalumno');";
-                            if($conexion->query($añadirpat) == TRUE){
-                                echo "se añadieron todas las patologias.";
-                            }
+                            $conexion->query($añadirpat);
                         }
-                        header("Location: " . $_SERVER['REQUEST_URI']);
+                        header("Location: " . $_SERVER['REQUEST_URI']."?success=true");
+                        exit;
                     } else {
-                        header("Location: " . $_SERVER['REQUEST_URI']);
+                        header("Location: " . $_SERVER['REQUEST_URI']."?success=true");
+                        exit;
                     }
                 }
             }
@@ -72,9 +84,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
 
     } else {
-        echo"La cédula no es válida.";
+        header("Location: " . $_SERVER['REQUEST_URI']."?errorid=2");
+        exit;
     }
     
+}
+if(isset($_GET['success']) && $_GET['success'] == 'true'){
+    $alumnoingresado = true;
+}
+if(isset($_GET['errorid'])){
+    $error = $_GET['errorid'];
+    switch($error){
+        case '1':
+            $ceduladuplicada = true;
+            break;
+        case '2':
+            $cedulanoexiste = true;
+            break;
+    }
 }
 ?>
 <?php
@@ -122,7 +149,7 @@ include("php/header_sidebar.php");
                 </div>
                 <div class="input-alumno">
                     <p>Patologia/s</p>
-                    <select name="patologias[]" id="patologias-select" multiple>
+                    <select name="patologias[]" id="patologias-select" multiple required>
                         <option value="pat1">Patologia 1</option>
                         <option value="pat2">Patologia 2</option>
                         <option value="pat3">Patologia 3</option>
@@ -131,6 +158,16 @@ include("php/header_sidebar.php");
                 <div class="input-alumno">
                     <button>Guardar</button>
                 </div>
+                <?php
+                if($alumnoingresado === TRUE){
+                    echo "<div class='success'>Alumno ingresado correctamente.</div>";
+                } else if ($ceduladuplicada === TRUE){
+                    echo "<div class='error'>Cedula ya ingresada.</div>";
+                } else if($cedulanoexiste === TRUE){
+                    echo "<div class='error'>Cedula inválida.</div>";
+                }
+                
+                ?>
             </div>
         </form>
     </div>
