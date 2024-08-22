@@ -20,12 +20,10 @@
         } else {
             $_SESSION['usuario'] = null;
             $_SESSION['Privilegio'] = null;
-            echo "<div>";
-            echo "Usuario o contraseña invalida";
-            echo "</br>";
-            echo "<a href='index.php'>Volver</a>";
-            echo "</div>";
+            header("Location:index.php?errorid=3");
         }
+    } else {
+        header("Location:index.php?errorid=3");
     }
     
     

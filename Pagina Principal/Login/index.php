@@ -1,10 +1,18 @@
+<?php
+$errorlogin = false;
+if(isset($_GET['errorid'])){
+    if($_GET['errorid'] == '3'){
+        $errorlogin = true;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
-    <link rel="stylesheet" href="Diseño/logincss.css?a"> 
+    <link rel="stylesheet" href="Diseño/logincss.css"> 
     <link rel="shortcut icon" href="Diseño/logocer.jpg" type="image/x-icon">
 </head>
     <body>
@@ -19,6 +27,11 @@
                     <p>
                     <button>Ingresar</button>
                     </p>
+                    <?php
+                    if($errorlogin === TRUE){
+                        echo "<div class='errorlogin'>Credenciales incorrectas.</div>";
+                    }
+                    ?>
                 </form>
             </div>
         </div>

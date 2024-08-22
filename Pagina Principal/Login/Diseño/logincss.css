@@ -63,3 +63,7 @@ button:hover {
     background-color: #4fad9c;
     font-size: 23px;
 }
+
+.errorlogin{
+    color: white;
+}
