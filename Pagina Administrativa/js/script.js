@@ -1,4 +1,5 @@
 window.onload = function (){
+    const especialidadesSelect = document.getElementById('especialidades-select');
     const patologiasSelect = document.getElementById("patologias-select");
     const abrirabout = document.getElementById('aboutus');
     const overlay = document.getElementById('overlay');
@@ -27,7 +28,22 @@ window.onload = function (){
       document.body.style.overflow = 'auto';
     });
 
-
+    function obtenerEspecialidades(){
+        if(especialidadesSelect){
+            fetch("php/obtenerespecialidades.php")
+            .then(respuesta => respuesta.json())
+            .then(especialidades => {
+                console.log(especialidades);
+                especialidadesSelect.innerHTML = '';
+                especialidades.forEach(especialidad => {
+                    const opcion = document.createElement('option');
+                    opcion.value = especialidad.ID_Especializacion;
+                    opcion.textContent = especialidad.Nombre;
+                    especialidadesSelect.appendChild(opcion);
+                })
+            })
+        }
+    }
     
     function obtenerPatologias(){
         if(patologiasSelect){
@@ -50,6 +66,9 @@ window.onload = function (){
 
     if(patologiasSelect){
         obtenerPatologias();
+    }
+    if(especialidadesSelect){
+        obtenerEspecialidades();
     }
     
 }

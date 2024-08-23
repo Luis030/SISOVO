@@ -1,31 +1,7 @@
 <?php
 include("../BD/conexionbd.php");
+include("php/funciones.php");
 
-function validarCedula($cedula){
-    $cedula = str_replace(array('.', '-'), '', $cedula);
-    if (strlen($cedula) != 8) {
-        return false;
-    }
-    $num = substr($cedula, 0, 7);
-    $digitoVerificador = substr($cedula, -1);
-    $coeficientes = [2, 9, 8, 7, 6, 3, 4];
-    $total = 0;
-    for ($i = 0; $i < 7; $i++) {
-        $total += $num[$i] * $coeficientes[$i];
-    }
-    $modulo = $total % 10;
-    $digitoCalculado = $modulo == 0 ? 0 : 10 - $modulo;
-    return $digitoCalculado == $digitoVerificador;
-}
-
-function generarPass($cedula){
-    $num = substr($cedula, 0, 7);
-    $digitoVerificador = substr($cedula, -1);
-
-    $cedulacompleta = $num . '-' . $digitoVerificador;
-    $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
-    return $contraseña;
-}
 
 $alumnoingresado = false;
 $ceduladuplicada = false;
@@ -125,11 +101,11 @@ include("php/header_sidebar.php");
                 </div>
                 <div class="input-alumno">
                     <p>Cedula</p>
-                    <input type="text" name="cedula" placeholder="Sin guiónes: 12345678" required>
+                    <input type="number" name="cedula" placeholder="Sin guiónes: 12345678" required>
                 </div>
                 <div class="input-alumno">
                     <p>Celular</p>
-                    <input type="text" name="celular" placeholder="090000000" required>
+                    <input type="number" name="celular" placeholder="090000000" required>
                 </div>
                 <div class="input-alumno">
                     <p>Nacimiento</p>
@@ -150,9 +126,7 @@ include("php/header_sidebar.php");
                 <div class="input-alumno">
                     <p>Patologia/s</p>
                     <select name="patologias[]" id="patologias-select" multiple required>
-                        <option value="pat1">Patologia 1</option>
-                        <option value="pat2">Patologia 2</option>
-                        <option value="pat3">Patologia 3</option>
+
                     </select>
                 </div>
                 <div class="input-alumno">
