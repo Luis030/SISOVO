@@ -3,12 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playwrite+FR+Moderne:wght@100..400&display=swap');
 
 body {
-    background-color: #F2FAFC;
+    background-image: url('IMG/fondo.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
     margin: 0px;
     position: relative;
     min-height: 100vh;
     padding-bottom: 40px;
     overflow-x: hidden;
+    backdrop-filter: blur(5px); /* Aplicar desenfoque */
 }
 
 #header {
@@ -41,6 +44,22 @@ body {
 
 #goLogin:hover {
     font-size: 25px;
+}
+
+#containerIndex div {
+    text-align: center;
+    justify-content: center;
+    display: grid;
+    align-items: center;
+}
+
+#mainTitle, #mainTextMiddle, #logocer, #textIndex, #titleGaleria {
+    padding: 10px;
+    background-color: #F2FAFC;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
+    border-radius: 20px;
 }
 
 #headInfo {
@@ -217,8 +236,7 @@ body {
 #mainTextMiddle {
     font-family: "Quicksand", sans-serif;
     font-weight: 500;
-    margin-top: -40px;
-    color: #0C3E48;
+    margin-top: -35px;
     font-size: 25px;
 }
 
@@ -233,7 +251,8 @@ body {
     justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
-    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 
 #containerIndex div {
@@ -386,12 +405,19 @@ body {
     margin-bottom: 20px;
 }   
 
-#servicioTitle, #quienesTitle, #imagesQuienesSomosTitle {
+#servicioTitle, #quienesTitle, #imagesQuiesomnesSomosTitle {
     font-family: "Open Sans", sans-serif;
     color: #0C3E48;
     font-weight: 800;
     font-size: 50px;
     margin-top: 0px;
+}
+
+#titleGaleria {
+    font-family: "Open Sans", sans-serif;
+    color: #0C3E48;
+    font-weight: 800;
+    font-size: 40px;
 }
 
 #servicioInfo2, #infoFondo, #sectorImages {
@@ -421,19 +447,19 @@ body {
 }
 
 #servicioTarjeta {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 100px;
 }
 
 #servicioCard {
+    align-content: stretch;
     border-radius: 20px;
     background-color: #8DCABC;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
-    padding: 30px;
+    padding: 15px;
     width: 300px;
 }
 
@@ -445,42 +471,38 @@ body {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     padding: 15px;
     color: white;
+    height: 450px;
 }
 
 #cardTitle {
     font-family: "Open Sans", sans-serif;
     color: #0C3E48 !important;
-    font-size: 50px;
+    font-size: 30px;
     margin-top: 0px;
 }
 
 #miniTarjeta {
     background-color: #F2FAFC;
     border-radius: 20px;
-    padding: 20px;
+    padding: 10px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.43);
     font-family: "Quicksand", sans-serif !important;
-    font-size: 30px;    
-}
-
-#fotoServicio {
-    color: black !important;
-    width: 230px;
-    height: 230px;
+    font-size: 30px; 
+    display: grid;
+    align-items: center;
+    height: 150px;
 }
 
 #mainQuienesSomos {
     grid-template-columns: 2fr 3fr;
     gap: 30px;
+    display: grid;
+    align-content: start;
     text-align: center;
     font-size: 30px;
     padding: 20px;
-    display: grid;
-    align-content: start;
-    align-items: center;
-    justify-content: space-between;
     grid-template-areas: "fotos", "info";
 }
 
@@ -510,11 +532,32 @@ body {
     margin-bottom: 20px;
 }
 
+#infoServicio {
+    font-family: "Quicksand", sans-serif !important;
+}
 
+#lateIndex {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
+}
 
+#fotones {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: -1px;
+}
 
+#imagesQuienesomos {
+    height: auto;
+}
 
-
+#mainGaleria {
+    display: flex;
+    justify-content: center;
+}
 
 
 

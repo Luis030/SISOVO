@@ -8,7 +8,7 @@
         }
     ?>
     <a href="servicios.php" id="headInfo">Servicios</a>
-    <a href="" id="headInfo">Colecciones</a>
+    <a href="galeria.php" id="headInfo">Galería</a>
     <a href="index.php" id="titleCER">
         <h1>CER</h1>
     </a>

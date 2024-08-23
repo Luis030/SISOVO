@@ -8,7 +8,7 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Centro CER</title>
-        <link rel="stylesheet" href="Diseño/styleindex.css?aa">
+        <link rel="stylesheet" href="Diseño/styleindex.css?aaaa">
         <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
     </head>
     <body>
@@ -20,7 +20,7 @@
                 <h1 id="servicioTitle">Servicios</h1>
                 <div id="servicioInfo2">
                     <div id="miniServicio">
-                        <p>En nuestra institución, contamos con varios servicios relacionado a la educación. Los mismos se pueden ver a continuación:</p>
+                        <p>En Clínica CER, ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada niño, incluyendo:</p>
                     </div>
                 </div>
             </div>
@@ -28,37 +28,33 @@
                 <div id="servicioCard">
                     <div id="tarjetaInfo">
                         <div id="miniTarjeta">
-                            <h1 id="cardTitle">Servicio</h1>
-                            <img src="" alt="Servicio" id="fotoServicio">
+                            <h1 id="cardTitle">Terapias Ocupacionales</h1>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, corrupti voluptatibus veritatis provident impedit iure sit harum tempora excepturi nisi corporis. Alias debitis fuga nostrum itaque quasi libero, veritatis vitae.</p>
+                        <p id="infoServicio">Diseñadas para ayudar a los niños a desarrollar habilidades motoras y de coordinación.</p>
                     </div>
                 </div>
                 <div id="servicioCard">
                     <div id="tarjetaInfo">
                         <div id="miniTarjeta">
-                            <h1 id="cardTitle">Servicio</h1>
-                            <img src="" alt="Servicio" id="fotoServicio">
+                            <h1 id="cardTitle">Terapias del Habla y Lenguaje</h1>
                         </div>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A at, eius dolorum quos, nisi beatae ipsum, tempore adipisci minima quae quisquam voluptatem? Quas aperiam facere reiciendis suscipit eaque veniam porro.</p>
+                        <p id="infoServicio">Para mejorar la comunicación y el lenguaje.</p>
                     </div>
                 </div>
                 <div id="servicioCard">
                     <div id="tarjetaInfo">
                         <div id="miniTarjeta">
-                            <h1 id="cardTitle">Servicio</h1>
-                            <img src="" alt="Servicio" id="fotoServicio"> 
+                            <h1 id="cardTitle">Rehabilitación Física</h1>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam atque mollitia velit corporis laudantium ea eaque vero, excepturi aliquid error enim, deserunt, numquam qui sint maxime deleniti at dicta hic.</p>
+                        <p id="infoServicio">Enfocada en la movilidad y el fortalecimiento físico.</p>
                     </div>
                 </div>
                 <div id="servicioCard">
                     <div id="tarjetaInfo">
                         <div id="miniTarjeta">
-                            <h1 id="cardTitle">Servicio</h1>
-                            <img src="" alt="Servicio" id="fotoServicio">
+                            <h1 id="cardTitle">Apoyo Psicológico</h1>
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam asperiores nostrum dolorem, ipsa, alias aut magni non tenetur, laboriosam repudiandae vitae accusamus. Hic nostrum ex est nulla quod assumenda nobis!</p>
+                        <p id="infoServicio">Brindado por psicólogos especializados en el trato con niños y sus familias.</p>
                     </div>
                 </div>
             </div>
