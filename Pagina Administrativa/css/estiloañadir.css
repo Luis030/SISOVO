@@ -1,9 +1,9 @@
-.contenedor-anadir-alumno{
+.contenedor-anadir-alumno, .contenedor-añadir-docente{
     width: 100%;
     height: 100%;
     margin-top: 5%;   
 }
-.titulo-alumno{
+.titulo-alumno, .titulo-docente{
     margin-left: 10%;
 }
 .formulario-alumno{
@@ -14,10 +14,18 @@
     font-size: 30px;
     margin-left: 10%;
 }
-.formulario-alumno p{
+.formulario-docente{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: start;
+    margin-left: 10%;
+    font-size: 30px;
+}
+.formulario-alumno p, .formulario-docente p{
     margin: 0;
 }
-.formulario-alumno input {
+.formulario-alumno input, .formulario-docente input {
     font-size: 20px;
 }
 
@@ -25,6 +33,11 @@
     font-size: 30px;
     margin-top: 5%;
 }
+.input-docente button {
+    font-size: 30px;
+    margin-top: 5%;
+}
+
 .success{
     margin-top: 3%;
     color: green;
@@ -34,11 +47,11 @@
     color: red;
 }
 @media (max-width: 768px) {
-    .formulario-alumno{
+    .formulario-alumno, .formulario-docente{
         display: block;
         margin-left: 0%;
     }
-    .contenedor-anadir-alumno{
+    .contenedor-anadir-alumno, .contenedor-añadir-docente{
         margin-top: 0%;
     }
 }

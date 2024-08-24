@@ -24,3 +24,16 @@ function generarPass($cedula){
     $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
     return $contraseña;
 }
+function generarPassDoc($cedula, $nombre, $apellido) {
+
+    $inicialNombre = strtoupper(substr(trim($nombre), 0, 1));
+    
+    $inicialApellido = strtoupper(substr(trim($apellido), 0, 1));
+
+    // Generar la contraseña en el formato: cedula@inicialNombre.inicialApellido
+    $contrasena = $cedula . '@' . $inicialNombre . '.' . $inicialApellido;
+
+    $contrasenaHasheada = password_hash($contrasena, PASSWORD_DEFAULT);
+
+    return $contrasenaHasheada;
+}

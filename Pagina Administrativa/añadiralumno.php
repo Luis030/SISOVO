@@ -83,7 +83,7 @@ if(isset($_GET['errorid'])){
 <?php
 include("php/header_sidebar.php");
 ?>
-<link rel="stylesheet" href="css/estiloañadiralumno.css">
+<link rel="stylesheet" href="css/estiloañadir.css">
 <div class="contenedor-anadir-alumno">
     <div class="titulo-alumno">
         <h1>Añadir alumno</h1>

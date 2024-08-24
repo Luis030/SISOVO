@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-08-2024 a las 20:24:18
+-- Tiempo de generación: 24-08-2024 a las 04:22:58
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -53,7 +53,7 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567'),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678'),
 (10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789'),
-(19, 96, 'LUIS MANUEL', 'SOSA BERROA', 56777350, '2024-08-17', 'LManuelSosa@gmail.com', '092504454');
+(23, 104, 'LUIS MANUEL', 'SOSA BERROA', 56777350, '2024-08-19', 'LManuelSosa@gmail.com', '092504454');
 
 -- --------------------------------------------------------
 
@@ -167,20 +167,27 @@ CREATE TABLE `docentes` (
   `Apellido` varchar(20) NOT NULL,
   `Cedula` int(11) NOT NULL,
   `Mail` varchar(30) NOT NULL,
-  `Celular` varchar(9) DEFAULT NULL
+  `Celular` varchar(9) DEFAULT NULL,
+  `Fecha_Nac` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `docentes`
 --
 
-INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`) VALUES
-(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234'),
-(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345'),
-(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456'),
-(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567'),
-(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678'),
-(7, 82, '', '', 56777350, '', NULL);
+INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`) VALUES
+(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL),
+(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL),
+(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL),
+(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL),
+(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL),
+(7, 82, '', '', 56777350, '', NULL, NULL),
+(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23'),
+(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23'),
+(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23'),
+(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23'),
+(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23'),
+(13, 118, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, 'nopetif@gmail.com', '09250944', '2024-08-24');
 
 -- --------------------------------------------------------
 
@@ -229,7 +236,13 @@ INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`) VALUE
 (2, 3),
 (3, 4),
 (4, 5),
-(5, 1);
+(5, 1),
+(2, 10),
+(3, 10),
+(2, 11),
+(4, 12),
+(3, 13),
+(4, 13);
 
 -- --------------------------------------------------------
 
@@ -338,7 +351,9 @@ INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`) VALUES
 (2, 7),
 (3, 8),
 (4, 9),
-(5, 10);
+(5, 10),
+(1, 23),
+(2, 23);
 
 -- --------------------------------------------------------
 
@@ -374,7 +389,13 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 (13, 'LUIS MANUEL SOSA BERROA', 13, 'admin', 'ADMIN'),
 (14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 14, 'alumno', 'ALUMNO'),
 (82, 'LUIS MANUEL SOSA BERROA', 15, 'admin', 'admin'),
-(96, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$dJSrmoD/M/4d4E0LHny/c.4gfWj81ioXkSIYr2mhgDwisZA/Z8jIK', 'admin');
+(104, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$91OPPwyNrrDR6/sqMpkSHumd4yU69E5BGuNL0R/sc8tRyX6PWCWZK', 'admin'),
+(113, 'fsd SOSA CARLOS', 6464324, '$2y$10$AS6/snNZaLwhmr.zu7O6RuvL1KBmRxayrMvLqGBjQnV6VmPemhjB.', 'docente'),
+(114, 'fgh fgh', 34, '$2y$10$YQsk2tLfZIdwZlvtkX.GcufMoiRWDyJSzuvJDRIXwiH.dQRqB.TP2', 'docente'),
+(115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente'),
+(116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente'),
+(117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente'),
+(118, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$4cvwIW1ZcLLeIKr1z6T65.dDQqmZOpZf9YYs5quJrw/.YmOebKjRy', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -473,7 +494,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencias`
@@ -491,7 +512,7 @@ ALTER TABLE `clase`
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `especializaciones`
@@ -521,7 +542,7 @@ ALTER TABLE `patologias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
 
 --
 -- Restricciones para tablas volcadas
