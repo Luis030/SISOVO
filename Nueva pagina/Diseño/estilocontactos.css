@@ -1,0 +1,128 @@
+.titulo-contacto{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 7%;
+    color: #38b6ff;
+}
+
+.tipos-contacto{
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+.tipos-contacto img{
+    width: 5%;
+    height: 5%;
+}
+
+.container-mapa{
+    display: flex;
+    margin-top: 5%;
+    width: 100%;
+    height: 30%;
+}
+.mapa, .info-mapa{
+    width: 50%;
+}
+.botones-mapas{
+    width: 70%;
+    height: 70%;
+}
+.mapa{
+    margin-right: 5%;
+    border: 2px solid black;
+}
+.info-mapa{
+    color:#38b6ff;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 8%;
+}
+#vermaps{
+    width: 20%;
+    text-decoration: none;
+    border: 2px solid #38b6ff;
+    color: #38b6ff;
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+    transition: all 0.5s;
+}
+#enviarwhatsapp{
+    margin-top: 50px;
+    margin-bottom: 60px;
+    width: 20%;
+    text-decoration: none;
+    border: 2px solid #1ad111;
+    color: #1ad111;
+    background-color: white;
+    font-size: 15px;
+    padding: 20px;
+    transition: all 0.5s;
+}
+#vermaps:hover{
+    background-color: #38b6ff;
+    color: white;
+}
+#enviarwhatsapp:hover{
+    background-color: #1ad111;
+    color: white;
+}
+.mapa iframe{
+    width: 100%;
+    height: 100%;
+    
+}
+
+
+.lugar{
+    display: flex;
+    margin-top: 5%;
+    height: 450px;
+    margin-bottom: -1%;
+}
+.lugar img{
+    width: 50%;
+}
+@media (max-width: 768px) {
+    .tipos-contacto{
+        flex-direction: column;
+    }
+    .tipos-contacto img{
+        width: 25%;
+        height: 25%;
+    }
+    .botones-mapas{
+        width: 70%;
+        height: 70%;
+    }
+    .info-mapa{
+        width: 100%;
+    }
+    .mapa{
+        width: 100%;
+        margin-right: 0;
+        height: 400px;
+    }
+    .lugar{
+        margin-bottom: -4%;
+    }
+    #lugarcer1{
+        display: none;
+    }
+    .lugar img{
+        width: 100%;
+    }
+    .container-mapa{
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+    }
+}

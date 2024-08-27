@@ -1,0 +1,152 @@
+body, html{
+    overflow-x: hidden;
+}
+.imagenes-inicio{
+    display: flex;
+    width: 100vw;
+}
+.imagenes-inicio img{
+    width: 50%;
+    height: 400px;
+}
+.imagenes-encargados{
+    display: flex;
+    width: 100vw;
+    margin-top: 2%;
+}
+.imagenes-encargados img{
+    width: 33.3%;
+    height: 400px;
+}
+.titulo{
+    text-align: center;
+    font-size: 30px;
+    margin-top: -2%;
+}
+.tituloencargados{
+    font-size: 25px;
+    text-align: center;
+}
+
+.tituloencargados h1{
+    color: #38b6ff;
+}
+.titulo-movil{
+    display: none;
+}
+.titulo-pc{
+    margin-bottom: 2%;
+    display: block;
+}
+.parrafo-inicio{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+.botoncontacto a{
+    text-decoration: none;
+    background-color: white;
+    padding: 20px;
+    color: #ff914d;
+    border: 2px solid #ff914d;
+    transition: all 0.5s;
+    font-size: 15px;
+}
+
+.botoncontacto{
+    margin-top: 1%;
+}
+.botoncontacto a:hover{
+    background-color: #ff914d;
+    color: white;
+    cursor: pointer;
+}
+.boton-encargados a{
+    text-decoration: none;
+    background-color: white;
+    padding: 20px;
+    color: #38b6ff;
+    border: 2px solid #38b6ff;
+    transition: all 0.5s;
+    font-size: 15px;   
+}
+
+.boton-encargados{
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+.boton-encargados a:hover{
+    background-color: #38b6ff;
+    color: white;
+    cursor: pointer;
+}
+.parrafo-inicio p{
+    margin: 0;
+    text-align: center;
+    width: 40%;
+}
+h1 span{
+    display: inline-block;
+    margin: -8px;
+}
+.colorceleste{
+    margin-right: 9px;
+    color: #38b6ff;
+}
+
+.parrafo-encargados{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+    width: 100%;
+}
+
+.parrafo-encargados p{
+    margin: 0;
+    text-align: center;
+    width: 40%;
+}
+@media (max-width: 768px) {
+    .imagenes-inicio{
+        display: block;
+    }
+    
+    .imagen-enc, .imagen-inicio{
+        display: none;
+    }
+
+    .imagenes-encargados img {
+        width: 100%;
+    }
+
+    .imagenes-encargados{
+        margin-top: 4%;
+    }
+    .parrafo-inicio p{
+        margin: 0;
+        text-align: center;
+        width: 100%;
+    }
+    .parrafo-encargados p{
+        width: 100%;
+    }
+    .boton-encargados{
+        margin-top: 2%;
+    }
+    .botoncontacto{
+        margin-top: 2%;
+    }
+    .imagenes-inicio img {
+        width: 100%;
+    }
+    .titulo-movil{
+        display: block;
+    }
+    .titulo-pc{
+        display: none;
+    }
+}
