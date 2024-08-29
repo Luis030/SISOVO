@@ -8,15 +8,22 @@
         <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
         <meta http-equiv="Pragma" content="no-cache">
         <title>Sobre nosotros</title>
-        <link rel="stylesheet" href="Diseño/styleaboutus.css?aaa">
+        <link rel="stylesheet" href="Diseño/styleaboutus.css?aaaaa">
+        <script src="aboutusnew.js" type="Application/JavaScript"></script>
     </head>
     <body>
         <div id="cambiarIdioma">
-            <a href="inglesnosotros.php">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png" alt="eeuu" id="bandera">
-            </a>
+            <button id="botonIdiomaIngles">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png" alt="eeuu" id="banderaUS">
+            </button>
+            <button id="botonIdiomaEspañol">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/1200px-Flag_of_Uruguay.svg.png" alt="esp" id="banderaUY">
+            </button>
         </div>
         <h1>SISOVO Corporation</h1>
+        <div class="imgsiso">
+            <img src="Diseño/IMG/Sisovo Corporation Logo.png" alt="Logo Sisovo Corporation" class="logosiso">
+        </div>
         <div id="pic">
             <div id="pics">
                 <img src="Diseño/IMG/perfil.avif" alt="Luis Sosa">
