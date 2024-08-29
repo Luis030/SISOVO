@@ -1,5 +1,5 @@
 <?php
-include("php/corroborarlogin.php");
+    include("php/corroborarlogin.php");
 ?>
 <!DOCTYPE html>
 <html lang="es">
