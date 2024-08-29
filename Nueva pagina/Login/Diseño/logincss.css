@@ -4,7 +4,7 @@ html {
     overflow: hidden;
 }
 body {
-    background: url(fondo3.jpg);
+    background: url(fondo4.jpg);
     text-align: center;
     background-size: cover;
     height: 100%;
@@ -45,7 +45,7 @@ input {
 }
 button {
     background-color: #ff6600;
-    color: black;
+    color: white;
     font-family: "Montserrat", sans-serif;
     padding: 10px;
     font-size: 20px;

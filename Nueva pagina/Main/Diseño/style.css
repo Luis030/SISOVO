@@ -25,7 +25,6 @@ body {
     transition: all 0.3s ease;
 }
 
-
 #main-header .container {
     display: flex;
     align-items: center;
@@ -47,7 +46,7 @@ body {
     display: flex;
     
 }
-#main-header nav ul li:hover{
+#main-header nav ul li:hover {
     background-color: #166db4;
 }
 
@@ -69,9 +68,10 @@ body {
     
 }
 
-#main-header nav ul li a:hover{
+#main-header nav ul li a:hover {
     color: rgb(136, 175, 233);
 }
+
 #main-header .login a {
     color: #fff;
     text-decoration: none;
@@ -89,7 +89,8 @@ body {
     text-align: center;
     color: white;
 }
-.menuUser{
+
+.menuUser {
     display: none;
     position: absolute;
     background-color: #3a9ff1;
@@ -102,30 +103,38 @@ body {
     font-size: 15px;
     
 }
-.menuUser li{
+
+.menuUser li
+{
     font-size: 20px;
     color: white;
 }
-.menuUser li a{
+
+.menuUser li a {
     color: white;
     text-decoration: none;
 }
-.menuUser li a:active{
+
+.menuUser li a:active {
     color: white;
 }
-.menuUser li:hover{
+
+.menuUser li:hover {
     background-color: #166db4;
 }
-#botonUser{
+
+#botonUser {
     background-color: #3a9ff1;
     border: 0px;
     cursor: pointer;
     padding: 20px;
     width: 200px;
 }
-#botonUser:hover{
+
+#botonUser:hover {
     background-color: #166db4;
 }
+
 /* Botón de menú para pantallas pequeñas */
 .menu-toggle {
     display: none;
@@ -147,7 +156,7 @@ body {
 
 /* Estilos de las secciones */
 main {
-    margin-top: 106px; /* Dejar espacio para el header fijo */
+    margin-top: 90px; /* Dejar espacio para el header fijo */
 }
 
 section {
@@ -158,14 +167,71 @@ section {
 
 /* Estilos del footer */
 footer {
+    display: flex;
+    justify-content: center;
     background: #3a9ff1;
+    height: 200px;
+    width: 100%;
     color: #fff;
     text-align: center;
     padding: 20px 0;
     margin-top: 20px;
+    gap: 500px;
 }
 
-.menuBajado{
+.redesCer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.logocerFooter {
+    width: 200px;
+    height: 200px;
+}
+
+.redes {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: black;
+}
+
+.wsp, .fb, .gmail {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    align-content: center;
+}
+
+footer .redesCer .redes img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.infoCer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.infoCer h1 {
+    font-size: 30px;
+    margin-bottom: -15px;
+}
+
+.infoCer p {
+    font-size: 20px;
+}
+
+.infoCer a {
+    text-decoration: none;
+    color: #004aad;
+}
+
+.menuBajado {
     margin-top: -0.3%;
 }
 
@@ -177,14 +243,11 @@ footer {
     .logo{
         margin-right: 30%;
     }
-
-    
-    #main-header .container{
+    #main-header .container {
         justify-content: end;
         align-items: right;
     }
-
-    .menu-toggle{
+    .menu-toggle {
         margin-right: 2%;
     }
     #main-header nav {
@@ -198,39 +261,35 @@ footer {
         left: 0;
         z-index: 999;
     }
-
     #main-header nav ul {
         flex-direction: column;
         width: 100%;
     }
-
     #main-header nav ul li {
         width: 100%;
         text-align: left;
         margin: 0;
         border-radius: 0px;
     }
-
     #main-header nav ul li a {
         padding: 15px;
         display: block;
         border-bottom: 1px solid #e65c00;
     }
-    #main-header nav.bajado{
+    #main-header nav.bajado {
         margin-top: 1.2% !important;
     }
     #main-header nav.active {
         display: flex;
         margin-top: 5.7%;
     }
-
     .container {
         width: 95%;
     }
 }
 
 @media (max-width: 450px) {
-    .logo{
+    .logo {
         margin-right: 15%;
     }
 }

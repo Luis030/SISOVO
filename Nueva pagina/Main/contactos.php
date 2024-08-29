@@ -8,17 +8,17 @@
 </head>
 <body>
     <?php
-    require_once("header.php");
+        require_once("header.php");
     ?>
     <main>
         <div class="titulo-contacto">
             <h1>Contacto</h1>
         </div>
         <div class="tipos-contacto">
-            <img src="https://cdn-icons-png.flaticon.com/512/3722/3722026.png" alt="" id="img1">Rincón 184
-            <img src="https://cdn-icons-png.flaticon.com/512/785/785868.png" alt="" id="img2">092706308
-            <img src="https://svgsilh.com/svg/31172.svg" alt="" id="img3">4732 4202
-            <img src="https://cdn-icons-png.flaticon.com/512/4926/4926635.png" alt="" id="img4">saltocentrocer@gmail.com
+            <img src="https://cdn-icons-png.flaticon.com/512/3722/3722026.png" alt="Dirección" id="img1">Rincón 184
+            <img src="https://cdn-icons-png.flaticon.com/512/785/785868.png" alt="Número tel" id="img2">092706308
+            <img src="https://svgsilh.com/svg/31172.svg" alt="Número tel fijo" id="img3">4732 4202
+            <img src="https://cdn-icons-png.flaticon.com/512/4926/4926635.png" alt="Correo" id="img4">saltocentrocer@gmail.com
         </div>
         <div class="container-mapa">
             <div class="info-mapa">
@@ -35,9 +35,8 @@
             <img src="Diseño/IMG/lugarcer2.jpg" alt="" id="lugarcer1">
         </div>
     </main>
-
     <?php
-    require_once("footer.php");
+        require_once("footer.php");
     ?>
 </body>
 </html>

@@ -1,88 +1,104 @@
-.titulo-somos{
+.titulo-somos {
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 5%;
 }
-.titulo-somos h1{
+
+.titulo-somos h1 {
     color: #3a9ff1;
     font-size: 50px;
     margin-bottom: -1%;
 }
-.parrafo-somos{
+
+.parrafo-somos {
     text-align: center;
     width: 50%;
     font-size: 20px;
 }
-.mision-container{
+
+.mision-container {
     display: flex;
     margin-top: 5%;
 }
-.info-mision{
+
+.info-mision {
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.info-mision p{
+
+.info-mision p {
     font-size: 20px;
     width: 70%;
 }
-.info-mision h1{
+
+.info-mision h1 {
     font-size: 40px;
     color: #ff914d;
     margin: 0;
 }
-.mision-container div{
+
+.mision-container div {
     width: 50%;
     height: 500px;
 }
-.mision-container div img{
+
+.mision-container div img {
     width: 100%;
     height: 100%;
 }
 
-.vision-container{
+.vision-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.vision-container div{
+
+.vision-container div {
     width: 50%;
     height: 500px;
 }
-.vision-container div img{
+
+.vision-container div img {
     height: 100%;
     width: 100%;
 }
 
-.info-vision{
+.info-vision {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
 }
-.info-vision p{
+
+.info-vision p {
     text-align: center;
     width: 70%;
     font-size: 20px;
 }
-.info-vision h1{
+
+.info-vision h1 {
     font-size: 40px;
     color: #ff914d;
     margin: 0;
 }
 
-.info-somos{
+.info-somos {
     text-align: center;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
+    margin-top: 5%;
 }
-.info-somos p{
+
+.info-somos p {
     font-size: 25px;
 }
-.info-somos a{
+
+.info-somos a {
     padding: 20px;
     text-decoration: none;
     color: #ff914d;
@@ -90,22 +106,22 @@
     background-color: white;
 }
 
-.info-somos a:hover{
+.info-somos a:hover {
     background-color: #ff914d;
     color: white;
 }
 
 @media (max-width: 860px) {
-    .mision-container, .vision-container{
+    .mision-container, .vision-container {
         flex-direction: column;
     }
-    .mision-container p, .vision-container p, .info-somos p, .parrafo-somos{
+    .mision-container p, .vision-container p, .info-somos p, .parrafo-somos {
         width: 95%;
     }
-    .mision-container div, .vision-container div{
+    .mision-container div, .vision-container div {
         width: 100%;
     }
-    .info-somos{
+    .info-somos {
         margin-bottom: 10%;
     }
 }

@@ -12,7 +12,6 @@ document.addEventListener('click', function(event) {
     }
 });
     
-
 window.onscroll = function() {
     var menu = document.getElementById('menu');
     var header = document.getElementById('main-header');
@@ -28,7 +27,6 @@ window.onscroll = function() {
     }
 };
 
-// Funcionalidad para el menú desplegable
 document.getElementById('menu-toggle').onclick = function() {
     var menu = document.getElementById('menu');
     if (menu.classList.contains('active')) {

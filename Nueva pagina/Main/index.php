@@ -7,12 +7,9 @@
     <link rel="stylesheet" href="Diseño/estiloinicio.css">
 </head>
 <body>
-    <!-- Header -->
     <?php
-    require_once("header.php");
+        require_once("header.php");
     ?>
-
-    <!-- Main Content -->
     <main>
         <div class="imagenes-inicio">
             <img src="Diseño/IMG/a0dd79b8-8fda-4430-8ccd-ec797357ecfa.jpg" class="imagen-inicio">
@@ -59,7 +56,7 @@
         </div>
     </main>
     <?php
-    require_once("footer.php");
+        require_once("footer.php");
     ?>
 </body>
 </html>

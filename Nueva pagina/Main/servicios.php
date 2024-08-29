@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    require_once("header.php");
+        require_once("header.php");
     ?>
     <main>
         <div class="titulo-servicios">
@@ -26,7 +26,6 @@
                 <h1>Terapias del habla y lenguaje</h1>
                 <p>Para mejorar la comunicación y el lenguaje.</p>
             </div>
-            
         </div>
         <div class="imagenes-servicios">
             <div class="servicio3">
@@ -45,9 +44,8 @@
             </div>
         </div>
     </main>
-
     <?php
-    require_once("footer.php");
+        require_once("footer.php");
     ?>
 </body>
 </html>

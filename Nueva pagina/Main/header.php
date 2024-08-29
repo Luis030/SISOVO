@@ -1,13 +1,12 @@
 <?php
-session_start();
+    session_start();
 ?>
-<link rel="stylesheet" href="Diseño/style.css">
+<link rel="stylesheet" href="Diseño/style.css?a">
 <header id="main-header">
         <div class="container">
             <div class="logo">
                 <img src="Diseño/IMG/logocer-render.png" alt="Logo CER">
             </div>
-            <!-- Botón de menú para pantallas pequeñas -->
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 &#9776;
             </button>
@@ -21,19 +20,19 @@ session_start();
                 </ul>
             </nav>
             <?php
-            if(!isset($_SESSION['usuario'])){
+            if(!isset($_SESSION['usuario'])) {
                 echo "<div class='login'>";
                 echo "<a href='../Login/index.php'>Ingresar</a>";
                 echo "</div>";
-            } else if(isset($_SESSION['verificacion'])){
+            } else if(isset($_SESSION['verificacion'])) {
                 echo "<div class='infoUser'>";
                 echo "<button id='botonUser' onclick='toggleMenu()'>".$_SESSION['usuario']."</button>";
                 echo "<ul class='menuUser'>";
-                if(isset($_SESSION['Privilegio'])){
-                    if($_SESSION['Privilegio'] == "admin"){
+                if(isset($_SESSION['Privilegio'])) {
+                    if($_SESSION['Privilegio'] == "admin") {
                         echo "<li><a href='../../Pagina Administrativa/index.php'>Administrador</a></li>";
                     }
-                    if($_SESSION['Privilegio'] == "alumno"){
+                    if($_SESSION['Privilegio'] == "alumno") {
                         echo "<li><a href='#'>Panel de alumno</a></li>";
                     }
                     echo "<li><a href='#'>Ajustes</a></li>";
@@ -43,7 +42,6 @@ session_start();
                 echo "</div>";
             }
             ?>
-            
         </div>
 </header>
 <script src="js.js"></script>
