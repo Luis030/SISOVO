@@ -1,7 +1,7 @@
 <?php
     session_start();
 ?>
-<link rel="stylesheet" href="Diseño/style.css?a">
+<link rel="stylesheet" href="Diseño/style.css?aaa">
 <header id="main-header">
         <div class="container">
             <div class="logo">
