@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +31,8 @@
             </div>
         </div>
         <div class="lugar">
-            <img src="Diseño/lugarcer.jpg" alt="">
-            <img src="Diseño/lugarcer2.jpg" alt="" id="lugarcer1">
+            <img src="Diseño/IMG/lugarcer.jpg" alt="">
+            <img src="Diseño/IMG/lugarcer2.jpg" alt="" id="lugarcer1">
         </div>
     </main>
 

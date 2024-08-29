@@ -110,7 +110,7 @@ h1 span{
     text-align: center;
     width: 40%;
 }
-@media (max-width: 768px) {
+@media (max-width: 860px) {
     .imagenes-inicio{
         display: block;
     }

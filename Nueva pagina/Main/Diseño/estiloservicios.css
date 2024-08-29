@@ -1,0 +1,86 @@
+.titulo-servicios{
+    text-align: center;
+    font-size: 30px;
+}
+.titulo-servicios h1{
+    color: #3a9ff1;
+    margin-top: 7%;
+    margin-bottom: 0;
+}
+.parrafo-servicios{
+    text-align: center;
+    font-size: 20px;
+}
+.imagenes-servicios{
+    display: flex;
+    height: 500px;
+}
+.imagenes-servicios .servicio1{
+    width: 50%;
+    height: 100%;
+}
+.servicio1, .servicio2, .servicio3, .servicio4{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("IMG/terapiaocupacional.jpg");
+    backdrop-filter: blur(10px);
+}
+
+.servicio1 h1, .servicio2 h1{
+    font-size: 40px;
+}
+.imagenes-servicios .servicio2{
+    width: 50%;
+    height: 100%;
+    background-image: url("IMG/imagenservicio.png");
+}
+.imagenes-servicios .servicio3{
+    width: 50%;
+    height: 100%;
+    background-image: url("IMG/servicio3.png");
+}
+.imagenes-servicios p{
+    font-size: 20px;
+}
+.imagenes-servicios .servicio4{
+    width: 50%;
+    height: 100%;
+    background-image: url("IMG/servicio4.png");
+}
+
+.contacto-servicios{
+    text-align: center;
+    margin-bottom: 3%;
+}
+.contacto-servicios p{
+    font-size: 25px;
+}
+.boton-servicios a{
+    padding: 20px;
+    text-decoration: none;
+    color: #ff914d;
+    border: 2px solid #ff914d;
+    background-color: white;
+}
+
+.boton-servicios a:hover{
+    background-color: #ff914d;
+    color: white;
+}
+
+@media (max-width: 860px) {
+    .imagenes-servicios{
+        flex-direction: column;
+    }
+    .servicio1, .servicio2, .servicio3, .servicio4{
+        width: 100% !important;
+    }
+
+    .contacto-servicios{
+        margin-bottom: 7%;
+    }
+
+}

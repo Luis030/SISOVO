@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+html {
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background: url(fondo2.png);
+    text-align: center;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+}
+h1 {
+    font-weight: normal;
+    font-size: 40px;
+    text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+}
+.login {
+    border: none;
+    box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
+    padding: 35px;
+    border-radius: 8px;
+    background:#007D95;;
+}
+p { 
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white;
+}
+input {
+    background: rgba(255, 255, 255, 0.3);
+    height: 40px;
+    width: 80%;
+    padding: 0px 20px;
+    border-radius: 20px;
+    border: none;
+    color: black;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+button {
+    background-color: #38A08D;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    padding: 10px;
+    font-size: 20px;
+    border: 1px #4fad9c solid;
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 25px;
+}
+.all {
+    margin-top: -3%;
+}
+button:hover {
+    background-color: #4fad9c;
+    font-size: 23px;
+}
+
+.errorlogin{
+    color: white;
+}

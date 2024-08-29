@@ -15,8 +15,8 @@
     <!-- Main Content -->
     <main>
         <div class="imagenes-inicio">
-            <img src="Diseño/a0dd79b8-8fda-4430-8ccd-ec797357ecfa.jpg" class="imagen-inicio">
-            <img src="Diseño/f4e05af4-078b-47f0-b29f-c6d11afe0526.jpg" alt="">
+            <img src="Diseño/IMG/a0dd79b8-8fda-4430-8ccd-ec797357ecfa.jpg" class="imagen-inicio">
+            <img src="Diseño/IMG/f4e05af4-078b-47f0-b29f-c6d11afe0526.jpg" alt="">
         </div>
         <div class="titulo">
             <h1 class="titulo-movil" style="color: #38b6ff;">Centro de Reeducacion</h1>
@@ -44,17 +44,17 @@
             </div>
         </div>
         <div class="imagenes-encargados">
-            <img src="Diseño/encargad.jpg" class="imagen-enc" alt="encargados">
-            <img src="Diseño/titulos.jpg" alt="titulos">
-            <img src="Diseño/encargados2.jpg" class="imagen-enc" alt="encargados2">
+            <img src="Diseño/IMG/encargad.jpg" class="imagen-enc" alt="encargados">
+            <img src="Diseño/IMG/titulos.jpg" alt="titulos">
+            <img src="Diseño/IMG/encargados2.jpg" class="imagen-enc" alt="encargados2">
         </div>
         <div class="tituloencargados">
-            <h1>Encargados</h1>
+            <h1>Servicios</h1>
             <div class="parrafo-encargados">
                 <p>Somos un equipo de profesionales comprometidos con el bienestar y desarrollo integral de niños con discapacidades y patologías.</p>
             </div>
             <div class="boton-encargados">
-                <a href="infomas">MÁS INFORMACIÓN</a>
+                <a href="servicios.php">MÁS INFORMACIÓN</a>
             </div>
         </div>
     </main>
