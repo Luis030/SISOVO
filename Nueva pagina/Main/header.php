@@ -14,7 +14,7 @@
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="servicios.php">Servicios</a></li>
-                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="galeria.php">Galería</a></li>
                     <li><a href="quienessomos.php">Quiénes Somos</a></li>
                     <li><a href="contactos.php">Contacto</a></li>
                 </ul>
