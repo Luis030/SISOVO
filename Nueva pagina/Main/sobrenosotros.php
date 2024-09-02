@@ -9,7 +9,7 @@
         <meta http-equiv="Pragma" content="no-cache">
         <title>Sobre nosotros</title>
         <link rel="stylesheet" href="Diseño/styleaboutus.css?aaaaa">
-        <script src="aboutusnew.js" type="Application/JavaScript"></script>
+        <script src="JS/aboutusnew.js" type="Application/JavaScript"></script>
     </head>
     <body>
         <div id="cambiarIdioma">
