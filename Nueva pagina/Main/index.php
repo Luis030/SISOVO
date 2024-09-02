@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        require_once("header.php");
+        require_once("php/header.php");
     ?>
     <main>
         <div class="imagenes-inicio">
@@ -56,7 +56,7 @@
         </div>
     </main>
     <?php
-        require_once("footer.php");
+        require_once("php/footer.php");
     ?>
 </body>
 </html>

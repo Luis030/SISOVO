@@ -1,0 +1,79 @@
+body{
+    background-color: #c9c6c6 !important;
+}
+.ajustes-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ajustes-header{
+    margin-top: 1.5%;
+    display: flex;
+    background-color: #7e7e7e;
+    padding: 5px;
+    padding-left: 20px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: end;
+}
+.ajustes-header h1{
+    margin-right: 70%;
+}
+.ajustes-header img{
+    max-width: 100px;
+    max-height: 100px;
+}
+.ajustes{
+    background-color: white;
+    width: 70%;
+}
+.principal-ajustes h1{
+    border-bottom: 2px solid black;
+}
+
+.infocuenta, .cambiarpass, .panelalumno{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.patologias{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 30%;
+    background-color: #7e7e7e;
+}
+
+
+.cambiarpass-form{
+    width: 40%;
+    text-align: center;
+}
+.cambiarpass-form input{
+    background-color: #ece9e9;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 0px;
+    height: 40px;
+}
+.cambiarpass-form p{
+    margin-bottom: 0;
+}
+.botonpass button{
+    background-color: dodgerblue;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 30%;
+    margin-top: 5%;
+    border: 0;
+    cursor: pointer;
+}
+
+.botonpass button:hover{
+    background-color: white;
+    color: dodgerblue;
+    border: 2px solid dodgerblue;
+}
