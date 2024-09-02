@@ -44,4 +44,4 @@
             ?>
         </div>
 </header>
-<script src="js.js"></script>
+<script src="JS/js.js"></script>

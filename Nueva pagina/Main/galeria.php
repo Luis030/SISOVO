@@ -67,6 +67,6 @@
     <?php
     require_once("footer.php");
     ?>
-    <script src="galeria.js"></script>
+    <script src="JS/galeria.js"></script>
 </body>
 </html>
