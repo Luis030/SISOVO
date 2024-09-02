@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajustes</title>
     <link rel="stylesheet" href="Diseño/estiloajustes.css">
+    <script src="JS/ajustes.js"></script>
 </head>
 <body>
     <?php
@@ -20,14 +21,9 @@
                 <div class="principal-ajustes">
                     <div class="infocuenta">
                         <h1>Información de la cuenta</h1>
-                        <?php
-                        echo "<div class='datos'>";
-                        echo "<p>Nombre(s): Luis Sosa</p>";
-                        echo "<p>Apellido(s): Federico Simonelli</p>";
-                        echo "<p>Fecha de nacimiento: 20/03/24</p>";
-                        echo "<p>Cédula: 8439583</p>";
-                        echo "</div>";
-                        ?>
+                        <div class="datos" id="datosdiv">
+
+                        </div>
                         <div class="patologias">
                             <h2>Patologias:</h2>
                             <ul>

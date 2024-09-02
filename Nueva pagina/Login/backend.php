@@ -16,6 +16,7 @@
         }
         if(password_verify($password, $contraencriptada)){
             $_SESSION['verificacion'] = true;
+            $_SESSION['cedula'] = $cedula;
             header("Location: ../Main/index.php");
         } else {
             $_SESSION['usuario'] = null;
