@@ -35,7 +35,7 @@
                     if($_SESSION['Privilegio'] == "alumno") {
                         echo "<li><a href='#'>Panel de alumno</a></li>";
                     }
-                    echo "<li><a href='#'>Ajustes</a></li>";
+                    echo "<li><a href='ajustes.php'>Ajustes</a></li>";
                     echo "<li><a href='cerrarsesion.php'>Cerrar Sesión</a></li>";
                 }
                 echo "</ul>";
