@@ -10,6 +10,17 @@
 <body>
     <?php
     require_once("php/header.php");
+    if(!isset($_SESSION['usuario'])){
+        header("Location:index.php");
+    }
+    $exito = false;
+    $codigo = 0;
+    if(isset($_GET['success'])){
+        $exito = true;
+    }
+    if(isset($_GET['errorid'])){
+        $codigo = $_GET['errorid'];
+    }
     ?>
     <main>
         <div class="ajustes-container">
@@ -24,30 +35,61 @@
                         <div class="datos" id="datosdiv">
 
                         </div>
-                        <div class="patologias">
-                            <h2>Patologias:</h2>
-                            <ul>
-                                <li>fsfsf</li>
-                                <li>fsf</li>
-                                <li>fsf</li>
-                                <li>fsf</li>
-                                <li>fsf</li>
-                            </ul>
+                        <div class="informacion">
+                            <?php
+                            switch($_SESSION['Privilegio']){
+                                case 'alumno':
+                                    echo "<h2>Patologías: </h2>";
+                                    echo "<ul id='lista'>";
+                                    echo "</ul>";
+                                    break;
+                                case 'docente':
+                                    echo "<h2>Especialidades: </h2>";
+                                    echo "<ul id='lista'>";
+                                    echo "</ul>";
+                                    break;
+                                default:
+                                    break;
+                            }
+                            ?>
+                            
                         </div>
                     </div>
                     <div class="cambiarpass">
                         <h1>Cambiar contraseña</h1>
                         <div class="cambiarpass-form">
-                            <form action="" method="post">
+                            <form action="php/cambiarpass.php" method="post">
                                 <p>Contraseña actual</p>
-                                <input type="password">
+                                <input type="password" name="viejapass" required>
                                 <p>Contraseña nueva</p>
-                                <input type="password">
+                                <input type="password" name="nuevapass" required>
                                 <p>Repita la nueva contraseña</p>
-                                <input type="password">
+                                <input type="password" name="nuevapassconfirm" required>
                                 <div class="botonpass">
                                     <button>Enviar</button>
                                 </div>
+                                <?php
+                                if($exito === true){
+                                    echo "<p style='color:green'>Contraseña actualizada.</p>";
+                                }
+                                switch($codigo){
+                                    case '1':
+                                        echo "<p style='color:red'>Las contraseñas no coinciden.</p>";
+                                        break;
+                                    case '2':
+                                        echo "<p style='color:red'>Error con el servidor.</p>";
+                                        break;
+                                    case '3':
+                                        echo "<p style='color:red'>La contraseña es incorrecta.</p>";
+                                        break;
+                                    case '4':
+                                        echo "<p style='color:red'>La nueva contraseña debe tener entre 8 y 20 caracteres.</p>";
+                                        break;
+                                    case '5':
+                                        echo "<p style='color:red'>La nueva contraseña contiene caracteres no permitidos (', \", <, >, \\).</p>";
+                                        break;
+                                }
+                                ?>
                             </form>
                         </div>
                     </div>

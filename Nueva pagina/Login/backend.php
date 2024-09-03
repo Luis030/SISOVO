@@ -1,33 +1,35 @@
 <?php
-    session_start();
-
-    include("../../BD/conexionbd.php");
-
-    $password = $_POST['pass'];
-    $cedula = $_POST['cedula'];
-
-    $verificarusuario = "SELECT Contraseña, Tipo, Nombre FROM usuarios WHERE Cedula='$cedula'";
-    $resultado = $conexion->query($verificarusuario);
-    if($resultado->num_rows > 0){
-        while($fila = $resultado->fetch_assoc()){
-            $contraencriptada = $fila['Contraseña'];
-            $_SESSION['Privilegio'] = strtolower($fila['Tipo']);
-            $_SESSION['usuario'] = $fila['Nombre'];
-        }
-        if(password_verify($password, $contraencriptada)){
-            $_SESSION['verificacion'] = true;
-            $_SESSION['cedula'] = $cedula;
-            header("Location: ../Main/index.php");
-        } else {
-            $_SESSION['usuario'] = null;
-            $_SESSION['Privilegio'] = null;
-            header("Location:index.php?errorid=3");
-        }
-    } else {
-        header("Location:index.php?errorid=3");
-    }
-    
-    
+   session_start();
+   include("../../BD/conexionbd.php");
+   
+   $password = $_POST['pass'];
+   $cedula = $_POST['cedula'];
+   
+   $stmt = $conexion->prepare("SELECT Contraseña, Tipo, Nombre FROM usuarios WHERE Cedula = ?");
+   $stmt->bind_param("s", $cedula); // "s" indica que el parámetro es una cadena
+   $stmt->execute();
+   $resultado = $stmt->get_result();
+   
+   if($resultado->num_rows > 0){
+       while($fila = $resultado->fetch_assoc()){
+           $contraencriptada = $fila['Contraseña'];
+           $_SESSION['Privilegio'] = strtolower($fila['Tipo']);
+           $_SESSION['usuario'] = $fila['Nombre'];
+       }
+       if(password_verify($password, $contraencriptada)){
+           $_SESSION['verificacion'] = true;
+           $_SESSION['cedula'] = $cedula;
+           header("Location: ../Main/index.php");
+       } else {
+           $_SESSION['usuario'] = null;
+           $_SESSION['Privilegio'] = null;
+           header("Location:index.php?errorid=3");
+       }
+   } else {
+       header("Location:index.php?errorid=3");
+   }
+   
+   $stmt->close();
     
     
     /*$consultadocente = "SELECT U.Nombre, Tipo FROM usuarios U, docentes D WHERE U.ID_Usuario=D.ID_Usuario AND D.Cedula='$cedula' AND U.Contraseña='$password'";

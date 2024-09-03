@@ -37,9 +37,46 @@ window.onload = function(){
                     mail.textContent = "Correo : " + usuario.Mail_Padres;
                     resultadoDiv.appendChild(mail);
                 }
+
+                if(usuario.Mail){
+                    const mail = document.createElement('p');
+                    mail.textContent = "Correo : " + usuario.Mail;
+                    resultadoDiv.appendChild(mail);
+                }
+                
+                if(usuario.ID_Alumno) {
+                    fetch("php/obtenerdatos.php?tipo=alumno&id=" + usuario.ID_Alumno)
+                    .then(response => response.json())
+                    .then(info => {
+                        const lista = document.getElementById('lista');
+                        lista.innerHTML = '';
+                        info.forEach(dato => {
+                            const li = document.createElement('li');
+                            li.textContent = dato.Nombre;
+                            lista.appendChild(li);
+                        });
+                    })
+                    .catch(error => console.error("Error:", error));
+                }
+                if(usuario.ID_Docente){
+                    fetch("php/obtenerdatos.php?tipo=docente&id=" + usuario.ID_Docente)
+                    .then(response => response.json())
+                    .then(info => {
+                        const lista = document.getElementById('lista');
+                        lista.innerHTML = '';
+                        info.forEach(dato => {
+                            const li = document.createElement('li');
+                            li.textContent = dato.Nombre;
+                            lista.appendChild(li);
+                        });
+                    })
+                    .catch(error => console.error("Error:", error));
+                }
+                
             }
         })
     }
+
 
     establecerInformacion();
 }
