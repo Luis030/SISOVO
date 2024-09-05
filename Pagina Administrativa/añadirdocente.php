@@ -17,7 +17,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $contraseña = generarPassDoc($cedula, $nombre, $apellido);
         $nombreusuario = "$nombre "."$apellido";
         $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula';";
-
         $cedulausadaverif = $conexion->query($cedulausada);
         if($cedulausadaverif->num_rows > 0){
             header("Location: " . $_SERVER['REQUEST_URI']."?errorid=1");

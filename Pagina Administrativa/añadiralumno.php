@@ -29,21 +29,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula');";
         if($conexion->query($sqluser) == "TRUE"){
-            $verusuario = "SELECT ID_Usuario FROM usuarios WHERE  Nombre='$nombreusuario' AND Cedula='$cedula';";
-            $consultausuario = $conexion->query($verusuario);
-            if($consultausuario->num_rows > 0){
-                while($fila = $consultausuario->fetch_assoc()){
-                    $IDusuario = $fila["ID_Usuario"];
-                }
-                $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
+            $IDusuario = mysqli_insert_id($conexion);
+            $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
                 if($conexion->query($añadiralumno) == TRUE){
+                    $nAalumno = mysqli_insert_id($conexion);
                     if($patologias){
-                        $idalumno = "SELECT ID_Alumno FROM alumnos WHERE ID_Usuario='$IDusuario';";
-                        $enviar = $conexion->query($idalumno);
-                        while($fila = $enviar->fetch_assoc()){
-                            $nAalumno = $fila['ID_Alumno'];
-                        }
-
                         foreach($patologias as $patologia){
                             $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) VALUES ('$patologia', '$nAalumno');";
                             $conexion->query($añadirpat);
@@ -55,8 +45,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         exit;
                     }
                 }
-            }
-            
         }
 
     } else {

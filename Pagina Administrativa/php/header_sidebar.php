@@ -1,5 +1,13 @@
 <?php
-    include("php/corroborarlogin.php");
+    session_start();
+
+    if(!isset($_SESSION["usuario"])) {
+        header("Location: ../Pagina Principal/Main");
+    } else {
+        if($_SESSION['Privilegio'] != "admin" && $_SESSION['Privilegio'] != "docente"){
+            header("Location: ../Pagina Principal/Main");
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="es">

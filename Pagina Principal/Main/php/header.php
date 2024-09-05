@@ -29,7 +29,7 @@
                 echo "<button id='botonUser' onclick='toggleMenu()'>".$_SESSION['usuario']."</button>";
                 echo "<ul class='menuUser'>";
                 if(isset($_SESSION['Privilegio'])) {
-                    if($_SESSION['Privilegio'] == "admin") {
+                    if($_SESSION['Privilegio'] == "admin" || $_SESSION['Privilegio'] == "docente") {
                         echo "<li><a href='../../Pagina Administrativa/index.php'>Administrador</a></li>";
                     }
                     if($_SESSION['Privilegio'] == "alumno") {
