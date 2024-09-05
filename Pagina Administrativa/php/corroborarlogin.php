@@ -2,6 +2,6 @@
     session_start();
 
     if(!isset($_SESSION["usuario"])) {
-        header("Location: ../Nueva pagina/Main");
+        header("Location: ../Pagina Principal/Main");
     }
 ?>

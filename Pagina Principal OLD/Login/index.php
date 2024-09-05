@@ -12,7 +12,7 @@ if(isset($_GET['errorid'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
-    <link rel="stylesheet" href="Diseño/logincss.css?"> 
+    <link rel="stylesheet" href="Diseño/logincss.css"> 
     <link rel="shortcut icon" href="Diseño/logocer.jpg" type="image/x-icon">
 </head>
     <body>

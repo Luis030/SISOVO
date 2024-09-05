@@ -1,5 +1,3 @@
 <?php
-    header("Location: Nueva Pagina/Main/index.php");
-
-    //probando
+    header("Location: Pagina Principal/Main/index.php");
 ?>
