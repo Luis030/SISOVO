@@ -16,6 +16,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script>
+         function cambiarEstilo(enlace) {
+        // Primero, eliminar la clase 'active' de todos los <li> y <a>
+        document.querySelectorAll('li').forEach(li => li.classList.remove('active'));
+        document.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+
+        // Luego, añadir la clase 'active' al <li> que contiene el enlace clicado
+        // y también al enlace clicado
+        enlace.parentElement.classList.add('active');
+        enlace.classList.add('active');
+}
+    </script>
 </head>
 <body>
     <header>
@@ -29,14 +41,13 @@
 
     <div class="container">
         <aside class="sidebar" id="sidebar">
-            <nav>
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="#">Lista Docente</a></li>
-                    <li><a href="#">Clases</a></li>
-                    <li><a href="#">Gestión</a></li>
+                    <li><a href="index.php" onclick="cambiarEstilo(this)">Inicio</a></li>
+                    <li><a href="#" onclick="cambiarEstilo(this)">Lista Docente</a></li>
+                    <li><a href="#" onclick="cambiarEstilo(this)">Clases</a></li>
+                    <li><a href="#" onclick="cambiarEstilo(this)">Gestión</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown()">Añadir ▼</a>
+                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(); cambiarEstilo(this)">&#10010; Añadir ▼</a>
                         <ul class="dropdown-menu" id="dropdown-menu">
                             <li><a href="añadirdocente.php">Docente</a></li>
                             <li><a href="añadiralumno.php">Alumno</a></li>
@@ -48,7 +59,6 @@
                     <li id="about-button"><a href="#" id="aboutus" class="aboutus">About Us</a></li>
                     <li><a href="php/cerrar.php" id="cerrar-boton">Cerrar Sesión</a></li>
                 </ul>
-            </nav>
         </aside>
 
         <main class="content">
