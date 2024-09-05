@@ -1,0 +1,132 @@
+body {
+    background-color: #e6e6e6 !important;
+}
+
+.panelAlumnoMain {
+    margin-top: 4.2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.panel {
+    background-color: #ffffff;
+    width: 70%;
+    margin-bottom: -20px;
+}
+
+.panelHeader {
+    background-color: #b6b6b6;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 1000px;
+    height: 80px;
+}
+
+.panelHeader h1 {
+    font-size: 40px;
+}
+
+.panelHeader p {
+    font-size: 20px;
+}
+
+.tituloClases h1, .tituloInformes h1 {
+    border-bottom: 2px solid black;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.clases p {
+    margin-left: 20px;
+    font-weight: 700;
+}
+
+.busquedaInformes {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.busquedaInformes input {
+    width: 100%;
+    margin-left: 20px;
+    border-radius: 20px;
+    background-color: #e6e6e6;
+    border: none;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.busquedaInformes img {
+    width: 64px;
+    height: 64px;
+    margin-right: 20px;
+    margin-left: 5px;
+}
+
+.resultadosInformes {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #b6b6b6;
+    max-height: 800px;
+    max-width: 100%;
+    height: 800px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+ul {
+    padding: 0;
+}
+
+.resultado {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 20px;
+    background-color: #e6e6e6;
+    width: 96%;
+    text-align: left;
+    height: 50px;
+    margin-top: 20px;
+    list-style-type: none;
+    border-radius: 20px;
+    margin-left: 20px;
+}
+
+/* Estilo del scroll de informes */
+
+.resultadosInformes::-webkit-scrollbar {
+    width: 20px;
+}
+
+.resultadosInformes::-webkit-scrollbar-track {
+    background: #dcdcdc;
+    border-radius: 20px;
+}
+
+.resultadosInformes::-webkit-scrollbar-thumb {
+    background-color: #bcbcbc;
+    border-radius: 10px;
+}
+
+.resultadosInformes::-webkit-scrollbar-thumb:hover {
+    background-color: #a0a0a0;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+    .panelAlumnoMain {
+        margin-top: 105px;
+    }
+    .panel {
+        width: 100%;
+    }
+}
