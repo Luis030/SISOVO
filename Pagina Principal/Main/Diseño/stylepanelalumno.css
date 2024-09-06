@@ -3,11 +3,13 @@ body {
 }
 
 .panelAlumnoMain {
-    margin-top: 4.2%;
+    margin-top: 5.5%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+/* Panel */
 
 .panel {
     background-color: #ffffff;
@@ -41,7 +43,12 @@ body {
 
 .clases p {
     margin-left: 20px;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+#informesIndice {
+    scroll-margin-top: 90px;
 }
 
 .busquedaInformes {
@@ -65,6 +72,12 @@ body {
     height: 64px;
     margin-right: 20px;
     margin-left: 5px;
+}
+
+#parametros {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
 }
 
 .resultadosInformes {
@@ -128,5 +141,42 @@ ul {
     }
     .panel {
         width: 100%;
+    }
+    .resultadosInformes {
+        overflow-x: scroll;
+    }
+}
+
+/* Indice */
+
+.indiceAlumno {
+    background-color: #ffffff;
+    width: 120px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    text-align: center;
+    justify-content: center;
+    top: 30%;
+    left: 4%;
+    border-radius: 20px;
+}
+
+.indiceAlumno p {
+    margin: 5px;
+}
+
+.indiceAlumno a {
+    text-decoration: none;
+    color: #004aad;
+}
+
+/* Responsive indice */
+
+@media (max-width: 1200px) {
+    .indiceAlumno {
+        display: none;
+        position: absolute;
     }
 }
