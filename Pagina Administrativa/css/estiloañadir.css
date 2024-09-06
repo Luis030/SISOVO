@@ -2,31 +2,39 @@
     width: 100%;
     height: 100%;
     margin-top: 5%;   
+    margin-left: 5%;
 }
-.titulo-alumno, .titulo-docente{
+
+.titulo-docente{
     margin-left: 10%;
 }
 .formulario-alumno{
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     justify-content: start;
-    font-size: 30px;
-    margin-left: 10%;
+    gap: 3%;
+    margin-right: 15%;
 }
 .formulario-docente{
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     justify-content: start;
-    margin-left: 10%;
     font-size: 30px;
+    gap: 3%;
+    margin-right: 15%;
 }
 .formulario-alumno p, .formulario-docente p{
     margin: 0;
 }
-.formulario-alumno input, .formulario-docente input {
-    font-size: 20px;
+.input-formulario {
+    font-size: 40px;
+    width: 100%;
+}
+.input-alumno p, .input-docente p{
+    font-size: 35px;
+    margin: 3px
 }
 
 .input-alumno button {
@@ -37,7 +45,9 @@
     font-size: 30px;
     margin-top: 5%;
 }
-
+.input-alumno input, .input-docente input{
+    border: 2px solid var(--color-secundario);
+}
 .success{
     margin-top: 3%;
     color: green;
@@ -45,6 +55,40 @@
 .error{
     margin-top: 3%;
     color: red;
+}
+
+.botonguardar{
+    background-color: var(--color-secundario);
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: var(--color-primario);
+    border-radius: 20px;
+}
+.botonguardar:hover{
+    background-color: var(--color-secundario-hover);
+    cursor: pointer;
+    color: var(--color-secundario);
+}
+.cambiarpagina{
+    margin-bottom: 5%;
+    
+}
+.cambiarpagina a{
+    text-decoration: none;
+    background-color: var(--color-primario);
+    font-size: 30px;
+    padding: 40px;
+    color: black;
+    border: 2px solid black;
+}
+.cambiarpagina a:hover{
+    color: var(--color-secundario);
+}
+
+.enlace-activo{
+    background-color: var(--color-secundario) !important;
+    color: var(--color-primario) !important;
 }
 @media (max-width: 768px) {
     .formulario-alumno, .formulario-docente{

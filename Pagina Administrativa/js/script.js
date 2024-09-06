@@ -40,6 +40,14 @@ window.onload = function (){
                     opcion.value = especialidad.ID_Especializacion;
                     opcion.textContent = especialidad.Nombre;
                     especialidadesSelect.appendChild(opcion);
+                    return true;
+                })
+                new MultiSelectTag('especialidades-select', {
+                    tagColor: {
+                        textColor: 'black',
+                        borderColor: 'black',
+                        bgColor: '#c7aef8'
+                    }
                 })
             })
         }
@@ -57,20 +65,28 @@ window.onload = function (){
                     opcion.value = patologia.ID_Patologia;
                     opcion.textContent = patologia.Nombre;
                     patologiasSelect.appendChild(opcion);
+                    
+                });
+                new MultiSelectTag('patologias-select', {
+                    tagColor: {
+                        textColor: 'black',
+                        borderColor: 'black',
+                        bgColor: '#c7aef8'
+                    }
                 });
             })
-            .catch(error => console.error("Error al obtener patologias", error))
-            
+            .catch(error => {
+                console.error("Error al obtener patologías", error); 
+            });
         }
     }
-
+    
     if(patologiasSelect){
         obtenerPatologias();
     }
     if(especialidadesSelect){
         obtenerEspecialidades();
     }
-    
 }
 
 

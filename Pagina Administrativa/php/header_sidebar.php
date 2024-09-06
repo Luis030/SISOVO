@@ -16,17 +16,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/multi-select-tag.js"></script>
+    <link rel="stylesheet" href="css/multi-select-tag.css">
     <script>
-         function cambiarEstilo(enlace) {
-        // Primero, eliminar la clase 'active' de todos los <li> y <a>
-        document.querySelectorAll('li').forEach(li => li.classList.remove('active'));
-        document.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+         document.addEventListener("DOMContentLoaded", function() {
+            const currentUrl = window.location.pathname.split('/').pop();
+            const menuLinks = document.querySelectorAll('a');
 
-        // Luego, añadir la clase 'active' al <li> que contiene el enlace clicado
-        // y también al enlace clicado
-        enlace.parentElement.classList.add('active');
-        enlace.classList.add('active');
-}
+            menuLinks.forEach(link => {
+                const linkUrl = link.getAttribute('href').split('/').pop();
+                if (linkUrl === currentUrl) {
+                    link.classList.add('active');
+                }
+                if (link.closest('.dropdown-menu') && linkUrl === currentUrl) {
+                    document.querySelector('.dropdown-toggle').classList.add('activo');
+                }
+            });
+
+            const liDropdown = document.querySelector('.dropdown');
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            dropdownToggle.addEventListener('click', function() {
+                dropdownToggle.classList.toggle('activo');
+                liDropdown.classList.toggle('activoDropdown');
+            });
+        });
     </script>
 </head>
 <body>
@@ -42,17 +55,17 @@
     <div class="container">
         <aside class="sidebar" id="sidebar">
                 <ul>
-                    <li><a href="index.php" onclick="cambiarEstilo(this)">Inicio</a></li>
-                    <li><a href="#" onclick="cambiarEstilo(this)">Lista Docente</a></li>
-                    <li><a href="#" onclick="cambiarEstilo(this)">Clases</a></li>
-                    <li><a href="#" onclick="cambiarEstilo(this)">Gestión</a></li>
+                    <li><a href="index.php">Inicio</a></li>
+                    <li><a href="#">Lista Docente</a></li>
+                    <li><a href="clases.php">Clases</a></li>
+                    <li><a href="#">Gestión</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown(); cambiarEstilo(this)">&#10010; Añadir ▼</a>
+                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown();">&#10010; Añadir ▼</a>
                         <ul class="dropdown-menu" id="dropdown-menu">
                             <li><a href="añadirdocente.php">Docente</a></li>
                             <li><a href="añadiralumno.php">Alumno</a></li>
-                            <li><a href="#">Clase</a></li>
-                            <li><a href="#">Especializacion</a></li>
+                            <li><a href="#dfsa">Clase</a></li>
+                            <li><a href="#dsa">Especializacion</a></li>
                             <li><a href="#">Patologia</a></li>
                         </ul>
                     </li>

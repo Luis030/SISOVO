@@ -3,11 +3,20 @@ body {
     margin: 0;
     font-family: 'Questrial';
 }
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 
 :root{
     --color-primario: white;
     --color-secundario: #8c52ff;
     --color-terciario: #f8f7f7;
+    --color-secundario-hover: #c7aef8;
+    --border-color: red !important;
 }
 body,html {
     overflow-y: hidden;
@@ -112,15 +121,24 @@ header .menu-toggle {
     padding-bottom: 20px;
     padding-top: 20px;
 }
-a.active {
-    color: var(--color-secundario) !important; /* Color del texto al hacer clic */
+.active{
+    color: var(--color-secundario) !important;
+    background-color: var(--color-primario);
+}
+.activo {
+    color: var(--color-secundario) !important;
+    background-color: var(--color-primario);
+    font-weight: bold;
 }
 
-li.active {
-    background-color: var(--color-primario); /* Color de fondo al hacer clic */
+.activoDropdown{
+    background-color: rgb(243, 242, 242);
 }
 
-
+.dropdown-menu li a{
+    margin: 10px;
+    padding: 0;
+}
 #about-button{
     text-decoration: none;
     font-weight: bold;

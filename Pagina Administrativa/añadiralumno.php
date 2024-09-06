@@ -72,40 +72,45 @@ if(isset($_GET['errorid'])){
 include("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloañadir.css">
+
+
 <div class="contenedor-anadir-alumno">
-    <div class="titulo-alumno">
-        <h1>Añadir alumno</h1>
+    <div class="cambiarpagina">
+        <div>
+            <a href="añadiralumno.php" class="añadir-a">Añadir alumno</a>
+            <a href="añadirdocente.php" class="añadir-a">Añadir docente</a>
+        </div>
     </div>
     <div class="contenedor-form-añadir-alumno">
         <form action="añadiralumno.php" method="post">
             <div class="formulario-alumno">
                 <div class="input-alumno">
                     <p>Nombres</p>
-                    <input type="text" name="nombre" placeholder="Nombres" required>
+                    <input type="text" class="input-formulario" name="nombre" required>
                 </div>
                 <div class="input-alumno">
                     <p>Apellidos</p>
-                    <input type="text" name="apellido" placeholder="Apellidos" required>
+                    <input type="text" class="input-formulario" name="apellido" required>
                 </div>
                 <div class="input-alumno">
                     <p>Cedula</p>
-                    <input type="number" name="cedula" placeholder="Sin guiónes: 12345678" required>
+                    <input type="number" class="input-formulario" name="cedula" required min="1">
                 </div>
                 <div class="input-alumno">
                     <p>Celular</p>
-                    <input type="number" name="celular" placeholder="090000000" required>
+                    <input type="number" class="input-formulario" name="celular" required>
                 </div>
                 <div class="input-alumno">
                     <p>Nacimiento</p>
-                    <input type="date" name="nacimiento" required>
+                    <input type="date" class="input-formulario" name="nacimiento" required>
                 </div>
                 <div class="input-alumno">
                     <p>Correo</p>
-                    <input type="text" name="correo" placeholder="Opcional">
+                    <input type="text" class="input-formulario" name="correo" placeholder="Opcional">
                 </div>
                 <div class="input-alumno">
                     <p>Clase/s</p>
-                    <select name="clases[]" multiple>
+                    <select name="clases[]" id="clases" multiple>
                         <option value="clase1">Clase 1</option>
                         <option value="clase2">Clase 2</option>
                         <option value="clase3">Clase 3</option>
@@ -113,12 +118,11 @@ include("php/header_sidebar.php");
                 </div>
                 <div class="input-alumno">
                     <p>Patologia/s</p>
-                    <select name="patologias[]" id="patologias-select" multiple required>
-
+                    <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología">
                     </select>
                 </div>
                 <div class="input-alumno">
-                    <button>Guardar</button>
+                    <button class="botonguardar">Guardar</button>
                 </div>
                 <?php
                 if($alumnoingresado === TRUE){
@@ -134,6 +138,8 @@ include("php/header_sidebar.php");
         </form>
     </div>
 </div>
+
+<script src="js/urlactivo.js"></script>
 <?php
 include("php/footer.php");
 ?>

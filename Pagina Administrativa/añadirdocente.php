@@ -65,35 +65,38 @@ include("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloañadir.css">
 <div class="contenedor-añadir-docente">
-    <div class="titulo-docente">
-        <h1>Añadir Docente</h1>
+    <div class="cambiarpagina">
+        <div>
+            <a href="añadiralumno.php" class="añadir-a">Añadir alumno</a>
+            <a href="añadirdocente.php" class="añadir-a">Añadir docente</a>
+        </div>
     </div>
     <div class="contenedor-form-añadir-docente">
         <form action="añadirdocente.php" method="post">
             <div class="formulario-docente">
                 <div class="input-docente">
                     <p>Nombres</p>
-                    <input type="text" name="nombre" required placeholder="Nombres">
+                    <input type="text" class="input-formulario" name="nombre" required>
                 </div>
                 <div class="input-docente">
                     <p>Apellidos</p>
-                    <input type="text" name="apellido" required placeholder="Apellidos">
+                    <input type="text" class="input-formulario" name="apellido" required>
                 </div>
                 <div class="input-docente">
-                    <p>Cedula</p>
-                    <input type="number" name="cedula" required placeholder="Sin guiónes: 12345678">
+                    <p>Cédula</p>
+                    <input type="number" class="input-formulario" name="cedula" required>
                 </div>
                 <div class="input-docente">
                     <p>Correo</p>
-                    <input type="text" name="correo" placeholder="Opcional">
+                    <input type="text" class="input-formulario" name="correo">
                 </div>
                 <div class="input-docente">
                     <p>Celular</p>
-                    <input type="number" name="celular" required placeholder="090000000">
+                    <input type="number" class="input-formulario" name="celular" required>
                 </div>
                 <div class="input-docente">
                     <p>Fecha de Nacimiento</p>
-                    <input type="date" name="nacimiento" required>
+                    <input type="date" class="input-formulario" name="nacimiento" required>
                 </div>
                 <div class="input-docente">
                     <p>Especialidad/es</p>
@@ -114,12 +117,13 @@ include("php/header_sidebar.php");
                 </div>
                 
                 <div class="input-docente">
-                    <button>Enviar</button>
+                    <button class="botonguardar">Enviar</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<script src="JS/urlactivo.js"></script>
 <?php
 include("php/footer.php");
 ?>
