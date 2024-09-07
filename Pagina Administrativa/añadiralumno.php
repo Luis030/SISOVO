@@ -72,6 +72,8 @@ if(isset($_GET['errorid'])){
 include("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloañadir.css">
+<link rel="stylesheet" href="css/estiloselect2.css">
+<script src="JS/cargarselect.js"></script>
 
 
 <div class="contenedor-anadir-alumno">
@@ -118,7 +120,7 @@ include("php/header_sidebar.php");
                 </div>
                 <div class="input-alumno">
                     <p>Patologia/s</p>
-                    <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología">
+                    <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología" style="width: 100%;">
                     </select>
                 </div>
                 <div class="input-alumno">
@@ -140,6 +142,9 @@ include("php/header_sidebar.php");
 </div>
 
 <script src="js/urlactivo.js"></script>
+<script>
+   
+</script>
 <?php
 include("php/footer.php");
 ?>

@@ -64,6 +64,8 @@ if(isset($_GET['errorid'])){
 include("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloañadir.css">
+<link rel="stylesheet" href="css/estiloselect2.css">
+<script src="js/cargarselect.js"></script>
 <div class="contenedor-añadir-docente">
     <div class="cambiarpagina">
         <div>
@@ -100,7 +102,7 @@ include("php/header_sidebar.php");
                 </div>
                 <div class="input-docente">
                     <p>Especialidad/es</p>
-                    <select name="especialidades[]" id="especialidades-select" multiple required>
+                    <select name="especialidades[]" id="especialidades-select" style="width: 100%;" multiple required>
 
                     </select>
                 </div>

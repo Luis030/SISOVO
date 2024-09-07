@@ -14,10 +14,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
     <title>Panel Administrativo</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/multi-select-tag.js"></script>
-    <link rel="stylesheet" href="css/multi-select-tag.css">
     <script>
          document.addEventListener("DOMContentLoaded", function() {
             const currentUrl = window.location.pathname.split('/').pop();
@@ -41,6 +43,9 @@
             });
         });
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
 <body>
     <header>
@@ -62,11 +67,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" onclick="toggleDropdown();">&#10010; Añadir ▼</a>
                         <ul class="dropdown-menu" id="dropdown-menu">
-                            <li><a href="añadirdocente.php">Docente</a></li>
-                            <li><a href="añadiralumno.php">Alumno</a></li>
-                            <li><a href="#dfsa">Clase</a></li>
-                            <li><a href="#dsa">Especializacion</a></li>
-                            <li><a href="#">Patologia</a></li>
+                            <li><a href="añadiralumno.php">Alumno/Docente</a></li>
+                            <li><a href="#dsa">Especializacion/Patologia</a></li>
                         </ul>
                     </li>
                     <li id="about-button"><a href="#" id="aboutus" class="aboutus">About Us</a></li>

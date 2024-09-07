@@ -39,11 +39,10 @@
 
 .input-alumno button {
     font-size: 30px;
-    margin-top: 5%;
+    margin-top: 0;
 }
 .input-docente button {
     font-size: 30px;
-    margin-top: 5%;
 }
 .input-alumno input, .input-docente input{
     border: 2px solid var(--color-secundario);

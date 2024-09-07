@@ -136,7 +136,6 @@ header .menu-toggle {
 }
 
 .dropdown-menu li a{
-    margin: 10px;
     padding: 0;
 }
 #about-button{
@@ -181,11 +180,12 @@ header .menu-toggle {
 }
 
 .dropdown-menu li {
-    margin: 10px 0;
+    margin-bottom: 10px;
+    background-color: var(--color-primario);
 }
 
-.dropdown-menu li:hover{
-    color: var(--color-secundario);
+.dropdown-menu li a:hover{
+    color: var(--color-secundario) !important;
 }
 .dropdown-menu li a {
     font-weight: normal;

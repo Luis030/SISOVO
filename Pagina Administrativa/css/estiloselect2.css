@@ -1,0 +1,37 @@
+/* Cambia el fondo y el color de texto del select */
+.select2-container--default .select2-selection--multiple {
+    background-color: #ffffff; 
+    border: 1px solid var(--color-secundario); 
+    min-height: 40px;
+}
+
+/* Cambia el estilo de los elementos seleccionados */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background-color: var(--color-secundario-hover); 
+    color: #ffffff; 
+    border-radius: 10px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    margin-right: 5px;
+    color: var(--color-secundario);
+    border: 0;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{
+    background-color: var(--color-secundario-hover);
+    color: #ff0000;
+}
+/* Tamaño de la letra en el campo de búsqueda */
+.select2-container--default .select2-search--inline .select2-search__field {
+    font-size: 16px; 
+    padding: 5px 5px; 
+    line-height: 20px; 
+    height: 30px; 
+    box-sizing: border-box; 
+}
+
+/* Tamaño de la letra en los elementos seleccionados */
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    font-size: 30px; /* Cambia este valor según lo que necesites */
+}
+
+
