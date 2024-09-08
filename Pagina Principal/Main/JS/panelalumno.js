@@ -1,7 +1,7 @@
 window.onload = function() {
     function formatearFecha(fechaSQL) {
         const fecha = new Date(fechaSQL);
-        const dia = fecha.getDate();
+        const dia = fecha.getDate() + 1;
         const mes = fecha.getMonth() + 1;
         const año = fecha.getFullYear();
         const diaBien = dia < 10 ? '0' + dia : dia;
