@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Panel de alumno</title>
-        <link rel="stylesheet" href="Diseño/stylepanelalumno.css">
-        <script src="JS/clases.js"></script>
+        <link rel="stylesheet" href="Diseño/stylepanelalumno.css?aa">
+        <script src="JS/panelalumno.js"></script>
     </head>
     <body>
         <?php
@@ -33,20 +33,12 @@
                             <h1 id="informesIndice">Informes del alumno</h1>
                         </div>
                         <div class="busquedaInformes">
-                            <input type="text">
+                            <input type="text" id="busquedaInformeAlumno">
                             <button id="parametros"><img src="https://cdn-icons-png.flaticon.com/512/4989/4989427.png" alt="Filtros"></button>
                         </div>
                         <div class="resultadosInformes">
-                            <ul>
-                                <li class="resultado">asd</li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
-                                <li class="resultado"></li>
+                            <ul id="listaInformes">
+                            <!-- Acá estan los informes traídos de la base de datos -->
                             </ul>
                         </div>
                     </div>

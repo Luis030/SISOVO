@@ -3,10 +3,9 @@
 
     $idAlumno = $_GET['id'];
         
-    $sql = "SELECT C.Nombre, C.Dia, C.Inicio, C.Final, A.ID_Alumno 
-            FROM alumnos_clase AC 
-            JOIN alumnos A ON A.ID_Alumno = AC.ID_Alumno
-            JOIN Clase C ON C.ID_Clase = AC.ID_Clase 
+    $sql = "SELECT I.Titulo, I.Fecha, A.ID_Alumno, I.ID_Informe, A.Cedula
+            FROM informes I
+            JOIN alumnos A ON I.ID_Alumno = A.ID_Alumno
             WHERE A.ID_Alumno = ?;";
         
     $consultasql = $conexion->prepare($sql); 
