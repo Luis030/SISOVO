@@ -50,6 +50,8 @@ function enviarFormulario() {
     .then(data => {
         console.log('Respuesta del servidor:', data);
         alert(data.message);
+        console.log(data.errors);
+        mostrarErrores(data.errors || []); 
     })
     .catch(error => {
         console.error('Error al enviar los datos:', error);
@@ -59,5 +61,19 @@ function enviarFormulario() {
 function actualizarLongitud() {
     const longitudElemento = document.getElementById('longitud-array-patologias');
     longitudElemento.textContent = `Cantidad agregada: ${patologias.length}`;
+}
+
+function mostrarErrores(errores) {
+    const contenedorErrores = document.getElementById('errores-patologias');
+    contenedorErrores.innerHTML = ''; // Limpiar errores anteriores
+    if (errores.length > 0) {
+        errores.forEach(error => {
+            const p = document.createElement('p');
+            p.textContent = error;
+            contenedorErrores.appendChild(p);
+        });
+    } else {
+        contenedorErrores.textContent = 'No se encontraron errores.';
+    }
 }
 

@@ -155,6 +155,9 @@ include("php/header_sidebar.php");
                 <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarPatologia()">
                 <p id="longitud-array-patologias">Cantidad agregada: 0</p>
                 <a href="#">Pagina de patologias</a>
+                <div id="errores-patologias">
+
+                </div>
             </div>
             <div class="patologias-agregadas">
                 <h2>Patologias Agregadas</h2>
