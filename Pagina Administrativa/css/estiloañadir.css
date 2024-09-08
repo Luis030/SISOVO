@@ -90,6 +90,155 @@
     background-color: var(--color-secundario) !important;
     color: var(--color-primario) !important;
 }
+
+.nueva-patologia-boton{
+    background-color: var(--color-secundario);
+    font-size: 30px;
+    color: var(--color-primario);
+}
+.nueva-patologia-boton:hover{
+    cursor: pointer;
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+.nueva-patologia-boton:active{
+    background-color: var(--color-secundario-hover);
+    color: var(--color-secundario);
+}
+
+.patologias-overlay{
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.contenido-patologias-overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1010;
+    text-align: center;
+    padding-left: 20px;
+    max-width: 30%;
+}
+
+.container-patologias-overlay{
+    display: flex;
+    gap: 20px;
+}
+.container-patologias-overlay h1{
+    margin-top: 0;
+}
+.form-patologia{
+    text-align: left;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.form-patologia input[type="text"]{
+    font-size: 30px;
+}
+
+.boton-agregar{
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    border-radius: 15px;
+    margin-top: 2%;
+}
+.boton-agregar:hover{
+    border: 2px solid var(--color-secundario);
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    cursor: pointer;
+}
+
+.cerrar-patologias-overlay{
+    text-align: right;
+}
+.cerrar-patologias-overlay input{
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    font-size: 30px;
+    cursor: pointer;
+    border: 0px;
+}
+
+.cerrar-patologias-overlay input:hover{
+    color: var(--color-secundario-hover);
+}
+
+.patologias-agregadas{
+    width: 50%;
+    height: 400px;
+    border: 2px solid var(--color-secundario);
+    margin: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-top: 5px;
+    overflow-x: hidden;
+}
+
+.lista-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 15px;
+    margin: 10px;
+    border: 2px solid black;
+    height: auto;
+    white-space: wrap;
+    text-overflow: wrap;
+    max-width: 100%;
+    word-wrap: break-word; /* Ajusta el texto largo */
+    word-break: break-all;  /* Rompe palabras largas */
+    white-space: normal;
+}
+.lista-item button{
+    white-space: nowrap;
+}
+.patologias-lista button{
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.patologias-lista button:hover{
+    background-color: var(--color-secundario-hover);
+}
+
+.boton-todo{
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    border-radius: 15px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+.boton-todo:hover{
+    border: 2px solid var(--color-secundario);
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    cursor: pointer;
+}
 @media (max-width: 768px) {
     .formulario-alumno, .formulario-docente{
         display: block;

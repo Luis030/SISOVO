@@ -74,6 +74,8 @@ include("php/header_sidebar.php");
 <link rel="stylesheet" href="css/estiloañadir.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <script src="JS/cargarselect.js"></script>
+<script src="JS/overlay.js"></script>
+<script src="js/patologiasoverlay.js"></script>
 
 
 <div class="contenedor-anadir-alumno">
@@ -119,7 +121,7 @@ include("php/header_sidebar.php");
                     </select>
                 </div>
                 <div class="input-alumno">
-                    <p>Patologia/s</p>
+                    <p>Patologia/s <input type="button" class="nueva-patologia-boton" onclick="patOverlay()" value="&#10010;"></p>
                     <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología" style="width: 100%;">
                     </select>
                 </div>
@@ -138,6 +140,31 @@ include("php/header_sidebar.php");
                 ?>
             </div>
         </form>
+    </div>
+</div>
+<div class="patologias-overlay" id="patologias-overlay">
+    <div class="contenido-patologias-overlay">
+        <div class="cerrar-patologias-overlay">
+            <input type="button" value="✖" id="cerrar-patologias-overlay-boton" onclick="cerrarPatOverlay()">
+        </div>
+        <div class="container-patologias-overlay">
+            
+            <div class="form-patologia">
+                <h1>Patologia</h1>
+                <input type="text" id="boton-agregar-patologias">
+                <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarPatologia()">
+                <p id="longitud-array-patologias">Cantidad agregada: 0</p>
+                <a href="#">Pagina de patologias</a>
+            </div>
+            <div class="patologias-agregadas">
+                <h2>Patologias Agregadas</h2>
+                <div class="patologias-lista" id="patologias-lista">
+                    
+                </div>
+            </div>
+        </div>
+        <input type="button" value="Añadir todo" class="boton-todo" onclick="enviarFormulario()">
+        
     </div>
 </div>
 
