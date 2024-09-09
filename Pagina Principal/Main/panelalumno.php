@@ -33,8 +33,7 @@
                             <h1 id="informesIndice">Informes del alumno</h1>
                         </div>
                         <div class="busquedaInformes">
-                            <input type="text" id="busquedaInformeAlumno">
-                            <button id="parametros"><img src="https://cdn-icons-png.flaticon.com/512/4989/4989427.png" alt="Filtros"></button>
+                            <input type="text" id="busquedaInformeAlumno" placeholder="Escriba aquí para buscar...">
                         </div>
                         <div class="resultadosInformes">
                             <ul id="listaInformes">

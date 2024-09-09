@@ -64,6 +64,7 @@ body {
 .busquedaInformes input {
     width: 100%;
     margin-left: 20px;
+    margin-right: 20px;
     border-radius: 20px;
     background-color: #e6e6e6;
     border: none;
@@ -71,22 +72,10 @@ body {
     font-size: 20px;
 }
 
-.busquedaInformes img {
-    width: 64px;
-    height: 64px;
-    margin-right: 20px;
-    margin-left: 5px;
-}
-
-#parametros {
-    background-color: transparent;
-    cursor: pointer;
-    border: none;
-}
-
 .resultadosInformes {
     overflow-y: auto;
     overflow-x: hidden;
+    text-overflow: ellipsis;
     background-color: #b6b6b6;
     max-height: 800px;
     max-width: 100%;
@@ -99,6 +88,12 @@ body {
 
 ul {
     padding: 0;
+}
+
+.listaInformes {
+    display: block;
+    width: 100%; /* El ancho del <li> será del 100% del contenedor */
+    overflow: hidden; /* Evita que el contenido desborde el <li> */
 }
 
 .resultadoInforme {
@@ -132,6 +127,11 @@ ul {
     color: #004aad;
     transition: 0.5s;
     cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    margin-bottom: -10px;
 }
 
 .linkInforme:hover {
@@ -170,9 +170,6 @@ ul {
     }
     .panel {
         width: 100%;
-    }
-    .resultadosInformes {
-        overflow-x: scroll;
     }
 }
 

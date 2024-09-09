@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (informe) {
         document.getElementById('titulo').textContent = informe.Titulo;
         document.getElementById('fecha').textContent = informe.Fecha;
-        document.getElementById('observaciones').textContent = informe.ID_Informe;
-    } else {
-        document.getElementById('detalle').textContent = 'Informe no encontrado.';
+        document.getElementById('docente').textContent = informe.Docente;
+        document.getElementById('tituloOnInforme').textContent = informe.Titulo;
+        document.getElementById('fechaOnInforme').textContent = informe.Fecha;
+        document.getElementById('observacionesOnInforme').textContent = informe.Observaciones;
+        document.getElementById('docenteOnInforme').textContent = informe.Docente;
     }
 });

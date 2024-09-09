@@ -69,7 +69,7 @@ body {
 }
 
 #main-header nav ul li a:hover {
-    color: rgb(136, 175, 233);
+    color: rgb(136, 175, 233) !important;
 }
 
 #main-header .login a {

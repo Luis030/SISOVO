@@ -3,7 +3,7 @@
 
     $idAlumno = $_GET['id'];
         
-    $sql = "SELECT I.Titulo, I.Fecha, A.ID_Alumno, I.ID_Informe, A.Cedula
+    $sql = "SELECT I.Titulo, I.Fecha, A.ID_Alumno, I.ID_Informe
             FROM informes I
             JOIN alumnos A ON I.ID_Alumno = A.ID_Alumno
             WHERE A.ID_Alumno = ?;";
