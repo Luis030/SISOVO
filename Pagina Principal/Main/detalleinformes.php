@@ -1,5 +1,5 @@
 <?php
-    require_once("../../../BD/conexionbd.php");
+    /* require_once("../../../BD/conexionbd.php");
     session_start();
 
     $sql = "SELECT ID_Alumno
@@ -21,8 +21,8 @@
         $consultasql->close();
     } else {
         echo json_encode(["error" => "Error al preparar la consulta SQL."]);
-    }
-
+    } 
+    */
 ?>
 <!DOCTYPE html>
 <html lang="es">
