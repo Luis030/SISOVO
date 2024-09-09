@@ -91,22 +91,22 @@
     color: var(--color-primario) !important;
 }
 
-.nueva-patologia-boton{
+.nueva-patologia-boton, .nueva-especialidad-boton{
     background-color: var(--color-secundario);
     font-size: 30px;
     color: var(--color-primario);
 }
-.nueva-patologia-boton:hover{
+.nueva-patologia-boton:hover, .nueva-especialidad-boton:hover{
     cursor: pointer;
     background-color: var(--color-primario);
     color: var(--color-secundario);
 }
-.nueva-patologia-boton:active{
+.nueva-patologia-boton:active, .nueva-especialidad-boton:active{
     background-color: var(--color-secundario-hover);
     color: var(--color-secundario);
 }
 
-.patologias-overlay{
+.agregar-overlay{
     background-color: rgba(0, 0, 0, 0.7);
     display: none;
     position: fixed;
@@ -117,7 +117,7 @@
     height: 100%;
 }
 
-.contenido-patologias-overlay{
+.contenido-agregar-overlay{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -131,20 +131,22 @@
     max-width: 30%;
 }
 
-.container-patologias-overlay{
+.container-agregar-overlay{
     display: flex;
     gap: 20px;
 }
-.container-patologias-overlay h1{
+.container-agregar-overlay h1{
     margin-top: 0;
 }
-.form-patologia{
+.form-agregar{
     text-align: left;
     width: 50%;
     display: flex;
     flex-direction: column;
+    height: 400px;
+    overflow-y: auto;
 }
-.form-patologia input[type="text"]{
+.form-agregar input[type="text"]{
     font-size: 30px;
 }
 
@@ -165,10 +167,10 @@
     cursor: pointer;
 }
 
-.cerrar-patologias-overlay{
+.cerrar-agregar-overlay{
     text-align: right;
 }
-.cerrar-patologias-overlay input{
+.cerrar-agregar-overlay input{
     color: var(--color-secundario);
     background-color: var(--color-primario);
     font-size: 30px;
@@ -176,11 +178,11 @@
     border: 0px;
 }
 
-.cerrar-patologias-overlay input:hover{
+.cerrar-agregar-overlay input:hover{
     color: var(--color-secundario-hover);
 }
 
-.patologias-agregadas{
+.items-agregadas{
     width: 50%;
     height: 400px;
     border: 2px solid var(--color-secundario);
@@ -211,14 +213,14 @@
 .lista-item button{
     white-space: nowrap;
 }
-.patologias-lista button{
+.items-lista button{
     background-color: var(--color-secundario);
     color: var(--color-primario);
     padding: 2px;
     border-radius: 5px;
     cursor: pointer;
 }
-.patologias-lista button:hover{
+.items-lista button:hover{
     background-color: var(--color-secundario-hover);
 }
 
@@ -238,6 +240,16 @@
     color: var(--color-secundario);
     background-color: var(--color-primario);
     cursor: pointer;
+}
+
+#mensaje-items{
+    font-size: 25px;
+    margin-top: 10px;
+}
+
+#errores-items{
+    font-size: 25px;
+    color: red;
 }
 @media (max-width: 768px) {
     .formulario-alumno, .formulario-docente{
