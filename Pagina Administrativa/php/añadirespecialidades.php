@@ -7,25 +7,25 @@ header('Content-Type: application/json');
 $data = json_decode(file_get_contents('php://input'), true);
 
 if (isset($data['items'])) {
-    $patologias = $data['items'];
+    $especialidades = $data['items'];
     $errores = [];
-    $patologiasAgregadas = 0;
+    $especialidadesAgregadas = 0;
 
-    foreach ($patologias as $patologia) {
-        $consulta = mysqli_prepare($conexion, "SELECT ID_Patologia FROM patologias WHERE Nombre = ?");
-        mysqli_stmt_bind_param($consulta, 's', $patologia);
+    foreach ($especialidades as $especialidad) {
+        $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM Especializaciones WHERE Nombre = ?");
+        mysqli_stmt_bind_param($consulta, 's', $especialidad);
         mysqli_stmt_execute($consulta);
         mysqli_stmt_store_result($consulta);
 
         if (mysqli_stmt_num_rows($consulta) > 0) {
-            $errores[] = "La patología '$patologia' ya existe.";
+            $errores[] = "La especialidad '$especialidad' ya existe.";
         } else {
-            $insertar = mysqli_prepare($conexion, "INSERT INTO patologias (Nombre) VALUES (?)");
-            mysqli_stmt_bind_param($insertar, 's', $patologia);
+            $insertar = mysqli_prepare($conexion, "INSERT INTO Especializaciones (Nombre) VALUES (?)");
+            mysqli_stmt_bind_param($insertar, 's', $especialidad);
             if (!mysqli_stmt_execute($insertar)) {
-                $errores[] = "Error al insertar '$patologia': " . mysqli_error($conexion);
+                $errores[] = "Error al insertar '$especialidad': " . mysqli_error($conexion);
             } else {
-                $patologiasAgregadas++;
+                $especialidadesAgregadas++;
             }
             mysqli_stmt_close($insertar);
         }
@@ -34,29 +34,29 @@ if (isset($data['items'])) {
     }
 
     if (count($errores) > 0) {
-        if ($patologiasAgregadas > 0) {
+        if ($especialidadesAgregadas > 0) {
             echo json_encode([
                 'status' => 'error',
-                'message' => 'Se añadieron parcialmente las patologías',
+                'message' => 'Se añadieron parcialmente las especialidades',
                 'errors' => $errores
             ]);
         } else {
             echo json_encode([
                 'status' => 'error',
-                'message' => 'No se pudieron añadir las patologías.',
+                'message' => 'No se pudieron añadir las especialidades.',
                 'errors' => $errores
             ]);
         }
     } else {
         echo json_encode([
             'status' => 'success',
-            'message' => 'Todas las patologías se insertaron correctamente.'
+            'message' => 'Todas las especialidades se insertaron correctamente.'
         ]);
     }
 } else {
     echo json_encode([
         'status' => 'error',
-        'message' => 'No se recibieron patologías'
+        'message' => 'No se recibieron especialidades'
     ]);
 }
 ?>

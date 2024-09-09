@@ -75,7 +75,7 @@ include("php/header_sidebar.php");
 <link rel="stylesheet" href="css/estiloselect2.css">
 <script src="JS/cargarselect.js"></script>
 <script src="JS/overlay.js"></script>
-<script src="js/patologiasoverlay.js"></script>
+<script src="js/overlayreutilizable.js"></script>
 
 
 <div class="contenedor-anadir-alumno">
@@ -142,32 +142,27 @@ include("php/header_sidebar.php");
         </form>
     </div>
 </div>
-<div class="patologias-overlay" id="patologias-overlay">
-    <div class="contenido-patologias-overlay">
-        <div class="cerrar-patologias-overlay">
-            <input type="button" value="✖" id="cerrar-patologias-overlay-boton" onclick="cerrarPatOverlay()">
+<div class="agregar-overlay" id="agregar-overlay">
+    <div class="contenido-agregar-overlay">
+        <div class="cerrar-agregar-overlay">
+            <input type="button" value="✖" id="cerrar-agregar-overlay-boton" onclick="cerrarPatOverlay()">
         </div>
-        <div class="container-patologias-overlay">
-            
-            <div class="form-patologia">
+        <div class="container-agregar-overlay">
+            <div class="form-agregar">
                 <h1>Patologia</h1>
-                <input type="text" id="boton-agregar-patologias">
-                <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarPatologia()">
-                <p id="longitud-array-patologias">Cantidad agregada: 0</p>
+                <input type="text" id="boton-agregar-items">
+                <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarItem()">
+                <p id="longitud-array-items">Cantidad agregada: 0</p>
                 <a href="#">Pagina de patologias</a>
-                <div id="errores-patologias">
-
-                </div>
+                <div id="mensaje-items"></div>
+                <div id="errores-items"></div>
             </div>
-            <div class="patologias-agregadas">
+            <div class="items-agregadas">
                 <h2>Patologias Agregadas</h2>
-                <div class="patologias-lista" id="patologias-lista">
-                    
-                </div>
+                <div class="items-lista" id="items-lista"></div>
             </div>
         </div>
-        <input type="button" value="Añadir todo" class="boton-todo" onclick="enviarFormulario()">
-        
+        <input type="button" value="Añadir todo" class="boton-todo" onclick="enviarFormulario('php/añadirpatologias.php')">
     </div>
 </div>
 
