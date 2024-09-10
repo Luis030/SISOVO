@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasena_nueva = $_POST['nuevapass'];
     $contrasena_nueva_confirmacion = $_POST['nuevapassconfirm'];
 
+    // Validaciones
     if (strlen($contrasena_nueva) < 8 || strlen($contrasena_nueva) > 20) {
         header("Location:../ajustes.php?errorid=4");
         exit;
@@ -24,19 +25,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $query = "SELECT contraseña FROM usuarios WHERE cedula = ?";
-    if ($consulta = $conexion->prepare($query)) {
-        $consulta->bind_param("s", $cedula);
-        $consulta->execute();
-        $resultado = $consulta->get_result();
+    if ($consulta = mysqli_prepare($conexion, $query)) {
+        mysqli_stmt_bind_param($consulta, "s", $cedula);
+        mysqli_stmt_execute($consulta);
+        mysqli_stmt_store_result($consulta);
 
-        if ($resultado->num_rows > 0) {
-            $usuario = $resultado->fetch_assoc();
-            if (password_verify($contrasena_antigua, $usuario['contraseña'])) {
+        if (mysqli_stmt_num_rows($consulta) > 0) {
+            mysqli_stmt_bind_result($consulta, $db_contraseña);
+            mysqli_stmt_fetch($consulta);
+            if (password_verify($contrasena_antigua, $db_contraseña)) {
                 $contrasena_nueva_hash = password_hash($contrasena_nueva, PASSWORD_DEFAULT);
                 $query_update = "UPDATE usuarios SET contraseña = ? WHERE cedula = ?";
-                if ($consulta_update = $conexion->prepare($query_update)) {
-                    $consulta_update->bind_param("ss", $contrasena_nueva_hash, $cedula);
-                    if ($consulta_update->execute()) {
+                if ($consulta_update = mysqli_prepare($conexion, $query_update)) {
+                    mysqli_stmt_bind_param($consulta_update, "ss", $contrasena_nueva_hash, $cedula);
+                    if (mysqli_stmt_execute($consulta_update)) {
                         header("Location:../ajustes.php?success=true"); 
                         exit;
                     } else {
@@ -55,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Usuario no encontrado.";
         }
 
-        $consulta->close(); 
+        mysqli_stmt_close($consulta); 
     } else {
         header("Location:../ajustes.php?errorid=2"); 
         exit;

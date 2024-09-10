@@ -9,19 +9,19 @@
             JOIN Clase C ON C.ID_Clase = AC.ID_Clase 
             WHERE A.ID_Alumno = ?;";
         
-    $consultasql = $conexion->prepare($sql); 
-    $consultasql->bind_param("i", $idAlumno);
+    $consultasql = mysqli_prepare($conexion, $sql); 
+    mysqli_stmt_bind_param($consultasql, "i", $idAlumno);
 
     if ($consultasql) {
-        $consultasql->execute();
-        $resultado = $consultasql->get_result();
+        mysqli_stmt_execute($consultasql);
+        $resultado = mysqli_stmt_get_result($consultasql);
         if ($resultado) {
-            $datos = $resultado->fetch_all(MYSQLI_ASSOC);
+            $datos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
             echo json_encode($datos);
         } else {
-             echo json_encode(["error" => "Error en la obtención de datos."]);
+            echo json_encode(["error" => "Error en la obtención de datos."]);
         }
-        $consultasql->close();
+        mysqli_stmt_close($consultasql);
     } else {
         echo json_encode(["error" => "Error al preparar la consulta SQL."]);
     }

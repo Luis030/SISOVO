@@ -2,11 +2,11 @@
 include("../BD/conexionbd.php");
 include("php/funciones.php");
 
-
 $alumnoingresado = false;
 $ceduladuplicada = false;
 $cedulanoexiste = false;
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST['cedula'];
     if (validarCedula($cedula)) {
         $nombre = $_POST['nombre'];
@@ -18,40 +18,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         @$patologias = $_POST['patologias'];
 
         $contraseña = generarPass($cedula);
-
-        $nombreusuario = "$nombre "."$apellido";
+        $nombreusuario = "$nombre $apellido";
+        
+        // Verificar si la cédula ya está en uso
         $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula';";
+        $cedulausadaverif = mysqli_query($conexion, $cedulausada);
 
-        $cedulausadaverif = $conexion->query($cedulausada);
-        if($cedulausadaverif->num_rows > 0){
-            header("Location: " . $_SERVER['REQUEST_URI']."?errorid=1");
+        if (mysqli_num_rows($cedulausadaverif) > 0) {
+            header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=1");
             exit;
         }
+
+        // Insertar en la tabla "usuarios"
         $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula');";
-        if($conexion->query($sqluser) == "TRUE"){
+        if (mysqli_query($conexion, $sqluser) === TRUE) {
             $IDusuario = mysqli_insert_id($conexion);
-            $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
-                if($conexion->query($añadiralumno) == TRUE){
-                    $nAalumno = mysqli_insert_id($conexion);
-                    if($patologias){
-                        foreach($patologias as $patologia){
-                            $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) VALUES ('$patologia', '$nAalumno');";
-                            $conexion->query($añadirpat);
-                        }
-                        header("Location: " . $_SERVER['REQUEST_URI']."?success=true");
-                        exit;
-                    } else {
-                        header("Location: " . $_SERVER['REQUEST_URI']."?success=true");
-                        exit;
+
+            $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) 
+                             VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
+            if (mysqli_query($conexion, $añadiralumno) === TRUE) {
+                $nAalumno = mysqli_insert_id($conexion);
+
+                if ($patologias) {
+                    foreach ($patologias as $patologia) {
+                        $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) 
+                                      VALUES ('$patologia', '$nAalumno');";
+                        mysqli_query($conexion, $añadirpat);
                     }
                 }
-        }
 
+                header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true");
+                exit;
+            }
+        }
     } else {
-        header("Location: " . $_SERVER['REQUEST_URI']."?errorid=2");
+        header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=2");
         exit;
     }
-    
 }
 if(isset($_GET['success']) && $_GET['success'] == 'true'){
     $alumnoingresado = true;

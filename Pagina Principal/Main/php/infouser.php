@@ -10,13 +10,13 @@ $stmt = null;
 switch ($tipouser) {
     case "alumno":
         $sql = "SELECT ID_Alumno, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres FROM alumnos WHERE Cedula = ?";
-        $stmt = $conexion->prepare($sql); 
-        $stmt->bind_param("s", $cedula);  
+        $stmt = mysqli_prepare($conexion, $sql); 
+        mysqli_stmt_bind_param($stmt, "s", $cedula);  
         break;
     case "docente":
         $sql = "SELECT ID_Docente, Nombre, Apellido, Cedula, Fecha_Nac, Mail FROM docentes WHERE Cedula = ?";
-        $stmt = $conexion->prepare($sql);
-        $stmt->bind_param("s", $cedula); 
+        $stmt = mysqli_prepare($conexion, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $cedula); 
         break;
     default:
         echo json_encode(["error" => "Tipo de usuario no válido."]);
@@ -24,17 +24,17 @@ switch ($tipouser) {
 }
 
 if ($stmt) {
-    $stmt->execute();  
-    $resultado = $stmt->get_result();
+    mysqli_stmt_execute($stmt);  
+    $resultado = mysqli_stmt_get_result($stmt);
     
     if ($resultado) {
-        $informacion = $resultado->fetch_all(MYSQLI_ASSOC);
+        $informacion = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         echo json_encode($informacion);
     } else {
-        echo json_encode(["error" => "Error en la consulta SQL: " . $conexion->error]);
+        echo json_encode(["error" => "Error en la consulta SQL: " . mysqli_error($conexion)]);
     }
 
-    $stmt->close(); 
+    mysqli_stmt_close($stmt); 
 } else {
     echo json_encode(["error" => "Error al preparar la consulta SQL."]);
 }
