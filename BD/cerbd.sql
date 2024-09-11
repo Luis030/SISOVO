@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-08-2024 a las 04:22:58
+-- Tiempo de generación: 11-09-2024 a las 23:10:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -53,7 +53,7 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567'),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678'),
 (10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789'),
-(23, 104, 'LUIS MANUEL', 'SOSA BERROA', 56777350, '2024-08-19', 'LManuelSosa@gmail.com', '092504454');
+(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2024-09-07', 'LManuelSosa@gmail.com', '239759827');
 
 -- --------------------------------------------------------
 
@@ -86,7 +86,10 @@ INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Fecha`) VALUES
 (2, 3, '2024-08-09'),
 (3, 4, '2024-08-09'),
 (4, 5, '2024-08-09'),
-(5, 6, '2024-08-09');
+(5, 6, '2024-08-09'),
+(1, 31, '0000-00-00'),
+(2, 31, '0000-00-00'),
+(3, 31, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -168,26 +171,26 @@ CREATE TABLE `docentes` (
   `Cedula` int(11) NOT NULL,
   `Mail` varchar(30) NOT NULL,
   `Celular` varchar(9) DEFAULT NULL,
-  `Fecha_Nac` date DEFAULT NULL
+  `Fecha_Nac` date DEFAULT NULL,
+  `ID_Ocupacion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `docentes`
 --
 
-INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`) VALUES
-(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL),
-(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL),
-(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL),
-(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL),
-(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL),
-(7, 82, '', '', 56777350, '', NULL, NULL),
-(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23'),
-(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23'),
-(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23'),
-(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23'),
-(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23'),
-(13, 118, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, 'nopetif@gmail.com', '09250944', '2024-08-24');
+INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`, `ID_Ocupacion`) VALUES
+(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL, NULL),
+(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL, NULL),
+(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL, NULL),
+(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL, NULL),
+(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL, NULL),
+(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23', NULL),
+(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23', NULL),
+(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23', NULL),
+(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23', NULL),
+(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23', NULL),
+(14, 120, 'LUIS MANUEL', 'SOSA BERROA', 56777350, 'LManuelSosa@gmail.com', '09250944', '2024-09-03', NULL);
 
 -- --------------------------------------------------------
 
@@ -209,7 +212,77 @@ INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`) VALUES
 (2, 'Historia'),
 (3, 'Ciencias'),
 (4, 'Literatura'),
-(5, 'Educaci├│n F├¡sica');
+(5, 'Educaci├│n F├¡sica'),
+(6, 'Cardiología'),
+(7, 'Neurología'),
+(8, 'Oncología'),
+(9, 'Gastroenterología'),
+(10, 'Neumología'),
+(11, 'Endocrinología'),
+(12, 'Reumatología'),
+(13, 'Nefrología'),
+(14, 'Hematología'),
+(15, 'Infectología'),
+(16, 'Pediatría'),
+(17, 'Traumatología'),
+(18, 'Oftalmología'),
+(19, 'Otorrinolaringología'),
+(20, 'Dermatología'),
+(21, 'Psiquiatría'),
+(22, 'Medicina Interna'),
+(23, 'Cirugía General'),
+(24, 'Urología'),
+(25, 'Ginecología'),
+(26, 'Obstetricia'),
+(27, 'Ortopedia'),
+(28, 'Medicina Familiar'),
+(29, 'Anestesiología'),
+(30, 'Radiología'),
+(31, 'Patología'),
+(32, 'Medicina del Trabajo'),
+(33, 'Medicina de Urgencia'),
+(34, 'Cirugía Cardiaca'),
+(35, 'Cirugía Plástica'),
+(36, 'Cirugía Pediátrica'),
+(37, 'Cirugía Ortopédica'),
+(38, 'Medicina Física y Re'),
+(39, 'Inmunología'),
+(40, 'Alergología'),
+(41, 'Cirugía Oncológica'),
+(42, 'Neurocirugía'),
+(43, 'Geriatría'),
+(44, 'Medicina Paliativa'),
+(45, 'Medicina de Rehabili'),
+(46, 'Medicina Deportiva'),
+(47, 'Medicina Estética'),
+(48, 'Medicina de Emergenc'),
+(49, 'Medicina de Rehabili'),
+(50, 'Medicina Preventiva'),
+(51, 'Medicina Submarina'),
+(52, 'Medicina del Sueño'),
+(53, 'Medicina de Familia'),
+(54, 'Medicina General'),
+(55, 'Medicina Perinatal'),
+(56, 'Medicina del Viajero'),
+(57, 'Medicina del Trabajo'),
+(58, 'Medicina Preventiva'),
+(59, 'Medicina Intensiva'),
+(60, 'Medicina Comunitaria'),
+(61, 'Medicina Forense'),
+(62, 'Medicina del Deporte'),
+(63, 'Medicina Estética'),
+(64, 'Medicina de Rehabili'),
+(65, 'Medicina Vascular'),
+(66, 'Medicina de Emergenc'),
+(67, 'Medicina Regenerativ'),
+(68, 'Medicina Genómica'),
+(69, 'Medicina del Niño'),
+(70, 'Medicina Familiar y '),
+(71, 'Medicina del Adulto'),
+(72, 'Medicina del Adolesc'),
+(73, 'somo portadores'),
+(74, 'lengua'),
+(75, 'matemáticas');
 
 -- --------------------------------------------------------
 
@@ -241,8 +314,9 @@ INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`) VALUE
 (3, 10),
 (2, 11),
 (4, 12),
-(3, 13),
-(4, 13);
+(2, 14),
+(3, 14),
+(4, 14);
 
 -- --------------------------------------------------------
 
@@ -273,7 +347,9 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (7, 2, 7, 'Informe Trimestral', 'Buenas calificaciones en historia.', '2024-08-08'),
 (8, 3, 8, 'Informe Bimestral', 'Excelente en física.', '2024-08-08'),
 (9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08'),
-(10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08');
+(10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08'),
+(11, 2, 31, 'SADIO MANE', '', '0000-00-00'),
+(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', '', '2007-03-27');
 
 -- --------------------------------------------------------
 
@@ -307,6 +383,17 @@ INSERT INTO `llegada_docente` (`ID_Llegada`, `ID_Docente`, `Fecha`, `Hora`) VALU
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `ocupacion`
+--
+
+CREATE TABLE `ocupacion` (
+  `ID_Ocupacion` int(11) NOT NULL,
+  `Nombre` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `patologias`
 --
 
@@ -320,11 +407,116 @@ CREATE TABLE `patologias` (
 --
 
 INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
+(76, ',hlkh'),
+(157, 'a'),
+(158, 'ad'),
+(95, 'afasdfccCCCC'),
 (1, 'Alergia'),
+(11, 'Alergia Alimentaria'),
+(12, 'Anemia'),
+(13, 'Artritis'),
+(151, 'asad'),
+(156, 'asd'),
+(98, 'asfasfasfasfasfasfas'),
 (2, 'Asma'),
+(14, 'Bronquitis Crónica'),
+(15, 'Cáncer de Pulmón'),
+(16, 'Cardiopatía Congénit'),
+(166, 'carlua'),
+(17, 'Colesterol Alto'),
+(53, 'Colitis Ulcerosa'),
+(18, 'COVID-19'),
+(155, 'da'),
+(154, 'das'),
+(146, 'dasda'),
+(150, 'dasdsa'),
+(159, 'dcsadfas'),
+(19, 'Depresión'),
+(20, 'Dermatitis Atópica'),
+(114, 'dfasfds'),
+(137, 'dfs'),
+(94, 'dfssdf'),
 (3, 'Diabetes'),
+(153, 'dsa'),
+(152, 'dsad'),
+(139, 'dsada'),
+(148, 'dsadad'),
+(144, 'dsadsad'),
+(127, 'dsdsfs'),
+(172, 'dsfs'),
+(173, 'dsfsf coronavirus'),
+(129, 'dsgdfgsfg'),
+(21, 'Eczema'),
+(22, 'Enfermedad de Crohn'),
+(54, 'Enfermedad de Huntin'),
+(23, 'Enfermedad de Parkin'),
+(24, 'Enfermedad Renal Cró'),
+(5, 'Epilepsia'),
+(25, 'Esclerosis Múltiple'),
+(55, 'Esquizofrenia'),
+(164, 'fdgvbd'),
+(169, 'fdsafsd'),
+(149, 'fdsfs'),
+(126, 'fdsfsdfs'),
+(78, 'FEDERICOVALORANT'),
+(130, 'fgdgdfg'),
+(26, 'Fibromialgia'),
+(143, 'foasfi'),
+(27, 'Gastritis'),
+(115, 'gdfgd'),
+(131, 'gdsds'),
+(162, 'gfdg'),
+(123, 'gfdgd'),
+(165, 'gfdgdf'),
+(168, 'gfdgf'),
+(28, 'Gripe Estacional'),
+(86, 'gsd'),
+(80, 'gsdgsd'),
+(125, 'hdhdf'),
+(29, 'Hepatitis B'),
+(30, 'Hernia Discal'),
+(170, 'hfhg'),
+(124, 'hgfhfgh'),
+(31, 'Hiperplasia Benigna '),
+(9, 'Hipertensión'),
 (4, 'Hipertensi├│n'),
-(5, 'Epilepsia');
+(32, 'Hipertiroidismo'),
+(33, 'Hipotiroidismo'),
+(161, 'hola'),
+(34, 'Insuficiencia Cardía'),
+(35, 'Insuficiencia Respir'),
+(147, 'kjhmhj'),
+(36, 'Leucemia'),
+(37, 'Lupus'),
+(38, 'Malaria'),
+(10, 'Migraña'),
+(39, 'Miopía'),
+(163, 'naruto'),
+(40, 'Neumonía'),
+(41, 'Osteoporosis'),
+(42, 'Pancreatitis'),
+(145, 'papa'),
+(160, 'parorespitaroido'),
+(96, 'PAT1'),
+(97, 'pat2'),
+(167, 'pdkflñsd'),
+(82, 'perroviejo'),
+(43, 'Psoriasis'),
+(71, 'qasma'),
+(84, 'sad'),
+(128, 'sdtsdggfcbv'),
+(77, 'sfafsa'),
+(85, 'sgfsd'),
+(44, 'Síndrome de Asperger'),
+(45, 'Síndrome de Down'),
+(171, 'tf'),
+(46, 'Trombosis Venosa Pro'),
+(47, 'Tuberculosis'),
+(48, 'Uveítis'),
+(49, 'Varicela'),
+(50, 'Vértigo Posicional B'),
+(51, 'Vitiligo'),
+(52, 'Zika');
 
 -- --------------------------------------------------------
 
@@ -352,8 +544,9 @@ INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`) VALUES
 (3, 8),
 (4, 9),
 (5, 10),
-(1, 23),
-(2, 23);
+(18, 31),
+(54, 31),
+(37, 31);
 
 -- --------------------------------------------------------
 
@@ -389,13 +582,13 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 (13, 'LUIS MANUEL SOSA BERROA', 13, 'admin', 'ADMIN'),
 (14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 14, 'alumno', 'ALUMNO'),
 (82, 'LUIS MANUEL SOSA BERROA', 15, 'admin', 'admin'),
-(104, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$91OPPwyNrrDR6/sqMpkSHumd4yU69E5BGuNL0R/sc8tRyX6PWCWZK', 'admin'),
 (113, 'fsd SOSA CARLOS', 6464324, '$2y$10$AS6/snNZaLwhmr.zu7O6RuvL1KBmRxayrMvLqGBjQnV6VmPemhjB.', 'docente'),
 (114, 'fgh fgh', 34, '$2y$10$YQsk2tLfZIdwZlvtkX.GcufMoiRWDyJSzuvJDRIXwiH.dQRqB.TP2', 'docente'),
 (115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente'),
 (116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente'),
 (117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente'),
-(118, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$4cvwIW1ZcLLeIKr1z6T65.dDQqmZOpZf9YYs5quJrw/.YmOebKjRy', 'admin');
+(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$NyNVPMflLUgiv/o.mG6n2uM7eGw.fVDU.xz6lTsxBERelbGHCtjYq', 'admin'),
+(122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno');
 
 --
 -- Índices para tablas volcadas
@@ -436,7 +629,8 @@ ALTER TABLE `clase`
 --
 ALTER TABLE `docentes`
   ADD PRIMARY KEY (`ID_Docente`),
-  ADD KEY `ID_Usuario` (`ID_Usuario`);
+  ADD KEY `ID_Usuario` (`ID_Usuario`),
+  ADD KEY `ID_Ocupacion` (`ID_Ocupacion`);
 
 --
 -- Indices de la tabla `especializaciones`
@@ -467,10 +661,17 @@ ALTER TABLE `llegada_docente`
   ADD KEY `ID_Docente` (`ID_Docente`);
 
 --
+-- Indices de la tabla `ocupacion`
+--
+ALTER TABLE `ocupacion`
+  ADD PRIMARY KEY (`ID_Ocupacion`);
+
+--
 -- Indices de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  ADD PRIMARY KEY (`ID_Patologia`);
+  ADD PRIMARY KEY (`ID_Patologia`),
+  ADD UNIQUE KEY `Nombre` (`Nombre`);
 
 --
 -- Indices de la tabla `patologia_alumno`
@@ -494,7 +695,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencias`
@@ -512,19 +713,19 @@ ALTER TABLE `clase`
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `llegada_docente`
@@ -533,16 +734,22 @@ ALTER TABLE `llegada_docente`
   MODIFY `ID_Llegada` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT de la tabla `ocupacion`
+--
+ALTER TABLE `ocupacion`
+  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- Restricciones para tablas volcadas
@@ -579,7 +786,8 @@ ALTER TABLE `clase`
 -- Filtros para la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  ADD CONSTRAINT `docentes_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID_Usuario`);
+  ADD CONSTRAINT `docentes_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID_Usuario`),
+  ADD CONSTRAINT `docentes_ibfk_2` FOREIGN KEY (`ID_Ocupacion`) REFERENCES `ocupacion` (`ID_Ocupacion`);
 
 --
 -- Filtros para la tabla `especializacion_docente`

@@ -160,6 +160,9 @@ include("php/header_sidebar.php");
 <script src="JS/overlayreutilizable.js"></script>
 <script src="JS/overlay.js"></script>
 <script src="JS/urlactivo.js"></script>
+<script>
+    actualizarClasePorHref('añadir-a', 'enlace-activo');
+</script>
 <?php
 include("php/footer.php");
 ?>

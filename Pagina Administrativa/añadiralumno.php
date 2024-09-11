@@ -171,7 +171,7 @@ include("php/header_sidebar.php");
 
 <script src="js/urlactivo.js"></script>
 <script>
-   
+    actualizarClasePorHref('añadir-a', 'enlace-activo');
 </script>
 <?php
 include("php/footer.php");
