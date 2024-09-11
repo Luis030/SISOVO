@@ -15,7 +15,6 @@ body, html {
 .imagenes-encargados {
     display: flex;
     width: 100vw;
-    margin-top: 4%;
 }
 
 .imagenes-encargados img {
@@ -26,7 +25,8 @@ body, html {
 .titulo {
     text-align: center;
     font-size: 30px;
-   
+    margin-top: 8%;
+    margin-bottom: 4%;
 }
 
 .tituloencargados {
@@ -126,7 +126,11 @@ h1 span {
     text-align: center;
     width: 40%;
 }
-
+@media (max-width: 1200px){
+    .titulo{
+        margin-top: 12%;
+    }
+}
 @media (max-width: 860px) {
     .imagenes-inicio {
         display: block;
@@ -162,5 +166,8 @@ h1 span {
     }
     .titulo-pc {
         display: none;
+    }
+    .titulo{
+        margin-top: 20%;
     }
 }

@@ -1,7 +1,7 @@
 </main>
 <div id="overlay" class="overlay">
   <div class="contenido-overlay">
-    <button id="cerrarabout">Cerrar</button>
+    <button id="cerrarabout">✖</button>
     <div class="contenido-imagenes">
         <div class="div-imagen">
                 <img src="https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3383.jpg" alt="Luis Sosa" id="img1">

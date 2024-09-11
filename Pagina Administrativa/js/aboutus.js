@@ -36,7 +36,6 @@ window.onload = () => {
       
         cerrarabout.addEventListener('click', function() {
           overlay.style.display = 'none';
-          document.body.style.overflow = 'auto';
         });
         horaActual();
         setInterval(horaActual, 1000);

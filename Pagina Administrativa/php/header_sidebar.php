@@ -61,16 +61,34 @@
         <aside class="sidebar" id="sidebar">
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="#">Lista Docente</a></li>
+                    
                     <li><a href="clases.php">Clases</a></li>
+                    <?php
+                    if($_SESSION['Privilegio'] == "docente"){
+                    ?>
+                    <li><a href="realizarinforme.php">Realizar Informe</a></li>
+                    <?php
+                    }
+                    ?>
+                    <?php
+
+                    ?>
                     <li><a href="#">Gestión</a></li>
+                    <?php
+                    if($_SESSION['Privilegio'] == "admin"){
+                    ?>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown();">&#10010; Añadir ▼</a>
+                        <a href="#" class="dropdown-toggle" onclick="toggleDropdown();">&#10010; Añadir </a>
                         <ul class="dropdown-menu" id="dropdown-menu">
                             <li><a href="añadiralumno.php">Alumno/Docente</a></li>
                             <li><a href="#dsa">Especializacion/Patologia</a></li>
                         </ul>
                     </li>
+                    <li><a href="#">Lista Docente</a></li>
+                    <?php
+                    }
+                    ?>
+                    
                     <li id="about-button"><a href="#" id="aboutus" class="aboutus">About Us</a></li>
                     <li><a href="php/cerrar.php" id="cerrar-boton">Cerrar Sesión</a></li>
                 </ul>

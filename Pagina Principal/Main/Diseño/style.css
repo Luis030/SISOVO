@@ -37,6 +37,7 @@ body {
 
 #main-header nav {
     display: flex;
+    margin-left: 10%;
 }
 
 #main-header nav ul {
@@ -235,7 +236,7 @@ footer .redesCer .redes img {
     margin-top: -0.3%;
 }
 
-/* Responsividad */
+
 @media (max-width: 1200px) {
     .menu-toggle {
         display: block;

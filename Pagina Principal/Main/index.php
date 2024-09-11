@@ -11,11 +11,7 @@
         require_once("php/header.php");
     ?>
     <main>
-        <div class="imagenes-inicio">
-            <img src="Diseño/IMG/a0dd79b8-8fda-4430-8ccd-ec797357ecfa.jpg" class="imagen-inicio">
-            <img src="Diseño/IMG/f4e05af4-078b-47f0-b29f-c6d11afe0526.jpg" alt="">
-        </div>
-        <div class="titulo">
+    <div class="titulo">
             <h1 class="titulo-movil" style="color: #38b6ff;">Centro de Reeducacion</h1>
             <h1 class="titulo-pc">
                 <span class="colorceleste">Centro de</span>
@@ -40,6 +36,11 @@
                 <a href="contactos.php">CONTACTANOS</a>
             </div>
         </div>
+        <div class="imagenes-inicio">
+            <img src="Diseño/IMG/a0dd79b8-8fda-4430-8ccd-ec797357ecfa.jpg" class="imagen-inicio">
+            <img src="Diseño/IMG/f4e05af4-078b-47f0-b29f-c6d11afe0526.jpg" alt="">
+        </div>
+        
         <div class="imagenes-encargados">
             <img src="Diseño/IMG/encargad.jpg" class="imagen-enc" alt="encargados">
             <img src="Diseño/IMG/titulos.jpg" alt="titulos">
