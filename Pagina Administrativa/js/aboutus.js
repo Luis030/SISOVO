@@ -6,7 +6,6 @@ window.onload = () => {
         const logoespañol = document.getElementById('logo-español');
         const logoingles = document.getElementById('logo-ingles');
         const parrafoabout = document.getElementById('parrafo-aboutus');
-      
         function horaActual() {
             var fechaHoraLocal = new Date(); 
             var hora = fechaHoraLocal.getHours(); 
