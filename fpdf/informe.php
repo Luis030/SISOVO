@@ -104,10 +104,10 @@
     $pdf = new FPDF('P', 'mm', 'A4');
     $pdf->AddPage('P', 'A4');
     $pdf->Header($mes, $año);
+    $pdf->SetFont('Times', 'B', 14);
 
     /* Título */
     $pdf->Ln(-35);
-    $pdf->SetFont('Times', 'B', 14);
     $pdf->Cell(0, 10, utf8_decode($titulo), 0, 0, 'C');
     $pdf->Ln(30);
     
