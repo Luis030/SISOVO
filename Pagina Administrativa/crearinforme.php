@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $grado = $_POST['grado'];
     $fecha = $_POST['fecha'];
 
-    $sql = "INSERT INTO Informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Grado, Fecha) VALUES (3, 31, $titulo, $observaciones, $grado, $fecha);";
+    $sql = "INSERT INTO informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Grado, Fecha) VALUES (3, 31, '$titulo', '$observaciones', '$grado', '$fecha')";
     mysqli_query($conexion, $sql);
     echo "exito";
 }
