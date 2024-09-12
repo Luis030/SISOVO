@@ -103,7 +103,7 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	$this->iconv = function_exists('iconv');
 	// Font path
 	if(defined('FPDF_FONTPATH'))
-		$this->fontpath = FPDF_FONTPATH;
+		$this->fontpath = 'FPDF_FONTPATH';
 	else
 		$this->fontpath = dirname(__FILE__).'/font/';
 	// Core fonts
@@ -327,7 +327,6 @@ function AddPage($orientation='', $size='', $rotation=0)
 	$this->ColorFlag = $cf;
 	// Page header
 	$this->InHeader = true;
-	$this->Header();
 	$this->InHeader = false;
 	// Restore line width
 	if($this->LineWidth!=$lw)
@@ -353,11 +352,11 @@ function AddPage($orientation='', $size='', $rotation=0)
 	$this->ColorFlag = $cf;
 }
 
-function Header()
+function Header($mes, $año)
 {
 	$this->SetFont('Times', '', 15);
 	$this->Image('logocer-render.png', null, null, 50, 0, 'PNG');
-	$this->Cell(0, -90, utf8_decode('Salto, MES de AÑO'), 0, 0, 'R');
+	$this->Cell(0, -90, utf8_decode('Salto, '.$mes.' de '.$año), 0, 0, 'R');
 	$this->Ln(10);
 }
 
