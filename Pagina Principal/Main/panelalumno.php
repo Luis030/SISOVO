@@ -42,10 +42,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="indiceAlumno"> 
-                    <p>Ir a <a href="#clasesIndice">Clases</a></p>
-                    <p>Ir a <a href="#informesIndice">Informes</a></p>
-                </div>
             </div>
         </main>
         <?php

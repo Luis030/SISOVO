@@ -172,37 +172,3 @@ ul {
         width: 100%;
     }
 }
-
-/* Indice */
-
-.indiceAlumno {
-    background-color: #ffffff;
-    width: 120px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    text-align: center;
-    justify-content: center;
-    top: 30%;
-    left: 4%;
-    border-radius: 20px;
-}
-
-.indiceAlumno p {
-    margin: 5px;
-}
-
-.indiceAlumno a {
-    text-decoration: none;
-    color: #004aad;
-}
-
-/* Responsive indice */
-
-@media (max-width: 1200px) {
-    .indiceAlumno {
-        display: none;
-        position: absolute;
-    }
-}

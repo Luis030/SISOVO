@@ -275,9 +275,7 @@ function Close()
 	if($this->page==0)
 		$this->AddPage();
 	// Page footer
-	$this->InFooter = true;
-	$this->Footer();
-	$this->InFooter = false;
+
 	// Close page
 	$this->_endpage();
 	// Close document
@@ -300,9 +298,7 @@ function AddPage($orientation='', $size='', $rotation=0)
 	if($this->page>0)
 	{
 		// Page footer
-		$this->InFooter = true;
-		$this->Footer();
-		$this->InFooter = false;
+
 		// Close page
 		$this->_endpage();
 	}
@@ -355,14 +351,19 @@ function AddPage($orientation='', $size='', $rotation=0)
 function Header($mes, $año)
 {
 	$this->SetFont('Times', '', 15);
-	$this->Image('logocer-render.png', null, null, 50, 0, 'PNG');
+	$this->Image('../Pagina Principal/Main/Diseño/IMG/logocer-render.png', null, null, 50, 0, 'PNG');
 	$this->Cell(0, -90, utf8_decode('Salto, '.$mes.' de '.$año), 0, 0, 'R');
 	$this->Ln(10);
 }
 
-function Footer()
-{
-	// To be implemented in your own inherited class
+function Footer($docente, $ocupacion)
+{	
+	$this->SetFont('Times', '', 15);
+	$this->Cell(0, 10, "POR CER S.R.L.", 0, 0, 'L');
+	$this->Ln(10);
+	$this->Image('dashedline2.png' , 70, null, 70, 0, 'PNG');
+	$this->Ln(-20);
+	$this->Cell(0, 10, utf8_decode($ocupacion).' '.utf8_decode($docente), 0, 0, 'C');
 }
 
 function PageNo()

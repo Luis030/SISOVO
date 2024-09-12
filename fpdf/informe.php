@@ -1,16 +1,17 @@
 <?php
     session_start();
-    if(!isset($_SESSION['usuario'])){
+    if(!isset($_SESSION['usuario'])) {
         header("Location: ../Pagina Principal/Main/index.php");
     }
-    if($_SESSION['Privilegio'] != "alumno"){
+    if($_SESSION['Privilegio'] != "alumno") {
         header("Location: ../Pagina Principal/Main/index.php");
     }
+
     /* Conectar con la libreria FPDF y la base de datos*/
     require_once("fpdf/fpdf.php");
     require_once("../BD/conexionbd.php");
     
-    /* Consultas a la base de datos */
+    /* Traer datos de la BD */
     $cedula = $_SESSION['cedula'];
     $idinforme = $_GET['ID'];
     
@@ -19,8 +20,8 @@
     AND I.ID_Informe=$idinforme
     AND Cedula=$cedula;";
     $resultado = mysqli_query($conexion, $sql);
-    if(mysqli_num_rows($resultado) > 0){
-        while($columna = mysqli_fetch_assoc($resultado)){
+    if(mysqli_num_rows($resultado) > 0) {
+        while($columna = mysqli_fetch_assoc($resultado)) {
             $titulo = $columna['Titulo'];
             $nombrecompleto = $columna['Nombre']." ".$columna['Apellido'];
             $cedulaAlumno = $columna['Cedula'];
@@ -31,6 +32,7 @@
         }
     }
     
+    /* Funciones */
     function formatoFecha($fechaSQL) {
         $fecha = new DateTime($fechaSQL);
         return $fecha->format('d/m/Y');
@@ -49,6 +51,7 @@
         $fecha = new DateTime($fecha);
         return $fecha->format('m');
     }
+
     function obtenerNumeroAño($fecha) {
         $fecha = new DateTime($fecha);
         return $fecha->format('Y');
@@ -95,14 +98,17 @@
             break;
     }
 
-    $sql = "SELECT D.Nombre
-            FROM docentes D, informes I 
-            WHERE I.ID_Docente=D.ID_Docente 
+    /* Traer datos de la BD */
+    $sql = "SELECT D.Nombre AS Docente, O.Nombre AS Ocupacion
+            FROM docentes D, informes I, ocupacion O 
+            WHERE I.ID_Docente=D.ID_Docente
+            AND D.ID_Ocupacion=O.ID_Ocupacion 
             AND I.ID_Informe=$idinforme;";
     $resultado = mysqli_query($conexion, $sql);
-    if(mysqli_num_rows($resultado) > 0){
-        while($columna = mysqli_fetch_assoc($resultado)){
-            $nombreDocente = $columna['Nombre'];
+    if(mysqli_num_rows($resultado) > 0) {
+        while($columna = mysqli_fetch_assoc($resultado)) { 
+            $nombreDocente = $columna['Docente'];
+            $nombreOcupacion = $columna['Ocupacion'];
         }
     }
 
@@ -112,29 +118,32 @@
     $pdf->SetMargins(20, 20, 20);
     $pdf->Header($mes, $año);
     
-
     /* Título */
     $pdf->Ln(-35);
     $pdf->SetFont('Times', 'B', 12);
     $pdf->Cell(0, 10, utf8_decode($titulo), 0, 0, 'C');
-    $pdf->Ln(25);
+    $pdf->Ln(28);
     
     /* Info del alumno */
-    $pdf->Cell(0, 10, 'Nombre: '.utf8_decode($nombrecompleto), 0, 0, 'L');
+    $pdf->Cell(0, 10, $pdf->SetFont('Times', '', 12).$pdf->Write(5, "Nombre: ").$pdf->SetFont('Times', 'B', 12).$pdf->Write(5, utf8_decode($nombrecompleto)), 0, 0, 'L');
     $pdf->Ln(6);
 
-    $pdf->Cell(0, 10, 'Fecha de nacimiento: '.formatoFecha($fechaNac), 0, 0, 'L');
+    $pdf->Cell(0, 10, $pdf->SetFont('Times', '', 12).$pdf->Write(5, "Fecha de nacimiento: ").$pdf->SetFont('Times', 'B', 12).$pdf->Write(5, formatoFecha($fechaNac)), 0, 0, 'L');
     $pdf->Ln(6);
 
-    $pdf->Cell(0, 10, utf8_decode('Edad cronológica:').' '.utf8_decode(edadCronologica($fechaNac, $fechainforme)), 0, 0, 'L');
+    $pdf->Cell(0, 10, $pdf->SetFont('Times', '', 12).$pdf->Write(5, utf8_decode("Edad cronológica: ")).$pdf->SetFont('Times', 'B', 12).$pdf->Write(5, utf8_decode(edadCronologica($fechaNac, $fechainforme)), 0, 0, 'L'));
     $pdf->Ln(6);
 
-    $pdf->Cell(0, 10, 'Grado: '.$grado.utf8_decode('°'), 0, 0, 'L');
+    $pdf->Cell(0, 10, $pdf->SetFont('Times', '', 12).$pdf->Write(5, "Grado: ").$pdf->SetFont('Times', 'B', 12).$pdf->Write(5, $grado.utf8_decode('°')), 0, 0, 'L');
     $pdf->Ln(12);
 
     /* Observaciones del informe */
     $pdf->SetFont('Times', '', 12);
     $pdf->Write(5, utf8_decode($observaciones));
+    $pdf->Ln(10);
+
+    /* Footer */
+    $pdf->Footer($nombreDocente, $nombreOcupacion);
 
     /* Se abre el PDF en el navegador */
     header('Content-Type: application/pdf');

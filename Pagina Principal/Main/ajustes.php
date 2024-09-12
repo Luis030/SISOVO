@@ -33,7 +33,7 @@
                     <div class="infocuenta">
                         <h1>Información de la cuenta</h1>
                         <div class="datos" id="datosdiv">
-
+                            
                         </div>
                         <div class="informacion">
                             <?php

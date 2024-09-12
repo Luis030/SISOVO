@@ -1,15 +1,16 @@
 body{
-    background-color: #c9c6c6 !important;
+    background-color: #e6e6e6 !important;
 }
 .ajustes-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: -20px;
 }
 .ajustes-header{
     margin-top: 1.5%;
     display: flex;
-    background-color: #7e7e7e;
+    background-color: #b6b6b6;
     padding: 5px;
     padding-left: 20px;
     font-size: 20px;
@@ -42,12 +43,16 @@ body{
     flex-direction: column;
     width: 30%;
     height: 30%;
-    background-color: #7e7e7e;
+    background-color: #b6b6b6;
 }
+
+#lista {
+    margin-bottom: 25px;
+}
+
 .informacion h2{
     margin-bottom: 0;
 }
-
 
 .cambiarpass-form{
     width: 40%;
@@ -73,6 +78,10 @@ body{
     margin-top: 5%;
     border: 0;
     cursor: pointer;
+}
+
+.panelalumno {
+    margin-bottom: 20px;
 }
 
 .botonpass button:hover{
