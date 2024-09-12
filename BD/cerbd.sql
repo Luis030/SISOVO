@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-09-2024 a las 23:10:38
+-- Tiempo de generación: 12-09-2024 a las 14:47:05
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -53,7 +53,7 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567'),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678'),
 (10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789'),
-(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2024-09-07', 'LManuelSosa@gmail.com', '239759827');
+(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827');
 
 -- --------------------------------------------------------
 
@@ -330,26 +330,27 @@ CREATE TABLE `informes` (
   `ID_Alumno` int(11) NOT NULL,
   `Titulo` varchar(20) NOT NULL,
   `Observaciones` text NOT NULL,
-  `Fecha` date NOT NULL
+  `Fecha` date NOT NULL,
+  `Grado` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `informes`
 --
 
-INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`) VALUES
-(1, 1, 1, 'Informe Mensual', 'Buen progreso en matemáticas.', '2024-08-08'),
-(2, 2, 2, 'Informe Trimestral', 'Destaca en historia moderna.', '2024-08-08'),
-(3, 3, 3, 'Informe Bimestral', 'Gran interés en ciencias.', '2024-08-08'),
-(4, 4, 4, 'Informe Semanal', 'Necesita mejorar en literatura.', '2024-08-08'),
-(5, 5, 5, 'Informe Quincenal', 'Muy activo en deportes.', '2024-08-08'),
-(6, 1, 6, 'Informe Mensual', 'Mejoras en álgebra.', '2024-08-08'),
-(7, 2, 7, 'Informe Trimestral', 'Buenas calificaciones en historia.', '2024-08-08'),
-(8, 3, 8, 'Informe Bimestral', 'Excelente en física.', '2024-08-08'),
-(9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08'),
-(10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08'),
-(11, 2, 31, 'SADIO MANE', '', '0000-00-00'),
-(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', '', '2007-03-27');
+INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`, `Grado`) VALUES
+(1, 1, 1, 'Informe Mensual', 'Buen progreso en matemáticas.', '2024-08-08', NULL),
+(2, 2, 2, 'Informe Trimestral', 'Destaca en historia moderna.', '2024-08-08', NULL),
+(3, 3, 3, 'Informe Bimestral', 'Gran interés en ciencias.', '2024-08-08', NULL),
+(4, 4, 4, 'Informe Semanal', 'Necesita mejorar en literatura.', '2024-08-08', NULL),
+(5, 5, 5, 'Informe Quincenal', 'Muy activo en deportes.', '2024-08-08', NULL),
+(6, 1, 6, 'Informe Mensual', 'Mejoras en álgebra.', '2024-08-08', NULL),
+(7, 2, 7, 'Informe Trimestral', 'Buenas calificaciones en historia.', '2024-08-08', NULL),
+(8, 3, 8, 'Informe Bimestral', 'Excelente en física.', '2024-08-08', NULL),
+(9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08', NULL),
+(10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08', NULL),
+(11, 2, 31, 'SADIO MANE', 'Observacion dos en el informe para probar otro.', '0000-00-00', 3),
+(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5);
 
 -- --------------------------------------------------------
 
@@ -587,7 +588,7 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 (115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente'),
 (116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente'),
 (117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente'),
-(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$NyNVPMflLUgiv/o.mG6n2uM7eGw.fVDU.xz6lTsxBERelbGHCtjYq', 'admin'),
+(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'docente'),
 (122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno');
 
 --
