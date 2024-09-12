@@ -66,7 +66,7 @@
                     <?php
                     if($_SESSION['Privilegio'] == "docente"){
                     ?>
-                    <li><a href="realizarinforme.php">Realizar Informe</a></li>
+                    <li><a href="crearinforme.php">Realizar Informe</a></li>
                     <?php
                     }
                     ?>

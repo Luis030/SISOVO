@@ -1,6 +1,11 @@
 <?php
     session_start();
-
+    if(!isset($_SESSION['usuario'])){
+        header("Location: ../Pagina Principal/Main/index.php");
+    }
+    if($_SESSION['Privilegio'] != "alumno"){
+        header("Location: ../Pagina Principal/Main/index.php");
+    }
     /* Conectar con la libreria FPDF y la base de datos*/
     require_once("fpdf/fpdf.php");
     require_once("../BD/conexionbd.php");
@@ -22,6 +27,7 @@
             $observaciones = $columna['Observaciones'];
             $fechaNac = $columna['Fecha_Nac'];
             $fechainforme = $columna['Fecha'];
+            $grado = $columna['Grado'];
         }
     }
     
@@ -103,31 +109,36 @@
     /* Creacion del PDF */
     $pdf = new FPDF('P', 'mm', 'A4');
     $pdf->AddPage('P', 'A4');
+    $pdf->SetMargins(20, 20, 20);
     $pdf->Header($mes, $año);
 
     /* Título */
     $pdf->Ln(-35);
-    $pdf->SetFont('Times', 'B', 14);
+    $pdf->SetFont('Times', 'B', 12);
     $pdf->Cell(0, 10, utf8_decode($titulo), 0, 0, 'C');
-    $pdf->Ln(30);
+    $pdf->Ln(25);
     
     /* Info del alumno */
     $pdf->Cell(0, 10, 'Nombre: '.utf8_decode($nombrecompleto), 0, 0, 'L');
-    $pdf->Ln(10);
+    $pdf->Ln(6);
 
     $pdf->Cell(0, 10, 'Fecha de nacimiento: '.formatoFecha($fechaNac), 0, 0, 'L');
-    $pdf->Ln(10);
+    $pdf->Ln(6);
 
     $pdf->Cell(0, 10, utf8_decode('Edad cronológica:').' '.utf8_decode(edadCronologica($fechaNac, $fechainforme)), 0, 0, 'L');
-    $pdf->Ln(10);
+    $pdf->Ln(6);
 
-    $pdf->Cell(0, 10, 'Grado: '.'6to', 0, 0, 'L');
-    $pdf->Ln(10);
+    $pdf->Cell(0, 10, 'Grado: '.$grado.utf8_decode('°'), 0, 0, 'L');
+    $pdf->Ln(12);
+
+    /* Observaciones del informe */
+    $pdf->SetFont('Times', '', 12);
+    $pdf->Write(5, utf8_decode($observaciones));
 
     /* Se abre el PDF en el navegador */
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename="archivo.pdf"');
-    $pdf->Output('I', 'archivo.pdf', 'false');
+    header('Content-Disposition: inline; filename=informe.pdf');
+    $pdf->Output('I', $titulo."pdf", 'false');
 ?>
 
 
