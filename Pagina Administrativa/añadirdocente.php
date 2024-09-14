@@ -108,11 +108,20 @@ include("php/header_sidebar.php");
                     <p>Fecha de Nacimiento</p>
                     <input type="date" class="input-formulario" name="nacimiento" required>
                 </div>
+                <div class="input-docente select-ocupacion-div">
+                    <p>Ocupación</p>
+                    <select name="ocupacion" id="ocupacion-select" style="width: 100%;" required>
+
+                    </select>
+                </div>
                 <div class="input-docente">
-                    <p>Especialidad/es <input type="button" class="nueva-especialidad-boton" onclick="patOverlay()" value="&#10010;"></p>
+                    <p>Especialidad/es <input type="button" class="nueva-especialidad-boton" id="nueva-especialidad-boton" onclick="patOverlay()" value="&#10010;"></p>
                     <select name="especialidades[]" id="especialidades-select" style="width: 100%;" multiple required>
 
                     </select>
+                </div>
+                <div class="input-docente">
+                    <button class="botonguardar">Enviar</button>
                 </div>
                 <div class="input-alumno">
                     <?php
@@ -124,10 +133,6 @@ include("php/header_sidebar.php");
                         echo "<div class='error'>Cedula inválida.</div>";
                     }
                     ?>
-                </div>
-                
-                <div class="input-docente">
-                    <button class="botonguardar">Enviar</button>
                 </div>
             </div>
         </form>
@@ -141,7 +146,9 @@ include("php/header_sidebar.php");
         </div>
         <div class="container-agregar-overlay">
             <div class="form-agregar">
-                <h1>Especialidad</h1>
+                <h1>Ocupación</h1>
+                <select id="select-ocupacion-overlay"></select>
+                <h1 style="margin-top: 5%;">Especialidad</h1>
                 <input type="text" id="boton-agregar-items">
                 <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarItem()">
                 <p id="longitud-array-items">Cantidad agregada: 0</p>

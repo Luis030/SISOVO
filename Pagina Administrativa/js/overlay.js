@@ -9,6 +9,7 @@ document.addEventListener('keydown', (event) => {
 function patOverlay(){
     const patOverlayDiv = document.getElementById('agregar-overlay');
     patOverlayDiv.style.display = 'block';
+    
 }
 function cerrarPatOverlay(){
     const patOverlayDiv = document.getElementById('agregar-overlay');

@@ -6,8 +6,9 @@ header('Content-Type: application/json');
 // Leer los datos JSON enviados en la solicitud
 $data = json_decode(file_get_contents('php://input'), true);
 
-if (isset($data['items'])) {
+if (isset($data['items']) && isset($data['ocupacion'])) {
     $especialidades = $data['items'];
+    $ocupacion = $data['ocupacion'];
     $errores = [];
     $especialidadesAgregadas = 0;
 
@@ -20,8 +21,8 @@ if (isset($data['items'])) {
         if (mysqli_stmt_num_rows($consulta) > 0) {
             $errores[] = "La especialidad '$especialidad' ya existe.";
         } else {
-            $insertar = mysqli_prepare($conexion, "INSERT INTO Especializaciones (Nombre) VALUES (?)");
-            mysqli_stmt_bind_param($insertar, 's', $especialidad);
+            $insertar = mysqli_prepare($conexion, "INSERT INTO Especializaciones (Nombre, ID_Ocupacion) VALUES (?, ?)");
+            mysqli_stmt_bind_param($insertar, 'si', $especialidad, $ocupacion);
             if (!mysqli_stmt_execute($insertar)) {
                 $errores[] = "Error al insertar '$especialidad': " . mysqli_error($conexion);
             } else {

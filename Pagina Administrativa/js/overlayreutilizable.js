@@ -1,7 +1,17 @@
 var items = []; 
 
-
+    
 document.addEventListener('DOMContentLoaded', function() {
+    const OcupacionValor = document.getElementById('select-ocupacion-overlay');
+    document.getElementById('nueva-especialidad-boton').addEventListener('click', function(){
+        if(OcupacionValor){
+            OcupacionValor.addEventListener('change', function () {
+                console.log("cambio");
+            });
+        }
+        
+    })
+    
     document.getElementById('boton-agregar-items').addEventListener('keydown', function(event) {
         if (event.key === 'Enter') { 
             event.preventDefault(); 
@@ -22,7 +32,18 @@ function agregarItem() {
 }
 
 
+
 function mostrarItems() {
+    const selectOcupacion = document.getElementById('select-ocupacion-overlay')
+    if(selectOcupacion){
+        if(selectOcupacion.value !== ""){
+            if(items.length > 0){
+                $('#select-ocupacion-overlay').prop('disabled', true);   
+            } else {
+                $('#select-ocupacion-overlay').prop('disabled', false);   
+            }
+        }
+    }
     const lista = document.getElementById('items-lista'); 
     lista.innerHTML = ''; 
     items.forEach((item, index) => {
@@ -45,35 +66,46 @@ function eliminarItem(index) {
 
 
 function enviarFormulario(enlace) {
-    fetch(enlace, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ items: items })
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error en la respuesta del servidor: ' + response.status);
+    const selectOcupacion = document.getElementById('select-ocupacion-overlay')
+    if(selectOcupacion){
+        if(selectOcupacion.value !== ""){
+            fetch(enlace, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 
+                    items: items,
+                    ocupacion: selectOcupacion.value
+                 })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor: ' + response.status);
+                }
+                return response.json(); 
+            })
+            .then(data => {
+                items = [];
+                const lista = document.getElementById('items-lista');
+                lista.innerHTML = '';
+                const contenedorErrores = document.getElementById('errores-items'); 
+                contenedorErrores.innerHTML = '';
+                const mensajeErrores = document.getElementById('mensaje-items'); 
+                mensajeErrores.textContent = data.message;
+                if (data.errors) {
+                    mostrarErrores(data.errors);
+                }
+            })
+            .catch(error => {
+                console.error('Error al enviar los datos:', error);
+                alert('Error al procesar la solicitud. Intenta nuevamente.');
+            });
+        } else {
+            const mensajeErrores = document.getElementById('mensaje-items'); 
+            mensajeErrores.textContent = "No se ha seleccionado ninguna ocupación";
         }
-        return response.json(); 
-    })
-    .then(data => {
-        items = [];
-        const lista = document.getElementById('items-lista');
-        lista.innerHTML = '';
-        const contenedorErrores = document.getElementById('errores-items'); 
-        contenedorErrores.innerHTML = '';
-        const mensajeErrores = document.getElementById('mensaje-items'); 
-        mensajeErrores.textContent = data.message;
-        if (data.errors) {
-            mostrarErrores(data.errors);
-        }
-    })
-    .catch(error => {
-        console.error('Error al enviar los datos:', error);
-        alert('Error al procesar la solicitud. Intenta nuevamente.');
-    });
+    }
 }
 
 function actualizarLongitud() {

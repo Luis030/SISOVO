@@ -22,7 +22,7 @@
 }
 /* Tamaño de la letra en el campo de búsqueda */
 .select2-container--default .select2-search--inline .select2-search__field {
-    font-size: 16px; 
+    font-size: 20px; 
     padding: 5px 5px; 
     line-height: 20px; 
     height: 30px; 
@@ -34,4 +34,14 @@
     font-size: 30px; /* Cambia este valor según lo que necesites */
 }
 
+.select2-container--default .select2-selection--single {
+    background-color: #ffffff;  
+    border: 1px solid var(--color-secundario);     
+}
+
+/* Cambiar el padding general del select */
+.select2-container--default .select2-selection--single {
+    padding: 8px;     /* Cambiar el padding del contenedor */
+    height: auto;     /* Ajustar altura automática si el padding cambia el tamaño */
+}
 

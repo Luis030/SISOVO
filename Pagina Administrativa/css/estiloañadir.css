@@ -252,6 +252,9 @@
     color: red;
 }
 
+.select-ocupacion-div{
+    margin-top: 1%;
+}
 @media (max-width: 2100px){
     .input-formulario{
         font-size: 30px;
