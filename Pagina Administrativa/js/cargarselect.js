@@ -62,6 +62,7 @@ $(document).ready(function() {
 
     // Habilitar/Deshabilitar select de especialidades según la ocupación seleccionada
     $('#ocupacion-select').on('change', function() {
+        $('#especialidades-select').val([]).trigger('change');
         const selectedOcupacion = $('#ocupacion-select').val();
         fetch("php/cantidadespecialidades.php?ocupacion="+ selectedOcupacion)
         .then(datos => datos.json())
