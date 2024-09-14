@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-09-2024 a las 14:47:05
+-- Tiempo de generación: 14-09-2024 a las 16:54:37
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -200,89 +200,99 @@ INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedul
 
 CREATE TABLE `especializaciones` (
   `ID_Especializacion` int(11) NOT NULL,
-  `Nombre` varchar(20) NOT NULL
+  `Nombre` varchar(20) NOT NULL,
+  `ID_Ocupacion` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `especializaciones`
 --
 
-INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`) VALUES
-(1, 'Matem├íticas'),
-(2, 'Historia'),
-(3, 'Ciencias'),
-(4, 'Literatura'),
-(5, 'Educaci├│n F├¡sica'),
-(6, 'Cardiología'),
-(7, 'Neurología'),
-(8, 'Oncología'),
-(9, 'Gastroenterología'),
-(10, 'Neumología'),
-(11, 'Endocrinología'),
-(12, 'Reumatología'),
-(13, 'Nefrología'),
-(14, 'Hematología'),
-(15, 'Infectología'),
-(16, 'Pediatría'),
-(17, 'Traumatología'),
-(18, 'Oftalmología'),
-(19, 'Otorrinolaringología'),
-(20, 'Dermatología'),
-(21, 'Psiquiatría'),
-(22, 'Medicina Interna'),
-(23, 'Cirugía General'),
-(24, 'Urología'),
-(25, 'Ginecología'),
-(26, 'Obstetricia'),
-(27, 'Ortopedia'),
-(28, 'Medicina Familiar'),
-(29, 'Anestesiología'),
-(30, 'Radiología'),
-(31, 'Patología'),
-(32, 'Medicina del Trabajo'),
-(33, 'Medicina de Urgencia'),
-(34, 'Cirugía Cardiaca'),
-(35, 'Cirugía Plástica'),
-(36, 'Cirugía Pediátrica'),
-(37, 'Cirugía Ortopédica'),
-(38, 'Medicina Física y Re'),
-(39, 'Inmunología'),
-(40, 'Alergología'),
-(41, 'Cirugía Oncológica'),
-(42, 'Neurocirugía'),
-(43, 'Geriatría'),
-(44, 'Medicina Paliativa'),
-(45, 'Medicina de Rehabili'),
-(46, 'Medicina Deportiva'),
-(47, 'Medicina Estética'),
-(48, 'Medicina de Emergenc'),
-(49, 'Medicina de Rehabili'),
-(50, 'Medicina Preventiva'),
-(51, 'Medicina Submarina'),
-(52, 'Medicina del Sueño'),
-(53, 'Medicina de Familia'),
-(54, 'Medicina General'),
-(55, 'Medicina Perinatal'),
-(56, 'Medicina del Viajero'),
-(57, 'Medicina del Trabajo'),
-(58, 'Medicina Preventiva'),
-(59, 'Medicina Intensiva'),
-(60, 'Medicina Comunitaria'),
-(61, 'Medicina Forense'),
-(62, 'Medicina del Deporte'),
-(63, 'Medicina Estética'),
-(64, 'Medicina de Rehabili'),
-(65, 'Medicina Vascular'),
-(66, 'Medicina de Emergenc'),
-(67, 'Medicina Regenerativ'),
-(68, 'Medicina Genómica'),
-(69, 'Medicina del Niño'),
-(70, 'Medicina Familiar y '),
-(71, 'Medicina del Adulto'),
-(72, 'Medicina del Adolesc'),
-(73, 'somo portadores'),
-(74, 'lengua'),
-(75, 'matemáticas');
+INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`) VALUES
+(1, 'Matem├íticas', 2),
+(2, 'Historia', 2),
+(3, 'Ciencias', 2),
+(4, 'Literatura', 2),
+(5, 'Educaci├│n F├¡sica', 2),
+(6, 'Cardiología', 3),
+(7, 'Neurología', 3),
+(8, 'Oncología', 3),
+(9, 'Gastroenterología', 3),
+(10, 'Neumología', 3),
+(11, 'Endocrinología', 3),
+(12, 'Reumatología', 3),
+(13, 'Nefrología', 3),
+(14, 'Hematología', 3),
+(15, 'Infectología', 3),
+(16, 'Pediatría', 3),
+(17, 'Traumatología', 3),
+(18, 'Oftalmología', 3),
+(19, 'Otorrinolaringología', 3),
+(20, 'Dermatología', 3),
+(21, 'Psiquiatría', 3),
+(22, 'Medicina Interna', 3),
+(23, 'Cirugía General', 3),
+(24, 'Urología', 3),
+(25, 'Ginecología', 3),
+(26, 'Obstetricia', NULL),
+(27, 'Ortopedia', NULL),
+(28, 'Medicina Familiar', NULL),
+(29, 'Anestesiología', NULL),
+(30, 'Radiología', NULL),
+(31, 'Patología', NULL),
+(32, 'Medicina del Trabajo', NULL),
+(33, 'Medicina de Urgencia', NULL),
+(34, 'Cirugía Cardiaca', NULL),
+(35, 'Cirugía Plástica', NULL),
+(36, 'Cirugía Pediátrica', NULL),
+(37, 'Cirugía Ortopédica', NULL),
+(38, 'Medicina Física y Re', NULL),
+(39, 'Inmunología', NULL),
+(40, 'Alergología', NULL),
+(41, 'Cirugía Oncológica', NULL),
+(42, 'Neurocirugía', NULL),
+(43, 'Geriatría', NULL),
+(44, 'Medicina Paliativa', NULL),
+(45, 'Medicina de Rehabili', NULL),
+(46, 'Medicina Deportiva', NULL),
+(47, 'Medicina Estética', NULL),
+(48, 'Medicina de Emergenc', NULL),
+(49, 'Medicina de Rehabili', NULL),
+(50, 'Medicina Preventiva', NULL),
+(51, 'Medicina Submarina', NULL),
+(52, 'Medicina del Sueño', NULL),
+(53, 'Medicina de Familia', NULL),
+(54, 'Medicina General', NULL),
+(55, 'Medicina Perinatal', NULL),
+(56, 'Medicina del Viajero', NULL),
+(57, 'Medicina del Trabajo', NULL),
+(58, 'Medicina Preventiva', NULL),
+(59, 'Medicina Intensiva', NULL),
+(60, 'Medicina Comunitaria', NULL),
+(61, 'Medicina Forense', NULL),
+(62, 'Medicina del Deporte', NULL),
+(63, 'Medicina Estética', NULL),
+(64, 'Medicina de Rehabili', NULL),
+(65, 'Medicina Vascular', NULL),
+(66, 'Medicina de Emergenc', NULL),
+(67, 'Medicina Regenerativ', NULL),
+(68, 'Medicina Genómica', NULL),
+(69, 'Medicina del Niño', NULL),
+(70, 'Medicina Familiar y ', NULL),
+(71, 'Medicina del Adulto', NULL),
+(72, 'Medicina del Adolesc', NULL),
+(73, 'somo portadores', NULL),
+(74, 'lengua', NULL),
+(75, 'matemáticas', NULL),
+(76, 'dada', NULL),
+(77, 'gdsg', NULL),
+(78, 'gfdgd', NULL),
+(79, 'gdf', NULL),
+(80, 'gfd', NULL),
+(81, 'PEPEca', 2),
+(82, 'faust;VV;', 2),
+(83, 'fsdfsdf', 3),
+(84, 'dsfdsf', 3);
 
 -- --------------------------------------------------------
 
@@ -350,7 +360,8 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08', NULL),
 (10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08', NULL),
 (11, 2, 31, 'SADIO MANE', 'Observacion dos en el informe para probar otro.', '0000-00-00', 3),
-(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5);
+(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5),
+(13, 3, 31, 'faga', 'ESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\nESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\n\r\nFIRMA: ___ LUIS', '2024-09-12', 2);
 
 -- --------------------------------------------------------
 
@@ -389,8 +400,17 @@ INSERT INTO `llegada_docente` (`ID_Llegada`, `ID_Docente`, `Fecha`, `Hora`) VALU
 
 CREATE TABLE `ocupacion` (
   `ID_Ocupacion` int(11) NOT NULL,
-  `Nombre` int(11) NOT NULL
+  `Nombre` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ocupacion`
+--
+
+INSERT INTO `ocupacion` (`ID_Ocupacion`, `Nombre`) VALUES
+(1, 'Maestro'),
+(2, 'Profesor'),
+(3, 'Licenciado');
 
 -- --------------------------------------------------------
 
@@ -490,6 +510,7 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
 (36, 'Leucemia'),
 (37, 'Lupus'),
 (38, 'Malaria'),
+(174, 'mcgregor'),
 (10, 'Migraña'),
 (39, 'Miopía'),
 (163, 'naruto'),
@@ -588,7 +609,7 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`)
 (115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente'),
 (116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente'),
 (117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente'),
-(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'docente'),
+(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'admin'),
 (122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno');
 
 --
@@ -637,7 +658,8 @@ ALTER TABLE `docentes`
 -- Indices de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  ADD PRIMARY KEY (`ID_Especializacion`);
+  ADD PRIMARY KEY (`ID_Especializacion`),
+  ADD KEY `ID_Ocupacion` (`ID_Ocupacion`);
 
 --
 -- Indices de la tabla `especializacion_docente`
@@ -720,13 +742,13 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `llegada_docente`
@@ -738,13 +760,13 @@ ALTER TABLE `llegada_docente`
 -- AUTO_INCREMENT de la tabla `ocupacion`
 --
 ALTER TABLE `ocupacion`
-  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -789,6 +811,12 @@ ALTER TABLE `clase`
 ALTER TABLE `docentes`
   ADD CONSTRAINT `docentes_ibfk_1` FOREIGN KEY (`ID_Usuario`) REFERENCES `usuarios` (`ID_Usuario`),
   ADD CONSTRAINT `docentes_ibfk_2` FOREIGN KEY (`ID_Ocupacion`) REFERENCES `ocupacion` (`ID_Ocupacion`);
+
+--
+-- Filtros para la tabla `especializaciones`
+--
+ALTER TABLE `especializaciones`
+  ADD CONSTRAINT `especializaciones_ibfk_1` FOREIGN KEY (`ID_Ocupacion`) REFERENCES `ocupacion` (`ID_Ocupacion`);
 
 --
 -- Filtros para la tabla `especializacion_docente`
