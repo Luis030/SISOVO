@@ -33,7 +33,7 @@
                 <p>¡Bienvenidos al sitio de Centro CER! en donde ofrecemos los mejores servicios a nuestros estudiantes.</p>
             </div>
             <div class="botoncontacto">
-                <a href="contactos.php">CONTACTANOS</a>
+                <a href="contactos">CONTACTANOS</a>
             </div>
         </div>
         <div class="imagenes-inicio">
@@ -52,7 +52,7 @@
                 <p>Somos un equipo de profesionales comprometidos con el bienestar y desarrollo integral de niños con discapacidades y patologías.</p>
             </div>
             <div class="boton-encargados">
-                <a href="servicios.php">MÁS INFORMACIÓN</a>
+                <a href="servicios">MÁS INFORMACIÓN</a>
             </div>
         </div>
     </main>

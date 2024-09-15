@@ -10,8 +10,6 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-
-
 :root{
     --color-primario: white;
     --color-secundario: rgb(17, 97, 129);
@@ -149,7 +147,7 @@ header .menu-toggle {
     cursor: pointer;
 }
 #about-button a{
-    color: dodgerblue !important;
+    color: #1e90ff !important;
 }
 #about-button:hover{
     color: var(--color-secundario);

@@ -19,14 +19,14 @@
        if(password_verify($password, $contraencriptada)){
            $_SESSION['verificacion'] = true;
            $_SESSION['cedula'] = $cedula;
-           header("Location: ../Main/index.php");
+           header("Location: ../Main/index");
        } else {
            $_SESSION['usuario'] = null;
            $_SESSION['Privilegio'] = null;
-           header("Location:index.php?errorid=3");
+           header("Location:index?errorid=3");
        }
    } else {
-       header("Location:index.php?errorid=3");
+       header("Location:index?errorid=3");
    }
    
    mysqli_stmt_close($stmt);

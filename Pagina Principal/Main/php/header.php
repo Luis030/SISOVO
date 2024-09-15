@@ -16,17 +16,17 @@
             </button>
             <nav id="menu">
                 <ul>
-                    <li><a href="index.php">Inicio</a></li>
-                    <li><a href="servicios.php">Servicios</a></li>
-                    <li><a href="galeria.php">Galería</a></li>
-                    <li><a href="quienessomos.php">Quiénes Somos</a></li>
-                    <li><a href="contactos.php">Contacto</a></li>
+                    <li><a href="index">Inicio</a></li>
+                    <li><a href="servicios">Servicios</a></li>
+                    <li><a href="galeria">Galería</a></li>
+                    <li><a href="quienessomos">Quiénes Somos</a></li>
+                    <li><a href="contactos">Contacto</a></li>
                 </ul>
             </nav>
             <?php
             if(!isset($_SESSION['usuario'])) {
                 echo "<div class='login'>";
-                echo "<a href='../Login/index.php'>Ingresar</a>";
+                echo "<a href='../Login/index'>Ingresar</a>";
                 echo "</div>";
             } else if(isset($_SESSION['verificacion'])) {
                 echo "<div class='infoUser'>";
@@ -34,13 +34,13 @@
                 echo "<ul class='menuUser'>";
                 if(isset($_SESSION['Privilegio'])) {
                     if($_SESSION['Privilegio'] == "admin" || $_SESSION['Privilegio'] == "docente") {
-                        echo "<li><a href='../../Pagina Administrativa/index.php'>Administrador</a></li>";
+                        echo "<li><a href='../../Pagina Administrativa/index'>Administrador</a></li>";
                     }
                     if($_SESSION['Privilegio'] == "alumno") {
-                        echo "<li><a href='panelalumno.php'>Panel de alumno</a></li>";
+                        echo "<li><a href='panelalumno'>Panel de alumno</a></li>";
                     }
-                    echo "<li><a href='ajustes.php'>Ajustes</a></li>";
-                    echo "<li><a href='cerrarsesion.php'>Cerrar Sesión</a></li>";
+                    echo "<li><a href='ajustes'>Ajustes</a></li>";
+                    echo "<li><a href='cerrarsesion'>Cerrar Sesión</a></li>";
                 }
                 echo "</ul>";
                 echo "</div>";

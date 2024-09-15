@@ -15,6 +15,6 @@
     </div>
     <div class="infoCer">
         <h1>&copy; 2024 Centro de Reeducación CER</h1>
-        <p>Sitio web desarrollado por <a href="sobrenosotros.php" target="_blank">&copy;Sisovo Corporation</a>.</br>Todos los derechos reservados</p>
+        <p>Sitio web desarrollado por <a href="sobrenosotros" target="_blank">&copy;Sisovo Corporation</a>.</br>Todos los derechos reservados</p>
     </div>
 </footer>

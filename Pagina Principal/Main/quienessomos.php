@@ -38,7 +38,7 @@
         <div class="info-somos">
             <p>Si necesitas saber más información acerca de nuestra empresa contáctate con nosotros.</p>
             <div class="boton-somos">
-                <a href="contactos.php">CONTACTO</a>
+                <a href="contactos">CONTACTO</a>
             </div>
         </div>
     </main>

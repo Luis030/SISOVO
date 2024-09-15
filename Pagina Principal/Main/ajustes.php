@@ -11,7 +11,7 @@
     <?php
     require_once("php/header.php");
     if(!isset($_SESSION['usuario'])){
-        header("Location:index.php");
+        header("Location:index.");
     }
     $exito = false;
     $codigo = 0;
@@ -96,7 +96,7 @@
                         <h1>Panel de alumno</h1>
                         <p>Este panel es una página en la cual se puede acceder a información útil del alumno, aquí estarán sus informes y las clases que esta inscrito. Los informes pueden ser impresos desde la web para presentar a BPS.</p>
                         <div>
-                            Haz <a href="panelalumno.php" style="color:dodgerblue; text-decoration:none;">click aquí</a> para ir!
+                            Haz <a href="panelalumno" style="color:dodgerblue; text-decoration:none;">click aquí</a> para ir!
                         </div>
                     </div>
                 </div>

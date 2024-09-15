@@ -40,7 +40,7 @@
         <div class="contacto-servicios">
             <p>Si necesitas saber más información acerca de nuestros servicios contáctate con nosotros.</p>
             <div class="boton-servicios">
-                <a href="contactos.php">CONTACTO</a>
+                <a href="contactos">CONTACTO</a>
             </div>
         </div>
     </main>

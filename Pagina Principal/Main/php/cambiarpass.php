@@ -10,17 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validaciones
     if (strlen($contrasena_nueva) < 8 || strlen($contrasena_nueva) > 20) {
-        header("Location:../ajustes.php?errorid=4");
+        header("Location:../ajustes?errorid=4");
         exit;
     }
 
     if (preg_match('/[\'"<>\\\\]/', $contrasena_nueva)) {
-        header("Location:../ajustes.php?errorid=5"); 
+        header("Location:../ajustes?errorid=5"); 
         exit;
     }
 
     if ($contrasena_nueva !== $contrasena_nueva_confirmacion) {
-        header("Location:../ajustes.php?errorid=1"); 
+        header("Location:../ajustes?errorid=1"); 
         exit;
     }
 
@@ -39,18 +39,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($consulta_update = mysqli_prepare($conexion, $query_update)) {
                     mysqli_stmt_bind_param($consulta_update, "ss", $contrasena_nueva_hash, $cedula);
                     if (mysqli_stmt_execute($consulta_update)) {
-                        header("Location:../ajustes.php?success=true"); 
+                        header("Location:../ajustes?success=true"); 
                         exit;
                     } else {
-                        header("Location:../ajustes.php?errorid=2"); 
+                        header("Location:../ajustes?errorid=2"); 
                         exit;
                     }
                 } else {
-                    header("Location:../ajustes.php?errorid=2"); 
+                    header("Location:../ajustes?errorid=2"); 
                     exit;
                 }
             } else {
-                header("Location:../ajustes.php?errorid=3"); 
+                header("Location:../ajustes?errorid=3"); 
                 exit;
             }
         } else {
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         mysqli_stmt_close($consulta); 
     } else {
-        header("Location:../ajustes.php?errorid=2"); 
+        header("Location:../ajustes?errorid=2"); 
         exit;
     }
 }

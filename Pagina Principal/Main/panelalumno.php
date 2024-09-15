@@ -11,7 +11,7 @@
         <?php
             require_once("PHP/header.php");
             if(!isset($_SESSION['usuario'])){
-                header("Location: index.php");
+                header("Location: index");
             }
         ?>
         <main>
