@@ -28,66 +28,8 @@ window.onload = function (){
       document.body.style.overflow = 'auto';
     });
 
-    function obtenerEspecialidades(){
-        if(especialidadesSelect){
-            fetch("php/obtenerespecialidades.php")
-            .then(respuesta => respuesta.json())
-            .then(especialidades => {
-                console.log(especialidades);
-                especialidadesSelect.innerHTML = '';
-                especialidades.forEach(especialidad => {
-                    const opcion = document.createElement('option');
-                    opcion.value = especialidad.ID_Especializacion;
-                    opcion.textContent = especialidad.Nombre;
-                    especialidadesSelect.appendChild(opcion);
-                    return true;
-                })
-                /*new MultiSelectTag('especialidades-select', {
-                    tagColor: {
-                        textColor: 'black',
-                        borderColor: 'black',
-                        bgColor: '#c7aef8'
-                    }
-                })
-                */
-            })
-        }
-    }
     
-    function obtenerPatologias(){
-        if(patologiasSelect){
-            fetch("php/obtenerpatologias.php")
-            .then(respuesta => respuesta.json())
-            .then(patologias => {
-                console.log(patologias);
-                patologiasSelect.innerHTML = '';
-                patologias.forEach(patologia => {
-                    const opcion = document.createElement('option');
-                    opcion.value = patologia.ID_Patologia;
-                    opcion.textContent = patologia.Nombre;
-                    patologiasSelect.appendChild(opcion);
-                    
-                });
-                /*new MultiSelectTag('patologias-select', {
-                    tagColor: {
-                        textColor: 'black',
-                        borderColor: 'black',
-                        bgColor: '#c7aef8'
-                    }
-                });*/
-            })
-            .catch(error => {
-                console.error("Error al obtener patologías", error); 
-            });
-        }
-    }
     
-    if(patologiasSelect){
-        /*obtenerPatologias();*/
-    }
-    if(especialidadesSelect){
-        /*obtenerEspecialidades();*/
-    }
 }
 
 
