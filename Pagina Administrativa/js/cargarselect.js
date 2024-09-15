@@ -17,6 +17,14 @@ $(document).ready(function() {
         }
     });
 
+    $('.informeAlumno').select2({
+        placeholder: 'Selecciona un alumno',
+    });
+
+    $('.informeClaseAlumno').select2({
+        placeholder: 'Selecciona una clase',
+    });
+
     $('#select-ocupacion-overlay').select2({
         placeholder: 'Elija la ocupación',
         minimumInputLength: 0,

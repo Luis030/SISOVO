@@ -1,0 +1,114 @@
+main {
+    overflow-y: auto !important;
+}
+
+.mainInformes {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 100px;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.mainInformes p {
+    margin-bottom: 4px;
+}
+
+.mainInformes input, .mainInformes textarea {
+    border: 2px solid var(--color-secundario);
+    font-size: 30px;
+}
+
+.titulo input, .fecha-grado input {
+    height: 40px;
+}
+
+.alumnop {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.filtrop {
+    font-size: 20px !important;
+    margin-bottom: 10px;
+}
+
+.titulo input {
+    width: 100%;
+}
+
+.fecha-grado {
+    display: flex;
+    gap: 20px;
+    font-size: 30px;
+}
+
+.informeFecha {
+    height: 20px;
+}
+
+.informeGrado {
+    height: 20px;
+    width: 40px;
+}
+
+.informeObservacion {
+    width: 21cm;
+    height: 700px;
+    resize: none;
+    font-size: 30px;
+}
+
+.botones {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: var(--color-secundario);
+    padding: 10px;
+    color: white;
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.btn:hover {
+    background-color: var(--color-secundario-hover);
+    color: var(--color-secundario);
+}
+
+.botonOculto {
+    display: none;
+}
+
+@media (max-width: 1500px) {
+    .mainInformes {
+        flex-direction: column;
+    }
+    .informeObservacion {
+        width: 100%;
+    }
+    .informeGrado {
+        width: 40px;
+    }
+    .botonOculto {
+        display: block;
+        margin-top: -8%;
+        margin-bottom: 5%;
+    }
+    .info {
+        margin-bottom: -10%;
+    }
+    .botones {
+        display: none;
+    }
+    .observaciones {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
