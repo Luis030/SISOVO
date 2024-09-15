@@ -55,9 +55,10 @@ main {
 
 .informeObservacion {
     width: 21cm;
-    height: 700px;
+    height: 70vh;
     resize: none;
     font-size: 30px;
+    margin-left: -5%;
 }
 
 .botones {
