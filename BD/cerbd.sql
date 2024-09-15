@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2024 a las 16:54:37
+-- Tiempo de generación: 15-09-2024 a las 22:31:48
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,25 +35,26 @@ CREATE TABLE `alumnos` (
   `Cedula` int(11) NOT NULL,
   `Fecha_Nac` date NOT NULL,
   `Mail_Padres` varchar(30) NOT NULL,
-  `Celular_Padres` varchar(9) NOT NULL
+  `Celular_Padres` varchar(9) NOT NULL,
+  `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Fecha_Nac`, `Mail_Padres`, `Celular_Padres`) VALUES
-(1, 2, 'Luis', 'Fernández', 33445566, '2008-05-15', 'luis.fernandez@padres.com', '555-6789'),
-(2, 4, 'Andrea', 'Martínez', 44556677, '2007-04-22', 'andrea.martinez@padres.com', '555-7890'),
-(3, 6, 'Pedro', 'Gómez', 55667788, '2009-03-18', 'pedro.gomez@padres.com', '555-8901'),
-(4, 8, 'Sara', 'López', 66778899, '2006-02-25', 'sara.lopez@padres.com', '555-9012'),
-(5, 10, 'Jorge', 'Torres', 77889900, '2010-01-30', 'jorge.torres@padres.com', '555-0123'),
-(6, 2, 'Clara', 'Ríos', 88990011, '2008-06-15', 'clara.rios@padres.com', '555-2345'),
-(7, 4, 'Fernando', 'Díaz', 99001122, '2007-07-20', 'fernando.diaz@padres.com', '555-3456'),
-(8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567'),
-(9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678'),
-(10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789'),
-(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827');
+INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Fecha_Nac`, `Mail_Padres`, `Celular_Padres`, `Estado`) VALUES
+(1, 2, 'Luis', 'Fernández', 33445566, '2008-05-15', 'luis.fernandez@padres.com', '555-6789', 0),
+(2, 4, 'Andrea', 'Martínez', 44556677, '2007-04-22', 'andrea.martinez@padres.com', '555-7890', NULL),
+(3, 6, 'Pedro', 'Gómez', 55667788, '2009-03-18', 'pedro.gomez@padres.com', '555-8901', NULL),
+(4, 8, 'Sara', 'López', 66778899, '2006-02-25', 'sara.lopez@padres.com', '555-9012', NULL),
+(5, 10, 'Jorge', 'Torres', 77889900, '2010-01-30', 'jorge.torres@padres.com', '555-0123', NULL),
+(6, 2, 'Clara', 'Ríos', 88990011, '2008-06-15', 'clara.rios@padres.com', '555-2345', NULL),
+(7, 4, 'Fernando', 'Díaz', 99001122, '2007-07-20', 'fernando.diaz@padres.com', '555-3456', NULL),
+(8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567', NULL),
+(9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678', NULL),
+(10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789', NULL),
+(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827', NULL);
 
 -- --------------------------------------------------------
 
@@ -172,25 +173,26 @@ CREATE TABLE `docentes` (
   `Mail` varchar(30) NOT NULL,
   `Celular` varchar(9) DEFAULT NULL,
   `Fecha_Nac` date DEFAULT NULL,
-  `ID_Ocupacion` int(11) DEFAULT NULL
+  `ID_Ocupacion` int(11) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `docentes`
 --
 
-INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`, `ID_Ocupacion`) VALUES
-(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL, NULL),
-(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL, NULL),
-(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL, NULL),
-(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL, NULL),
-(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL, NULL),
-(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23', NULL),
-(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23', NULL),
-(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23', NULL),
-(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23', NULL),
-(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23', NULL),
-(14, 120, 'LUIS MANUEL', 'SOSA BERROA', 56777350, 'LManuelSosa@gmail.com', '09250944', '2024-09-03', NULL);
+INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`, `ID_Ocupacion`, `Estado`) VALUES
+(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL, NULL, NULL),
+(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL, NULL, NULL),
+(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL, NULL, NULL),
+(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL, NULL, NULL),
+(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL, NULL, NULL),
+(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23', NULL, NULL),
+(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23', NULL, NULL),
+(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23', NULL, NULL),
+(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23', NULL, NULL),
+(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23', NULL, NULL),
+(14, 120, 'LUIS MANUEL', 'SOSA BERROA', 56777350, 'LManuelSosa@gmail.com', '09250944', '2024-09-03', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -292,7 +294,8 @@ INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`)
 (81, 'PEPEca', 2),
 (82, 'faust;VV;', 2),
 (83, 'fsdfsdf', 3),
-(84, 'dsfdsf', 3);
+(84, 'dsfdsf', 3),
+(87, 'Parlamento', 1);
 
 -- --------------------------------------------------------
 
@@ -341,27 +344,28 @@ CREATE TABLE `informes` (
   `Titulo` varchar(20) NOT NULL,
   `Observaciones` text NOT NULL,
   `Fecha` date NOT NULL,
-  `Grado` int(11) DEFAULT NULL
+  `Grado` int(11) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `informes`
 --
 
-INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`, `Grado`) VALUES
-(1, 1, 1, 'Informe Mensual', 'Buen progreso en matemáticas.', '2024-08-08', NULL),
-(2, 2, 2, 'Informe Trimestral', 'Destaca en historia moderna.', '2024-08-08', NULL),
-(3, 3, 3, 'Informe Bimestral', 'Gran interés en ciencias.', '2024-08-08', NULL),
-(4, 4, 4, 'Informe Semanal', 'Necesita mejorar en literatura.', '2024-08-08', NULL),
-(5, 5, 5, 'Informe Quincenal', 'Muy activo en deportes.', '2024-08-08', NULL),
-(6, 1, 6, 'Informe Mensual', 'Mejoras en álgebra.', '2024-08-08', NULL),
-(7, 2, 7, 'Informe Trimestral', 'Buenas calificaciones en historia.', '2024-08-08', NULL),
-(8, 3, 8, 'Informe Bimestral', 'Excelente en física.', '2024-08-08', NULL),
-(9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08', NULL),
-(10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08', NULL),
-(11, 2, 31, 'SADIO MANE', 'Observacion dos en el informe para probar otro.', '0000-00-00', 3),
-(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5),
-(13, 3, 31, 'faga', 'ESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\nESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\n\r\nFIRMA: ___ LUIS', '2024-09-12', 2);
+INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`, `Grado`, `Estado`) VALUES
+(1, 1, 1, 'Informe Mensual', 'Buen progreso en matemáticas.', '2024-08-08', NULL, NULL),
+(2, 2, 2, 'Informe Trimestral', 'Destaca en historia moderna.', '2024-08-08', NULL, NULL),
+(3, 3, 3, 'Informe Bimestral', 'Gran interés en ciencias.', '2024-08-08', NULL, NULL),
+(4, 4, 4, 'Informe Semanal', 'Necesita mejorar en literatura.', '2024-08-08', NULL, NULL),
+(5, 5, 5, 'Informe Quincenal', 'Muy activo en deportes.', '2024-08-08', NULL, NULL),
+(6, 1, 6, 'Informe Mensual', 'Mejoras en álgebra.', '2024-08-08', NULL, NULL),
+(7, 2, 7, 'Informe Trimestral', 'Buenas calificaciones en historia.', '2024-08-08', NULL, NULL),
+(8, 3, 8, 'Informe Bimestral', 'Excelente en física.', '2024-08-08', NULL, NULL),
+(9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08', NULL, NULL),
+(10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08', NULL, NULL),
+(11, 2, 31, 'SADIO MANE', 'Observacion dos en el informe para probar otro.', '0000-00-00', 3, NULL),
+(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5, NULL),
+(13, 3, 31, 'faga', 'ESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\nESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\n\r\nFIRMA: ___ LUIS', '2024-09-12', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -456,6 +460,7 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
 (20, 'Dermatitis Atópica'),
 (114, 'dfasfds'),
 (137, 'dfs'),
+(176, 'dfsfsf'),
 (94, 'dfssdf'),
 (3, 'Diabetes'),
 (153, 'dsa'),
@@ -506,6 +511,7 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
 (161, 'hola'),
 (34, 'Insuficiencia Cardía'),
 (35, 'Insuficiencia Respir'),
+(175, 'jauagua'),
 (147, 'kjhmhj'),
 (36, 'Leucemia'),
 (37, 'Lupus'),
@@ -581,36 +587,37 @@ CREATE TABLE `usuarios` (
   `Nombre` varchar(50) NOT NULL,
   `Cedula` int(11) NOT NULL,
   `Contraseña` varchar(65) NOT NULL,
-  `Tipo` varchar(10) NOT NULL
+  `Tipo` varchar(10) NOT NULL,
+  `Estado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`) VALUES
-(1, 'Juan Pérez', 1, 'password1', 'docente'),
-(2, 'Ana García', 2, 'password2', 'alumno'),
-(3, 'María López', 3, 'password3', 'docente'),
-(4, 'José Martínez', 4, 'password4', 'alumno'),
-(5, 'Elena Rodríguez', 5, 'password5', 'docente'),
-(6, 'Carlos Sánchez', 6, 'password6', 'alumno'),
-(7, 'Lucía Fernández', 7, 'password7', 'docente'),
-(8, 'Miguel Gómez', 8, 'password8', 'alumno'),
-(9, 'Laura Díaz', 9, 'password9', 'docente'),
-(10, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 10, 'alumno', 'alumno'),
-(11, 'admin', 11, 'admin', 'admin'),
-(12, 'alumno', 12, 'alumno', 'alumno'),
-(13, 'LUIS MANUEL SOSA BERROA', 13, 'admin', 'ADMIN'),
-(14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 14, 'alumno', 'ALUMNO'),
-(82, 'LUIS MANUEL SOSA BERROA', 15, 'admin', 'admin'),
-(113, 'fsd SOSA CARLOS', 6464324, '$2y$10$AS6/snNZaLwhmr.zu7O6RuvL1KBmRxayrMvLqGBjQnV6VmPemhjB.', 'docente'),
-(114, 'fgh fgh', 34, '$2y$10$YQsk2tLfZIdwZlvtkX.GcufMoiRWDyJSzuvJDRIXwiH.dQRqB.TP2', 'docente'),
-(115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente'),
-(116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente'),
-(117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente'),
-(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'admin'),
-(122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno');
+INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`, `Estado`) VALUES
+(1, 'Juan Pérez', 1, 'password1', 'docente', NULL),
+(2, 'Ana García', 2, 'password2', 'alumno', NULL),
+(3, 'María López', 3, 'password3', 'docente', NULL),
+(4, 'José Martínez', 4, 'password4', 'alumno', NULL),
+(5, 'Elena Rodríguez', 5, 'password5', 'docente', NULL),
+(6, 'Carlos Sánchez', 6, 'password6', 'alumno', NULL),
+(7, 'Lucía Fernández', 7, 'password7', 'docente', NULL),
+(8, 'Miguel Gómez', 8, 'password8', 'alumno', NULL),
+(9, 'Laura Díaz', 9, 'password9', 'docente', NULL),
+(10, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 10, 'alumno', 'alumno', NULL),
+(11, 'admin', 11, 'admin', 'admin', NULL),
+(12, 'alumno', 12, 'alumno', 'alumno', NULL),
+(13, 'LUIS MANUEL SOSA BERROA', 13, 'admin', 'ADMIN', NULL),
+(14, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 14, 'alumno', 'ALUMNO', NULL),
+(82, 'LUIS MANUEL SOSA BERROA', 15, 'admin', 'admin', NULL),
+(113, 'fsd SOSA CARLOS', 6464324, '$2y$10$AS6/snNZaLwhmr.zu7O6RuvL1KBmRxayrMvLqGBjQnV6VmPemhjB.', 'docente', NULL),
+(114, 'fgh fgh', 34, '$2y$10$YQsk2tLfZIdwZlvtkX.GcufMoiRWDyJSzuvJDRIXwiH.dQRqB.TP2', 'docente', NULL),
+(115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente', NULL),
+(116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente', NULL),
+(117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente', NULL),
+(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'admin', NULL),
+(122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -742,7 +749,7 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
@@ -766,7 +773,7 @@ ALTER TABLE `ocupacion`
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

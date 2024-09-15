@@ -115,19 +115,13 @@ include("php/header_sidebar.php");
                     <p>Correo</p>
                     <input type="text" class="input-formulario" name="correo" placeholder="Opcional">
                 </div>
-                <div class="input-alumno">
-                    <p>Clase/s</p>
-                    <select name="clases[]" id="clases" multiple>
-                        <option value="clase1">Clase 1</option>
-                        <option value="clase2">Clase 2</option>
-                        <option value="clase3">Clase 3</option>
-                    </select>
-                </div>
+                
                 <div class="input-alumno">
                     <p>Patologia/s <input type="button" class="nueva-patologia-boton" onclick="patOverlay()" value="&#10010;"></p>
                     <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología" style="width: 100%;">
                     </select>
                 </div>
+                <div class="input-alumno"></div>
                 <div class="input-alumno">
                     <button class="botonguardar">Guardar</button>
                 </div>

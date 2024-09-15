@@ -1,5 +1,31 @@
 $(document).ready(function() {
     // Inicializar Select2 para ocupación
+    if($('#patologias-select').length){
+        $('#patologias-select').select2({
+            placeholder: 'Busca o selecciona patologías...', 
+            minimumInputLength: 0, 
+            ajax: {
+                url: 'php/obtenerpatologias.php', 
+                dataType: 'json',
+                delay: 250, // Tiempo de espera antes de enviar la solicitud al servidor
+                data: function (params) {
+                    // Definir el término de búsqueda; si no hay término, obtener los primeros resultados
+                    return {
+                        q: params.term || '' // Si no hay término de búsqueda, enviar vacío
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: data.map(function (patologia) {
+                            return { id: patologia.ID_Patologia, text: patologia.Nombre };
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+    }
+    
     $('#ocupacion-select').select2({
         placeholder: 'Selecciona una ocupación',
         ajax: {

@@ -105,6 +105,38 @@ function enviarFormulario(enlace) {
             const mensajeErrores = document.getElementById('mensaje-items'); 
             mensajeErrores.textContent = "No se ha seleccionado ninguna ocupación";
         }
+    } else {
+        fetch(enlace, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                items: items
+             })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la respuesta del servidor: ' + response.status);
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            items = [];
+            const lista = document.getElementById('items-lista');
+            lista.innerHTML = '';
+            const contenedorErrores = document.getElementById('errores-items'); 
+            contenedorErrores.innerHTML = '';
+            const mensajeErrores = document.getElementById('mensaje-items'); 
+            mensajeErrores.textContent = data.message;
+            if (data.errors) {
+                mostrarErrores(data.errors);
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar los datos:', error);
+            alert('Error al procesar la solicitud. Intenta nuevamente.');
+        });
     }
 }
 

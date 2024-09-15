@@ -1,0 +1,18 @@
+.cambiar-pagina a{
+    text-decoration: none;
+    background-color: var(--color-primario);
+    font-size: 30px;
+    padding: 40px;
+    color: black;
+    border: 2px solid black;
+}
+
+
+.enlace-activo{
+    background-color: var(--color-secundario) !important;
+    color: var(--color-primario) !important;
+}
+
+.contenedor-nueva-especialidad{
+    margin-top: 5%;
+}
