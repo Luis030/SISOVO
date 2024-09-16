@@ -29,7 +29,7 @@ $(document).ready(function() {
     $('#ocupacion-select').select2({
         placeholder: 'Selecciona una ocupación',
         ajax: {
-            url: 'php/obtenerocupaciones.php',  // Ruta para obtener las ocupaciones
+            url: 'php/obtenerocupaciones.php',  
             dataType: 'json',
             delay: 250,
             processResults: function (data) {
@@ -40,16 +40,68 @@ $(document).ready(function() {
                 };
             },
             cache: true
+        },
+        minimumInputLength: 1
+    });
+
+    $('#select-alumno-ingresado').select2({
+        placeholder: "Seleccione un alumno",
+        minimumInputLength: 0,
+        ajax: {
+            url: 'php/obteneralumnos.php', 
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                const claseSeleccionada = $('.informeClaseAlumno').val();
+                console.log(claseSeleccionada)
+                return {
+                    q: params.term || '', 
+                    clase: claseSeleccionada || '' 
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (alumno) {
+                        return { id: alumno.ID_Alumno, text: alumno.Nombre };
+                    })
+                };
+            },
+            cache: true
         }
     });
-
-    $('.informeAlumno').select2({
-        placeholder: 'Selecciona un alumno',
-    });
+    
 
     $('.informeClaseAlumno').select2({
-        placeholder: 'Selecciona una clase',
-    });
+        placeholder: 'Filtrar por clase'
+    })
+
+    $('.porClase').change(function() {
+        if ($(this).is(':checked')) {
+            $('.informeClaseAlumno').prop('disabled', false).select2({
+                placeholder: 'Selecciona una clase',
+                minimumInputLength: 0,
+                ajax: {
+                    url: 'php/obtenerclases.php', 
+                    dataType: 'json',
+                    delay: 250,
+                    processResults: function (data) {
+                        return {
+                            results: data.map(function (clase) {
+                                return { id: clase.ID_Clase, text: clase.Nombre };
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            })
+        } else {
+            $('.informeClaseAlumno').prop('disabled', true).val(null).trigger('change');
+            $('.informeClaseAlumno').prop('disabled', true).select2({
+                placeholder: 'Filtrar por clase'
+            });
+        }
+    })
+
 
     $('#select-ocupacion-overlay').select2({
         placeholder: 'Elija la ocupación',
