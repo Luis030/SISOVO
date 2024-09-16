@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2024 a las 22:31:48
+-- Tiempo de generación: 16-09-2024 a las 18:34:06
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -90,7 +90,13 @@ INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Fecha`) VALUES
 (5, 6, '2024-08-09'),
 (1, 31, '0000-00-00'),
 (2, 31, '0000-00-00'),
-(3, 31, '0000-00-00');
+(3, 31, '0000-00-00'),
+(11, 2, '0000-00-00'),
+(11, 3, '0000-00-00'),
+(11, 31, '0000-00-00'),
+(11, 5, '0000-00-00'),
+(12, 5, '0000-00-00'),
+(12, 7, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -156,7 +162,9 @@ INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Dia`, `Inicio`, `Final
 (7, 2, 'Historia Antigua', 'Martes', '13:00:00', '14:30:00'),
 (8, 3, 'Física', 'Miércoles', '09:00:00', '10:30:00'),
 (9, 4, 'Poesía', 'Jueves', '14:00:00', '15:30:00'),
-(10, 5, 'Natación', 'Viernes', '10:00:00', '11:30:00');
+(10, 5, 'Natación', 'Viernes', '10:00:00', '11:30:00'),
+(11, 14, 'Clase de Luis', 'Lunes', '04:00:00', '10:00:00'),
+(12, 14, 'Otra clase de Luis', 'Martes', '02:00:00', '04:00:00');
 
 -- --------------------------------------------------------
 
@@ -182,17 +190,17 @@ CREATE TABLE `docentes` (
 --
 
 INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`, `ID_Ocupacion`, `Estado`) VALUES
-(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL, NULL, NULL),
-(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL, NULL, NULL),
-(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL, NULL, NULL),
-(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL, NULL, NULL),
-(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL, NULL, NULL),
-(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23', NULL, NULL),
-(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23', NULL, NULL),
-(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23', NULL, NULL),
-(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23', NULL, NULL),
-(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23', NULL, NULL),
-(14, 120, 'LUIS MANUEL', 'SOSA BERROA', 56777350, 'LManuelSosa@gmail.com', '09250944', '2024-09-03', NULL, NULL);
+(1, 1, 'Carlos', 'Mendoza', 11223344, 'carlos.mendoza@ejemplo.com', '555-1234', NULL, 1, NULL),
+(2, 3, 'María', 'López', 22334455, 'maria.lopez@ejemplo.com', '555-2345', NULL, 2, NULL),
+(3, 5, 'Elena', 'Rodríguez', 33445566, 'elena.rodriguez@ejemplo.com', '555-3456', NULL, 3, NULL),
+(4, 7, 'Lucía', 'Fernández', 44556677, 'lucia.fernandez@ejemplo.com', '555-4567', NULL, 2, NULL),
+(5, 9, 'Laura', 'Díaz', 55667788, 'laura.diaz@ejemplo.com', '555-5678', NULL, 3, NULL),
+(8, 113, 'fsd', 'SOSA CARLOS', 6464324, 'ert', '3634636', '2024-08-23', 1, NULL),
+(9, 114, 'fgh', 'fgh', 34, 'gdf', '346', '2024-08-23', 2, NULL),
+(10, 115, 'FEDERICO', 'SOSA SINIESTRO', 2147483647, 'nopetif@gmail.com', '3634636', '2024-08-23', 3, NULL),
+(11, 116, 'g', 'cb', 324, '2fsad', '24252', '2024-08-23', 1, NULL),
+(12, 117, 'da', 'dsa', 53453, 'dsa', '5423', '2024-08-23', 2, NULL),
+(14, 120, 'LUIS MANUEL', 'SOSA BERROA', 56777350, 'LManuelSosa@gmail.com', '09250944', '2024-09-03', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -341,7 +349,7 @@ CREATE TABLE `informes` (
   `ID_Informe` int(11) NOT NULL,
   `ID_Docente` int(11) NOT NULL,
   `ID_Alumno` int(11) NOT NULL,
-  `Titulo` varchar(20) NOT NULL,
+  `Titulo` varchar(50) NOT NULL,
   `Observaciones` text NOT NULL,
   `Fecha` date NOT NULL,
   `Grado` int(11) DEFAULT NULL,
@@ -363,9 +371,11 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (8, 3, 8, 'Informe Bimestral', 'Excelente en física.', '2024-08-08', NULL, NULL),
 (9, 4, 9, 'Informe Semanal', 'Interés por la poesía.', '2024-08-08', NULL, NULL),
 (10, 5, 10, 'Informe Quincenal', 'Progreso en natación.', '2024-08-08', NULL, NULL),
-(11, 2, 31, 'SADIO MANE', 'Observacion dos en el informe para probar otro.', '0000-00-00', 3, NULL),
-(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5, NULL),
-(13, 3, 31, 'faga', 'ESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\nESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\n\r\nFIRMA: ___ LUIS', '2024-09-12', 2, NULL);
+(11, 2, 31, 'SADIO MANE', 'Observacion dos en el informe para probar otro.', '0000-00-00', 3, 1),
+(12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5, 1),
+(13, 3, 31, 'faga', 'ESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\nESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\n\r\nFIRMA: ___ LUIS', '2024-09-12', 2, 1),
+(14, 14, 5, 'Probando', 'fsfsf', '2024-09-16', 3, 1),
+(15, 14, 31, 'Informe mensual Simo', 'Area de literatura:\nNo se sabe leer el pobre estudiante es un topo que no sabra nunca la materia analista\nfsjlflsd fsdflksdjfl sdfjlk sdlkjf s\nfdslkfjlsf\n\nArea de psicologia:\nel alumno esta loco askjdhakfaskj fkashfk hsakfhksdjf\n', '2024-09-16', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -616,7 +626,7 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`,
 (115, 'FEDERICO SOSA SINIESTRO', 2147483647, '$2y$10$QTkCRc69GBJQiPCPqzhOmOC/D1y/wETYMAt962mPzeIfSqmj1R7Zu', 'docente', NULL),
 (116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente', NULL),
 (117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente', NULL),
-(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'admin', NULL),
+(120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'docente', NULL),
 (122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno', NULL);
 
 --
@@ -737,7 +747,7 @@ ALTER TABLE `asistencias`
 -- AUTO_INCREMENT de la tabla `clase`
 --
 ALTER TABLE `clase`
-  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
@@ -755,7 +765,7 @@ ALTER TABLE `especializaciones`
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `llegada_docente`
