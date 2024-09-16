@@ -40,9 +40,11 @@
 .input-alumno button {
     font-size: 30px;
     margin-top: 0;
+    border: 2px solid var(--color-secundario);
 }
 .input-docente button {
     font-size: 30px;
+    border: 2px solid var(--color-secundario);
 }
 .input-alumno input, .input-docente input{
     border: 2px solid var(--color-secundario);
@@ -159,6 +161,7 @@
     color: var(--color-primario);
     border-radius: 15px;
     margin-top: 2%;
+    border: 2px solid var(--color-secundario);
 }
 .boton-agregar:hover{
     border: 2px solid var(--color-secundario);
@@ -212,6 +215,7 @@
 }
 .lista-item button{
     white-space: nowrap;
+    border: 2px solid var(--color-secundario);
 }
 .items-lista button{
     background-color: var(--color-secundario);
@@ -219,6 +223,7 @@
     padding: 2px;
     border-radius: 5px;
     cursor: pointer;
+    border: 2px solid var(--color-secundario);
 }
 .items-lista button:hover{
     background-color: var(--color-secundario-hover);
@@ -234,6 +239,7 @@
     border-radius: 15px;
     margin-top: 2%;
     margin-bottom: 1%;
+    border: 2px solid var(--color-secundario);
 }
 .boton-todo:hover{
     border: 2px solid var(--color-secundario);

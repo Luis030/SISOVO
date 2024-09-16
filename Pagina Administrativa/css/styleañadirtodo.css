@@ -1,0 +1,166 @@
+/* General, configuración default */
+.contenedor-nuevo-elemento {
+    font-size: 30px;
+    padding: 10px;
+    margin-left: 50px;
+    display: flex;
+    gap: 100px;
+}
+
+.cambiar-pagina p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.botones {
+    display: flex;
+    gap: 1px;
+}
+
+.botones button{
+    font-size: 20px !important;
+    width: 200px;
+    height: 100px;
+    background-color: #f8f7f7;
+    border: 2px solid #000000;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.botones button:hover{
+    filter: brightness(75%);
+}
+
+#especialidadBoton {
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+}
+
+.botonAgregar, .botonAgregarTodo {
+    margin-top: 20px;
+    background-color: var(--color-secundario);
+    padding: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: var(--color-primario);
+    border-radius: 20px;
+    width: 200px;
+    font-size: 30px;
+    cursor: pointer;
+    border: 2px solid var(--color-secundario);
+}
+
+.botonAgregar:hover, .botonAgregarTodo:hover {
+    background-color: var(--color-primario);
+    color: var(--color-secundario);
+}
+
+.botonAgregar:active, .botonAgregarTodo:active {
+    background-color: var(--color-secundario-hover);
+    color: var(--color-secundario);
+}
+
+/* Especialidad */
+
+.formEsp {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.formEsp p {
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.especialidadAgregada {
+    width: 70%;
+    height: 34px !important;
+    font-size: 30px;
+    border: 2px solid var(--color-secundario);
+}   
+
+.formEsp select {
+    width: 70%;
+}
+
+/* Patología */
+
+.formPat {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
+}
+
+.formPat p {
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.patologiaAgregada {
+    width: 70%;
+    height: 34px !important;
+    font-size: 30px;
+    border: 2px solid var(--color-secundario);
+}   
+
+/* Ocupación */
+
+.formOcu {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
+}
+
+.formOcu p {
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.ocupacionAgregada {
+    width: 70%;
+    height: 34px !important;
+    font-size: 30px;
+    border: 2px solid var(--color-secundario);
+}  
+
+/* Agregado al momento */
+
+#tituloAgregado {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.ingresado {
+    border: 2px solid var(--color-secundario);
+    width: 500px;
+    height: 500px;
+}
+
+.botonAgregarTodo {
+    width: 300px !important;
+}
+
+/* Responsive */
+
+@media (max-width: 1500px) {
+    main {
+        overflow-y: auto !important;
+    }
+    .patologiaAgregada, .especialidadAgregada, .ocupacionAgregada, .formEsp select {
+        width: 400px;
+    }
+    .contenedor-nuevo-elemento {
+        flex-direction: column;
+        margin-left: 0px;
+    }
+    .botonAgregar {
+        margin-bottom: -80px;
+    }
+    .ingresado {
+        width: 100%;
+    }
+    .botonAgregarTodo {
+        margin-bottom: 30px;
+    }
+}
