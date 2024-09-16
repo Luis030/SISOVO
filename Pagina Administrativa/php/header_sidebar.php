@@ -81,7 +81,7 @@
                         <a href="#" class="dropdown-toggle" onclick="toggleDropdown();">&#10010; Añadir </a>
                         <ul class="dropdown-menu" id="dropdown-menu">
                             <li><a href="añadiralumno.php">Alumno/Docente</a></li>
-                            <li><a href="añadirespecialidad.php">Especialización/Patologia/Ocupación</a></li>
+                            <li><a href="añadirtodo.php">Especialización/Patologia/Ocupación</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Lista Docente</a></li>
