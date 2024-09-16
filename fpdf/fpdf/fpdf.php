@@ -361,7 +361,7 @@ function Footer($docente, $ocupacion)
 	$this->SetFont('Times', '', 15);
 	$this->Cell(0, 10, "POR CER S.R.L.", 0, 0, 'L');
 	$this->Ln(10);
-	$this->Image('dashedline2.png' , 70, null, 70, 0, 'PNG');
+	$this->Image('dashedline2.png', 70, null, 70, 0, 'PNG');
 	$this->Ln(-20);
 	$this->Cell(0, 10, utf8_decode($ocupacion).' '.utf8_decode($docente), 0, 0, 'C');
 }

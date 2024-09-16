@@ -1,10 +1,10 @@
 <?php
     session_start();
     if(!isset($_SESSION['usuario'])) {
-        header("Location: ../Pagina Principal/Main/index.php");
+        header("Location: ../Pagina Principal/Main/");
     }
     if($_SESSION['Privilegio'] != "alumno") {
-        header("Location: ../Pagina Principal/Main/index.php");
+        header("Location: ../Pagina Principal/Main/");
     }
 
     /* Conectar con la libreria FPDF y la base de datos*/
@@ -15,7 +15,7 @@
     $cedula = $_SESSION['cedula'];
     $idinforme = $_GET['ID'];
     
-    $sql = "SELECT * FROM alumnos A, informes I
+    $sql = "SELECT Nombre, Apellido, Titulo, Cedula, Observaciones, Fecha_Nac, Fecha, Grado, I.Estado AS EstadoInforme, A.Estado AS EstadoAlumno FROM alumnos A, informes I
     WHERE A.ID_Alumno=I.ID_Alumno
     AND I.ID_Informe=$idinforme
     AND Cedula=$cedula;";
@@ -29,8 +29,10 @@
             $fechaNac = $columna['Fecha_Nac'];
             $fechainforme = $columna['Fecha'];
             $grado = $columna['Grado'];
+            $estadoInforme = $columna['EstadoInforme'];
+            $estadoAlumno = $columna['EstadoAlumno'];
         }
-    }
+    }   
     
     /* Funciones */
     function formatoFecha($fechaSQL) {
@@ -118,6 +120,7 @@
     $pdf->SetMargins(20, 20, 20);
     $pdf->Header($mes, $año);
     
+    
     /* Título */
     $pdf->Ln(-35);
     $pdf->SetFont('Times', 'B', 12);
@@ -148,7 +151,7 @@
     /* Se abre el PDF en el navegador */
     header('Content-Type: application/pdf');
     header('Content-Disposition: inline; filename=informe.pdf');
-    $pdf->Output('I', $titulo."pdf", 'false');
+    $pdf->Output('I', $titulo.".pdf");
 ?>
 
 
