@@ -44,12 +44,7 @@ main {
     font-size: 30px;
 }
 
-.informeFecha {
-    height: 20px;
-}
-
 .informeGrado {
-    height: 20px;
     width: 40px;
 }
 
@@ -57,8 +52,8 @@ main {
     width: 21cm;
     height: 70vh;
     resize: none;
-    font-size: 30px;
-    margin-left: -5%;
+    font-size: 20px !important;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .botones {
@@ -98,8 +93,8 @@ main {
     }
     .botonOculto {
         display: block;
-        margin-top: -8%;
-        margin-bottom: 5%;
+        margin-top: -80px;
+        margin-bottom: 50px;
     }
     .info {
         margin-bottom: -10%;
@@ -110,6 +105,14 @@ main {
     .observaciones {
         margin-top: 0px;
         margin-bottom: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .botonOculto {
+        display: block;
+        margin-top: -80px;
+        margin-bottom: 50px;
     }
 }
 
