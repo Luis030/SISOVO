@@ -26,6 +26,10 @@ $(document).ready(function() {
         });
     }
     
+    $('#ocupacionEspecialidad').select2({
+        placeholder: 'Seleccione una ocupación',
+    })
+
     $('#ocupacion-select').select2({
         placeholder: 'Selecciona una ocupación',
         ajax: {
