@@ -356,14 +356,14 @@ function Header($mes, $año)
 	$this->Ln(10);
 }
 
-function Footer($docente, $ocupacion)
+function Footer($nombredocente, $apellidodocente, $ocupacion)
 {	
 	$this->SetFont('Times', '', 15);
 	$this->Cell(0, 10, "POR CER S.R.L.", 0, 0, 'L');
 	$this->Ln(10);
 	$this->Image('dashedline2.png', 70, null, 70, 0, 'PNG');
 	$this->Ln(-20);
-	$this->Cell(0, 10, utf8_decode($ocupacion).' '.utf8_decode($docente), 0, 0, 'C');
+	$this->Cell(0, 10, utf8_decode($ocupacion).' '.utf8_decode($nombredocente).' '.utf8_decode($apellidodocente), 0, 0, 'C');
 }
 
 function PageNo()

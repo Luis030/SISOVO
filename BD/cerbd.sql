@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-09-2024 a las 18:34:06
+-- Tiempo de generación: 17-09-2024 a las 17:18:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -54,7 +54,8 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567', NULL),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678', NULL),
 (10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789', NULL),
-(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827', NULL);
+(31, 122, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827', NULL),
+(32, 123, 'IAN ANDRÉS', 'VOLPI ZAMIT', 56499637, '2007-02-10', 'ianvol10@gmail.com', '123456789', NULL);
 
 -- --------------------------------------------------------
 
@@ -375,7 +376,8 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (12, 3, 31, 'AAAAAAAAAAAAAAAAAAAA', 'El alumno es una persona muy despiadada que logro sabotear la informacion del sitio de tal manera que logro sabotear la informacion confidencial del sitio. Se le conocen transtornos psicopatas que no se lograron mejorar tras 5 años de tratamiento, el alumno tiene la intencion de placer propio y no siente empatia por llos demas, se le habia asignado un gran tutor pero no fue de ayuda ya que se volvio adicto a la piromania. El alumno ha sido sentenciado a pena de muerte.', '2007-03-27', 5, 1),
 (13, 3, 31, 'faga', 'ESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\nESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIAESTO ES UN TEXTO QUE ESTA SIENDO PROBADO POR LA CIA\r\n\r\n\r\nFIRMA: ___ LUIS', '2024-09-12', 2, 1),
 (14, 14, 5, 'Probando', 'fsfsf', '2024-09-16', 3, 1),
-(15, 14, 31, 'Informe mensual Simo', 'Area de literatura:\nNo se sabe leer el pobre estudiante es un topo que no sabra nunca la materia analista\nfsjlflsd fsdflksdjfl sdfjlk sdlkjf s\nfdslkfjlsf\n\nArea de psicologia:\nel alumno esta loco askjdhakfaskj fkashfk hsakfhksdjf\n', '2024-09-16', 0, 1);
+(15, 14, 31, 'Informe mensual Simo', 'Area de literatura:\nNo se sabe leer el pobre estudiante es un topo que no sabra nunca la materia analista\nfsjlflsd fsdflksdjfl sdfjlk sdlkjf s\nfdslkfjlsf\n\nArea de psicologia:\nel alumno esta loco askjdhakfaskj fkashfk hsakfhksdjf\n', '2024-09-16', 0, 1),
+(16, 14, 31, 'hola chavales', 'el alumno saco un revolver en la calse', '2024-09-17', 99, 1);
 
 -- --------------------------------------------------------
 
@@ -458,6 +460,7 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
 (15, 'Cáncer de Pulmón'),
 (16, 'Cardiopatía Congénit'),
 (166, 'carlua'),
+(177, 'cirrosis'),
 (17, 'Colesterol Alto'),
 (53, 'Colitis Ulcerosa'),
 (18, 'COVID-19'),
@@ -584,7 +587,8 @@ INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`) VALUES
 (5, 10),
 (18, 31),
 (54, 31),
-(37, 31);
+(37, 31),
+(177, 32);
 
 -- --------------------------------------------------------
 
@@ -627,7 +631,8 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`,
 (116, 'g cb', 324, '$2y$10$Ei/pOBm1ztXKucRMNhAkje8.B5grLB8sZvgo.D9/u24JeVzf3H0je', 'docente', NULL),
 (117, 'da dsa', 53453, '$2y$10$eKtvyKzhsFr2KS3XJfM.N.MYgkXOkafvTuZQCCCNesYujopZ/suW6', 'docente', NULL),
 (120, 'LUIS MANUEL SOSA BERROA', 56777350, '$2y$10$HCrUd.jNkBQy5DI9oQ43d.IgZL1C/3nuV4j5gNB8HfWnL9q3GVVuK', 'docente', NULL),
-(122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno', NULL);
+(122, 'FEDERICO NICOLAS SIMONELLI CAVALLO', 56129975, '$2y$10$3ghl60w2rlX6hvLSZGPoLu08.RUasbcVzgb5ObWwIALQXF44Lj9b2', 'alumno', NULL),
+(123, 'IAN ANDRÉS VOLPI ZAMIT', 56499637, '$2y$10$EOlQd7.cTahmH15TmmDD1.jsrL1HGp8PsCFosCzxkujhoeVWWIS0a', 'admin', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -735,7 +740,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `asistencias`
@@ -765,7 +770,7 @@ ALTER TABLE `especializaciones`
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `llegada_docente`
@@ -783,13 +788,13 @@ ALTER TABLE `ocupacion`
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- Restricciones para tablas volcadas

@@ -101,7 +101,7 @@
     }
 
     /* Traer datos de la BD */
-    $sql = "SELECT D.Nombre AS Docente, O.Nombre AS Ocupacion
+    $sql = "SELECT D.Nombre AS NombreDocente, D.Apellido AS ApellidoDocente, O.Nombre AS Ocupacion
             FROM docentes D, informes I, ocupacion O 
             WHERE I.ID_Docente=D.ID_Docente
             AND D.ID_Ocupacion=O.ID_Ocupacion 
@@ -109,7 +109,10 @@
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) { 
-            $nombreDocente = $columna['Docente'];
+            $nDocente = $columna['NombreDocente'];
+            $aDocente = $columna['ApellidoDocente'];
+            $primerNombre = explode(" ", $nDocente)[0];
+            $primerApellido = explode(" ", $aDocente)[0];
             $nombreOcupacion = $columna['Ocupacion'];
         }
     }
@@ -146,7 +149,7 @@
     $pdf->Ln(10);
 
     /* Footer */
-    $pdf->Footer($nombreDocente, $nombreOcupacion);
+    $pdf->Footer($primerNombre, $primerApellido, $nombreOcupacion);
 
     /* Se abre el PDF en el navegador */
     header('Content-Type: application/pdf');
