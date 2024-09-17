@@ -29,12 +29,14 @@
                 </div>
             </div>
             <div class="botones">
-                <?php
-                if(isset($_GET['success'])){
-                    echo "<p>Se ha ingresado el informe correctamente.</p>";
-                }
-                ?>
                 <input class="btn" type="submit" value="Enviar">
+                <?php
+                    if(isset($_GET['success'])){
+                        echo "<p style='color:green'>Se ha ingresado el informe correctamente.</p>";
+                        $idInforme = $_SESSION['idInforme'];
+                        echo "<a href='../fpdf/informe.php?ID=$idInforme' target='_blank'>Ver vista previa.</a>";
+                    }
+                ?>
             </div>
         </div>
         <div class="observaciones">
@@ -44,12 +46,13 @@
             </div>
         </div>
         <div class="botonOculto">
-                <?php
-                if(isset($_GET['success'])){
-                    echo "<p>Se ha ingresado el informe correctamente.</p>";
-                }
-                ?>
             <input type="submit" class="btn">
+            <?php
+                if(isset($_GET['success'])){
+                    echo "<p style='color:green'>Se ha ingresado el informe correctamente.</p>";
+                    echo "<a href='../fpdf/informe.php?ID=$idInforme' target='_blank'>Ver vista previa.</a>";
+                }
+            ?>
         </div>
     </form>
 </div>

@@ -20,6 +20,11 @@ main {
     font-size: 30px;
 }
 
+.info {
+    width: 600px;
+    max-width: 600px;
+}
+
 .titulo input, .fecha-grado input {
     height: 40px;
 }
@@ -60,6 +65,32 @@ main {
     margin-top: 20px;
 }
 
+.botones p {
+    margin-bottom: 20px;
+    width: 550px;
+    max-width: 550px;
+    font-size: 25px;
+}
+
+.botones a {
+    background-color: var(--color-secundario);
+    padding: 10px;
+    color: white;
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+    font-size: 30px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 20px;
+    text-decoration: none;
+    border: 2px solid var(--color-secundario);
+}
+
+.botones a:hover {
+    background-color: var(--color-secundario-hover);
+    color: var(--color-secundario);
+}
+
 .btn {
     background-color: var(--color-secundario);
     padding: 10px;
@@ -95,6 +126,29 @@ main {
         display: block;
         margin-top: -80px;
         margin-bottom: 50px;
+    }
+    .botonOculto p {
+        margin-bottom: 20px;
+        width: 550px;
+        max-width: 550px;
+        font-size: 25px;
+    }
+    .botonOculto a {
+        background-color: var(--color-secundario);
+        padding: 10px;
+        color: white;
+        padding-left: 35px !important;
+        padding-right: 35px !important;
+        font-size: 30px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 20px;
+        text-decoration: none;
+        border: 2px solid var(--color-secundario);
+    }
+    .botonOculto a:hover {
+        background-color: var(--color-secundario-hover);
+        color: var(--color-secundario);
     }
     .info {
         margin-bottom: -10%;

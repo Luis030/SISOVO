@@ -64,9 +64,10 @@ $(document).ready(function() {
                 };
             },
             processResults: function (data) {
+                console.log(data);
                 return {
                     results: data.map(function (alumno) {
-                        return { id: alumno.ID_Alumno, text: alumno.Nombre };
+                        return { id: alumno.ID_Alumno, text: alumno.Nombre +' '+ alumno.Apellido };
                     })
                 };
             },

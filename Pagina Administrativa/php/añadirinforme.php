@@ -18,8 +18,22 @@
         
         $sql = "INSERT INTO informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Fecha, Grado, Estado) 
         VALUES ('$idDocente', '$idAlumno', '$titulo', '$observaciones', '$fecha', '$grado', 1)";
-        if(mysqli_query($conexion, $sql) === TRUE){
-            header("Location: ../crearinforme.php?success=true");
+        if(mysqli_query($conexion, $sql) === TRUE) {
+            $idInforme = mysqli_insert_id($conexion);
+            $_SESSION['idInforme'] = $idInforme;
+            echo $idInforme;
+            $sql2 = "SELECT Cedula
+            FROM alumnos
+            WHERE ID_Alumno = '$idAlumno';";
+            $resultado2 = mysqli_query($conexion, $sql2);
+            if($resultado2) {
+                while($fila = mysqli_fetch_assoc($resultado2)){
+                    echo "hola";
+                    $cedulaAlumno = $fila['Cedula'];
+                }
+                $_SESSION['cedulaAlumno'] = $cedulaAlumno;
+                header("Location: ../crearinforme.php?success=true");
+            }
         } else {
             header("Location: ../crearinforme.php?error=true");
         }
