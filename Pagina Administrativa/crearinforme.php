@@ -13,20 +13,14 @@
             </div>
             <div class="alumno">
                 <p class="alumnop">Alumno</p>
-                <select name="alumnoIngresado" id="select-alumno-ingresado" style="width: 100%;" required></select>
+                <select name="alumnoIngresado" id="select-alumno-ingresado" style="width: 100%" style="max-width: 100%;" required></select>
                 <p class="filtrop">Filtrar por clase<input type="checkbox" name="filtrarPorClase" class="porClase"></p>
                 <select name="informeClaseAlumno" class="informeClaseAlumno" style="width:100%" required disabled>
                 </select>
             </div>
-            <div class="fecha-grado">
-                <div class="fecha">
-                    <p>Fecha</p>
-                    <input type="date" name="informeFecha" class="informeFecha" required>
-                </div>
-                <div class="grado">
-                    <p>Grado</p>
-                    <input type="number" name="informeGrado" class="informeGrado" maxlength="2" oninput="this.value=this.value.slice(0,2);" required> °
-                </div>
+            <div class="grado">
+                <p>Grado</p>
+                <input type="number" name="informeGrado" class="informeGrado" maxlength="2" oninput="this.value=this.value.slice(0,2);" required> °
             </div>
             <div class="botones">
                 <input class="btn" type="submit" value="Enviar">
