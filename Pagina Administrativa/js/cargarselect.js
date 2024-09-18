@@ -28,6 +28,20 @@ $(document).ready(function() {
     
     $('#ocupacionEspecialidad').select2({
         placeholder: 'Seleccione una ocupación',
+        ajax: {
+            url: 'php/obtenerocupaciones.php',  
+            dataType: 'json',
+            delay: 250,
+            processResults: function (data) {
+                return {
+                    results: data.map(function (ocupacion) {
+                        return { id: ocupacion.ID_Ocupacion, text: ocupacion.Nombre };
+                    })
+                };
+            },
+            cache: true
+        },
+        minimumInputLength: 0
     })
 
     $('#ocupacion-select').select2({
@@ -45,7 +59,7 @@ $(document).ready(function() {
             },
             cache: true
         },
-        minimumInputLength: 1
+        minimumInputLength: 0
     });
 
     $('#select-alumno-ingresado').select2({
@@ -74,6 +88,7 @@ $(document).ready(function() {
             cache: true
         }
     });
+    
     
 
     $('.informeClaseAlumno').select2({
