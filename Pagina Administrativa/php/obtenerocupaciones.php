@@ -9,12 +9,12 @@ if ($q) {
     // Consulta para buscar coincidencias basadas en el término de búsqueda
     $sql = "SELECT ID_Ocupacion, Nombre 
             FROM ocupacion 
-            WHERE Nombre LIKE '%$q%' 
+            WHERE Nombre LIKE '%$q%' AND Estado = 1 
             LIMIT 50";
 } else {
     // Consulta inicial para cargar 10 elementos por defecto
     $sql = "SELECT ID_Ocupacion, Nombre 
-            FROM ocupacion 
+            FROM ocupacion WHERE Estado = 1
             ORDER BY Nombre ASC 
             LIMIT 10";
 }

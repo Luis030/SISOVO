@@ -8,7 +8,7 @@
         $fecha = $_POST['informeFecha'];
         $grado = $_POST['informeGrado'];
         $observaciones = $_POST['informeObservacion'];
-        $sql = "SELECT ID_Docente from docentes WHERE Cedula=$cedulaDocente";
+        $sql = "SELECT ID_Docente from docentes WHERE Cedula=$cedulaDocente AND Estado = 1";
         $resultado = mysqli_query($conexion, $sql);
         if(mysqli_num_rows($resultado) > 0){
             while($fila = mysqli_fetch_assoc($resultado)){
@@ -24,7 +24,7 @@
             echo $idInforme;
             $sql2 = "SELECT Cedula
             FROM alumnos
-            WHERE ID_Alumno = '$idAlumno';";
+            WHERE ID_Alumno = '$idAlumno' AND Estado = 1;";
             $resultado2 = mysqli_query($conexion, $sql2);
             if($resultado2) {
                 while($fila = mysqli_fetch_assoc($resultado2)){

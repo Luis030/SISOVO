@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $contraseña = generarPassDoc($cedula, $nombre, $apellido);
         $nombreusuario = "$nombre $apellido";
         
-        $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula';";
+        $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula' AND Estado = 1;";
         $cedulausadaverif = mysqli_query($conexion, $cedulausada);
 
         if (mysqli_num_rows($cedulausadaverif) > 0) {

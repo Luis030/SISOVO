@@ -6,7 +6,7 @@
     $sql = "SELECT I.Titulo, I.Fecha, I.Observaciones, A.ID_Alumno, I.ID_Informe
             FROM informes I
             JOIN alumnos A ON I.ID_Alumno = A.ID_Alumno
-            WHERE A.ID_Alumno = ?;";
+            WHERE A.ID_Alumno = ? AND I.Estado = 1";
         
     $consultasql = mysqli_prepare($conexion, $sql); 
     mysqli_stmt_bind_param($consultasql, "i", $idAlumno);

@@ -9,7 +9,7 @@
     alumnos A JOIN alumnos_clase AC ON A.ID_Alumno=AC.ID_Alumno 
     JOIN clase C ON AC.ID_Clase=C.ID_Clase 
     JOIN docentes D on C.ID_Docente=D.ID_Docente 
-    WHERE D.Cedula=$cedula AND (A.Nombre LIKE '%$q%' OR A.Cedula LIKE '%$q%')";
+    WHERE D.Cedula=$cedula AND (A.Nombre LIKE '%$q%' OR A.Cedula LIKE '%$q%') AND A.Estado = 1";
 
     if ($clase !== '') {
         $sql .= " AND C.ID_Clase = $clase";
