@@ -15,8 +15,8 @@
             }
         }
         
-        $sql = "INSERT INTO informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Fecha, Grado, Estado) 
-        VALUES ('$idDocente', '$idAlumno', '$titulo', '$observaciones', CURRENT_DATE, '$grado', 1)";
+        $sql = "INSERT INTO informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Grado, Estado) 
+        VALUES ('$idDocente', '$idAlumno', '$titulo', '$observaciones', '$grado', 1)";
         if(mysqli_query($conexion, $sql) === TRUE) {
             $idInforme = mysqli_insert_id($conexion);
             $_SESSION['idInforme'] = $idInforme;

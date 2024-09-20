@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-09-2024 a las 15:30:01
+-- Tiempo de generación: 20-09-2024 a las 17:55:08
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -54,7 +54,7 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 6, 'Marta', 'Jiménez', 10011223, '2009-08-25', 'marta.jimenez@padres.com', '555-4567', 1),
 (9, 8, 'Diego', 'Navarro', 11122334, '2006-09-30', 'diego.navarro@padres.com', '555-5678', 1),
 (10, 10, 'FEDERICO NICOLAS', 'SIMONELLI CAVALLO', 555, '2010-10-05', 'paula.romero@padres.com', '555-6789', 1),
-(31, 122, 'FEDERICO NICOLAS CAR', 'SIMONELLI CAVALLO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827', 1),
+(31, 122, 'FEDERICO NICOLAS CAR', 'SIMONELLI CAVALOO', 56129975, '2014-09-12', 'LManuelSosa@gmail.com', '239759827', 1),
 (32, 123, 'IAN ANDRÉS', 'VOLPI ZAMIT', 56499637, '2007-02-10', 'ianvol10@gmail.com', '123456789', 1);
 
 -- --------------------------------------------------------
@@ -305,7 +305,11 @@ INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`,
 (82, 'faust;VV;', 2, 1),
 (83, 'fsdfsdf', 3, 1),
 (84, 'dsfdsf', 3, 1),
-(87, 'Parlamento', 1, 1);
+(87, 'Parlamento', 1, 1),
+(88, 'perro', 1, 1),
+(89, 'viehjo', 1, 1),
+(90, 'fdsafdas', 4, 1),
+(91, 'dasda', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -353,7 +357,7 @@ CREATE TABLE `informes` (
   `ID_Alumno` int(11) NOT NULL,
   `Titulo` varchar(50) NOT NULL,
   `Observaciones` text NOT NULL,
-  `Fecha` date NOT NULL,
+  `Fecha` date NOT NULL DEFAULT curdate(),
   `Grado` int(11) DEFAULT NULL,
   `Estado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -379,7 +383,10 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (14, 14, 5, 'Probando', 'fsfsf', '2024-09-16', 3, 1),
 (15, 14, 31, 'Informe mensual Simo', 'Area de literatura:\nNo se sabe leer el pobre estudiante es un topo que no sabra nunca la materia analista\nfsjlflsd fsdflksdjfl sdfjlk sdlkjf s\nfdslkfjlsf\n\nArea de psicologia:\nel alumno esta loco askjdhakfaskj fkashfk hsakfhksdjf\n', '2024-09-16', 0, 1),
 (16, 14, 31, 'hola chavales', 'el alumno saco un revolver en la calse', '2024-09-17', 99, 1),
-(17, 14, 31, 'Informe mensual de prueba', 'Área del conocimiento de lengua:\r\nLectura parcial, le cuesta pronunciar palabras largas o con ñ.\r\nErrores ortográficos y problema con el agrupamiento de cifras de números.\r\n\r\nÁrea del conocimiento matemático:\r\nSabe números de hasta 4 cifras.\r\nErrores graves al intentar sumar y restar números.\r\n\r\nObservaciones conductuales:\r\nEs un niño tranquilo y muy callado. No tiene amigos.\r\nNo se relaciona con nadie de sus compañeros o el docente.\r\n\r\nEn suma:\r\nEs un niño que presenta problemas en varias áreas del aprendizaje. \r\nSe sugiere continuar con apoyo.', '2024-09-17', 5, 1);
+(17, 14, 31, 'Informe mensual de prueba', 'Área del conocimiento de lengua:\r\nLectura parcial, le cuesta pronunciar palabras largas o con ñ.\r\nErrores ortográficos y problema con el agrupamiento de cifras de números.\r\n\r\nÁrea del conocimiento matemático:\r\nSabe números de hasta 4 cifras.\r\nErrores graves al intentar sumar y restar números.\r\n\r\nObservaciones conductuales:\r\nEs un niño tranquilo y muy callado. No tiene amigos.\r\nNo se relaciona con nadie de sus compañeros o el docente.\r\n\r\nEn suma:\r\nEs un niño que presenta problemas en varias áreas del aprendizaje. \r\nSe sugiere continuar con apoyo.', '2024-09-17', 5, 1),
+(18, 14, 31, 'Informe mensual Simonelli', 'GJFGJGHF', '2024-09-18', 5, 1),
+(19, 14, 5, 'Informe mensual Simonelli', 'GFHF', '2024-09-18', 7, 1),
+(20, 14, 31, 'Informe mensual de prueba 3', 'm,jlhjlñjk', '2024-09-20', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -429,7 +436,9 @@ CREATE TABLE `ocupacion` (
 INSERT INTO `ocupacion` (`ID_Ocupacion`, `Nombre`, `Estado`) VALUES
 (1, 'Maestro', 1),
 (2, 'Profesor', 1),
-(3, 'Licenciado', 1);
+(3, 'Licenciado', 1),
+(4, 'Auxiliar', 1),
+(5, 'fdfsfsdf', 1);
 
 -- --------------------------------------------------------
 
@@ -561,7 +570,15 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`, `Estado`) VALUES
 (174, 'mcgregor', 1),
 (175, 'jauagua', 1),
 (176, 'dfsfsf', 1),
-(177, 'cirrosis', 1);
+(177, 'cirrosis', 1),
+(178, 'sdadasda', 1),
+(179, 'kufhdkgsdgdfa', 1),
+(180, 'ciencias', 1),
+(181, 'maleducado', 1),
+(182, 'malagradecido', 1),
+(183, 'gdgdf', 1),
+(184, 'matematicas', 1),
+(185, 'cancer', 1);
 
 -- --------------------------------------------------------
 
@@ -768,13 +785,13 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `llegada_docente`
@@ -786,13 +803,13 @@ ALTER TABLE `llegada_docente`
 -- AUTO_INCREMENT de la tabla `ocupacion`
 --
 ALTER TABLE `ocupacion`
-  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=186;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
