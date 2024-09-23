@@ -12,7 +12,7 @@ if (isset($data['items'])) {
     $patologiasAgregadas = 0;
 
     foreach ($patologias as $patologia) {
-        $consulta = mysqli_prepare($conexion, "SELECT ID_Patologia FROM patologias WHERE Nombre = ? AND Estado = 1");
+        $consulta = mysqli_prepare($conexion, "SELECT ID_Patologia FROM patologias WHERE Nombre = ?");
         mysqli_stmt_bind_param($consulta, 's', $patologia);
         mysqli_stmt_execute($consulta);
         mysqli_stmt_store_result($consulta);

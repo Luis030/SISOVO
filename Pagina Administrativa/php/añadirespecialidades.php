@@ -13,7 +13,7 @@ if (isset($data['items']) && isset($data['ocupacion'])) {
     $especialidadesAgregadas = 0;
 
     foreach ($especialidades as $especialidad) {
-        $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM Especializaciones WHERE Nombre = ? AND Estado = 1");
+        $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM Especializaciones WHERE Nombre = ?");
         mysqli_stmt_bind_param($consulta, 's', $especialidad);
         mysqli_stmt_execute($consulta);
         mysqli_stmt_store_result($consulta);

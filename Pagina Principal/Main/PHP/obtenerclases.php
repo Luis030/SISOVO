@@ -7,7 +7,7 @@
             FROM alumnos_clase AC 
             JOIN alumnos A ON A.ID_Alumno = AC.ID_Alumno
             JOIN Clase C ON C.ID_Clase = AC.ID_Clase 
-            WHERE A.ID_Alumno = ? AND C.Estado = 1";
+            WHERE A.ID_Alumno = ?";
         
     $consultasql = mysqli_prepare($conexion, $sql); 
     mysqli_stmt_bind_param($consultasql, "i", $idAlumno);

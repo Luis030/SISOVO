@@ -12,7 +12,7 @@ if ($tipouser && $id) {
                 FROM patologia_alumno PA 
                 JOIN alumnos A ON PA.ID_Alumno = A.ID_Alumno 
                 JOIN patologias P ON P.ID_Patologia = PA.ID_Patologia 
-                WHERE A.ID_Alumno = ? AND P.Estado = 1";
+                WHERE A.ID_Alumno = ?";
         $consulta = mysqli_prepare($conexion, $sql); 
         mysqli_stmt_bind_param($consulta, "i", $id); // i significa entero
     } else if ($tipouser === "docente") {
@@ -20,7 +20,7 @@ if ($tipouser && $id) {
                 FROM especializaciones E 
                 JOIN especializacion_docente ED ON E.ID_Especializacion = ED.ID_Especializacion 
                 JOIN docentes D ON ED.ID_Docente = D.ID_Docente 
-                WHERE D.ID_Docente = ? AND E.Estado = 1";
+                WHERE D.ID_Docente = ?";
         $consulta = mysqli_prepare($conexion, $sql); 
         mysqli_stmt_bind_param($consulta, "i", $id); 
     } else {

@@ -5,7 +5,7 @@ $cedula = $_SESSION['cedula'];
 $q = isset($_GET['q']) ? $_GET['q'] : '';
 
 
-$sql = "SELECT C.ID_Clase, C.Nombre FROM clase C JOIN docentes D on C.ID_Docente=D.ID_Docente WHERE D.Cedula=$cedula AND C.Nombre LIKE '%$q%' AND C.Estado = 1";
+$sql = "SELECT C.ID_Clase, C.Nombre FROM clase C JOIN docentes D on C.ID_Docente=D.ID_Docente WHERE D.Cedula=$cedula AND C.Nombre LIKE '%$q%'";
 
 $resultado = mysqli_query($conexion, $sql);
 if($resultado){
