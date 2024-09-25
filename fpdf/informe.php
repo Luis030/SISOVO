@@ -128,7 +128,6 @@
     $pdf->SetMargins(20, 20, 20);
     $pdf->Header($mes, $año);
     
-    
     /* Título */
     $pdf->Ln(-35);
     $pdf->SetFont('Times', 'B', 14);
@@ -158,7 +157,7 @@
 
     /* Se abre el PDF en el navegador */
     header('Content-Type: application/pdf');
-    header('Content-Disposition: inline; filename=informe.pdf');
+    header('Content-Disposition: inline; filename=Informe');
     $pdf->Output('I', $titulo.".pdf");
 ?> */
 
