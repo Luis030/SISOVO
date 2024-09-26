@@ -1,59 +1,49 @@
-document.getElementById('hora').addEventListener('change', function() {
-    const hora = this.value;
-    const horas = parseInt(hora.split(':')[0], 10);
-    const minutos = parseInt(hora.split(':')[1], 10);
-    
-    // Validar si la hora está fuera de los rangos permitidos
-    if ((horas < 8 || (horas >= 12 && horas < 14) || horas >= 18) || (horas === 12 && minutos > 0) || (horas === 18 && minutos > 0)) {
-      document.getElementById('errorMsg').style.display = 'block';
-      this.value = ''; // Limpiar el valor
-    } else {
-      document.getElementById('errorMsg').style.display = 'none';
-    }
-  });
-
 function mostrarEditarNombre() { 
     const divNombre = document.getElementById('editandoNombre');
-    if (divNombre.style.display === "none") {
-        divNombre.style.display = "flex"; 
+    if (divNombre.classList.contains('visible')) {
+        divNombre.classList.remove('visible');
     } else {
-        divNombre.style.display = "none";
+        divNombre.classList.add('visible');
     }
 }
 
 function mostrarEditarDia() { 
     const divDia = document.getElementById('editandoDia');
-    if (divDia.style.display === "none") {
-        divDia.style.display = "flex"; 
-    } else {
-        divDia.style.display = "none";
+    if (divDia.style.display == 'none') {
+        divDia.style.display = 'flex';
+    } else {    
+        divDia.style.display = 'none';
     }
 }
 
 function mostrarEditarInicio() { 
     const divInicio = document.getElementById('editandoInicio');
-    if (divInicio.style.display === "none") {
-        divInicio.style.display = "flex"; 
+    if (divInicio.classList.contains('visible')) {
+        divInicio.classList.remove('visible');
     } else {
-        divInicio.style.display = "none";
+        divInicio.classList.add('visible');
     }
 }
 
 function mostrarEditarFinal() { 
     const divFinal = document.getElementById('editandoFinal');
-    if (divFinal.style.display === "none") {
-        divFinal.style.display = "flex"; 
+    if (divFinal.classList.contains('visible')) {
+        divFinal.classList.remove('visible');
     } else {
-        divFinal.style.display = "none";
+        divFinal.classList.add('visible');
     }
 }
 
 function mostrarEditarDocente() { 
     const divDocente = document.getElementById('editandoDocente');
-    if (divDocente.style.display === "none") {
-        divDocente.style.display = "flex"; 
-    } else {
-        divDocente.style.display = "none";
+    if (divDocente.style.display == 'none') {
+        divDocente.style.display = 'flex';
+    } else {    
+        divDocente.style.display = 'none';
     }
 }
 
+function volverAtras() {
+    const volver = document.getElementById('volver');
+    window.open("clases.php");
+}

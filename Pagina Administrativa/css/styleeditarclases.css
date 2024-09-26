@@ -7,33 +7,47 @@
 .editarElemento {
     display: flex;
     align-items: center;
+    justify-content: left;
+}
+
+.editarTop {
+    display: flex;
+    align-items: center;
 }
 
 .editarElemento p {
     margin: 15px;
+    font-weight: 600;
 }
 
 .editarTop img {
     width: 50px;
     height: 50px;
-    margin-bottom: -20px;
+    transition: 0.25s;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.editarTop img:hover {
+    width: 60px;
+    height: 60px;
 }
 
 .editarBottom {
     font-size: 30px;
 }
 
-.editarBottom img {
+.editarElemento img {
     width: 30px;
     height: 30px;
-    margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
     transition: 0.25s;
 }
 
-.editarBottom img:hover {
-    rotate: ;
+.editarElemento img:hover {
+    height: 35px;
+    width: 35px;
 }
 
 #nombreClase, #diaClase, #inicioClase, #finalClase, #docenteClase {
@@ -65,4 +79,20 @@ select {
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid var(--color-secundario);
+}
+
+.fadeNombre, .fadeInicio, .fadeFinal {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease, visibility 0.5s;
+    display: flex;
+}
+
+.fadeNombre.visible, .fadeInicio.visible, .fadeFinal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#spans {
+    font-weight: 500;
 }

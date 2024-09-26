@@ -1,15 +1,16 @@
 /* General, configuración default */
+.content {
+    padding: 40px;
+}
+
 .contenedor-nuevo-elemento {
     font-size: 30px;
-    padding: 10px;
-    margin-left: 50px;
     display: flex;
     gap: 100px;
 }
 
 .cambiar-pagina p {
-    margin-top: 10px;
-    margin-bottom: 5px;
+    margin: 0;
 }
 
 .botones {
@@ -19,8 +20,9 @@
 
 .botones button{
     font-size: 20px !important;
-    width: 200px;
-    height: 100px;
+    margin-top: 5px;
+    width: 140px;
+    height: 50px;
     background-color: #f8f7f7;
     border: 2px solid #000000;
     cursor: pointer;
