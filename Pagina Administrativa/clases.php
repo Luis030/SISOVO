@@ -15,19 +15,19 @@ require_once("php/header_sidebar.php");
     
     <input type="text" class="buscador" data-table="clases" placeholder="Buscar...">
 
-    <div class="tabla-container" id="tabla-alumnos">  <!-- Asegúrate que el ID coincide -->
-        <!-- Aquí se generará la tabla -->
+    <div class="tabla-container" id="tabla-alumnos">  
+        
     </div>
 </div>
 
 <script src="js/tabla.js"></script>
 <script>
     const config = {
-        tipo: 'clases',  // Cambiado a 'clases' para reflejar la nueva configuración
+        tipo: 'clases',  //tipo de la  tabla en data-table
         url: 'php/obtenertodasclases.php', 
         headers: ['Nombre de Clase', 'Docente', 'Día', 'Inicio', 'Final', 'Cantidad de Alumnos'],  // Encabezados de la tabla
         keys: ['Nombre', 'docente', 'Dia', 'Inicio', 'Final', 'cantidad', ],  // Claves de los datos
-        enlace: 'ID_Clase',  // Indica que se debe crear un enlace con el ID
+        enlace: 'ID_Clase',  
         detalleUrl: 'pagina_detalle_clase.php',  // Página de detalle
         selector: '#tabla-alumnos'  // Selector donde se renderiza la tabla
     };

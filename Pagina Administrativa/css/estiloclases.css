@@ -9,14 +9,25 @@ th, td {
 }
 th {
     cursor: pointer;
-    background-color: #f2f2f2;
+    background-color: var(--color-secundario);
+    color: white;
 }
-
+th:hover {
+    background-color: var(--color-hover);
+}
+.botones-accion button{
+    display: none;
+}
+input[type="image"]{
+    width: 20px;
+    height: 20px;
+}
 .buscador {
     font-size: 30px;
     padding: 5px;
     margin-bottom: 3%;
 }
+
 select {
     font-size: 30px;
     padding: 5px;

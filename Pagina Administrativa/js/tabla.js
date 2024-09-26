@@ -57,8 +57,9 @@ function mostrarTabla(tipo, data) {
         // Añadir los botones de "Editar" y "Eliminar" en la columna de acciones
         html += `
             <td>
+                <input type="image" src="img/basura.png" alt="" onclick="eliminar(${item.ID_Clase})">
                 <button onclick="editar(${item.ID_Clase})">Editar</button>
-                <button onclick="eliminar(${item.ID_Clase})">Eliminar</button>
+                
             </td>
         `;
         
