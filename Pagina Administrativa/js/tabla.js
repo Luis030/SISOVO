@@ -121,7 +121,7 @@ function inicializarTabla(config) {
 }
 
 function editar(id) {
-    window.location.href("editarclases.php?id="+id);
+    window.location.href = "editarclases.php?id="+id;
 }
 
 function eliminar(id, nombre) {
