@@ -126,14 +126,13 @@ include("php/header_sidebar.php");
                     <button class="botonguardar">Guardar</button>
                 </div>
                 <?php
-                if($alumnoingresado === TRUE){
-                    echo "<div class='success'>Alumno ingresado correctamente.</div>";
-                } else if ($ceduladuplicada === TRUE){
-                    echo "<div class='error'>Cedula ya ingresada.</div>";
-                } else if($cedulanoexiste === TRUE){
-                    echo "<div class='error'>Cedula inválida.</div>";
-                }
-                
+                    if($alumnoingresado === TRUE) {
+                        echo "<div class='success'>Alumno ingresado correctamente.</div>";
+                    } else if ($ceduladuplicada === TRUE) {
+                        echo "<div class='error'>Cedula ya ingresada.</div>";
+                    } else if($cedulanoexiste === TRUE) {
+                        echo "<div class='error'>Cedula inválida.</div>";
+                    }
                 ?>
             </div>
         </form>

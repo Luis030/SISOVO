@@ -58,7 +58,7 @@ function mostrarTabla(tipo, data) {
         html += `
             <td class="fila-acciones">
                 <input type="image" src="img/basura.png" alt="" onclick="eliminar(${item.ID_Clase})">
-                <input type="image" class="imagen-editar" src="img/editar.png" alt="" onclick="editar(${item.ID_Clase})">
+                <input type="image" class="imagen-editar" src="img/editar.png" alt="" onclick="editar(${item.ID_Clase}, ${item.nombre})">
                 
             </td>
         `;
@@ -98,7 +98,6 @@ function sortTable(tipo, column) {
 }
 
 // Función para filtrar por nombre
-// Función para filtrar por nombre
 function agregarBusqueda(tipo) {
     const buscador = document.querySelector(`.buscador[data-table="${tipo}"]`);
     const buscadorSelect = document.getElementById('buscador-select');
@@ -116,12 +115,32 @@ function agregarBusqueda(tipo) {
     });
 }
 
-
 // Esta función se llamará desde cada página
 function inicializarTabla(config) {
     cargarTabla(config);
 }
 
-function editar(id){
+function editar(id) {
     window.open("editarclases.php?id="+id);
 }
+
+function eliminar(id, nombre) {
+    const overlayCon = document.getElementById('overlayFondo');
+    overlayCon.style.display = 'block';
+    const msgCon = document.getElementById('msgCon');
+    msgCon.textContent = +nombre;
+}
+
+function cerrarEliminar() {
+    const overlayCon = document.getElementById('overlayFondo');
+    overlayCon.style.display = 'none';
+}
+
+document.addEventListener('keydown', (event) => {
+    if(event.key === 'Escape'){
+        const overlayCon = document.getElementById('overlayFondo');
+        if(overlayCon.style.display == "block"){
+        overlayCon.style.display = 'none';
+        }
+    }
+})

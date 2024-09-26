@@ -12,13 +12,24 @@ require_once("php/header_sidebar.php");
         <option value="Final">Final</option>
         <option value="cantidad">Cantidad de Alumnos</option>
     </select>
-    
     <input type="text" class="buscador" data-table="clases" placeholder="Buscar...">
-
     <div class="tabla-container" id="tabla-alumnos">  
-        
+
     </div>
 </div>
+<div id="overlayFondo" style="display: none">
+    <div id="overlayConfirmacion">
+        <div class="salir">
+            <input type="button" value="✖" id="cerrar" onclick="cerrarEliminar()">
+        </div>
+        <div class="eliminar">
+            <p>¿Seguro que quiere eliminar la clase <span id="msgCon"></span>?</p>
+            <button id="conSi">Sí</button>
+            <button id="conNo" onclick="cerrarEliminar()">No</button>
+        </div>
+    </div>
+</div>
+
 
 <script src="js/tabla.js"></script>
 <script>
@@ -37,5 +48,5 @@ require_once("php/header_sidebar.php");
 </script>
 
 <?php
-require_once("php/footer.php");
+    require_once("php/footer.php");
 ?>

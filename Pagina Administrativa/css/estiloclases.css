@@ -1,37 +1,44 @@
-.tabla-container{
+.tabla-container {
     width: 100%;
     height: 70vh;
     overflow-y: auto;
 }
 
-.content{
+.content {
     background-color: var(--color-primario);
 }
+
 table {
     width: 100%;
     border-collapse: collapse;
     color: black;
 }
+
 th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
 }
+
 td {
     background-color: white;
 }
+
 th {
     cursor: pointer;
     background-color: var(--color-secundario);
     color: white;
 }
+
 th:hover {
     background-color: var(--color-hover);
 }
-.botones-accion button{
+
+.botones-accion button {
     display: none;
 }
-input[type="image"]{
+
+input[type="image"] {
     width: 20px;
     height: 20px;
 }
@@ -41,15 +48,21 @@ input[type="image"]{
     padding: 5px;
     margin-bottom: 3%;
 }
-.fila-acciones{
-    display: flex;
-    justify-content: space-evenly;
+
+.fila-acciones {
+    text-align: center;
 }
+
+.imagen-editar {
+    margin-left: 10%;
+}
+
 select {
     font-size: 30px;
     padding: 5px;
     margin-bottom: 3%;
 }
+
 a {
     color: blue; /* Color normal */
     text-decoration: none; /* Sin subrayado */
@@ -62,4 +75,85 @@ a:visited {
 
 a:focus {
     outline: none; /* Sin contorno cuando se hace clic */
+}
+
+#overlayFondo {
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#overlayConfirmacion {
+    z-index: 1000;
+    position: absolute;
+    width: 400px;
+    height: 220px;
+    background: white;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);           
+}
+
+#msgCon {
+    color: blue;
+}
+
+.eliminar {
+    text-align: center;
+}
+
+.eliminar p {
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.eliminar span {
+    font-weight: 600;
+}
+
+.eliminar button {
+    font-size: 20px;
+    margin: 10px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--color-secundario);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer ;
+    border: 2px solid var(--color-secundario);  
+    transition: 0.25s;
+}
+
+.eliminar button:hover {
+    background-color: white;
+    color: black;
+}
+
+.salir {
+    margin-bottom: -40px;
+    padding: 20px;
+    display: flex;
+    justify-content: end;
+    font-size: 25px;
+}
+
+.salir input {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.salir input:hover {
+    background-color: rgb(87, 87, 87)
 }
