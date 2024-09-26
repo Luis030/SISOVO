@@ -70,12 +70,10 @@ function mostrarItems(tipo) {
     actualizarLongitud();
 }
 
-
 function eliminarItem(index, tipo) {
     items.splice(index, 1);
     mostrarItems(tipo);
 }
-
 
 function enviarFormulario(enlace) {
     const contenedorEsp = document.querySelector('.formEsp');
@@ -159,7 +157,6 @@ function actualizarLongitud() {
     longitudElemento.textContent = `Cantidad agregada: ${items.length}`;
 }
 
-
 function mostrarErrores(errores) {
     const contenedorErrores = document.getElementById('errores-items'); 
     contenedorErrores.innerHTML = ''; 
@@ -173,8 +170,6 @@ function mostrarErrores(errores) {
         contenedorErrores.textContent = 'No se encontraron errores.';
     }
 }
-
-
 
 function patologiaForm(){ 
     const contErrores = document.getElementById('errores-items');

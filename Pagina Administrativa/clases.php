@@ -4,15 +4,17 @@ require_once("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloclases.css">
 <div class="contenedor-clases">
-    <select class="buscador-select" id="buscador-select">
-        <option value="Nombre">Nombre de Clase</option>
-        <option value="docente">Docente</option>
-        <option value="Dia">Día</option>
-        <option value="Inicio">Inicio</option>
-        <option value="Final">Final</option>
-        <option value="cantidad">Cantidad de Alumnos</option>
-    </select>
-    <input type="text" class="buscador" data-table="clases" placeholder="Buscar...">
+    <div class="filtros">
+        <select class="buscador-select" id="buscador-select">
+            <option value="Nombre">Nombre de clase</option>
+            <option value="docente">Docente</option>
+            <option value="Dia">Día</option>
+            <option value="Inicio">Inicio</option>
+            <option value="Final">Final</option>
+            <option value="cantidad">Cantidad de alumnos</option>
+        </select>
+        <input type="text" class="buscador" data-table="clases" placeholder="Buscar...">
+    </div>
     <div class="tabla-container" id="tabla-alumnos">  
 
     </div>

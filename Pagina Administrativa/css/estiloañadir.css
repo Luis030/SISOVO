@@ -51,6 +51,7 @@
 
 .input-alumno input, .input-docente input {
     border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario); 
 }
 
 .success {
@@ -69,7 +70,7 @@
     padding: 10px;
     padding-left: 35px;
     padding-right: 35px;
-    color: var(--color-primario);
+    color: white;
     border-radius: 20px;
 }
 
@@ -94,16 +95,16 @@
 }
 
 .cambiarpagina a:hover{
-    color: var(--color-secundario);
+    color: white;
 }
 
 .enlace-activo{
     background-color: var(--color-secundario) !important;
-    color: var(--color-primario) !important;
+    color: white !important;
 }
 
 .nueva-patologia-boton, .nueva-especialidad-boton {
-    background-color: var(--color-secundario);
+    background-color: white !important;
     font-size: 30px;
     color: var(--color-primario);
 }

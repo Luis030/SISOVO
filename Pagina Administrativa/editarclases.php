@@ -18,9 +18,7 @@
         }
     }
 ?>
-<link rel="stylesheet" href="css/estiloselect2.css">
 <link rel="stylesheet" href="css/styleeditarclases.css">
-<script src="js/cargarselect.js"></script>
 <script src="js/editarclases.js"></script>
 <div class="editarClase">
     <div class="mainEditar">
@@ -40,9 +38,9 @@
             <div class="editarElemento">
                 <p>Día: <span id="spans"><?php echo $diaClase ?></span></p>
                 <img src="https://www.svgrepo.com/show/535562/pencil-square.svg" alt="Editar" id="editarDia" onclick="mostrarEditarDia()">
-                <div id="editandoDia" class="fadeDia" style="display: none">
+                <div id="editandoDia" class="fadeDia">
                     <select name="diaNuevo" id="ingresarDia">
-                        <option selected disabled></option>
+                        <option selected disabled>Seleccione un día</option>
                         <option value="1">Lunes</option>
                         <option value="2">Martes</option>
                         <option value="3">Miércoles</option>
@@ -71,7 +69,7 @@
             <div class="editarElemento">
                 <p>Docente: <span id="spans"><?php echo $nombreDocente ?></span></p>
                 <img src="https://www.svgrepo.com/show/535562/pencil-square.svg" alt="Editar" id="editarDocente" onclick="mostrarEditarDocente()">
-                <div id="editandoDocente" style="display: none">
+                <div id="editandoDocente" class="fadeDocente">
                     <select name="nuevoDocente" id="ingresarDocente"></select>
                     <button id="guardarInput">Guardar</button>
                 </div>

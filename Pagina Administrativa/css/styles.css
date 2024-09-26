@@ -15,6 +15,7 @@ input[type="number"]::-webkit-outer-spin-button {
     --color-primario: rgb(156, 175, 180);
     --color-secundario: rgb(17, 97, 129);
     --color-terciario: rgb(135, 164, 172);
+    --color-cuartetario: rgb(192, 216, 223);
     --color-secundario-hover: #2dd8d8;
     --border-color: red !important;
     --color-hover: rgb(26, 132, 173);
@@ -202,10 +203,11 @@ header .menu-toggle {
 .dropdown-menu li a:hover{
     color: var(--color-secundario) !important;
 }
+
 .dropdown-menu li a {
     font-weight: normal;
     padding: 2px 0;
-    font-size: 15px !important;
+    font-size: 20px !important;
 }
 
 /* Responsive Styles */

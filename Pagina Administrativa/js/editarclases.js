@@ -9,10 +9,10 @@ function mostrarEditarNombre() {
 
 function mostrarEditarDia() { 
     const divDia = document.getElementById('editandoDia');
-    if (divDia.style.display == 'none') {
-        divDia.style.display = 'flex';
-    } else {    
-        divDia.style.display = 'none';
+    if (divDia.classList.contains('visible')) {
+        divDia.classList.remove('visible');
+    } else {
+        divDia.classList.add('visible');
     }
 }
 
@@ -36,14 +36,14 @@ function mostrarEditarFinal() {
 
 function mostrarEditarDocente() { 
     const divDocente = document.getElementById('editandoDocente');
-    if (divDocente.style.display == 'none') {
-        divDocente.style.display = 'flex';
-    } else {    
-        divDocente.style.display = 'none';
+    if (divDocente.classList.contains('visible')) {
+        divDocente.classList.remove('visible');
+    } else {
+        divDocente.classList.add('visible');
     }
 }
 
 function volverAtras() {
     const volver = document.getElementById('volver');
-    window.open("clases.php");
+    window.location.href = "clases";
 }

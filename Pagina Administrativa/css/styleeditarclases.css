@@ -59,36 +59,41 @@
     height: 34px !important;
     font-size: 30px;
     border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario);
 }
 
 input[type="time"] {
     height: 34px !important;
     font-size: 30px;
     border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario);
 }
 
 select {
-    width: 40%;
+    background-color: var(--color-cuartetario);
+    border: 2px solid var(--color-secundario);
+    height: 40px;
+    font-size: 30px;
 }
 
 #guardarInput {
     margin-left: 10px;
     background-color: var(--color-secundario);
-    color: var(--color-primario);
+    color: white;
     padding: 2px;
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid var(--color-secundario);
 }
 
-.fadeNombre, .fadeInicio, .fadeFinal {
+.fadeNombre, .fadeDia, .fadeInicio, .fadeFinal, .fadeDocente {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.15s ease, visibility 0.5s;
     display: flex;
 }
 
-.fadeNombre.visible, .fadeInicio.visible, .fadeFinal.visible {
+.fadeNombre.visible, .fadeDia.visible, .fadeInicio.visible, .fadeFinal.visible, .fadeDocente.visible {
     opacity: 1;
     visibility: visible;
 }
