@@ -1,5 +1,14 @@
 $(document).ready(function() {
     // Inicializar Select2 para ocupación
+
+    $('#ingresarDia').select2({
+        placeholder: 'Seleccione un día',
+    })
+
+    $('#ingresarDocente').select2({
+        placeholder: 'Seleccione un docente',
+    })
+
     if($('#patologias-select').length){
         $('#patologias-select').select2({
             placeholder: 'Busca o selecciona patologías...', 
@@ -88,8 +97,6 @@ $(document).ready(function() {
             cache: true
         }
     });
-    
-    
 
     $('.informeClaseAlumno').select2({
         placeholder: 'Filtrar por clase'
@@ -140,6 +147,7 @@ $(document).ready(function() {
             cache: true
         }
     })
+
     // Inicializar Select2 para especialidades, pero desactivado inicialmente
     $('#especialidades-select').select2({
         placeholder: 'Busca o selecciona especialidades',

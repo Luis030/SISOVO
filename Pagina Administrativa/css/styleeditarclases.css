@@ -1,0 +1,68 @@
+.editarClase {
+    display: flex;
+    padding: 40px;
+    margin-top: -20px;
+}
+
+.editarElemento {
+    display: flex;
+    align-items: center;
+}
+
+.editarElemento p {
+    margin: 15px;
+}
+
+.editarTop img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: -20px;
+}
+
+.editarBottom {
+    font-size: 30px;
+}
+
+.editarBottom img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.editarBottom img:hover {
+    rotate: ;
+}
+
+#nombreClase, #diaClase, #inicioClase, #finalClase, #docenteClase {
+    margin-left: 10px;
+}
+
+#ingresarNombre {
+    width: 70%;
+    height: 34px !important;
+    font-size: 30px;
+    border: 2px solid var(--color-secundario);
+}
+
+input[type="time"] {
+    height: 34px !important;
+    font-size: 30px;
+    border: 2px solid var(--color-secundario);
+}
+
+select {
+    width: 40%;
+}
+
+#guardarInput {
+    margin-left: 10px;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid var(--color-secundario);
+}
