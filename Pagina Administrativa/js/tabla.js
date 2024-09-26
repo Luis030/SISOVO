@@ -43,7 +43,7 @@ function mostrarTabla(tipo, data) {
         tablaInfo.keys.forEach(key => {
             // Agregar enlace en la columna de "Nombre" de la clase
             if (key === 'Nombre') { 
-                html += `<td><a href="editarclases.php?id=${item.ID_Clase}">${item[key]}</a></td>`;
+                html += `<td><a href="detalle_clases.php?id=${item.ID_Clase}">${item[key]}</a></td>`;
             } 
             // Agregar enlace en la columna de "Docente"
             else if (key === 'docente') {

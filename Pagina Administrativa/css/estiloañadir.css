@@ -191,7 +191,7 @@
 
 .cerrar-agregar-overlay input {
     color: var(--color-secundario);
-    background-color: var(--color-primario);
+    background-color: white;
     font-size: 30px;
     cursor: pointer;
     border: 0px;
