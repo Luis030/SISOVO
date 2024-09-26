@@ -54,11 +54,11 @@ function mostrarTabla(tipo, data) {
             }
         });
 
-        // Añadir los botones de "Editar" y "Eliminar" en la columna de acciones
+        // Añadir los botones de "Editar" y "Eliminar" en la columna de acciones // En la linea 60 se le pone \'\' a item.nombre para que convierta una variable a una cadena de texto en html sino da error
         html += `
             <td class="fila-acciones">
-                <input type="image" src="img/basura.png" alt="" onclick="eliminar(${item.ID_Clase})">
-                <input type="image" class="imagen-editar" src="img/editar.png" alt="" onclick="editar(${item.ID_Clase}, ${item.nombre})">
+                <input type="image" src="img/basura.png" alt="" onclick="eliminar(${item.ID_Clase}, \`${item.Nombre}\`)"> 
+                <input type="image" class="imagen-editar" src="img/editar.png" alt="" onclick="editar(${item.ID_Clase})">
                 
             </td>
         `;
@@ -128,7 +128,20 @@ function eliminar(id, nombre) {
     const overlayCon = document.getElementById('overlayFondo');
     overlayCon.style.display = 'block';
     const msgCon = document.getElementById('msgCon');
-    msgCon.textContent = +nombre;
+    msgCon.textContent = nombre;
+    const botonSi = document.getElementById('conSi');
+    botonSi.addEventListener('click', function() {
+        fetch("php/borrarclase.php?id="+id)
+        .then(data => data.json())
+        .then(dato => {
+            if(dato.Resultado == "exitoso"){
+                cerrarEliminar()
+                cargarTabla(tablas['clases'])
+            } else if(dato.Resultado == "error"){
+                alert("que desonra");
+            }
+        })
+    })
 }
 
 function cerrarEliminar() {
