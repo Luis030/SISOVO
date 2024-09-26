@@ -1,6 +1,6 @@
 <?php
-require_once("../BD/conexionbd.php");
-require_once("php/header_sidebar.php");
+    require_once("../BD/conexionbd.php");
+    require_once("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloclases.css">
 <div class="contenedor-clases">

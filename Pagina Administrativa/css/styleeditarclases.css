@@ -18,6 +18,10 @@
 .editarElemento p {
     margin: 15px;
     font-weight: 600;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    white-space: pre
 }
 
 .editarTop img {
@@ -37,10 +41,11 @@
     font-size: 30px;
 }
 
-.editarElemento img {
+.editarElemento p img {
     width: 30px;
     height: 30px;
     margin-right: 10px;
+    margin-left: 10px;
     cursor: pointer;
     transition: 0.25s;
 }
@@ -100,4 +105,21 @@ select {
 
 #spans {
     font-weight: 500;
+}
+
+#ingresarDocente {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .editarBottom {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .editarElemento {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start ;
+    }
 }

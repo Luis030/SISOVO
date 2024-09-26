@@ -1,12 +1,26 @@
 $(document).ready(function() {
-    // Inicializar Select2 para ocupación
-
-    $('#ingresarDia').select2({
-        placeholder: 'Seleccione un día',
-    })
 
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',
+        minimumInputLength: 0, 
+        ajax: {
+            url: 'php/obtenerdocentes.php', 
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || ''
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (docentes) {
+                        return { id: docentes.ID_Docente, text: docentes.Nombre +" "+docentes.Apellido};
+                    })
+                };
+            },
+            cache: true
+        }
     })
 
     if($('#patologias-select').length){
