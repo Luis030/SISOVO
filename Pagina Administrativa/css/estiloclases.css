@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+
+.buscador {
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 3%;
+}
+select {
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 3%;
+}
+a {
+    color: blue; /* Color normal */
+    text-decoration: none; /* Sin subrayado */
+}
+
+a:visited {
+    color: blue; /* Color para enlaces visitados */
+    text-decoration: none; /* Sin subrayado */
+}
+
+a:focus {
+    outline: none; /* Sin contorno cuando se hace clic */
+}
