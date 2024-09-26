@@ -56,9 +56,9 @@ function mostrarTabla(tipo, data) {
 
         // Añadir los botones de "Editar" y "Eliminar" en la columna de acciones
         html += `
-            <td>
+            <td class="fila-acciones">
                 <input type="image" src="img/basura.png" alt="" onclick="eliminar(${item.ID_Clase})">
-                <button onclick="editar(${item.ID_Clase})">Editar</button>
+                <input type="image" class="imagen-editar" src="img/editar.png" alt="" onclick="editar(${item.ID_Clase})">
                 
             </td>
         `;
@@ -120,4 +120,8 @@ function agregarBusqueda(tipo) {
 // Esta función se llamará desde cada página
 function inicializarTabla(config) {
     cargarTabla(config);
+}
+
+function editar(id){
+    window.open("editarclases.php?id="+id);
 }

@@ -1,11 +1,24 @@
+.tabla-container{
+    width: 100%;
+    height: 70vh;
+    overflow-y: auto;
+}
+
+.content{
+    background-color: var(--color-primario);
+}
 table {
     width: 100%;
     border-collapse: collapse;
+    color: black;
 }
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid black;
     padding: 8px;
     text-align: left;
+}
+td {
+    background-color: white;
 }
 th {
     cursor: pointer;
@@ -22,12 +35,16 @@ input[type="image"]{
     width: 20px;
     height: 20px;
 }
+
 .buscador {
     font-size: 30px;
     padding: 5px;
     margin-bottom: 3%;
 }
-
+.fila-acciones{
+    display: flex;
+    justify-content: space-evenly;
+}
 select {
     font-size: 30px;
     padding: 5px;
