@@ -23,7 +23,7 @@
                 <input type="number" name="informeGrado" class="informeGrado" maxlength="2" oninput="this.value=this.value.slice(0,2);" required> °
             </div>
             <div class="botones">
-                <input class="btn" type="submit" value="Enviar">
+                <button class="btn">Enviar</button>
                 <?php
                     if(isset($_GET['success'])){
                         echo "<p style='color:green'>Se ha ingresado el informe correctamente.</p>";

@@ -22,7 +22,7 @@
         </div>
         <h1>SISOVO Corporation</h1>
         <div class="imgsiso">
-            <img src="Diseño/IMG/Sisovo Corporation Logo.png" alt="Logo Sisovo Corporation" class="logosiso">
+            <img src="Diseño/IMG/logosisovo.png" alt="Logo Sisovo Corporation" class="logosiso">
         </div>
         <div id="pic">
             <div id="pics">

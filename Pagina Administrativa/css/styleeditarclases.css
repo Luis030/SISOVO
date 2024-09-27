@@ -93,11 +93,11 @@ select {
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid var(--color-secundario);
+    transition: 0.25s;
 }
 
 #guardarInput:hover {
-    background-color: var(--color-secundario-hover);
-    color: var(--color-secundarios);
+    filter: brightness(75%);
 }
 
 .fadeNombre, .fadeDia, .fadeInicio, .fadeFinal, .fadeDocente {

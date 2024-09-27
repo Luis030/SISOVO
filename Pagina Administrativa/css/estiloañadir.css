@@ -76,12 +76,12 @@
     padding-right: 35px;
     color: white;
     border-radius: 20px;
+    transition: 0.25s;
+    cursor: pointer;
 }
 
 .botonguardar:hover {
-    background-color: var(--color-secundario-hover);
-    cursor: pointer;
-    color: var(--color-secundario);
+    filter: brightness(75%);
 }
 
 .cambiarpagina {
@@ -182,12 +182,11 @@
     border-radius: 15px;
     margin-top: 2%;
     border: 2px solid var(--color-secundario);
+    transition: 0.25s;
 }
 
 .boton-agregar:hover {
-    border: 2px solid var(--color-secundario);
-    color: var(--color-secundario);
-    background-color: white;
+    filter: brightness(75%);
     cursor: pointer;
 }
 
@@ -268,12 +267,11 @@
     margin-top: 2%;
     margin-bottom: 1%;
     border: 2px solid var(--color-secundario);
+    transition: 0.25s;
 }
 
 .boton-todo:hover {
-    border: 2px solid var(--color-secundario);
-    color: var(--color-secundario);
-    background-color: white;
+    filter: brightness(75%);
     cursor: pointer;
 }
 

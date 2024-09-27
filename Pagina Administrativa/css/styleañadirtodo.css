@@ -55,11 +55,11 @@
     font-size: 30px;
     cursor: pointer;
     border: 2px solid var(--color-secundario);
+    transition: 0.25s;  
 }
 
 .botonAgregar:hover, .botonAgregarTodo:hover {
-    background-color: var(--color-secundario-hover);
-    color: var(--color-secundario);
+    filter: brightness(75%);
 }
 
 .botonAgregar:active, .botonAgregarTodo:active {

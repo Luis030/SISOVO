@@ -6,12 +6,12 @@
 <div class="contenedor-clases">
     <div class="filtros">
         <select class="buscador-select" id="buscador-select">
-            <option value="Nombre">Nombre de Clase</option>
+            <option value="Nombre">Nombre de clase</option>
             <option value="docente">Docente</option>
             <option value="Dia">Día</option>
             <option value="Inicio">Inicio</option>
             <option value="Final">Final</option>
-            <option value="cantidad">Cantidad de Alumnos</option>
+            <option value="cantidad">Cantidad de alumnos</option>
         </select>
         <input type="text" class="buscador" data-table="clases" placeholder="Buscar...">
     </div>
