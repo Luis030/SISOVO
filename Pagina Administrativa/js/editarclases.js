@@ -84,6 +84,5 @@ function mostrarEditarDocente() {
 }
 
 function volverAtras() {
-    const volver = document.getElementById('volver');
-    window.location.href = "clases";
+    window.history.back();
 }

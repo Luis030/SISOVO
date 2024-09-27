@@ -181,6 +181,55 @@ a:focus {
     margin-bottom: 50px;
 }
 
+.agregar-boton-alumno{
+    font-size: 25px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+    border-radius: 15px;
+    margin-top: 2%;
+    border: 2px solid var(--color-secundario);
+    cursor: pointer;
+    color: white;
+}
+.agregar-boton-alumno:hover{
+    background-color: var(--color-secundario-hover);
+}
+.agregar-boton-alumno:active{
+    background-color: var(--color-hover);
+}
+
+.boton-editar-clase{
+    background-color: var(--color-secundario);
+    text-decoration: none;
+    color: white !important;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--color-secundario);
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+.boton-editar-clase:hover{
+    background-color: var(--color-secundario-hover);
+}
+.boton-editar-clase:active{
+    background-color: var(--color-hover);
+}
+.tabla-alumnos{
+    margin-bottom: 3%;
+}
+.buscadores-select{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 10px;
+}
 @media (max-width: 768px) {
     .filtros {
         display: flex;

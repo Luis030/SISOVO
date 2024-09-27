@@ -41,7 +41,6 @@
         headers: ['Nombre de Clase', 'Docente', 'Día', 'Inicio', 'Final', 'Cantidad de Alumnos'],  // Encabezados de la tabla
         keys: ['Nombre', 'docente', 'Dia', 'Inicio', 'Final', 'cantidad', ],  // Claves de los datos
         enlace: 'ID_Clase',  
-        detalleUrl: 'pagina_detalle_clase.php',  // Página de detalle
         selector: '#tabla-alumnos'  // Selector donde se renderiza la tabla
     };
 

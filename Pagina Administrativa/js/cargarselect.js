@@ -30,7 +30,7 @@ $(document).ready(function() {
             ajax: {
                 url: 'php/obtenerpatologias.php', 
                 dataType: 'json',
-                delay: 250, // Tiempo de espera antes de enviar la solicitud al servidor
+                delay: 250,  
                 data: function (params) {
                     // Definir el término de búsqueda; si no hay término, obtener los primeros resultados
                     return {
@@ -210,7 +210,7 @@ $(document).ready(function() {
     $('#select-alumnos').select2({
         placeholder: "Buscar alumno..",
         minimumInputLength: 0,
-        /*ajax: {
+        ajax: {
             url: 'php/alumnos.php',
             dataType: 'json',
             delay: 250,
@@ -221,13 +221,13 @@ $(document).ready(function() {
             },
             processResults: function (data) {
                 return {
-                    results: data.map(function (especialidad){
-                        return { id: especialidad.ID_Especializacion, text: especialidad.Nombre };
+                    results: data.map(function (alumno){
+                        return { id: alumno.ID_Alumno, text: alumno.NombreCompleto };
                     })
                 };
             },
             cache: true
-        }*/
+        }
     })
 });
 

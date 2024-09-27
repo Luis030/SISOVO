@@ -1,6 +1,14 @@
 <?php
 require_once("../BD/conexionbd.php");
 require_once("php/header_sidebar.php");
+$agregado = false;
+$error = false;
+if(isset($_GET['success'])){
+    $agregado = true;
+}
+if(isset($_GET['error'])){
+    $error = true;
+}
 $idclase = $_GET['id'];
 $sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Dia, C.Inicio, C.Final, COUNT(AC.ID_Alumno) as cantidad
         FROM Clase C
@@ -26,37 +34,50 @@ if (mysqli_num_rows($resultado) > 0) {
 }
 
 ?>
+<link rel="stylesheet" href="css/estiloselect2.css">
 <link rel="stylesheet" href="css/estiloclases.css">
 <script src="js/cargarselect.js"></script>
 <div class="contenedor-detalle-clases">
-    <div class="detalle-clases">
+    <div class="detalle-clases" style="display: flex;">
         <?php
+        echo "<div>";
         echo "<p style='font-size:30px'>";
         echo "<strong>Nombre: </strong>" .$datosClase['Nombre'] ."   <strong>Docente: </strong>" .$datosClase['docente']. "  <strong>Dia: </strong>" .$datosClase['Dia'];
         echo "</p>";
         echo "<p style='font-size:30px'>";
         echo "<strong>Inicio: </strong>" .$datosClase['Inicio'] ."   <strong>Final: </strong>" .$datosClase['Final']. "  <strong>Cantidad de alumnos: </strong>" .$cantidadAlumnos;
         echo "</p>";
+        echo "</div>";
         ?>
+        <a class="boton-editar-clase" href="editarclases.php?id=<?php echo $idclase ?>">Editar datos</a>
     </div>
-    <select class="buscador-select" id="buscador-select">
-        <option value="Nombre">Nombre</option>
-        <option value="Apellido">Apellido</option>
-        <option value="Cedula">Cédula</option>
-        <option value="Fecha_nac">Nacimiento</option>
-        <option value="Mail_Padres">Correo</option>
-        <option value="Celular_Padres">Celular</option>
-    </select>
-    <input type="text" class="buscador" data-table="alumnos" placeholder="Buscar...">
-    <div class="tabla-alumnos" id="tabla-alumnos"></div>
+    <div class="buscadores-select">
+        <select class="buscador-select" id="buscador-select">
+            <option value="Nombre">Nombre</option>
+            <option value="Apellido">Apellido</option>
+            <option value="Cedula">Cédula</option>
+            <option value="Fecha_nac">Nacimiento</option>
+            <option value="Mail_Padres">Correo</option>
+            <option value="Celular_Padres">Celular</option>
+        </select>
+        <input type="text" class="buscador" data-table="alumnos" placeholder="Buscar...">
+    </div>
+    <div class="tabla-alumnos" id="tabla-alumnos" style="border: 1px solid black;"></div>
     <div class="select-alumnos-container">
-        <form action="" method="post">
-            <select name="alumnos" id="select-alumnos" style="width: 100%;" multiple>
-                <option value="yhtrhr">fdsfdsfs</option>
-                <option value="fhg">gsdfgsdf</option>
-                <option value="hgf">gfdgdsg</option>
+        <form action="php/agregaralumnoclase.php?id=<?php echo $idclase ?>" method="post">
+            <select name="alumnos[]" id="select-alumnos" style="width: 100%;" multiple required>
             </select>
-            <button>Agregar</button>
+            <div class="boton-mensaje" style="display: flex; align-items:center;">
+                <button class="agregar-boton-alumno">Agregar</button>
+                <?php
+                if($agregado === true){
+                    echo "<p style='font-size:40px; color:white; margin-left:15%;'>Alumno/s ingresados correctamente</p>";
+                }
+                if($error === true){
+                    echo "<p style='font-size:40px; color:white; margin-left:15%;'>Algunos alumnos ya estan ingresados.</p>";
+                }
+                ?>
+            </div>
         </form>
     </div>
 </div>
@@ -68,7 +89,7 @@ if (mysqli_num_rows($resultado) > 0) {
         headers: ['Nombre', 'Apellido', 'Cedula', 'Fecha de nacimiento', 'Correo', 'Celular'],  // Encabezados de la tabla
         keys: ['Nombre', 'Apellido', 'Cedula', 'Fecha_nac', 'Mail_Padres', 'Celular_Padres', ],  // Claves de los datos
         enlace: 'ID_Alumno',  
-        detalleUrl: 'pagina_detalle_clase.php',  // Página de detalle
+        detalleUrl: 'carlos.php',  // Página de detalle
         selector: '#tabla-alumnos'  // Selector donde se renderiza la tabla
     };
     // Llamar a la función para inicializar la tabla
