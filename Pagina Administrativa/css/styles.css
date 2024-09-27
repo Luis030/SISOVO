@@ -16,7 +16,7 @@ input[type="number"]::-webkit-outer-spin-button {
     --color-secundario: rgb(17, 97, 129);
     --color-terciario: rgb(135, 164, 172);
     --color-cuartetario: rgb(192, 216, 223);
-    --color-secundario-hover: #2dd8d8;
+    --color-secundario-hover: white;
     --border-color: red !important;
     --color-hover: rgb(26, 132, 173);
     --color-tablas: rgb(104, 126, 133);

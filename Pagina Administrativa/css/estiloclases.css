@@ -65,6 +65,10 @@ input[type="image"] {
     background-color: var(--color-cuartetario);
 }
 
+input::placeholder {
+    color: #333333;
+}
+
 .fila-acciones {
     text-align: center;
 }

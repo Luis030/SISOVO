@@ -86,23 +86,23 @@ include("php/header_sidebar.php");
             <div class="formulario-docente">
                 <div class="input-docente">
                     <p>Nombres</p>
-                    <input type="text" class="input-formulario" name="nombre" required>
+                    <input type="text" class="input-formulario" name="nombre" required placeholder="Ingrese un nombre">
                 </div>
                 <div class="input-docente">
                     <p>Apellidos</p>
-                    <input type="text" class="input-formulario" name="apellido" required>
+                    <input type="text" class="input-formulario" name="apellido" required placeholder="Ingrese un apellido">
                 </div>
                 <div class="input-docente">
                     <p>Cédula</p>
-                    <input type="number" class="input-formulario" name="cedula" required>
+                    <input type="number" class="input-formulario" name="cedula" required placeholder="Ingrese una cédula">
                 </div>
                 <div class="input-docente">
                     <p>Correo</p>
-                    <input type="text" class="input-formulario" name="correo">
+                    <input type="text" class="input-formulario" name="correo" placeholder="Ingrese un correo (Opcional)">
                 </div>
                 <div class="input-docente">
                     <p>Celular</p>
-                    <input type="number" class="input-formulario" name="celular" required>
+                    <input type="number" class="input-formulario" name="celular" required placeholder="Ingrese un número de teléfono">
                 </div>
                 <div class="input-docente">
                     <p>Fecha de Nacimiento</p>

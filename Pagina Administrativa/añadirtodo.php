@@ -15,11 +15,11 @@
                 <button id="ocupacionBoton" onclick="ocupacionForm()">Ocupación</button>
             </div>
         </div>
-        <div class="formEsp" style="display: flex">
+        <div class="formEsp" style="display: grid">
             <p>Nombre de la especialidad</p>
             <input type="text" name="especialidadAgregada" id="boton-agregar-esp" class="especialidadAgregada" required placeholder="Ingrese un nombre">
             <p>Ocupación</p>
-            <select name="ocupacionEspecialidad" id="ocupacionEspecialidad" required></select>
+            <select name="ocupacionEspecialidad" id="ocupacionEspecialidad" required style="width: 100%" style="background: rgb(192, 216, 223)"></select>
             <input type="submit" value="Agregar" class="botonAgregar" onclick="agregarItem('boton-agregar-esp', 'verificar.php?esp=true')">
         </div>
         <div class="formPat" style="display: none">

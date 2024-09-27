@@ -5,8 +5,13 @@
 
 .contenedor-nuevo-elemento {
     font-size: 30px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
     gap: 100px;
+}
+
+.cambiar-pagina {
+    width: 100%;
 }
 
 .cambiar-pagina p {
@@ -35,7 +40,7 @@
 
 #especialidadBoton {
     background-color: var(--color-secundario);
-    color: var(--color-primario);
+    color: white;
 }
 
 .botonAgregar, .botonAgregarTodo {
@@ -44,7 +49,7 @@
     padding: 10px;
     padding-left: 35px;
     padding-right: 35px;
-    color: var(--color-primario);
+    color: white;
     border-radius: 20px;
     width: 200px;
     font-size: 30px;
@@ -53,7 +58,7 @@
 }
 
 .botonAgregar:hover, .botonAgregarTodo:hover {
-    background-color: var(--color-primario);
+    background-color: var(--color-secundario-hover);
     color: var(--color-secundario);
 }
 
@@ -62,12 +67,15 @@
     color: var(--color-secundario);
 }
 
-/* Especialidad */
+.formEsp select {
+    width: 540px;
+}
 
+/* Especialidad */
 .formEsp {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 100%;
 }
 
 .formEsp p {
@@ -76,22 +84,22 @@
 }
 
 .especialidadAgregada {
-    width: 70%;
+    width: 100% !important;
     height: 34px !important;
     font-size: 30px;
     border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario);
 }   
 
-.formEsp select {
-    width: 70%;
+.especialidadAgregada::placeholder {
+    color: #333333;
 }
 
 /* Patología */
-
 .formPat {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;    
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 100%;
 }
 
 .formPat p {
@@ -100,18 +108,22 @@
 }
 
 .patologiaAgregada {
-    width: 70%;
+    width: 100% !important;
     height: 34px !important;
     font-size: 30px;
     border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario);
 }   
 
-/* Ocupación */
+.patologiaAgregada::placeholder {
+    color: #333333
+}
 
+/* Ocupación */
 .formOcu {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;    
+    display: grid;
+    grid-template-rows: 1fr;
+    width: 100%;
 }
 
 .formOcu p {
@@ -120,14 +132,18 @@
 }
 
 .ocupacionAgregada {
-    width: 70%;
+    width: 100% !important;
     height: 34px !important;
     font-size: 30px;
     border: 2px solid var(--color-secundario);
-}  
+    background-color: var(--color-cuartetario);
+}
+
+.ocupacionAgregada::placeholder {
+    color: #333333
+}
 
 /* Agregado al momento */
-
 #tituloAgregado {
     margin-bottom: 5px;
     margin-top: 10px;
@@ -137,6 +153,7 @@
     border: 2px solid var(--color-secundario);
     width: 500px;
     height: 500px;
+    background-color: var(--color-cuartetario);
 }
 
 .botonAgregarTodo {
@@ -160,16 +177,18 @@
     word-break: break-all;  
     white-space: normal;
 }
-.lista-item button{
+
+.lista-item button {
     white-space: nowrap;
+    color: white !important;
     border: 2px solid var(--color-secundario);
 }
 
-.lista-item-agregado{
+.lista-item-agregado {
     background-color: red !important;
     color: white !important;
 }
-.ingresado button{
+.ingresado button {
     background-color: var(--color-secundario);
     color: var(--color-primario);
     padding: 2px;
@@ -177,33 +196,34 @@
     cursor: pointer;
     border: 2px solid var(--color-secundario);
 }
-.ingresado button:hover{
+
+.ingresado button:hover {
     background-color: var(--color-secundario-hover);
 }
 
 #errores-items{
     margin-top: 4%;
 }
-/* Responsive */
 
+h5 {
+    margin: 0;
+    margin-top: 20px;
+}
+
+/* Responsive */
 @media (max-width: 1500px) {
     main {
         overflow-y: auto !important;
     }
-    .patologiaAgregada, .especialidadAgregada, .ocupacionAgregada, .formEsp select {
-        width: 400px;
-    }
     .contenedor-nuevo-elemento {
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         margin-left: 0px;
     }
-    .botonAgregar {
-        margin-bottom: -80px;
-    }
     .ingresado {
-        width: 100%;
-    }
-    .botonAgregarTodo {
-        margin-bottom: 30px;
+        width: 450px;
+        height: 450px;
     }
 }

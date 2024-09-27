@@ -1,6 +1,6 @@
 /* Cambia el fondo y el color de texto del select */
 .select2-container--default .select2-selection--multiple {
-    background-color: #ffffff; 
+    background-color: var(--color-cuartetario); 
     border: 1px solid var(--color-secundario); 
     min-height: 40px;
 }
@@ -35,7 +35,7 @@
 }
 
 .select2-container--default .select2-selection--single {
-    background-color: #ffffff;  
+    background-color: var(--color-cuartetario);  
     border: 1px solid var(--color-secundario);     
 }
 
@@ -44,4 +44,21 @@
     padding: 8px;     /* Cambiar el padding del contenedor */
     height: auto;     /* Ajustar altura automática si el padding cambia el tamaño */
 }
+
+/* Cambiar color del texto placeholder en Select2 */
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #333333; /* Cambia este valor por el color que desees */
+}
+
+/* Cambiar el color del placeholder para select múltiple en Select2 */
+.select2-container--default .select2-selection--multiple .select2-search--inline .select2-search__field::placeholder {
+    color: #333333;
+}
+
+/* Cambiar el fondo, borde y color de un Select2 deshabilitado */
+.select2-container--default.select2-container--disabled .select2-selection--multiple {
+    background-color: rgb(184, 182, 182);
+    border: #333333 solid 1px;
+}
+
 

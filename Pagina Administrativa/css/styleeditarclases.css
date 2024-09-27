@@ -67,6 +67,10 @@
     background-color: var(--color-cuartetario);
 }
 
+input::placeholder {
+    color: #333333;
+}
+
 input[type="time"] {
     height: 34px !important;
     font-size: 30px;
@@ -89,6 +93,11 @@ select {
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid var(--color-secundario);
+}
+
+#guardarInput:hover {
+    background-color: var(--color-secundario-hover);
+    color: var(--color-secundarios);
 }
 
 .fadeNombre, .fadeDia, .fadeInicio, .fadeFinal, .fadeDocente {

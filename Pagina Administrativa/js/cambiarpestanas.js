@@ -195,8 +195,8 @@ function patologiaForm(){
     }
     tituloP.textContent = 'Patologías agregadas'
     botonPat.style.backgroundColor = 'var(--color-secundario)';
-    botonPat.style.color = 'var(--color-primario)';
-    contenedorPat.style.display = 'flex';
+    botonPat.style.color = 'white';
+    contenedorPat.style.display = 'grid';
 
     botonEsp.style.backgroundColor = '#f8f7f7';
     botonEsp.style.color = '#000000'
@@ -233,9 +233,10 @@ function ocupacionForm(){
     botonEsp.style.color = '#000000'
     contenedorEsp.style.display = 'none';
     tituloP.textContent = 'Ocupaciones agregadas';
+
     botonOcu.style.backgroundColor = 'var(--color-secundario)'
-    botonOcu.style.color = 'var(--color-primario)';
-    contenedorOcu.style.display = 'flex'
+    botonOcu.style.color = 'white';
+    contenedorOcu.style.display = 'grid'
 }
 
 function especialidadForm(){
@@ -259,8 +260,8 @@ function especialidadForm(){
 
     tituloP.textContent = 'Especialidades agregadas';
     botonEsp.style.backgroundColor = 'var(--color-secundario)'
-    botonEsp.style.color = 'var(--color-primario)';
-    contenedorEsp.style.display = 'flex'
+    botonEsp.style.color = 'white';
+    contenedorEsp.style.display = 'grid'
 
     botonOcu.style.backgroundColor = '#f8f7f7';
     botonOcu.style.color = '#000000'

@@ -38,6 +38,10 @@
     margin: 3px
 }
 
+.input-alumno input::placeholder, .input-docente input::placeholder {
+    color: #333333
+}
+
 .input-alumno button {
     font-size: 30px;
     margin-top: 0;
@@ -87,15 +91,16 @@
 
 .cambiarpagina a {
     text-decoration: none;
-    background-color: var(--color-primario);
+    background-color: var(--color-secundario-hover);
     font-size: 30px;
     padding: 10px;
     color: black;
     border: 2px solid black;
+    transition: 0.25s;
 }
 
 .cambiarpagina a:hover{
-    color: white;
+    filter: brightness(75%);
 }
 
 .enlace-activo{
@@ -104,9 +109,9 @@
 }
 
 .nueva-patologia-boton, .nueva-especialidad-boton {
-    background-color: white !important;
+    background-color: var(--color-cuartetario) !important;
     font-size: 30px;
-    color: var(--color-primario);
+    color: #333333;
 }
 
 .nueva-patologia-boton:hover, .nueva-especialidad-boton:hover {
@@ -173,7 +178,7 @@
     padding-left: 20px;
     padding-right: 20px;
     background-color: var(--color-secundario);
-    color: var(--color-primario);
+    color: white;
     border-radius: 15px;
     margin-top: 2%;
     border: 2px solid var(--color-secundario);
@@ -182,7 +187,7 @@
 .boton-agregar:hover {
     border: 2px solid var(--color-secundario);
     color: var(--color-secundario);
-    background-color: var(--color-primario);
+    background-color: white;
     cursor: pointer;
 }
 
@@ -234,6 +239,7 @@
 .lista-item button {
     white-space: nowrap;
     border: 2px solid var(--color-secundario);
+    color: white;
 }
 
 .items-lista button {
@@ -243,10 +249,12 @@
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid var(--color-secundario);
+    color: white;
 }
 
 .items-lista button:hover {
-    background-color: var(--color-secundario-hover);
+    background-color: white;
+    color: var(--color-secundario);
 }
 
 .boton-todo {
@@ -255,7 +263,7 @@
     padding-left: 20px;
     padding-right: 20px;
     background-color: var(--color-secundario);
-    color: var(--color-primario);
+    color: white;
     border-radius: 15px;
     margin-top: 2%;
     margin-bottom: 1%;
@@ -265,7 +273,7 @@
 .boton-todo:hover {
     border: 2px solid var(--color-secundario);
     color: var(--color-secundario);
-    background-color: var(--color-primario);
+    background-color: white;
     cursor: pointer;
 }
 
