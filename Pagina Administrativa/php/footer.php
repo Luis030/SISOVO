@@ -4,15 +4,15 @@
     <button id="cerrarabout">✖</button>
     <div class="contenido-imagenes">
         <div class="div-imagen">
-                <img src="https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3383.jpg" alt="Luis Sosa" id="img1">
+                <img src="../img/luis2.jpg" alt="Luis Sosa" id="img1">
                 <h1>Luis Sosa</h1>
         </div>
         <div class="div-imagen">
-                <img src="https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3383.jpg" alt="Luis Sosa" id="img2">
+                <img src="../img/fede2.jpg" alt="Federico Simonelli" id="img2">
                 <h1>Federico Simonelli</h1>
         </div>
         <div class="div-imagen">
-                <img src="https://img.freepik.com/vector-premium/icono-perfil-avatar-predeterminado-imagen-usuario-redes-sociales-icono-avatar-gris-silueta-perfil-blanco-ilustracion-vectorial_561158-3383.jpg" alt="Luis Sosa" id="img3">
+                <img src="../img/ian2.jpg" alt="Ian Volpi" id="img3">
                 <h1>Ian Volpi</h1>
         </div>
     </div>
