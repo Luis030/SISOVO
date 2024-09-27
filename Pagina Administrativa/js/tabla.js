@@ -1,16 +1,16 @@
-const tablas = {};  // Almacenará la configuración de las tablas
+const tablas = {}; 
 
-let dataGlobal = {};  // Para almacenar los datos de cada tabla
-let order = {};       // Mantener el estado de orden de cada tabla
+let dataGlobal = {}; 
+let order = {};       
 
 // Función para cargar los datos de la tabla desde el backend
 function cargarTabla(config) {
-    tablas[config.tipo] = config;  // Guardar la configuración específica de la tabla
+    tablas[config.tipo] = config;  
 
     fetch(config.url)
         .then(response => response.json())
         .then(data => {
-            dataGlobal[config.tipo] = data;  // Guardar los datos en dataGlobal
+            dataGlobal[config.tipo] = data;  
             mostrarTabla(config.tipo, data);  // Mostrar los datos en la tabla
             agregarBusqueda(config.tipo);     // Iniciar la funcionalidad de búsqueda
         })
@@ -41,11 +41,9 @@ function mostrarTabla(tipo, data) {
     data.forEach(item => {
         html += '<tr>';
         tablaInfo.keys.forEach(key => {
-            // Agregar enlace en la columna de "Nombre" de la clase
             if (key === 'Nombre') { 
                 html += `<td><a href="detalle_clases.php?id=${item.ID_Clase}">${item[key]}</a></td>`;
             } 
-            // Agregar enlace en la columna de "Docente"
             else if (key === 'docente') {
                 html += `<td><a href="pagina_detalle_docente.php?id=${item.ID_Docente}">${item[key]}</a></td>`;
             } 
@@ -54,7 +52,6 @@ function mostrarTabla(tipo, data) {
             }
         });
 
-        // Añadir los botones de "Editar" y "Eliminar" en la columna de acciones // En la linea 60 se le pone \'\' a item.nombre para que convierta una variable a una cadena de texto en html sino da error
         html += `
             <td class="fila-acciones">
                 <input type="image" src="img/basura.png" alt="" onclick="eliminar(${item.ID_Clase}, \`${item.Nombre}\`)"> 
@@ -104,10 +101,9 @@ function agregarBusqueda(tipo) {
 
     buscador.addEventListener('keyup', function() {
         const filtro = this.value.toLowerCase();
-        const campoSeleccionado = buscadorSelect.value;  // Obtener el valor seleccionado
+        const campoSeleccionado = buscadorSelect.value;  
 
         const filtrados = dataGlobal[tipo].filter(item => {
-            // Verificar si la clave seleccionada está presente en el objeto
             return item[campoSeleccionado] && item[campoSeleccionado].toString().toLowerCase().includes(filtro);
         });
 
@@ -115,7 +111,7 @@ function agregarBusqueda(tipo) {
     });
 }
 
-// Esta función se llamará desde cada página
+// Esta función se va a llamardx desde cada página
 function inicializarTabla(config) {
     cargarTabla(config);
 }

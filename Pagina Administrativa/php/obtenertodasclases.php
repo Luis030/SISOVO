@@ -1,7 +1,7 @@
 <?php
 require_once("../../BD/conexionbd.php");
 
-header('Content-Type: application/json');  // Asegúrate de que la respuesta sea en formato JSON
+header('Content-Type: application/json');  
 
 $sql = "SELECT C.ID_Clase, C.ID_Docente, D.Nombre as docente, C.Nombre, C.Dia, C.Inicio, C.Final, COUNT(AC.ID_Alumno) as cantidad
         FROM Clase C
@@ -25,5 +25,5 @@ if (json_last_error() !== JSON_ERROR_NONE) {
     echo json_encode($clases);
 }
 
-mysqli_close($conexion);  // Cerrar la conexión
+mysqli_close($conexion);  
 ?>

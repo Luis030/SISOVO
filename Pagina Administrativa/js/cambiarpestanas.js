@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const contenedorPat = document.querySelector('.formPat');
         const contenedorEsp = document.querySelector('.formEsp');
         const contenedorOcu = document.querySelector('.formOcu');
-        if(contenedorPat.style.display == "flex"){
+        if(contenedorPat.style.display == "grid"){
             enviarFormulario("php/añadirpatologias.php");
         }
-        if(contenedorEsp.style.display == "flex"){
+        if(contenedorEsp.style.display == "grid"){
             enviarFormulario("php/añadirespecialidades.php");
         }
-        if(contenedorOcu.style.display == "flex"){
+        if(contenedorOcu.style.display == "grid"){
             enviarFormulario("php/añadirocupacion.php");
         }
     })
