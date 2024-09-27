@@ -869,7 +869,7 @@ ALTER TABLE `patologia_alumno`
   ADD CONSTRAINT `patologia_alumno_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`),
   ADD CONSTRAINT `patologia_alumno_ibfk_3` FOREIGN KEY (`ID_Patologia`) REFERENCES `patologias` (`ID_Patologia`) ON DELETE CASCADE;
 COMMIT;
-
+GRANT ALL PRIVILEGES ON cerbd.* TO cer identified by 'clinicacer';
 grant insert on cerbd.alumnos to administrador identified by 'admin@pass';
 grant insert on cerbd.docentes to administrador;
 grant insert on cerbd.clase to administrador;

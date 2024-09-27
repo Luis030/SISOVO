@@ -121,7 +121,7 @@ include("php/header_sidebar.php");
                     </select>
                 </div>
                 <div class="input-docente">
-                    <button class="botonguardar">Enviar</button>
+                    <button class="botonguardar">Guardar</button>
                 </div>
                 <div class="input-alumno">
                     <?php
