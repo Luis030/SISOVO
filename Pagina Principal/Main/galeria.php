@@ -58,7 +58,7 @@
         <div class="imagen-container">
             <img src="Diseño/IMG/galeria5.jpg" alt="Descripción de la imagen" class="imagen">
             <div class="info-box">
-                <p>Imagen repetida ian saca otra.</p>
+                <p>Imagen repetida</p>
             </div>
         </div>      
     </div>
