@@ -25,7 +25,7 @@
             <input type="button" value="✖" id="cerrar" onclick="cerrarEliminar()">
         </div>
         <div class="eliminar">
-            <p>¿Seguro que quiere eliminar la clase <span id="msgCon"></span>?</p>
+            <p class="conf">¿Seguro que quiere eliminar la clase <span id="msgCon"></span>?</p>
             <button id="conSi">Sí</button>
             <button id="conNo" onclick="cerrarEliminar()">No</button>
         </div>

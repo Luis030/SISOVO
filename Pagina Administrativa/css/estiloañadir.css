@@ -255,11 +255,11 @@
     cursor: pointer;
     border: 2px solid var(--color-secundario);
     color: white;
+    cursor: pointer;
 }
 
 .items-lista button:hover {
-    background-color: white;
-    color: var(--color-secundario);
+    filter: brightness(75%);
 }
 
 .boton-todo {

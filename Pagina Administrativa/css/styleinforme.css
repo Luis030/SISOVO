@@ -93,8 +93,7 @@ main {
 }
 
 .botones a:hover {
-    background-color: var(--color-secundario-hover);
-    color: var(--color-secundario);
+    filter: brightness(75%);
 }
 
 .btn {
@@ -117,6 +116,10 @@ main {
 
 .botonOculto {
     display: none;
+}
+
+.botonOculto input {
+    background-color: var(--color-secundario);
 }
 
 @media (max-width: 1500px) {
@@ -158,8 +161,7 @@ main {
         border: 2px solid var(--color-secundario);
     }
     .botonOculto a:hover {
-        background-color: var(--color-secundario-hover);
-        color: var(--color-secundario);
+        filter: brightness(75%);
     }
     .botones {
         display: none;

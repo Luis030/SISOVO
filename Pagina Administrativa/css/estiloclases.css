@@ -206,7 +206,7 @@ a:focus {
     filter: brightness(75%);
 }
 
-.boton-editar-clase{
+.boton-editar-clase {
     background-color: var(--color-secundario);
     text-decoration: none;
     color: white !important;
@@ -223,13 +223,16 @@ a:focus {
     cursor: pointer;
     transition: 0.25s;
 }
-.boton-editar-clase:hover{
+
+.boton-editar-clase:hover {
     filter: brightness(75%);
 }
-p{
+
+p {
     margin: 0;
 }
-.volver{
+
+.volver {
     width: 50px;
     height: 50px;
     transition: 0.25s;
@@ -237,14 +240,20 @@ p{
     cursor: pointer;
 }
 
-.tabla-alumnos{
+.tabla-alumnos {
     margin-bottom: 3%;
 }
-.buscadores-select{
+
+.buscadores-select {
     display: grid;
     grid-template-columns: 1fr 3fr;
     gap: 10px;
 }
+
+.conf {
+    margin-top: 20px;
+}
+
 @media (max-width: 768px) {
     .filtros {
         display: flex;

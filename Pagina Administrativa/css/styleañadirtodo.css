@@ -188,6 +188,7 @@
     background-color: red !important;
     color: white !important;
 }
+
 .ingresado button {
     background-color: var(--color-secundario);
     color: var(--color-primario);
@@ -198,10 +199,10 @@
 }
 
 .ingresado button:hover {
-    background-color: var(--color-secundario-hover);
+    filter: brightness(75%);
 }
 
-#errores-items{
+#errores-items {
     margin-top: 4%;
 }
 
