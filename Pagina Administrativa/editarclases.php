@@ -38,7 +38,7 @@
         $resultado = mysqli_query($conexion, $sql);
     }   
 
-    $sql = "SELECT C.Nombre AS NombreClase, Dia, Inicio, Final, D.Nombre AS NombreDocente, Apellido
+    $sql = "SELECT C.Nombre AS NombreClase, Dia, DATE_FORMAT(C.Inicio, '%H:%i') AS hora_inicio, DATE_FORMAT(C.Final, '%H:%i') AS hora_final, D.Nombre AS NombreDocente, Apellido
     FROM Clase C, Docentes D
     WHERE C.ID_Docente = D.ID_Docente AND ID_Clase = $idClase";
     $resultado = mysqli_query($conexion, $sql);
@@ -46,8 +46,8 @@
         while($columna = mysqli_fetch_assoc($resultado)) {
             $nombreClase = $columna['NombreClase'];
             $diaClase = $columna['Dia'];
-            $inicioClase = $columna['Inicio'];
-            $finalClase = $columna['Final'];
+            $inicioClase = $columna['hora_inicio'];
+            $finalClase = $columna['hora_final'];
             $nombreDocente = $columna['NombreDocente'] ." ". $columna['Apellido'];
         }
     }

@@ -39,7 +39,7 @@
         tipo: 'clases',  //tipo de la  tabla en data-table
         url: 'php/obtenertodasclases.php', 
         headers: ['Nombre de Clase', 'Docente', 'Día', 'Inicio', 'Final', 'Cantidad de Alumnos'],  // Encabezados de la tabla
-        keys: ['Nombre', 'docente', 'Dia', 'Inicio', 'Final', 'cantidad', ],  // Claves de los datos
+        keys: ['Nombre', 'docente', 'Dia', 'hora_inicio', 'hora_final', 'cantidad', ],  // Claves de los datos
         enlace: 'ID_Clase',  
         selector: '#tabla-alumnos'  // Selector donde se renderiza la tabla
     };

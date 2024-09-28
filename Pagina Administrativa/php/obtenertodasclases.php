@@ -3,7 +3,7 @@ require_once("../../BD/conexionbd.php");
 
 header('Content-Type: application/json');  
 
-$sql = "SELECT C.ID_Clase, C.ID_Docente, D.Nombre as docente, C.Nombre, C.Dia, C.Inicio, C.Final, COUNT(AC.ID_Alumno) as cantidad
+$sql = "SELECT C.ID_Clase, C.ID_Docente, D.Nombre AS docente, C.Nombre, C.Dia, DATE_FORMAT(C.Inicio, '%H:%i') AS hora_inicio, DATE_FORMAT(C.Final, '%H:%i') AS hora_final, COUNT(AC.ID_Alumno) AS cantidad
         FROM Clase C
         JOIN Docentes D ON C.ID_Docente = D.ID_Docente
         LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase

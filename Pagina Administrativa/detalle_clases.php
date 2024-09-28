@@ -10,7 +10,7 @@ if(isset($_GET['error'])){
     $error = true;
 }
 $idclase = $_GET['id'];
-$sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Dia, C.Inicio, C.Final, COUNT(AC.ID_Alumno) as cantidad
+$sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Dia, DATE_FORMAT(C.Inicio, '%H:%i') AS hora_inicio, DATE_FORMAT(C.Final, '%H:%i') AS hora_final, COUNT(AC.ID_Alumno) as cantidad
         FROM Clase C
         JOIN Docentes D ON C.ID_Docente = D.ID_Docente
         LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase WHERE C.ID_Clase=$idclase
@@ -27,8 +27,8 @@ if (mysqli_num_rows($resultado) > 0) {
         $datosClase['docente'] = $fila['docente'];
         $datosClase['Nombre'] = $fila['Nombre'];
         $datosClase['Dia'] = $fila['Dia'];
-        $datosClase['Inicio'] = $fila['Inicio'];
-        $datosClase['Final'] = $fila['Final'];
+        $datosClase['Inicio'] = $fila['hora_inicio'];
+        $datosClase['Final'] = $fila['hora_final'];
         $cantidadAlumnos = $fila['cantidad'];
     }
 }
