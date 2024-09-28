@@ -170,6 +170,12 @@
 
 .form-agregar input[type="text"] {
     font-size: 30px;
+    border: var(--color-secundario) 2px solid;
+    background-color: var(--color-cuartetario);
+}
+
+.form-agregar input[type="text"]::placeholder {
+    color: #333333;
 }
 
 .boton-agregar {
@@ -203,7 +209,7 @@
 }
 
 .cerrar-agregar-overlay input:hover {
-    color: var(--color-secundario-hover);
+    color: black;
 }
 
 .items-agregadas {

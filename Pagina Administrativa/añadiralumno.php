@@ -146,7 +146,7 @@ include("php/header_sidebar.php");
         <div class="container-agregar-overlay">
             <div class="form-agregar">
                 <h1>Patologia</h1>
-                <input type="text" id="boton-agregar-items">
+                <input type="text" id="boton-agregar-items" placeholder="Ingrese una pat.">
                 <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarItem()">
                 <p id="longitud-array-items">Cantidad agregada: 0</p>
                 <a href="#">Pagina de patologias</a>

@@ -186,7 +186,7 @@ a:focus {
     margin-bottom: 50px;
 }
 
-.agregar-boton-alumno{
+.agregar-boton-alumno {
     font-size: 25px;
     padding: 10px;
     padding-left: 30px;
@@ -198,12 +198,11 @@ a:focus {
     border: 2px solid var(--color-secundario);
     cursor: pointer;
     color: white;
+    transition: 0.25s;
 }
-.agregar-boton-alumno:hover{
-    background-color: var(--color-secundario-hover);
-}
-.agregar-boton-alumno:active{
-    background-color: var(--color-hover);
+
+.agregar-boton-alumno:hover {
+    filter: brightness(75%);
 }
 
 .boton-editar-clase{
@@ -220,13 +219,13 @@ a:focus {
     margin-top: 2%;
     margin-left: 5%;
     margin-bottom: 2%;
+    cursor: pointer;
+    transition: 0.25s;
 }
 .boton-editar-clase:hover{
-    background-color: var(--color-secundario-hover);
+    filter: brightness(75%);
 }
-.boton-editar-clase:active{
-    background-color: var(--color-hover);
-}
+
 .tabla-alumnos{
     margin-bottom: 3%;
 }

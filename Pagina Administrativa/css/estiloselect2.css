@@ -8,7 +8,7 @@
 /* Cambia el estilo de los elementos seleccionados */
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     background-color: var(--color-secundario-hover); 
-    color: #ffffff; 
+    color: #333333; 
     border-radius: 10px;
 }
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
