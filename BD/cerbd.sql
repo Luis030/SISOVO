@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2024 a las 03:13:24
+-- Tiempo de generación: 30-09-2024 a las 01:16:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -204,8 +204,8 @@ INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedul
 (8, 18, 'Carlos', 'Méndez', 45659784, 'carlos.méndez@example.com', '091633174', '1998-12-04', 8, 1),
 (9, 19, 'Paula', 'Gutiérrez', 71192529, 'paula.gutiérrez@example.com', '098201334', '2004-08-19', 9, 1),
 (10, 20, 'Jorge', 'Herrera', 15918386, 'jorge.herrera@example.com', '095486464', '1985-02-05', 10, 1),
-(12, 23, 'Ian Andrés', 'Volpi Samit', 56499637, 'ianvol10@gmail.com', '123456789', '2007-02-10', 5, 1),
-(13, 24, 'Luis Manuel', 'Sosa Berroa', 56777350, 'LManuelSosa@gmail.com', '092504454', '2007-03-27', 5, 1);
+(13, 24, 'Luis Manuel', 'Sosa Berroa', 56777350, 'LManuelSosa@gmail.com', '092504454', '2007-03-27', 5, 1),
+(14, 25, 'Ian Andrés', 'Volpi Zamit', 56499637, 'nopetif@gmail.com', '09250944', '2007-03-27', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -265,8 +265,10 @@ CREATE TABLE `especializacion_docente` (
 --
 
 INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`) VALUES
-(2, 12),
-(3, 13);
+(3, 13),
+(15, 14),
+(14, 14),
+(13, 14);
 
 -- --------------------------------------------------------
 
@@ -420,64 +422,9 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`,
 (19, 'Paula Gutiérrez', 99001122, 'clave606', 'docente', 1),
 (20, 'Jorge Herrera', 112233, 'clave707', 'docente', 1),
 (22, 'Federico Nicolás Simonelli Cavallo', 56129975, '$2y$10$4Z0SClNg.Evh2eVrI.daWuKodQfZeObBqRewU2uInm9OSC1Vmkwxe', 'alumno', 1),
-(23, 'Ian Andrés Volpi Samit', 56499637, '$2y$10$AAV6SsgVfLAqIY5LgHxVf.b0CtVvjtzprcr58RqCD9Qhb82P4pyqi', 'admin', 1),
-(24, 'Luis Manuel Sosa Berroa', 56777350, '$2y$10$AEGAlZvNY1avPNO2yiQzcO4JgDlSCg2BA7kQ1e5dIEn3Np3m6hYvy', 'docente', 1);
+(24, 'Luis Manuel Sosa Berroa', 56777350, '$2y$10$AEGAlZvNY1avPNO2yiQzcO4JgDlSCg2BA7kQ1e5dIEn3Np3m6hYvy', 'docente', 1),
+(25, 'Ian Andrés Volpi Zamit', 56499637, '$2y$10$y2cGLZVJKWR31MPz5d7yu.VUnM1RMTkA4GYVnTDBec3zxzC6CslK2', 'admin', 1);
 
-
-
-GRANT ALL PRIVILEGES ON cerbd.* TO cer identified by 'clinicacer';
-grant insert on cerbd.alumnos to administrador identified by 'admin@pass';
-grant insert on cerbd.docentes to administrador;
-grant insert on cerbd.clase to administrador;
-grant insert on cerbd.patologias to administrador;
-grant insert on cerbd.especializaciones to administrador;
-grant insert on cerbd.usuarios to administrador;
-grant insert on cerbd.ocupacion to administrador;
-grant insert on cerbd.patologia_alumno to administrador;
-grant insert on cerbd.especializacion_docente to administrador;
-grant insert on cerbd.llegada_docente to administrador;
-grant insert on cerbd.alumnos_clase to administrador;
-
-grant select on cerbd.alumnos to administrador;
-grant select on cerbd.docentes to administrador;
-grant select on cerbd.clase to administrador;
-grant select on cerbd.patologias to administrador;
-grant select on cerbd.especializaciones to administrador;
-grant select on cerbd.usuarios to administrador;
-grant select on cerbd.ocupacion to administrador;
-grant select on cerbd.patologia_alumno to administrador;
-grant select on cerbd.especializacion_docente to administrador;
-grant select on cerbd.llegada_docente to administrador;
-grant select on cerbd.alumnos_clase to administrador;
-grant select on cerbd.informes to administrador;
-
-grant delete on cerbd.patologias to administrador;
-grant delete on cerbd.especializaciones to administrador;
-grant delete on cerbd.clase to administrador;
-grant delete on cerbd.alumnos_clase to administrador;
-
-grant update(Nombre, apellido, cedula, estado, fecha_nac, apellido, celular_padres, mail_padres) on cerbd.alumnos to administrador;
-grant update(Nombre, apellido, cedula, mail, celular, estado, fecha_nac) on cerbd.docentes to administrador;
-grant update(Nombre, inicio, final, dia, estado) on cerbd.clase to administrador;
-grant update(Nombre) on cerbd.patologias to administrador;
-grant update(Nombre) on cerbd.especializaciones to administrador;
-grant update(Nombre, cedula, estado) on cerbd.usuarios to administrador;
-grant update(Nombre, estado) on cerbd.ocupacion to administrador;
-
-grant select on cerbd.informes to docente identified by 'docente@pass';
-grant select on cerbd.usuarios to docente;
-grant select on cerbd.alumnos to docente;
-grant select on cerbd.asistencias to docente;
-grant select on cerbd.patologia_alumno to docente;
-grant select on cerbd.clase to docente;
-grant select on cerbd.alumnos_clase to docente;
-grant select on cerbd.patologias to docente;
-grant insert on cerbd.informes to docente;
-
-grant update on cerbd.informes to docente;
-
-grant select on cerbd.informes to alumno identified by 'alumno@pass';
-grant select on cerbd.usuarios to alumno;
 --
 -- Índices para tablas volcadas
 --
@@ -602,7 +549,7 @@ ALTER TABLE `clase`
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
-  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ID_Docente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `especializaciones`
@@ -638,7 +585,7 @@ ALTER TABLE `patologias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas
