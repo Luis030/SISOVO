@@ -1,18 +1,18 @@
 
-.tabla-container {
+.tabla-clases{
     width: 100%;
     height: 70vh;
-    overflow-y: auto;
-    margin-top: -30px;
 }
-
 .tabla-alumnos {
     width: 100%;
     height: 40vh;
     overflow-y: auto;
     margin-top: -30px;
 }
-
+.contenedor-tabla-alumnos{
+    width: 100%;
+    height: 50vh;
+}
 .content {
     background-color: var(--color-primario);
 }

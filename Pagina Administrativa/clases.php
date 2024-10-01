@@ -2,21 +2,26 @@
     require_once("../BD/conexionbd.php");
     require_once("php/header_sidebar.php");
 ?>
+<script src="js/datostablas.js"></script>
 <link rel="stylesheet" href="css/estiloclases.css">
 <div class="contenedor-clases">
-    <div class="filtros">
-        <select class="buscador-select" id="buscador-select">
-            <option value="Nombre">Nombre de clase</option>
-            <option value="docente">Docente</option>
-            <option value="Dia">Día</option>
-            <option value="Inicio">Inicio</option>
-            <option value="Final">Final</option>
-            <option value="cantidad">Cantidad de alumnos</option>
-        </select>
-        <input type="text" class="buscador" data-table="clases" placeholder="Buscar...">
-    </div>
-    <div class="tabla-container" id="tabla-alumnos">  
+    <div class="tabla-clases">
+        <table id="tabla-clases">
+            <thead>
+                <tr>
+                    <th>Nombre de Clase</th>
+                    <th>Docente</th>
+                    <th>Día</th>
+                    <th>Inicio</th>
+                    <th>Final</th>
+                    <th>Cantidad de Alumnos</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
 
+            </tbody>
+        </table>
     </div>
 </div>
 <div id="overlayFondo" style="display: none">
@@ -31,21 +36,58 @@
         </div>
     </div>
 </div>
-
-
 <script src="js/tabla.js"></script>
 <script>
-    const config = {
-        tipo: 'clases',  //tipo de la  tabla en data-table
-        url: 'php/obtenertodasclases.php', 
-        headers: ['Nombre de Clase', 'Docente', 'Día', 'Inicio', 'Final', 'Cantidad de Alumnos'],  // Encabezados de la tabla
-        keys: ['Nombre', 'docente', 'Dia', 'hora_inicio', 'hora_final', 'cantidad', ],  // Claves de los datos
-        enlace: 'ID_Clase',  
-        selector: '#tabla-alumnos'  // Selector donde se renderiza la tabla
-    };
+    let tabla;
+    $(document).ready(function (){
+        tabla = iniciarTabla('tabla-clases', 'php/obtenertodasclases.php', [
+        {   "data": "Nombre",
+            "render": function(data, type, row) {
+            return `<a href="detalle_clases.php?id=${row.ID_Clase}">${data}</a>`;
+            }
+        },
+        { "data": "docente" },
+        { "data": "Dia" },
+        { "data": "hora_inicio" },
+        { "data": "hora_final" },
+        { "data": "cantidad" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                // Almacenar el ID del alumno en el atributo data-id
+                return `
+                    <button class='boton-editar' onclick='editar(${row.ID_Clase})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminar(${row.ID_Clase},  \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ], "60vh");
+    })
 
-    // Llamar a la función para inicializar la tabla
-    inicializarTabla(config);
+    function eliminar(id, nombre) {
+        const overlayCon = document.getElementById('overlayFondo');
+        overlayCon.style.display = 'block';
+        const msgCon = document.getElementById('msgCon');
+        msgCon.textContent = nombre;
+        const botonSi = document.getElementById('conSi');
+        botonSi.addEventListener('click', function() {
+            fetch("php/borrarclase.php?id="+id)
+            .then(data => data.json())
+            .then(dato => {
+                if(dato.Resultado == "exitoso"){
+                    cerrarEliminar()
+                    tabla.ajax.reload();
+                } else if(dato.Resultado == "error"){
+                    alert("error");
+                }
+            })
+        })
+    }
+
+    function editar(id){
+        window.location.href = "editarclases.php?id="+id;
+    }
 </script>
 
 <?php

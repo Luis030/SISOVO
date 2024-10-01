@@ -54,18 +54,24 @@ if (mysqli_num_rows($resultado) > 0) {
         ?>
         <a class="boton-editar-clase" href="editarclases.php?id=<?php echo $idclase ?>">Editar datos</a>
     </div>
-    <div class="buscadores-select">
-        <select class="buscador-select" id="buscador-select">
-            <option value="Nombre">Nombre</option>
-            <option value="Apellido">Apellido</option>
-            <option value="Cedula">Cédula</option>
-            <option value="Fecha_nac">Nacimiento</option>
-            <option value="Mail_Padres">Correo</option>
-            <option value="Celular_Padres">Celular</option>
-        </select>
-        <input type="text" class="buscador" data-table="alumnos" placeholder="Buscar...">
+    <div class="contenedor-tabla-alumnos">
+        <table id="tabla-alumnos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cedula</th>
+                    <th>Fecha de nacimiento</th>
+                    <th>Correo</th>
+                    <th>Celular</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
     </div>
-    <div class="tabla-alumnos" id="tabla-alumnos" style="border: 1px solid black;"></div>
     <div class="select-alumnos-container">
         <form action="php/agregaralumnoclase.php?id=<?php echo $idclase ?>" method="post">
             <select name="alumnos[]" id="select-alumnos" style="width: 100%;" multiple required>
@@ -76,27 +82,62 @@ if (mysqli_num_rows($resultado) > 0) {
                 if($agregado === true){
                     echo "<p style='font-size:40px; color:white; margin-left:15%;'>Alumno/s ingresados correctamente</p>";
                 }
-                if($error === true){
-                    echo "<p style='font-size:40px; color:white; margin-left:15%;'>Algunos alumnos ya estan ingresados.</p>";
-                }
                 ?>
             </div>
         </form>
     </div>
 </div>
+<script src="js/datostablas.js"></script>
 <script src="js/tabla.js"></script>
 <script>
-    const config = {
-        tipo: 'alumnos',  //tipo de la  tabla en data-table
-        url: 'php/alumnosclase.php?id=<?php echo $idclase; ?>', 
-        headers: ['Nombre', 'Apellido', 'Cedula', 'Fecha de nacimiento', 'Correo', 'Celular'],  // Encabezados de la tabla
-        keys: ['Nombre', 'Apellido', 'Cedula', 'Fecha_nac', 'Mail_Padres', 'Celular_Padres', ],  // Claves de los datos
-        enlace: 'ID_Alumno',  
-        detalleUrl: 'carlos.php',  // Página de detalle
-        selector: '#tabla-alumnos'  // Selector donde se renderiza la tabla
-    };
-    // Llamar a la función para inicializar la tabla
-    inicializarTabla(config);
+    $(document).ready(function (){
+        iniciarTabla('tabla-alumnos', 'php/alumnosclase.php?id=<?php echo $idclase; ?>', [
+        {   "data": "Nombre",
+            "render": function(data, type, row) {
+            return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
+            }
+        },
+        { "data": "Apellido" },
+        { "data": "Cedula" },
+        { "data": "Fecha_nac" },
+        { "data": "Mail_Padres" },
+        { "data": "Celular_Padres" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                // Almacenar el ID del alumno en el atributo data-id
+                return `
+                    <button class='boton-editar'>Editar</button>
+                    <button class='boton-borrar'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ], "30vh");
+
+    $('#select-alumnos').select2({
+        placeholder: "Buscar alumno..",
+        minimumInputLength: 0,
+        ajax: {
+            url: 'php/alumnos.php?idclase=<?php echo $idclase?>',
+            dataType: 'json',
+            delay: 250,
+            data: function (params){
+                return {
+                    q: params.term || '',
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (alumno){
+                        return { id: alumno.ID_Alumno, text: alumno.NombreCompleto };
+                    })
+                };
+            },
+            cache: true
+        }
+    })
+    })
 </script>
 <?php
 require_once("php/footer.php");

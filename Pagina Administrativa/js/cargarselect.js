@@ -207,27 +207,6 @@ $(document).ready(function() {
     });
 
 
-    $('#select-alumnos').select2({
-        placeholder: "Buscar alumno..",
-        minimumInputLength: 0,
-        ajax: {
-            url: 'php/alumnos.php',
-            dataType: 'json',
-            delay: 250,
-            data: function (params){
-                return {
-                    q: params.term || '',
-                };
-            },
-            processResults: function (data) {
-                return {
-                    results: data.map(function (alumno){
-                        return { id: alumno.ID_Alumno, text: alumno.NombreCompleto };
-                    })
-                };
-            },
-            cache: true
-        }
-    })
+    
 });
 
