@@ -34,7 +34,7 @@ if (mysqli_num_rows($resultado) > 0) {
 }
 
 ?>
-
+<link rel="stylesheet" href="css/datatables.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <link rel="stylesheet" href="css/estiloclases.css">
 <script src="js/editarclases.js"></script>
@@ -90,8 +90,9 @@ if (mysqli_num_rows($resultado) > 0) {
 <script src="js/datostablas.js"></script>
 <script src="js/tabla.js"></script>
 <script>
+    let tabla;
     $(document).ready(function (){
-        iniciarTabla('tabla-alumnos', 'php/alumnosclase.php?id=<?php echo $idclase; ?>', [
+        tabla = iniciarTabla('tabla-alumnos', 'php/alumnosclase.php?id=<?php echo $idclase; ?>', [
         {   "data": "Nombre",
             "render": function(data, type, row) {
             return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
@@ -107,7 +108,7 @@ if (mysqli_num_rows($resultado) > 0) {
             "render": function(data, type, row) {
                 // Almacenar el ID del alumno en el atributo data-id
                 return `
-                    <button class='boton-editar'>Editar</button>
+                    <button class='boton-editar' onclick='editar(${row.ID_Alumno})'>Editar</button>
                     <button class='boton-borrar'>Eliminar</button>
                 `;
             },
@@ -138,6 +139,30 @@ if (mysqli_num_rows($resultado) > 0) {
         }
     })
     })
+
+    function eliminar(id, nombre) {
+        const overlayCon = document.getElementById('overlayFondo');
+        overlayCon.style.display = 'block';
+        const msgCon = document.getElementById('msgCon');
+        msgCon.textContent = nombre;
+        const botonSi = document.getElementById('conSi');
+        botonSi.addEventListener('click', function() {
+            fetch("php/borrarclase.php?id="+id)
+            .then(data => data.json())
+            .then(dato => {
+                if(dato.Resultado == "exitoso"){
+                    cerrarEliminar()
+                    tabla.ajax.reload();
+                } else if(dato.Resultado == "error"){
+                    alert("error");
+                }
+            })
+        })
+    }
+
+    function editar(id){
+        window.location.href = "editaralumnos.php?id="+id;
+    }
 </script>
 <?php
 require_once("php/footer.php");

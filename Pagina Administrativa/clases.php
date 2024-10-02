@@ -4,6 +4,7 @@
 ?>
 <script src="js/datostablas.js"></script>
 <link rel="stylesheet" href="css/estiloclases.css">
+<link rel="stylesheet" href="css/datatables.css">
 <div class="contenedor-clases">
     <div class="tabla-clases">
         <table id="tabla-clases">
@@ -78,6 +79,7 @@
                 if(dato.Resultado == "exitoso"){
                     cerrarEliminar()
                     tabla.ajax.reload();
+                    alert("se ha eliminado")
                 } else if(dato.Resultado == "error"){
                     alert("error");
                 }
