@@ -44,7 +44,6 @@
 
 .input-alumno button {
     font-size: 30px;
-    margin-top: 0;
     border: 2px solid var(--color-secundario);
 }
 
@@ -70,6 +69,7 @@
 }
 
 .botonguardar {
+    margin-top: 20px;
     background-color: var(--color-secundario);
     padding: 10px;
     padding-left: 35px;
@@ -293,6 +293,14 @@
 
 .select-ocupacion-div {
     margin-top: 1%;
+}
+
+.input-docente {
+    height: 79.19px;
+}
+
+.input-alumno {
+    height: 79.19px;
 }
 
 @media (max-width: 2100px) {
