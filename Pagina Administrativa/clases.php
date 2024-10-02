@@ -9,7 +9,7 @@
         <table id="tabla-clases">
             <thead>
                 <tr>
-                    <th>Nombre de Clase</th>
+                    <th>Nombre de clase</th>
                     <th>Docente</th>
                     <th>Día</th>
                     <th>Inicio</th>
