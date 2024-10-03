@@ -57,7 +57,7 @@
 </head>
 <body>
     <header>
-        <h1>Panel Admin</h1>
+        <h1>Panel administrativo</h1>
         <div class="user-info">
             <span class="username"><?php echo $_SESSION['usuario']?></span>
             <span class="time" id="time"></span> 

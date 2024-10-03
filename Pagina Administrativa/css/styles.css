@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Questrial';
     overflow: hidden;
+    height: auto !important;
 }
 main {
     overflow-y: auto !important;
@@ -44,7 +45,7 @@ header {
 header h1 {
     margin: 0;
     flex-grow: 1;
-    text-align: center;
+    text-align: left;
 }
 
 header .user-info {
