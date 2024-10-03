@@ -5,16 +5,18 @@ body {
     overflow: hidden;
     height: auto !important;
 }
+
 main {
     overflow-y: auto !important;
 }
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-:root{
+:root {
     --color-primario: rgb(156, 175, 180);
     --color-secundario: rgb(17, 97, 129);
     --color-terciario: rgb(135, 164, 172);
@@ -97,6 +99,7 @@ header .menu-toggle {
 }
 
 .container {
+    
     display: flex;
     height: calc(100vh - 50px); /* Resta la altura del header */
 }
@@ -109,22 +112,27 @@ header .menu-toggle {
     flex-shrink: 0;
     border-right: 2px solid black;
 }
+
 .sidebar svg {
     width: 15%;
     height: 15%;
     margin-left: 10%;
 }
+
 .sidebar ul {
     list-style-type: none;
     padding: 0;
 }
+
 .sidebar ul li a span{
     margin-top: 2%;
     margin-left: 7%;
 }
+
 .sidebar ul li {
     margin: 0;
     text-align: left;
+    transition: 0.25s;
 }
 
 .sidebar ul li a {
@@ -140,24 +148,27 @@ header .menu-toggle {
     display: flex;
     align-items: center;
 }
-.active{
+
+.active {
     color: var(--color-secundario) !important;
     background-color: var(--color-primario);
 }
+
 .activo {
     color: var(--color-secundario) !important;
     background-color: var(--color-primario);
     font-weight: bold;
 }
 
-.activoDropdown{
+.activoDropdown {
     background-color: rgb(243, 242, 242);
 }
 
-.dropdown-menu li a{
+.dropdown-menu li a {
     padding: 0;
 }
-#about-button{
+
+#about-button {
     text-decoration: none;
     font-weight: bold;
     font-size: 20px;
@@ -165,16 +176,17 @@ header .menu-toggle {
     padding: 5px 0;
     cursor: pointer;
 }
-#about-button a{
+
+#about-button a {
     color: #1e90ff !important;
 }
-#about-button:hover{
+
+#about-button:hover {
     color: var(--color-secundario);
     background-color: rgb(221, 217, 217);
 }
 
 .sidebar ul li:hover {
-    color: var(--color-secundario);
     background-color: var(--color-primario);
 }
 
@@ -228,10 +240,11 @@ header .menu-toggle {
     }
 }
 
-#cerrar-boton{
+#cerrar-boton {
     color: red !important;
 }
-#cerrar-boton:hover{
+
+#cerrar-boton:hover {
     color: rgb(126, 2, 2) !important;
     background-color: rgb(185, 175, 175);
 }

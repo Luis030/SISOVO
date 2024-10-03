@@ -228,4 +228,28 @@ h5 {
         width: 450px;
         height: 450px;
     }
+    .agregadoAlMomento {
+        margin-top: -100px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .cambiar-pagina {
+        text-align: center;
+        flex-direction: column;
+    }
+    .botones {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .botonAgregarTodo {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 490px) {
+    .ingresado {
+        width: 350px;
+    }
 }
