@@ -35,7 +35,7 @@
 
 .input-alumno, .input-docente {
     height: 40px;
-    width: 500px;
+    width: 100%
 }
 
 .input-alumno p, .input-docente p { 
@@ -325,4 +325,12 @@
     .contenedor-anadir-alumno, .contenedor-añadir-docente {
         margin-top: 0%;
     }
+    .añadir-a {
+        display: block;
+        text-align: center;
+        border-collapse: collapse;
+    }
 }
+
+
+
