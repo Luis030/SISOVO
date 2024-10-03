@@ -227,7 +227,27 @@ a:focus {
 .boton-editar-clase:hover {
     filter: brightness(75%);
 }
+.boton-editar{
+    background-color: dodgerblue;
+    color: white;
+    border: 1px solid var(--color-secundario);
+    cursor: pointer;
+    transition: 0.25s;
+}
+.boton-editar:hover{
+    filter: brightness(120%);
+}
 
+.boton-borrar{
+    background-color: red;
+    color: white;
+    border: 1px solid var(--color-primario);
+    cursor: pointer;
+    transition: 0.25s;
+}
+.boton-borrar:hover{
+    filter: brightness(120%);
+}
 p {
     margin: 0;
 }

@@ -73,18 +73,16 @@ if (mysqli_num_rows($resultado) > 0) {
         </table>
     </div>
     <div class="select-alumnos-container">
-        <form action="php/agregaralumnoclase.php?id=<?php echo $idclase ?>" method="post">
             <select name="alumnos[]" id="select-alumnos" style="width: 100%;" multiple required>
             </select>
             <div class="boton-mensaje" style="display: flex; align-items:center;">
-                <button class="agregar-boton-alumno">Agregar</button>
+                <button class="agregar-boton-alumno" onclick="ingresarAlumno(<?php echo $idclase ?>)">Agregar</button>
                 <?php
                 if($agregado === true){
                     echo "<p style='font-size:40px; color:white; margin-left:15%;'>Alumno/s ingresados correctamente</p>";
                 }
                 ?>
             </div>
-        </form>
     </div>
 </div>
 <script src="js/datostablas.js"></script>
@@ -145,6 +143,36 @@ if (mysqli_num_rows($resultado) > 0) {
 
     function editar(id){
         Swal.fire("SweetAlert2 is working!");
+    }
+    function ingresarAlumno(idclase){
+        var select = document.getElementById('select-alumnos');
+        var valoresSeleccionados = [];
+        if (select.selectedOptions.length === 0) {
+            console.log('No se ha seleccionado ninguna opción.');
+            return;
+        }
+        for (var opcion of select.selectedOptions) {
+            valoresSeleccionados.push(opcion.value);
+        }
+
+        console.log(valoresSeleccionados);
+        console.log(idclase);
+        fetch('php/agregaralumnoclase.php?id='+idclase, {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ valores: valoresSeleccionados })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            tabla.ajax.reload();
+            $('#select-alumnos').val(null).trigger('change');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     }
 </script>
 <?php
