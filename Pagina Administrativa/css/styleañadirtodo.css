@@ -23,7 +23,7 @@
     gap: 1px;
 }
 
-.botones button{
+.botones button {
     font-size: 20px !important;
     margin-top: 5px;
     width: 140px;
@@ -34,7 +34,7 @@
     transition: 0.25s;
 }
 
-.botones button:hover{
+.botones button:hover {
     filter: brightness(75%);
 }
 
@@ -212,7 +212,7 @@ h5 {
 }
 
 /* Responsive */
-@media (max-width: 1500px) {
+@media (max-width: 1300px) {
     main {
         overflow-y: auto !important;
     }

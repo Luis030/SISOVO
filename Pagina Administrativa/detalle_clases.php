@@ -141,27 +141,10 @@ if (mysqli_num_rows($resultado) > 0) {
     })
 
     function eliminar(id, nombre) {
-        const overlayCon = document.getElementById('overlayFondo');
-        overlayCon.style.display = 'block';
-        const msgCon = document.getElementById('msgCon');
-        msgCon.textContent = nombre;
-        const botonSi = document.getElementById('conSi');
-        botonSi.addEventListener('click', function() {
-            fetch("php/borrarclase.php?id="+id)
-            .then(data => data.json())
-            .then(dato => {
-                if(dato.Resultado == "exitoso"){
-                    cerrarEliminar()
-                    tabla.ajax.reload();
-                } else if(dato.Resultado == "error"){
-                    alert("error");
-                }
-            })
-        })
     }
 
     function editar(id){
-        window.location.href = "editaralumnos.php?id="+id;
+        Swal.fire("SweetAlert2 is working!");
     }
 </script>
 <?php

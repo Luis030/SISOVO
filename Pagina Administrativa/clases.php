@@ -67,24 +67,34 @@
     })
 
     function eliminar(id, nombre) {
-        const overlayCon = document.getElementById('overlayFondo');
-        overlayCon.style.display = 'block';
-        const msgCon = document.getElementById('msgCon');
-        msgCon.textContent = nombre;
-        const botonSi = document.getElementById('conSi');
-        botonSi.addEventListener('click', function() {
-            fetch("php/borrarclase.php?id="+id)
-            .then(data => data.json())
-            .then(dato => {
+        Swal.fire({
+            title: "¿Estas seguro?",
+            text: "No se podra deshacer",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Si, borrar"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                fetch("php/borrarclase.php?id="+id)
+                .then(data => data.json())
+                .then(dato => {
                 if(dato.Resultado == "exitoso"){
                     cerrarEliminar()
                     tabla.ajax.reload();
-                    alert("se ha eliminado")
+                    Swal.fire({
+                        title: "Borrado exitosamente.",
+                        icon: "success"
+                    });
                 } else if(dato.Resultado == "error"){
                     alert("error");
                 }
             })
-        })
+                
+            }
+        });
     }
 
     function editar(id){

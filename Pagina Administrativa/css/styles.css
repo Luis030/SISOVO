@@ -332,3 +332,19 @@ header .menu-toggle {
 #cerrarabout:hover{
     color: var(--color-secundario-hover);
 }
+
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px; 
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-secundario);
+    border: 3px solid #fff;
+    border-radius: 20px;    
+}
+  
+::-webkit-scrollbar-track {
+    background: #ecf0f1;
+}
+  
