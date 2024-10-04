@@ -12,10 +12,8 @@
                 <tr>
                     <th>Nombre de clase</th>
                     <th>Docente</th>
-                    <th>Día</th>
-                    <th>Inicio</th>
-                    <th>Final</th>
-                    <th>Cantidad de Alumnos</th>
+                    <th>Horarios</th>
+                    <th>Alumnos</th>
                     <th>Opciones</th>
                 </tr>
             </thead>
@@ -41,21 +39,18 @@
 <script>
     let tabla;
     $(document).ready(function (){
-        tabla = iniciarTabla('tabla-clases', 'php/obtenertodasclases.php', [
+    tabla = iniciarTabla('tabla-clases', 'php/obtenertodasclases.php', [
         {   "data": "Nombre",
             "render": function(data, type, row) {
             return `<a href="detalle_clases.php?id=${row.ID_Clase}">${data}</a>`;
             }
-        },
-        { "data": "docente" },
-        { "data": "Dia" },
-        { "data": "hora_inicio" },
-        { "data": "hora_final" },
-        { "data": "cantidad" },
+        },      
+        { "data": "Docente" },           
+        { "data": "Horarios" },    
+        { "data": "Cantidad_Alumnos" },     
         {
             "data": null,
             "render": function(data, type, row) {
-                // Almacenar el ID del alumno en el atributo data-id
                 return `
                     <button class='boton-editar' onclick='editar(${row.ID_Clase})'>Editar</button>
                     <button class='boton-borrar' onclick='eliminar(${row.ID_Clase},  \`${row.Nombre}\`)'>Eliminar</button>
@@ -64,7 +59,10 @@
             "orderable": false
         }
     ], "60vh");
-    })
+});
+
+
+
 
     function eliminar(id, nombre) {
         Swal.fire({

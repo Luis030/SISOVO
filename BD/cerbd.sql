@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2024 a las 22:22:59
+-- Tiempo de generación: 05-10-2024 a las 00:59:36
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -99,16 +99,6 @@ INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Fecha`, `Asistio`) VALUES
 (8, 1, '0000-00-00', NULL),
 (8, 10, '0000-00-00', NULL),
 (8, 4, '0000-00-00', NULL),
-(9, 10, '0000-00-00', NULL),
-(9, 7, '0000-00-00', NULL),
-(9, 1, '0000-00-00', NULL),
-(9, 3, '0000-00-00', NULL),
-(9, 5, '0000-00-00', NULL),
-(10, 11, '0000-00-00', NULL),
-(10, 8, '0000-00-00', NULL),
-(10, 2, '0000-00-00', NULL),
-(10, 1, '0000-00-00', NULL),
-(10, 5, '0000-00-00', NULL),
 (11, 10, '0000-00-00', NULL),
 (11, 2, '0000-00-00', NULL),
 (11, 1, '0000-00-00', NULL),
@@ -119,20 +109,19 @@ INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Fecha`, `Asistio`) VALUES
 (8, 9, '0000-00-00', NULL),
 (8, 3, '0000-00-00', NULL),
 (8, 11, '0000-00-00', NULL),
-(9, 6, '0000-00-00', NULL),
-(9, 8, '0000-00-00', NULL),
-(10, 4, '0000-00-00', NULL),
-(10, 6, '0000-00-00', NULL),
-(10, 7, '0000-00-00', NULL),
-(10, 9, '0000-00-00', NULL),
-(10, 10, '0000-00-00', NULL),
-(10, 3, '0000-00-00', NULL),
 (5, 4, '0000-00-00', NULL),
 (5, 6, '0000-00-00', NULL),
 (5, 9, '0000-00-00', NULL),
 (5, 11, '0000-00-00', NULL),
 (5, 2, '0000-00-00', NULL),
-(5, 7, '0000-00-00', NULL);
+(5, 7, '0000-00-00', NULL),
+(3, 3, '0000-00-00', NULL),
+(3, 10, '0000-00-00', NULL),
+(3, 6, '0000-00-00', NULL),
+(3, 7, '0000-00-00', NULL),
+(3, 9, '0000-00-00', NULL),
+(3, 1, '0000-00-00', NULL),
+(8, 6, '0000-00-00', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,8 +149,6 @@ INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Dia`, `Inicio`, `Final
 (4, 3, 'Área de lengua', 'Miércoles', '13:00:00', '14:30:00', 1),
 (5, 4, 'Levitacion', 'Jueves', '09:00:00', '10:30:00', 1),
 (8, 7, 'Levitacion', 'Martes', '13:30:00', '15:00:00', 1),
-(9, 8, 'Educación Física', 'Miércoles', '16:00:00', '17:30:00', 1),
-(10, 9, 'Arte', 'Jueves', '12:00:00', '13:30:00', 1),
 (11, 10, 'Inglés', 'Viernes', '08:30:00', '10:00:00', 1);
 
 -- --------------------------------------------------------
@@ -171,9 +158,21 @@ INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Dia`, `Inicio`, `Final
 --
 
 CREATE TABLE `dias` (
-  `ID_Dia` int(11) NOT NULL,
-  `Nombre` int(11) NOT NULL
+  `Dia` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dias`
+--
+
+INSERT INTO `dias` (`Dia`) VALUES
+('Domingo'),
+('Jueves'),
+('Lunes'),
+('Martes'),
+('Miércoles'),
+('Sábado'),
+('Viernes');
 
 -- --------------------------------------------------------
 
@@ -183,10 +182,24 @@ CREATE TABLE `dias` (
 
 CREATE TABLE `dias_clase` (
   `ID_Clase` int(11) NOT NULL,
-  `ID_Dia` int(11) NOT NULL,
+  `Dia` varchar(10) NOT NULL,
   `Inicio` time NOT NULL,
   `Final` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `dias_clase`
+--
+
+INSERT INTO `dias_clase` (`ID_Clase`, `Dia`, `Inicio`, `Final`) VALUES
+(2, 'Lunes', '08:00:00', '09:00:00'),
+(2, 'Miércoles', '10:00:00', '11:00:00'),
+(3, 'Martes', '09:00:00', '10:00:00'),
+(3, 'Jueves', '11:00:00', '12:00:00'),
+(4, 'Viernes', '13:00:00', '14:00:00'),
+(5, 'Sábado', '15:00:00', '16:00:00'),
+(8, 'Lunes', '09:00:00', '10:00:00'),
+(11, 'Miércoles', '14:00:00', '15:00:00');
 
 -- --------------------------------------------------------
 
@@ -474,14 +487,14 @@ ALTER TABLE `clase`
 -- Indices de la tabla `dias`
 --
 ALTER TABLE `dias`
-  ADD PRIMARY KEY (`ID_Dia`);
+  ADD PRIMARY KEY (`Dia`);
 
 --
 -- Indices de la tabla `dias_clase`
 --
 ALTER TABLE `dias_clase`
-  ADD KEY `ID_Dia` (`ID_Dia`),
-  ADD KEY `ID_Clase` (`ID_Clase`);
+  ADD KEY `ID_Clase` (`ID_Clase`),
+  ADD KEY `Dia` (`Dia`);
 
 --
 -- Indices de la tabla `docentes`
@@ -563,12 +576,6 @@ ALTER TABLE `clase`
   MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `dias`
---
-ALTER TABLE `dias`
-  MODIFY `ID_Dia` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `docentes`
 --
 ALTER TABLE `docentes`
@@ -637,8 +644,8 @@ ALTER TABLE `clase`
 -- Filtros para la tabla `dias_clase`
 --
 ALTER TABLE `dias_clase`
-  ADD CONSTRAINT `dias_clase_ibfk_1` FOREIGN KEY (`ID_Dia`) REFERENCES `dias` (`ID_Dia`),
-  ADD CONSTRAINT `dias_clase_ibfk_2` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`);
+  ADD CONSTRAINT `dias_clase_ibfk_1` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`),
+  ADD CONSTRAINT `dias_clase_ibfk_2` FOREIGN KEY (`Dia`) REFERENCES `dias` (`Dia`);
 
 --
 -- Filtros para la tabla `docentes`
