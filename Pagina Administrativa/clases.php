@@ -23,7 +23,7 @@
         </table>
     </div>
 </div>
-<div id="overlayFondo" style="display: none">
+<div id="overlayFondo">
     <div id="overlayConfirmacion">
         <div class="salir">
             <input type="button" value="✖" id="cerrar" onclick="cerrarEliminar()">

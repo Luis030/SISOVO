@@ -69,23 +69,23 @@
                                 </div>
                                 <?php
                                 if($exito === true){
-                                    echo "<p style='color:green'>Contraseña actualizada.</p>";
+                                    echo "<p class='bien'>Contraseña actualizada.</p>";
                                 }
                                 switch($codigo){
                                     case '1':
-                                        echo "<p style='color:red'>Las contraseñas no coinciden.</p>";
+                                        echo "<p class='mal'>Las contraseñas no coinciden.</p>";
                                         break;
                                     case '2':
-                                        echo "<p style='color:red'>Error con el servidor.</p>";
+                                        echo "<p class='mal'>Error con el servidor.</p>";
                                         break;
                                     case '3':
-                                        echo "<p style='color:red'>La contraseña es incorrecta.</p>";
+                                        echo "<p class='mal'>La contraseña es incorrecta.</p>";
                                         break;
                                     case '4':
-                                        echo "<p style='color:red'>La nueva contraseña debe tener entre 8 y 20 caracteres.</p>";
+                                        echo "<p class='mal'>La nueva contraseña debe tener entre 8 y 20 caracteres.</p>";
                                         break;
                                     case '5':
-                                        echo "<p style='color:red'>La nueva contraseña contiene caracteres no permitidos (', \", <, >, \\).</p>";
+                                        echo "<p class='mal'>La nueva contraseña contiene caracteres no permitidos (', \", <, >, \\).</p>";
                                         break;
                                 }
                                 ?>
@@ -96,7 +96,7 @@
                         <h1>Panel de alumno</h1>
                         <p>Este panel es una página en la cual se puede acceder a información útil del alumno, aquí estarán sus informes y las clases que esta inscrito. Los informes pueden ser impresos desde la web para presentar a BPS.</p>
                         <div>
-                            Haz <a href="panelalumno" style="color:dodgerblue; text-decoration:none;">click aquí</a> para ir!
+                            Haz <a href="panelalumno" class="irAlumno">click aquí</a> para ir!
                         </div>
                     </div>
                 </div>

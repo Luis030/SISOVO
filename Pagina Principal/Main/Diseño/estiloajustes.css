@@ -28,6 +28,20 @@ body{
     background-color: white;
     width: 70%;
 }
+
+.mal {
+    color: red;
+}
+
+.bien {
+    color: green;
+}
+
+.irAlumno {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
 .principal-ajustes h1{
     border-bottom: 2px solid black;
 }

@@ -6,7 +6,7 @@
 <div class="asistenciaMain">
     <div class="start">
         <h1>Confirmar asistencia</h1>
-        <label for="cedulaIngresada" style="display: block">Cédula</label>
+        <label for="cedulaIngresada">Cédula</label>
         <input type="number" name="cedula" id="cedulaIngresada" placeholder="Ingrese una cédula">
     </div>
     <div class="checkboxs">

@@ -18,6 +18,10 @@
     height: 5%;
 }
 
+#mapIframe {
+    border: 0;
+}
+
 .container-mapa {
     display: flex;
     margin-top: 5%;

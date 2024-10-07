@@ -149,7 +149,7 @@ include("php/header_sidebar.php");
             <div class="form-agregar">
                 <h1>Ocupación</h1>
                 <select id="select-ocupacion-overlay"></select>
-                <h1 style="margin-top: 5%;">Especialidad</h1>
+                <h1>Especialidad</h1>
                 <input type="text" id="boton-agregar-items" placeholder="Ingrese una esp.">
                 <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarItem()">
                 <p id="longitud-array-items">Cantidad agregada: 0</p>

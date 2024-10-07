@@ -27,7 +27,7 @@
                 <a href="https://wa.me/598092706308" target="_blank" id="enviarwhatsapp">ENVIAR WHATSAPP</a>
             </div>
             <div class="mapa">
-                <iframe id="mapIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.8804528377314!2d-57.96567778758818!3d-31.389859694864377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95addd2a185d2f41%3A0xf560dec7caf4bce9!2sCentro%20CER%20Salto!5e0!3m2!1ses-419!2suy!4v1718492158731!5m2!1ses-419!2suy" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+                <iframe id="mapIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3405.8804528377314!2d-57.96567778758818!3d-31.389859694864377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95addd2a185d2f41%3A0xf560dec7caf4bce9!2sCentro%20CER%20Salto!5e0!3m2!1ses-419!2suy!4v1718492158731!5m2!1ses-419!2suy" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
             </div>
         </div>
         <div class="lugar">

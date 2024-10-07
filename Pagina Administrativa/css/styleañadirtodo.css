@@ -97,7 +97,7 @@
 
 /* Patología */
 .formPat {
-    display: grid;
+    display: none;
     grid-template-rows: 1fr;
     width: 100%;
 }
@@ -121,7 +121,7 @@
 
 /* Ocupación */
 .formOcu {
-    display: grid;
+    display: none;
     grid-template-rows: 1fr;
     width: 100%;
 }

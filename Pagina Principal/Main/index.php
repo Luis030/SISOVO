@@ -12,22 +12,22 @@
     ?>
     <main>
     <div class="titulo">
-            <h1 class="titulo-movil" style="color: #38b6ff;">Centro de Reeducacion</h1>
+            <h1 class="titulo-movil">Centro de Reeducacion</h1>
             <h1 class="titulo-pc">
                 <span class="colorceleste">Centro de</span>
                 <span> </span>
                 <span> </span>
-                <span style="color: #ff5757;">R</span>
-                <span style="color: #ff66c4;">e</span>
-                <span style="color: #cb6ce6;">e</span>
-                <span style="color: #8c52ff;">d</span>
-                <span style="color: #5e17eb;">u</span>
-                <span style="color: #0097b2;">c</span>
-                <span style="color: #0cc0df;">a</span>
-                <span style="color: #5ce1e6;">c</span>
-                <span style="color: #38b6ff;">i</span>
-                <span style="color: #5271ff;">ó</span>
-                <span style="color: #004aad;">n</span>
+                <span class="color1">R</span>
+                <span class="color2">e</span>
+                <span class="color3">e</span>
+                <span class="color4">d</span>
+                <span class="color5">u</span>
+                <span class="color6">c</span>
+                <span class="color7">a</span>
+                <span class="color8">c</span>
+                <span class="color9">i</span>
+                <span class="color10">ó</span>
+                <span class="color11">n</span>
             </h1>
             <div class="parrafo-inicio">
                 <p>¡Bienvenidos al sitio de Centro CER! en donde ofrecemos los mejores servicios a nuestros estudiantes.</p>

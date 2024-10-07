@@ -118,6 +118,14 @@ main {
     display: none;
 }
 
+.botones p {
+    color: green;
+}
+
+.botonOculto p {
+    color: green;
+}
+
 .botonOculto input {
     background-color: var(--color-secundario);
 }

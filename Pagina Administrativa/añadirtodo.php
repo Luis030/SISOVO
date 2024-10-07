@@ -15,19 +15,19 @@
                 <button id="ocupacionBoton" onclick="ocupacionForm()">Ocupación</button>
             </div>
         </div>
-        <div class="formEsp" style="display: grid">
+        <div class="formEsp">
             <p>Nombre de la especialidad</p>
             <input type="text" name="especialidadAgregada" id="boton-agregar-esp" class="especialidadAgregada" required placeholder="Ingrese un nombre">
             <p>Ocupación</p>
             <select name="ocupacionEspecialidad" id="ocupacionEspecialidad" required style="width: 100%" style="background: rgb(192, 216, 223)"></select>
             <input type="submit" value="Agregar" class="botonAgregar" onclick="agregarItem('boton-agregar-esp', 'verificar.php?esp=true')">
         </div>
-        <div class="formPat" style="display: none">
+        <div class="formPat">
             <p>Nombre de la patología</p>
             <input type="text" name="patologiaAgregada" id="boton-agregar-pat" class="patologiaAgregada" required placeholder="Ingrese un nombre">
             <input type="submit" value="Agregar" class="botonAgregar" onclick="agregarItem('boton-agregar-pat', 'verificar.php?pat=true')">
         </div>
-        <div class="formOcu" style="display: none">
+        <div class="formOcu">
             <p>Nombre de la ocupación</p>
             <input type="text" name="ocupacionAgregada" id="boton-agregar-ocu" class="ocupacionAgregada" required placeholder="Ingrese un nombre">
             <input type="submit" value="Agregar" class="botonAgregar" onclick="agregarItem('boton-agregar-ocu', 'verificar.php?ocu=true')">

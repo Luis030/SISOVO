@@ -26,7 +26,7 @@
                 <button class="btn">Enviar</button>
                 <?php
                     if(isset($_GET['success'])){
-                        echo "<p style='color:green'>Se ha ingresado el informe correctamente.</p>";
+                        echo "<p>Se ha ingresado el informe correctamente.</p>";
                         $idInforme = $_SESSION['idInforme'];
                         echo "<a href='../fpdf/informe.php?ID=$idInforme' target='_blank'>Ver vista previa.</a>";
                     }
@@ -43,7 +43,7 @@
             <input type="submit" class="btn">
             <?php
                 if(isset($_GET['success'])){
-                    echo "<p style='color:green'>Se ha ingresado el informe correctamente.</p>";
+                    echo "<p>Se ha ingresado el informe correctamente.</p>";
                     echo "<a href='../fpdf/informe.php?ID=$idInforme' target='_blank'>Ver vista previa.</a>";
                 }
             ?>

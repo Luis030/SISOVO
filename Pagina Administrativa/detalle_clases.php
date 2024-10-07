@@ -41,13 +41,13 @@ if (mysqli_num_rows($resultado) > 0) {
 <script src="js/cargarselect.js"></script>
 <div class="contenedor-detalle-clases">
     <img src="img/atras.png" alt="Volver" class="volver" id="volver" onclick="volverAtras()">
-    <div class="detalle-clases" style="display: flex;">
+    <div class="detalle-clases">
         <?php
         echo "<div>";
-        echo "<p style='font-size:30px'>";
+        echo "<p>";
         echo "<strong>Nombre: </strong>" .$datosClase['Nombre'] ."   <strong>Docente: </strong>" .$datosClase['docente']. "  <strong>Dia: </strong>" .$datosClase['Dia'];
         echo "</p>";
-        echo "<p style='font-size:30px'>";
+        echo "<p>";
         echo "<strong>Inicio: </strong>" .$datosClase['Inicio'] ."   <strong>Final: </strong>" .$datosClase['Final']. "  <strong>Cantidad de alumnos: </strong>" .$cantidadAlumnos;
         echo "</p>";
         echo "</div>";
@@ -75,11 +75,11 @@ if (mysqli_num_rows($resultado) > 0) {
     <div class="select-alumnos-container">
             <select name="alumnos[]" id="select-alumnos" style="width: 100%;" multiple required>
             </select>
-            <div class="boton-mensaje" style="display: flex; align-items:center;">
+            <div class="boton-mensaje">
                 <button class="agregar-boton-alumno" onclick="ingresarAlumno(<?php echo $idclase ?>)">Agregar</button>
                 <?php
                 if($agregado === true){
-                    echo "<p style='font-size:40px; color:white; margin-left:15%;'>Alumno/s ingresados correctamente</p>";
+                    echo "<p>Alumno/s ingresados correctamente</p>";
                 }
                 ?>
             </div>
