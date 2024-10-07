@@ -86,93 +86,10 @@ if (mysqli_num_rows($resultado) > 0) {
     </div>
 </div>
 <script src="js/datostablas.js"></script>
-<script src="js/tabla.js"></script>
 <script>
-    let tabla;
-    $(document).ready(function (){
-        tabla = iniciarTabla('tabla-alumnos', 'php/alumnosclase.php?id=<?php echo $idclase; ?>', [
-        {   "data": "Nombre",
-            "render": function(data, type, row) {
-            return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
-            }
-        },
-        { "data": "Apellido" },
-        { "data": "Cedula" },
-        { "data": "Fecha_nac" },
-        { "data": "Mail_Padres" },
-        { "data": "Celular_Padres" },
-        {
-            "data": null,
-            "render": function(data, type, row) {
-                // Almacenar el ID del alumno en el atributo data-id
-                return `
-                    <button class='boton-editar' onclick='editar(${row.ID_Alumno})'>Editar</button>
-                    <button class='boton-borrar'>Eliminar</button>
-                `;
-            },
-            "orderable": false
-        }
-    ], "30vh");
-
-    $('#select-alumnos').select2({
-        placeholder: "Buscar alumno..",
-        minimumInputLength: 0,
-        ajax: {
-            url: 'php/alumnos.php?idclase=<?php echo $idclase?>',
-            dataType: 'json',
-            delay: 250,
-            data: function (params){
-                return {
-                    q: params.term || '',
-                };
-            },
-            processResults: function (data) {
-                return {
-                    results: data.map(function (alumno){
-                        return { id: alumno.ID_Alumno, text: alumno.NombreCompleto };
-                    })
-                };
-            },
-            cache: true
-        }
-    })
-    })
-
+    window.idclase = <?php echo json_encode($idclase) ?>;
     function eliminar(id, nombre) {
-    }
-
-    function editar(id){
-        Swal.fire("SweetAlert2 is working!");
-    }
-    function ingresarAlumno(idclase){
-        var select = document.getElementById('select-alumnos');
-        var valoresSeleccionados = [];
-        if (select.selectedOptions.length === 0) {
-            console.log('No se ha seleccionado ninguna opción.');
-            return;
-        }
-        for (var opcion of select.selectedOptions) {
-            valoresSeleccionados.push(opcion.value);
-        }
-
-        console.log(valoresSeleccionados);
-        console.log(idclase);
-        fetch('php/agregaralumnoclase.php?id='+idclase, {
-            method: 'POST',
-            headers: {
-            'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ valores: valoresSeleccionados })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Respuesta del servidor:', data);
-            tabla.ajax.reload();
-            $('#select-alumnos').val(null).trigger('change');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+        
     }
 </script>
 <?php

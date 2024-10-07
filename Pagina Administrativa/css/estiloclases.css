@@ -243,6 +243,9 @@ a:focus {
     transition: 0.25s;
 }
 
+.nombre-clase{
+    color: dodgerblue;
+}
 .boton-editar-clase:hover {
     filter: brightness(75%);
 }

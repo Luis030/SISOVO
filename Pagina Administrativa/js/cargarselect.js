@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    const idclase = window.idclase;
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
@@ -22,6 +22,30 @@ $(document).ready(function() {
             cache: true
         }
     })
+
+    $('#select-alumnos').select2({
+        placeholder: "Buscar alumno..",
+        minimumInputLength: 0,
+        ajax: {
+            url: `php/alumnos.php?idclase=${idclase}`, 
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || '',
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (alumno) {
+                        return { id: alumno.ID_Alumno, text: alumno.NombreCompleto };
+                    })
+                };
+            },
+            cache: true
+        }
+    });
+
 
     if($('#patologias-select').length){
         $('#patologias-select').select2({
@@ -49,6 +73,7 @@ $(document).ready(function() {
         });
     }
     
+
     $('#ocupacionEspecialidad').select2({
         placeholder: 'Seleccione una ocupación',
         ajax: {

@@ -24,11 +24,6 @@ grant select on cerbd.llegada_docente to administrador;
 grant select on cerbd.alumnos_clase to administrador;
 grant select on cerbd.informes to administrador;
 
-grant delete on cerbd.patologias to administrador;
-grant delete on cerbd.especializaciones to administrador;
-grant delete on cerbd.clase to administrador;
-grant delete on cerbd.alumnos_clase to administrador;
-
 grant update(Nombre, apellido, cedula, estado, fecha_nac, apellido, celular_padres, mail_padres) on cerbd.alumnos to administrador;
 grant update(Nombre, apellido, cedula, mail, celular, estado, fecha_nac) on cerbd.docentes to administrador;
 grant update(Nombre, inicio, final, dia, estado) on cerbd.clase to administrador;
