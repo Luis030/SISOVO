@@ -107,10 +107,12 @@
 
     /* Traer datos de la BD */
     $sql = "SELECT D.Nombre AS NombreDocente, D.Apellido AS ApellidoDocente, O.Nombre AS Ocupacion
-            FROM docentes D, informes I, ocupacion O 
-            WHERE I.ID_Docente=D.ID_Docente
-            AND D.ID_Ocupacion=O.ID_Ocupacion 
-            AND I.ID_Informe=$idinforme;";
+            FROM docentes D
+            JOIN informes I ON D.ID_Docente = I.ID_Docente
+            JOIN especializacion_docente ED ON ED.ID_Docente = D.ID_Docente
+            JOIN especializaciones E ON ED.ID_Especializacion = E.ID_Especializacion
+            JOIN ocupacion O ON E.ID_Ocupacion = O.ID_Ocupacion
+            WHERE I.ID_Informe = $idinforme";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) { 
