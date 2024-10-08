@@ -1,0 +1,29 @@
+<?php
+require_once("../BD/conexionbd.php");
+require_once("php/header_sidebar.php");
+$ceduladoc = $_SESSION['cedula'];
+?>
+<div class="contenedor-clases-docente">
+    <div class="contenedor-tabla">
+        <table id="clases-docente">
+            <thead>
+                <tr>
+                    <th>Clase</th>
+                    <th>Horarios</th>
+                    <th>Alumnos</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="js/funcionestablas.js"></script>
+<script src="js/datostablas.js"></script>
+<script>
+    window.ceduladoc = <?php echo json_encode($ceduladoc) ?>;
+</script>
+<?php
+require_once("php/footer.php")
+?>

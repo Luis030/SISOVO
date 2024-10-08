@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const idclase = window.idclase;
         tablas['alumnosclase'] = iniciarTabla('tabla-alumnos', `php/alumnosclase.php?id=${idclase}`, columnasAlumnosClase(), "30vh");
     }
+
+    if(document.querySelector('#clases-docente')){
+        const ceduladoc = window.ceduladoc;
+        tablas['clasesdoc'] = iniciarTabla('clases-docente', '', '', "70vh");
+    }
 });
 
 const TablasConfig = {
