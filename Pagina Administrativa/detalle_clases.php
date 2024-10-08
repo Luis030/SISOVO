@@ -39,6 +39,7 @@ if (mysqli_num_rows($resultado) > 0) {
 <link rel="stylesheet" href="css/estiloclases.css">
 <script src="js/editarclases.js"></script>
 <script src="js/cargarselect.js"></script>
+<script src="js/funcionestablas.js"></script>
 <div class="contenedor-detalle-clases">
     <img src="img/atras.png" alt="Volver" class="volver" id="volver" onclick="volverAtras()">
     <div class="detalle-clases">

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if(document.querySelector('#clases-docente')){
         const ceduladoc = window.ceduladoc;
-        tablas['clasesdoc'] = iniciarTabla('clases-docente', '', '', "70vh");
+        tablas['clasesdoc'] = iniciarTabla('clases-docente', `php/obtenertodasclases.php?docente=${ceduladoc}`, clasesDocente(), "60vh");
     }
 });
 
@@ -58,7 +58,27 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll) {
     return $(`#${tablaId}`).DataTable(config);
 }
 
-
+function clasesDocente(){
+    return [
+        {
+            "data": "Nombre",
+            "render": function(data, type, row) {
+                return `<a href="detalle_clase_docente.php?id=${row.ID_Clase}">${data}</a>`;
+            }
+        },
+        { "data": "Horarios"},
+        { "data": "Cantidad_Alumnos" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-editar' onclick='pasarLista(${row.ID_Clase})'>Pasar Lista</button>
+                `;
+            },
+            "orderable": false
+        }
+    ]
+}
 
 function obtenerColumnasClases() {
     return [

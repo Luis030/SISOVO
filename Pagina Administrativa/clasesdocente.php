@@ -3,6 +3,8 @@ require_once("../BD/conexionbd.php");
 require_once("php/header_sidebar.php");
 $ceduladoc = $_SESSION['cedula'];
 ?>
+<link rel="stylesheet" href="css/estiloclases.css">
+<link rel="stylesheet" href="css/datatables.css">
 <div class="contenedor-clases-docente">
     <div class="contenedor-tabla">
         <table id="clases-docente">
@@ -11,6 +13,7 @@ $ceduladoc = $_SESSION['cedula'];
                     <th>Clase</th>
                     <th>Horarios</th>
                     <th>Alumnos</th>
+                    <th>Opciones</th>
                 </tr>
             </thead>
             <tbody>
