@@ -16,7 +16,7 @@ GROUP_CONCAT(DISTINCT CONCAT( SUBSTRING(dc.Dia, 1, 3), ' (', LPAD(dc.Inicio, 5, 
 COUNT(DISTINCT ac.ID_Alumno) AS Cantidad_Alumnos 
 FROM clase c JOIN docentes d ON c.ID_Docente = d.ID_Docente 
 JOIN dias_clase dc ON c.ID_Clase = dc.ID_Clase 
-LEFT JOIN alumnos_clase ac ON c.ID_Clase = ac.ID_Clase WHERE c.Estado=1 GROUP BY c.ID_Clase, d.ID_Docente;";
+LEFT JOIN alumnos_clase ac ON c.ID_Clase = ac.ID_Clase WHERE c.Estado=1 AND ac.Estado=1 GROUP BY c.ID_Clase, d.ID_Docente;";
 }
 
 $resultado = mysqli_query($conexion, $sql);

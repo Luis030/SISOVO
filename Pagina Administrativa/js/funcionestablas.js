@@ -64,3 +64,39 @@ function ingresarAlumno(idclase){
         console.error('Error:', error);
     });
 }
+
+function eliminarAlumnoClase(idclase, idalumno){
+    Swal.fire({
+        title: "¿Estas seguro quitar el alumno?",
+        text: "Se desvinculara al alumno",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, borrar"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            fetch("php/sacaralumnoclase.php?clase="+idclase+"&&alumno="+idalumno)
+            .then(respuesta => respuesta.json())
+            .then(data => {
+            if(data.resultado == "exito"){
+                Swal.fire({
+                    title: "Borrado exitosamente.",
+                    text: "Se ha borrado exitosamente el alumno",
+                    icon: "success"
+                });
+                tablas['alumnosclase'].ajax.reload();
+            }
+            if(data.resultado == "error"){
+                Swal.fire({
+                    title: "Ha ocurrido un error",
+                    text: "Algo ha salido mal.",
+                    icon: "error"
+                });
+            }
+    })
+        }
+    });
+    
+}

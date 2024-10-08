@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if(document.querySelector('#tabla-alumnos')){
         const idclase = window.idclase;
-        tablas['alumnosclase'] = iniciarTabla('tabla-alumnos', `php/alumnosclase.php?id=${idclase}`, columnasAlumnosClase(), "30vh");
+        tablas['alumnosclase'] = iniciarTabla('tabla-alumnos', `php/alumnosclase.php?id=${idclase}`, columnasAlumnosClase(idclase), "30vh");
     }
 
     if(document.querySelector('#clases-docente')){
@@ -104,7 +104,7 @@ function obtenerColumnasClases() {
     ];
 }
 
-function columnasAlumnosClase(){
+function columnasAlumnosClase(idclase){
     return [
         {   "data": "Nombre",
             "render": function(data, type, row) {
@@ -122,7 +122,7 @@ function columnasAlumnosClase(){
                 // Almacenar el ID del alumno en el atributo data-id
                 return `
                     <button class='boton-editar' onclick='editar(${row.ID_Alumno})'>Editar</button>
-                    <button class='boton-borrar'>Eliminar</button>
+                    <button class='boton-borrar' onclick='eliminarAlumnoClase(${idclase}, ${row.ID_Alumno})'>Eliminar</button>
                 `;
             },
             "orderable": false
