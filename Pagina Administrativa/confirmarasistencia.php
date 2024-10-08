@@ -7,11 +7,11 @@
     <div class="start">
         <h1>Confirmar asistencia</h1>
         <label for="cedulaIngresada">Cédula</label>
-        <input type="number" name="cedula" id="cedulaIngresada" placeholder="Ingrese una cédula">
+        <input type="number" name="cedula" id="cedulaIngresada" placeholder="Ingrese una cédula" oninput="this.value = this.value.replace(/[eE]/g, '')">
     </div>
     <div class="checkboxs">
         <div class="entrada">
-            <label for="entrada">Entrada</label>
+            <label for="entrada">Entrada</label>    
             <input type="checkbox" name="entrada" id="entrada">
         </div>
         <div class="salida">
