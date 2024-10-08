@@ -1,0 +1,36 @@
+.content {
+    padding: 40px;
+}
+
+.nuevaClase {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 2fr;
+    grid-column-gap: 80px;
+}
+
+.claseInput input {
+    width: 100%;
+    margin-top: 5px;
+    border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.claseInput select {
+    margin-top: 5px;
+}
+
+.claseInput input::placeholder {
+    color: #333333;
+}
+
+.claseInput label {
+    display: block;
+    font-size: 30px;
+}
+
+.alumnosLabel {
+    display: inline-block !important;
+}
