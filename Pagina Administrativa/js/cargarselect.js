@@ -1,5 +1,52 @@
 $(document).ready(function() {
     const idclase = window.idclase;
+
+    $('#diasClase').select2({
+        placeholder: 'Seleccione día(s)',
+        minimumInputLength: 0, 
+        ajax: {
+            url: 'php/obtenerdias.php', 
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || ''
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (dias) {
+                        return { id: dias.Dia, text: dias.Dia};
+                    })
+                };
+            },
+            cache: true
+        }
+    })
+
+    $('#docenteClase').select2({
+        placeholder: 'Seleccione un docente',
+        minimumInputLength: 0, 
+        ajax: {
+            url: 'php/obtenerdocentes.php', 
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || ''
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (docentes) {
+                        return { id: docentes.ID_Docente, text: docentes.Nombre +" "+docentes.Apellido};
+                    })
+                };
+            },
+            cache: true
+        }
+    })
+
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
