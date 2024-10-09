@@ -8,6 +8,7 @@ include("php/header_sidebar.php");
 
 <! ref a estilos 
 !>
+
 <link rel="stylesheet" href="css/estilogestion.css">
 <script src="JS/cargarselect.js"></script>
 <script src="JS/overlay.js"></script>
