@@ -6,6 +6,15 @@ body {
     display: none;
 }
 
+.start p {
+    text-align: left;
+    margin-bottom: -5px;
+}
+
+.start span {
+    font-size: 80px;
+}
+
 main {
     display: flex;
     justify-content: center;
