@@ -100,3 +100,7 @@ function eliminarAlumnoClase(idclase, idalumno){
     });
     
 }
+
+function pasarLista(idclase){
+    window.location.href = "listaclases.php?idclase="+idclase;
+}
