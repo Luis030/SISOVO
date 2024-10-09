@@ -1,14 +1,24 @@
+.botones{
+    display: flex;
+    gap: 30px;
+    justify-content: center; 
+    align-items: flex-start; 
+    height: 100vh; 
+    margin: 0; 
+}
 .boton-inicio{
+    text-align: center;
+    justify-content: center;
+    width: 75px;
     font-size: 20px;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
-    background-color:whitesmoke;
-    color: rgb(0, 0, 0);
+    background-color:var(--color-secundario);
+    color: rgb(255, 255, 255);
     margin-top: 2%;
     margin-bottom: 1%;
-    border: 2px solid black
-    
+    border: 2px solid black;
 }
 
 
