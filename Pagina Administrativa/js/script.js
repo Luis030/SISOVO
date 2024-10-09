@@ -27,11 +27,7 @@ window.onload = function (){
       overlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
-
-    
-    
 }
-
 
 function toggleSidebar() {
     var sidebar = document.getElementById("sidebar");

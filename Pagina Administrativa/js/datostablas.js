@@ -1,4 +1,4 @@
-let tablas = {};
+    let tablas = {};
 window.tablas = tablas; 
 document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('#tabla-clases')) {

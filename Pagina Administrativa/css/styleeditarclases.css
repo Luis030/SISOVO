@@ -112,7 +112,7 @@ select {
     visibility: visible;
 }
 
-#spans {
+p span {
     font-weight: 500;
 }
 
