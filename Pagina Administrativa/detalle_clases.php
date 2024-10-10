@@ -10,7 +10,7 @@ if(isset($_GET['error'])){
     $error = true;
 }
 $idclase = $_GET['id'];
-$sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Dia, DATE_FORMAT(C.Inicio, '%H:%i') AS hora_inicio, DATE_FORMAT(C.Final, '%H:%i') AS hora_final, COUNT(AC.ID_Alumno) as cantidad
+$sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Horario, COUNT(AC.ID_Alumno) as cantidad
         FROM Clase C
         JOIN Docentes D ON C.ID_Docente = D.ID_Docente
         LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase WHERE C.ID_Clase=$idclase
@@ -26,9 +26,7 @@ if (mysqli_num_rows($resultado) > 0) {
         $datosClase['ID_Docente'] = $fila['ID_Docente'];
         $datosClase['docente'] = $fila['docente'];
         $datosClase['Nombre'] = $fila['Nombre'];
-        $datosClase['Dia'] = $fila['Dia'];
-        $datosClase['Inicio'] = $fila['hora_inicio'];
-        $datosClase['Final'] = $fila['hora_final'];
+        $datosClase['Dia'] = $fila['Horario'];
         $cantidadAlumnos = $fila['cantidad'];
     }
 }
@@ -49,7 +47,7 @@ if (mysqli_num_rows($resultado) > 0) {
         echo "<strong>Nombre: </strong>" .$datosClase['Nombre'] ."   <strong>Docente: </strong>" .$datosClase['docente']. "  <strong>Dia: </strong>" .$datosClase['Dia'];
         echo "</p>";
         echo "<p>";
-        echo "<strong>Inicio: </strong>" .$datosClase['Inicio'] ."   <strong>Final: </strong>" .$datosClase['Final']. "  <strong>Cantidad de alumnos: </strong>" .$cantidadAlumnos;
+        echo "<strong>Cantidad de alumnos: </strong>" .$cantidadAlumnos;
         echo "</p>";
         echo "</div>";
         ?>
@@ -90,9 +88,6 @@ if (mysqli_num_rows($resultado) > 0) {
 <script src="js/datostablas.js"></script>
 <script>
     window.idclase = <?php echo json_encode($idclase) ?>;
-    function eliminar(id, nombre) {
-        
-    }
 </script>
 <?php
 require_once("php/footer.php");

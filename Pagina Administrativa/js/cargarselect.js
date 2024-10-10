@@ -1,6 +1,6 @@
 $(document).ready(function() {
     const idclase = window.idclase;
-
+    const idclaselista = window.idclaselista;
     $('#diasClase').select2({
         placeholder: 'Seleccione día(s)',
         minimumInputLength: 0, 
@@ -274,11 +274,33 @@ $(document).ready(function() {
                         $('#especialidades-select').prop('disabled', true);
                     }
             });
-            
         })
     });
-
-
+    $('#fecha').select2({
+        placeholder: 'Busca o selecciona especialidades',
+        minimumInputLength: 0,
+        ajax: {
+            url: 'php/cargarfechalista.php?idclase=' + idclaselista,
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || '',
+                };
+            },
+            processResults: function (data) {
+                var hoyOption = [{ id: 'Hoy', text: 'Hoy' }];
+                var fechaOptions = data.map(function (datos) {
+                    return { id: datos.Fecha, text: datos.Fecha };
+                });
+                return {
+                    results: hoyOption.concat(fechaOptions)
+                };
+            },
+            cache: true
+        }
+    });
+    
     
 });
 

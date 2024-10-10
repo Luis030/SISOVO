@@ -4,16 +4,14 @@
 
     $idClase = $_GET['id'];; 
     
-    $sql = "SELECT C.Nombre AS NombreClase, Dia, DATE_FORMAT(C.Inicio, '%H:%i') AS hora_inicio, DATE_FORMAT(C.Final, '%H:%i') AS hora_final, D.Nombre AS NombreDocente, Apellido
+    $sql = "SELECT C.Nombre AS NombreClase, Horario, D.Nombre AS NombreDocente, Apellido
     FROM Clase C, Docentes D
     WHERE C.ID_Docente = D.ID_Docente AND ID_Clase = $idClase";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) {
             $nombreClase = $columna['NombreClase'];
-            $diaClase = $columna['Dia'];
-            $inicioClase = $columna['hora_inicio'];
-            $finalClase = $columna['hora_final'];
+            $diaClase = $columna['Horario'];
             $nombreDocente = $columna['NombreDocente'] ." ". $columna['Apellido'];
         }
     }
@@ -37,7 +35,7 @@
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Día: <span id="spanDia"><?php echo $diaClase ?></span><img src="img/editar.png" alt="Editar" id="editarDia" onclick="mostrarEditarDia()"></p>
+                <p>Días: <span id="spanDia"><?php echo $diaClase ?></span><img src="img/editar.png" alt="Editar" id="editarDia" onclick="mostrarEditarDia()"></p>
                 <div id="editandoDia" class="fadeDia">
                     <select id="ingresarDia" name="diaNuevo" required>
                         <option selected disabled>Seleccione un día</option>
@@ -50,6 +48,7 @@
                     <button id="guardarInput" onclick="guardarDia(<?php echo $idClase?>)">Guardar</button>
                 </div>
             </div>
+            <!--  
             <div class="editarElemento">
                 <p>Hora de inicio: <span id="spanInicio"><?php echo $inicioClase ?></span><img src="img/editar.png" alt="Editar" id="editarInicio" onclick="mostrarEditarInicio()"></p>
                 <div id="editandoInicio" class="fadeInicio">
@@ -64,6 +63,7 @@
                     <button id="guardarInput" onclick="guardarFinal(<?php echo $idClase?>)">Guardar</button>
                 </div>
             </div>
+            -->
             <div class="editarElemento">
                 <p>Docente: <span id="spanDocente"><?php echo $nombreDocente ?></span><img src="img/editar.png" alt="Editar" id="editarDocente" onclick="mostrarEditarDocente()"></p>
                 <div id="editandoDocente" class="fadeDocente">
