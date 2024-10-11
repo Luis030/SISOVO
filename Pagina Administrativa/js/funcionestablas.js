@@ -30,7 +30,7 @@ function eliminarClase(id, nombre) {
 }
 
 function editarClase(id){
-    window.location.href = "clasesdias.php?id="+id;
+    window.location.href = "editarclases.php?id="+id;
 }
 
 function ingresarAlumno(idclase){

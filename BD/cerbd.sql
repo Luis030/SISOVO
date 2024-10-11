@@ -20,7 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cerbd`
 --
+
 CREATE DATABASE IF NOT EXISTS cerbd;
+USE cerbd;
 
 -- --------------------------------------------------------
 
