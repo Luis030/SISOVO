@@ -50,10 +50,12 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll) {
         ...TablasConfig,
         ajax: {
             url: ajaxUrl,
-            dataSrc: ""
+            dataSrc: "",
+            type: "POST"
         },
         columns: columnas,
-        scrollY: scroll
+        scrollY: scroll,
+        deferRender: true
     };
     return $(`#${tablaId}`).DataTable(config);
 }
