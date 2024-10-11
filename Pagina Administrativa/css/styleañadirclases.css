@@ -29,8 +29,29 @@
 .claseInput label {
     display: block;
     font-size: 30px;
+    align-items: center;
 }
 
-.alumnosLabel {
-    display: inline-block !important;
+.claseInput input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+}
+
+.horarioTalDia {
+    margin-top: 30px;
+}
+
+.horarioTalDia label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+.horarioTalDia input {
+    width: 15%;
+    margin-top: 5px;
+    border: 2px solid var(--color-secundario);
+    background-color: var(--color-cuartetario);
+    font-size: 30px;
 }

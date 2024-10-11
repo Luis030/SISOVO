@@ -1,11 +1,12 @@
 $(document).ready(function() {
     const idclase = window.idclase;
 
-    $('#diasClase').select2({
-        placeholder: 'Seleccione día(s)',
-        minimumInputLength: 0, 
+    $('#alumnosClase').select2({
+        placeholder: 'Seleccione alumnos',
+        minimumInputLength: 0,
+        cache: true,
         ajax: {
-            url: 'php/obtenerdias.php', 
+            url: 'php/obteneralumnos2.php', 
             dataType: 'json',
             delay: 250,
             data: function (params) {
@@ -15,14 +16,31 @@ $(document).ready(function() {
             },
             processResults: function (data) {
                 return {
-                    results: data.map(function (dias) {
-                        return { id: dias.Dia, text: dias.Dia};
+                    results: data.map(function (alumnos) {
+                        return { id: alumnos.ID_Alumno, text: alumnos.Nombre +" "+ alumnos.Apellido };
                     })
                 };
             },
             cache: true
         }
+    });
+
+    $('#diasClase').select2({
+        placeholder: 'Seleccione día(s)',
+        minimumInputLength: 0, 
+        cache: true
     })
+
+    $('#diasClase').on('change', function() {
+        const diasHorarios = document.getElementById('diasHorarios');
+        var diasSeleccionados = $('#diasClase').select2('data');
+        diasHorarios.innerHTML = "";
+        diasSeleccionados.forEach(function(diaSeleccionado) {
+            var p = "Horario del día " + diaSeleccionado.text;
+            diasHorarios.innerHTML += "<div class='horarioTalDia'>" + "<label for='inputHora'>" + p + "</label>" + "<input type='date' id='inputHora'>";
+        });
+    });
+    
 
     $('#docenteClase').select2({
         placeholder: 'Seleccione un docente',
