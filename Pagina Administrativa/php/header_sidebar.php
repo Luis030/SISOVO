@@ -3,9 +3,11 @@
 
     if(!isset($_SESSION["usuario"])) {
         header("Location: ../Pagina Principal/Main");
+        exit();
     } else {
         if($_SESSION['Privilegio'] != "admin" && $_SESSION['Privilegio'] != "docente"){
             header("Location: ../Pagina Principal/Main");
+            exit();
         }
     }
 ?>

@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                               WHERE ID_Clase = $idClase AND ID_Alumno = $idAlumno AND Fecha = curdate() AND Asistio IS NOT NULL";
                     mysqli_query($conexion, $query);
                 }
-                header("Location:../listaclases.php?idclase=$idClase&&success=actualizado");
+                header("Location:../listaclases.php?idclase=$idClase&&success=actualizado&&fecha=$fecha");
             }
         } else {
             if (isset($_POST['asistencia'])) {
@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                               VALUES ($idClase, $idAlumno, $asistio, CURDATE(), 1)";
                     mysqli_query($conexion, $query);
                 }
-                header("Location:../listaclases.php?idclase=$idClase&&success=ingresado");
+                header("Location:../listaclases.php?idclase=$idClase&&success=ingresado&&fecha=$fecha");
             }
         }
     } else {
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                           WHERE ID_Clase = $idClase AND ID_Alumno = $idAlumno AND Fecha = '$fecha' AND Asistio IS NOT NULL";
                 mysqli_query($conexion, $query);
             }
-            header("Location:../listaclases.php?idclase=$idClase&&success=actualizado");
+            header("Location:../listaclases.php?idclase=$idClase&&success=actualizado&&fecha=$fecha");
         }
     }
     

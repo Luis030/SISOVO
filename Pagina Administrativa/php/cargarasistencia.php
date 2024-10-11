@@ -4,7 +4,7 @@ include("../../BD/conexionbd.php");
 $fecha = $_GET['fecha'];
 $id_clase = $_GET['idclase'];
 
-$query = "SELECT a.ID_Alumno, a.Nombre, ac.Asistio FROM alumnos_clase ac
+$query = "SELECT a.ID_Alumno, CONCAT(a.Nombre, ' ', a.Apellido) AS Nombre, ac.Asistio FROM alumnos_clase ac
           JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
           WHERE ac.ID_Clase = '$id_clase' AND ac.Fecha = '$fecha' AND ac.Asistio IS NOT NULL"; 
 $resultado = mysqli_query($conexion, $query);
@@ -23,6 +23,6 @@ if ($resultado) {
               </tr>";
     }
 } else {
-    echo "Error en la consulta: " . $conexion->error;
+    echo "Error en la consulta";
 }
 ?>

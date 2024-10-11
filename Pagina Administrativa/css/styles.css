@@ -17,10 +17,10 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 :root {
-    --color-primario: rgb(156, 175, 180);
-    --color-secundario: rgb(17, 97, 129);
-    --color-terciario: rgb(135, 164, 172);
-    --color-cuartetario: rgb(192, 216, 223);
+    --color-primario: rgb(156, 175, 180); /*fondo del contenido y hover del menu de navegacion */
+    --color-secundario: rgb(17, 97, 129); /*color de los botones, header, sidebar(a seleccionado), bordes de inputs y encabezados de tabla */
+    --color-terciario: rgb(135, 164, 172); /*color de la sidebar */
+    --color-cuartetario: rgb(255, 255, 255); /*color de las tablas, inputs y selects */
     --color-secundario-hover: white;
     --border-color: red !important;
     --color-hover: rgb(26, 132, 173);

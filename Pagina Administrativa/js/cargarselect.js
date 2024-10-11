@@ -318,6 +318,7 @@ $(document).ready(function() {
             });
         })
     });
+    
     $('#fecha').select2({
         placeholder: 'Busca o selecciona especialidades',
         minimumInputLength: 0,
@@ -333,7 +334,9 @@ $(document).ready(function() {
             processResults: function (data) {
                 var hoyOption = [{ id: 'Hoy', text: 'Hoy' }];
                 var fechaOptions = data.map(function (datos) {
-                    return { id: datos.Fecha, text: datos.Fecha };
+                    var parts = datos.Fecha.split('-');
+                    var formattedDate = parts[2] + '/' + parts[1] + '/' + parts[0];
+                    return { id: datos.Fecha, text: formattedDate };
                 });
                 return {
                     results: hoyOption.concat(fechaOptions)
@@ -342,6 +345,8 @@ $(document).ready(function() {
             cache: true
         }
     });
+    
+    
     
     
 });
