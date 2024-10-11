@@ -1,10 +1,34 @@
 $(document).ready(function() {
     const idclase = window.idclase;
+    const idclaselista = window.idclaselista;
 
     $('#alumnosClase').select2({
         placeholder: 'Seleccione alumnos',
         minimumInputLength: 0,
         cache: true,
+        ajax: {
+            url: 'php/obteneralumnos2.php', 
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || ''
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (alumnos) {
+                        return { id: alumnos.ID_Alumno, text: alumnos.Nombre +" "+ alumnos.Apellido };
+                    })
+                };
+            },
+            cache: true
+        }
+    });
+
+    $('#diasClase').select2({
+        placeholder: 'Seleccione día(s)',
+        minimumInputLength: 0, 
         ajax: {
             url: 'php/obteneralumnos2.php', 
             dataType: 'json',
@@ -37,7 +61,7 @@ $(document).ready(function() {
         diasHorarios.innerHTML = "";
         diasSeleccionados.forEach(function(diaSeleccionado) {
             var p = "Horario del día " + diaSeleccionado.text;
-            diasHorarios.innerHTML += "<div class='horarioTalDia'>" + "<label for='inputHora'>" + p + "</label>" + "<input type='date' id='inputHora'>";
+            diasHorarios.innerHTML += "<div class='horarioTalDia'>" + "<label for='inputHora'>" + p + "</label>" + "<input type='time' id='" + diaSeleccionado.text + "'>";
         });
     });
     
@@ -292,11 +316,33 @@ $(document).ready(function() {
                         $('#especialidades-select').prop('disabled', true);
                     }
             });
-            
         })
     });
-
-
+    $('#fecha').select2({
+        placeholder: 'Busca o selecciona especialidades',
+        minimumInputLength: 0,
+        ajax: {
+            url: 'php/cargarfechalista.php?idclase=' + idclaselista,
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || '',
+                };
+            },
+            processResults: function (data) {
+                var hoyOption = [{ id: 'Hoy', text: 'Hoy' }];
+                var fechaOptions = data.map(function (datos) {
+                    return { id: datos.Fecha, text: datos.Fecha };
+                });
+                return {
+                    results: hoyOption.concat(fechaOptions)
+                };
+            },
+            cache: true
+        }
+    });
+    
     
 });
 

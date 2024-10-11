@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-10-2024 a las 17:12:27
+-- Tiempo de generación: 10-10-2024 a las 23:57:35
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 -- Base de datos: `cerbd`
 --
 CREATE DATABASE IF NOT EXISTS cerbd;
-USE cerbd;
+
 -- --------------------------------------------------------
 
 --
@@ -66,64 +66,30 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 CREATE TABLE `alumnos_clase` (
   `ID_Clase` int(11) NOT NULL,
   `ID_Alumno` int(11) NOT NULL,
-  `Fecha` date NOT NULL,
   `Asistio` tinyint(1) DEFAULT NULL,
-  `Estado` tinyint(1) DEFAULT NULL
+  `Fecha` date DEFAULT curdate(),
+  `estado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `alumnos_clase`
 --
 
-INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Fecha`, `Asistio`, `Estado`) VALUES
-(2, 1, '0000-00-00', NULL, 1),
-(2, 5, '0000-00-00', NULL, 1),
-(2, 11, '0000-00-00', NULL, 0),
-(2, 3, '0000-00-00', NULL, 1),
-(2, 2, '0000-00-00', NULL, 1),
-(3, 11, '0000-00-00', NULL, 1),
-(3, 8, '0000-00-00', NULL, 1),
-(3, 4, '0000-00-00', NULL, 1),
-(3, 2, '0000-00-00', NULL, 1),
-(3, 5, '0000-00-00', NULL, 1),
-(4, 10, '0000-00-00', NULL, 1),
-(4, 6, '0000-00-00', NULL, 1),
-(4, 1, '0000-00-00', NULL, 1),
-(4, 4, '0000-00-00', NULL, 1),
-(4, 11, '0000-00-00', NULL, 1),
-(5, 10, '0000-00-00', NULL, 1),
-(5, 1, '0000-00-00', NULL, 1),
-(5, 5, '0000-00-00', NULL, 1),
-(5, 3, '0000-00-00', NULL, 1),
-(5, 8, '0000-00-00', NULL, 1),
-(8, 7, '0000-00-00', NULL, 1),
-(8, 2, '0000-00-00', NULL, 1),
-(8, 1, '0000-00-00', NULL, 1),
-(8, 10, '0000-00-00', NULL, 1),
-(8, 4, '0000-00-00', NULL, 1),
-(11, 10, '0000-00-00', NULL, 1),
-(11, 2, '0000-00-00', NULL, 1),
-(11, 1, '0000-00-00', NULL, 1),
-(11, 11, '0000-00-00', NULL, 1),
-(11, 4, '0000-00-00', NULL, 1),
-(8, 5, '0000-00-00', NULL, 1),
-(8, 8, '0000-00-00', NULL, 1),
-(8, 9, '0000-00-00', NULL, 1),
-(8, 3, '0000-00-00', NULL, 1),
-(8, 11, '0000-00-00', NULL, 1),
-(5, 4, '0000-00-00', NULL, 1),
-(5, 6, '0000-00-00', NULL, 1),
-(5, 9, '0000-00-00', NULL, 1),
-(5, 11, '0000-00-00', NULL, 1),
-(5, 2, '0000-00-00', NULL, 1),
-(5, 7, '0000-00-00', NULL, 1),
-(3, 3, '0000-00-00', NULL, 1),
-(3, 10, '0000-00-00', NULL, 1),
-(3, 6, '0000-00-00', NULL, 1),
-(3, 7, '0000-00-00', NULL, 1),
-(3, 9, '0000-00-00', NULL, 1),
-(3, 1, '0000-00-00', NULL, 1),
-(8, 6, '0000-00-00', NULL, 1);
+INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Asistio`, `Fecha`, `estado`) VALUES
+(2, 2, NULL, '2024-10-10', 1),
+(2, 1, NULL, '2024-10-10', 1),
+(2, 3, NULL, '2024-10-10', 1),
+(2, 2, 0, '2024-10-10', 1),
+(2, 1, 0, '2024-10-10', 1),
+(2, 3, 1, '2024-10-10', 1),
+(2, 6, NULL, '2024-10-10', 1),
+(2, 2, 0, '2024-10-11', 1),
+(2, 1, 0, '2024-10-11', 1),
+(2, 3, 1, '2024-10-11', 1),
+(2, 6, 0, '2024-10-11', 1),
+(3, 2, NULL, '2024-10-11', 1),
+(3, 3, NULL, '2024-10-11', 0),
+(3, 7, NULL, '2024-10-11', 1);
 
 -- --------------------------------------------------------
 
@@ -135,73 +101,22 @@ CREATE TABLE `clase` (
   `ID_Clase` int(11) NOT NULL,
   `ID_Docente` int(11) NOT NULL,
   `Nombre` varchar(20) NOT NULL,
-  `Dia` varchar(10) NOT NULL,
-  `Inicio` time NOT NULL,
-  `Final` time NOT NULL,
-  `Estado` tinyint(1) DEFAULT 1
+  `Horario` varchar(100) NOT NULL,
+  `Estado` tinyint(1) DEFAULT 1,
+  `Año` int(11) DEFAULT year(curdate())
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `clase`
 --
 
-INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Dia`, `Inicio`, `Final`, `Estado`) VALUES
-(2, 13, 'Matemáticas', 'Lunes', '08:00:00', '09:30:00', 1),
-(3, 2, 'Historia', 'Martes', '10:00:00', '11:30:00', 0),
-(4, 3, 'Área de lengua', 'Miércoles', '13:00:00', '14:30:00', 1),
-(5, 4, 'Levitacion', 'Jueves', '09:00:00', '10:30:00', 0),
-(8, 7, 'Levitacion', 'Martes', '13:30:00', '15:00:00', 0),
-(11, 10, 'Inglés', 'Viernes', '08:30:00', '10:00:00', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `dias`
---
-
-CREATE TABLE `dias` (
-  `Dia` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `dias`
---
-
-INSERT INTO `dias` (`Dia`) VALUES
-('Domingo'),
-('Jueves'),
-('Lunes'),
-('Martes'),
-('Miércoles'),
-('Sábado'),
-('Viernes');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `dias_clase`
---
-
-CREATE TABLE `dias_clase` (
-  `ID_Clase` int(11) NOT NULL,
-  `Dia` varchar(10) NOT NULL,
-  `Inicio` time NOT NULL,
-  `Final` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `dias_clase`
---
-
-INSERT INTO `dias_clase` (`ID_Clase`, `Dia`, `Inicio`, `Final`) VALUES
-(2, 'Lunes', '08:00:00', '09:00:00'),
-(2, 'Miércoles', '10:00:00', '11:00:00'),
-(3, 'Martes', '09:00:00', '10:00:00'),
-(3, 'Jueves', '11:00:00', '12:00:00'),
-(4, 'Viernes', '13:00:00', '14:00:00'),
-(5, 'Sábado', '15:00:00', '16:00:00'),
-(8, 'Lunes', '09:00:00', '10:00:00'),
-(11, 'Miércoles', '14:00:00', '15:00:00');
+INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Horario`, `Estado`, `Año`) VALUES
+(2, 13, 'Matemáticas', 'Lunes', 1, 2024),
+(3, 8, 'Historia', 'Martes', 0, 2024),
+(4, 3, 'Área de lengua', 'Miércoles', 1, 2024),
+(5, 4, 'Lengua', 'Jueves', 0, 2024),
+(8, 5, 'Área de lengua', 'Lunes', 1, 2024),
+(11, 10, 'Inglés', 'Viernes', 0, 2024);
 
 -- --------------------------------------------------------
 
@@ -341,6 +256,23 @@ CREATE TABLE `lista_docente` (
   `Hora` time NOT NULL,
   `Tipo` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `lista_docente`
+--
+
+INSERT INTO `lista_docente` (`ID_Asistencia`, `ID_Docente`, `Fecha`, `Hora`, `Tipo`) VALUES
+(1, 13, '2024-10-08', '18:46:11', 'E'),
+(2, 13, '2024-10-08', '18:46:13', 'S'),
+(3, 13, '2024-10-08', '18:46:16', 'E'),
+(4, 13, '2024-10-08', '18:46:17', 'E'),
+(5, 13, '2024-10-08', '18:46:18', 'S'),
+(6, 13, '2024-10-08', '18:46:19', 'E'),
+(7, 13, '2024-10-08', '18:46:19', 'S'),
+(8, 13, '2024-10-08', '18:46:20', 'E'),
+(9, 13, '2024-10-08', '18:46:20', 'S'),
+(10, 13, '2024-10-08', '18:46:20', 'S'),
+(11, 13, '2024-10-08', '18:46:27', 'E');
 
 -- --------------------------------------------------------
 
@@ -486,19 +418,6 @@ ALTER TABLE `clase`
   ADD KEY `ID_Docente` (`ID_Docente`);
 
 --
--- Indices de la tabla `dias`
---
-ALTER TABLE `dias`
-  ADD PRIMARY KEY (`Dia`);
-
---
--- Indices de la tabla `dias_clase`
---
-ALTER TABLE `dias_clase`
-  ADD KEY `ID_Clase` (`ID_Clase`),
-  ADD KEY `Dia` (`Dia`);
-
---
 -- Indices de la tabla `docentes`
 --
 ALTER TABLE `docentes`
@@ -599,7 +518,7 @@ ALTER TABLE `informes`
 -- AUTO_INCREMENT de la tabla `lista_docente`
 --
 ALTER TABLE `lista_docente`
-  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `ocupacion`
@@ -634,20 +553,13 @@ ALTER TABLE `alumnos`
 --
 ALTER TABLE `alumnos_clase`
   ADD CONSTRAINT `alumnos_clase_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`),
-  ADD CONSTRAINT `alumnos_clase_ibfk_3` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`) ON DELETE CASCADE;
+  ADD CONSTRAINT `alumnos_clase_ibfk_3` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`);
 
 --
 -- Filtros para la tabla `clase`
 --
 ALTER TABLE `clase`
   ADD CONSTRAINT `clase_ibfk_1` FOREIGN KEY (`ID_Docente`) REFERENCES `docentes` (`ID_Docente`);
-
---
--- Filtros para la tabla `dias_clase`
---
-ALTER TABLE `dias_clase`
-  ADD CONSTRAINT `dias_clase_ibfk_1` FOREIGN KEY (`ID_Clase`) REFERENCES `clase` (`ID_Clase`),
-  ADD CONSTRAINT `dias_clase_ibfk_2` FOREIGN KEY (`Dia`) REFERENCES `dias` (`Dia`);
 
 --
 -- Filtros para la tabla `docentes`

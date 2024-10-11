@@ -49,7 +49,7 @@
 }
 
 .horarioTalDia input {
-    width: 15%;
+    width: 10%;
     margin-top: 5px;
     border: 2px solid var(--color-secundario);
     background-color: var(--color-cuartetario);

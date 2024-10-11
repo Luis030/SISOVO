@@ -4,19 +4,11 @@ require_once("../../BD/conexionbd.php");
 header('Content-Type: application/json');  
 if(isset($_GET['docente'])){
     $ceduladoc = $_GET['docente'];
-    $sql = "SELECT c.ID_Clase, d.ID_Docente, CONCAT(d.Nombre, ' ', d.Apellido) AS Docente, c.Nombre AS Nombre, 
-GROUP_CONCAT(DISTINCT CONCAT( SUBSTRING(dc.Dia, 1, 3), ' (', LPAD(dc.Inicio, 5, '0'), ' - ', LPAD(dc.Final, 5, '0'), ')' ) SEPARATOR ', ') AS Horarios, 
-COUNT(DISTINCT ac.ID_Alumno) AS Cantidad_Alumnos 
-FROM clase c JOIN docentes d ON c.ID_Docente = d.ID_Docente 
-JOIN dias_clase dc ON c.ID_Clase = dc.ID_Clase 
-LEFT JOIN alumnos_clase ac ON c.ID_Clase = ac.ID_Clase WHERE c.Estado=1 AND d.Cedula=$ceduladoc GROUP BY c.ID_Clase, d.ID_Docente;";
+    $sql = "SELECT C.ID_Clase, D.ID_Docente, CONCAT(D.Nombre,' ', D.Apellido) AS Docente, C.Nombre AS Nombre, Horario AS Horarios, COUNT(DISTINCT AC.ID_Alumno) AS Cantidad_Alumnos FROM docentes D JOIN clase C on D.ID_Docente=C.ID_Docente JOIN alumnos_clase AC ON AC.ID_Clase=C.ID_Clase WHERE C.Estado=1 AND D.Cedula=56777350 GROUP BY C.ID_Clase;
+";
 } else {
-    $sql = "SELECT c.ID_Clase, d.ID_Docente, CONCAT(d.Nombre, ' ', d.Apellido) AS Docente, c.Nombre AS Nombre, 
-GROUP_CONCAT(DISTINCT CONCAT( SUBSTRING(dc.Dia, 1, 3), ' (', LPAD(dc.Inicio, 5, '0'), ' - ', LPAD(dc.Final, 5, '0'), ')' ) SEPARATOR ', ') AS Horarios, 
-COUNT(DISTINCT ac.ID_Alumno) AS Cantidad_Alumnos 
-FROM clase c JOIN docentes d ON c.ID_Docente = d.ID_Docente 
-JOIN dias_clase dc ON c.ID_Clase = dc.ID_Clase 
-LEFT JOIN alumnos_clase ac ON c.ID_Clase = ac.ID_Clase WHERE c.Estado=1 GROUP BY c.ID_Clase, d.ID_Docente;";
+    $sql = "SELECT c.ID_Clase, c.ID_Docente, CONCAT(d.Nombre, ' ', d.Apellido) AS Docente, c.Nombre, c.Horario AS Horarios, COUNT(DISTINCT ac.ID_Alumno) AS Cantidad_Alumnos FROM clase c LEFT JOIN docentes d ON c.ID_Docente = d.ID_Docente LEFT JOIN alumnos_clase ac ON c.ID_Clase = ac.ID_Clase GROUP BY c.ID_Clase ORDER BY c.ID_Clase;
+";
 }
 
 $resultado = mysqli_query($conexion, $sql);
