@@ -8,7 +8,7 @@ grant insert on cerbd.usuarios to administrador;
 grant insert on cerbd.ocupacion to administrador;
 grant insert on cerbd.patologia_alumno to administrador;
 grant insert on cerbd.especializacion_docente to administrador;
-grant insert on cerbd.llegada_docente to administrador;
+grant insert on cerbd.lista_docente to administrador;
 grant insert on cerbd.alumnos_clase to administrador;
 
 grant select on cerbd.alumnos to administrador;
@@ -20,7 +20,7 @@ grant select on cerbd.usuarios to administrador;
 grant select on cerbd.ocupacion to administrador;
 grant select on cerbd.patologia_alumno to administrador;
 grant select on cerbd.especializacion_docente to administrador;
-grant select on cerbd.llegada_docente to administrador;
+grant select on cerbd.lista_docente to administrador;
 grant select on cerbd.alumnos_clase to administrador;
 grant select on cerbd.informes to administrador;
 
