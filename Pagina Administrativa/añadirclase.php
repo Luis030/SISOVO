@@ -21,15 +21,19 @@
             <option value="Miércoles">Miércoles</option>
             <option value="Jueves">Jueves</option>
             <option value="Viernes">Viernes</option>
+            <option value="Sábado">Sábado</option>
         </select>
     </div>
     <div class="claseInput">
         <label for="alumnoConf" class="alumnosLabel">Inicializar con alumnos<input type="checkbox" name="alumnoConf" id="alumnoConf" class="alumnoConf"></label>
-        <select name="alumnosClase" id="alumnosClase" class="alumnosClase" style="width: 100%" multiple></select>
+        <select name="alumnosClase" id="alumnosClase" class="alumnosClase" style="width: 100%" multiple disabled></select>
     </div>
 </div>
 <div class="diasHorarios" id="diasHorarios">
         
+</div>
+<div class="enviarDiv" id="enviarDiv">
+    <button id="enviar">Enviar</button>
 </div>
 <?php
     include("php/footer.php");

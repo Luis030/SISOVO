@@ -60,11 +60,21 @@ $(document).ready(function() {
         var diasSeleccionados = $('#diasClase').select2('data');
         diasHorarios.innerHTML = "";
         diasSeleccionados.forEach(function(diaSeleccionado) {
+            inicio = diaSeleccionado.text + "Inicio";
+            final = diaSeleccionado.text + "Final";
             var p = "Horario del día " + diaSeleccionado.text;
-            diasHorarios.innerHTML += "<div class='horarioTalDia'>" + "<label for='inputHora'>" + p + "</label>" + "<input type='time' id='" + diaSeleccionado.text + "'>";
+            diasHorarios.innerHTML += "<div class='horarioTalDia'><label for='inputHora'>" + p + "<br></label><span class='pre'>Inicia:</span><br><input type='time' id='" + inicio + "'><br><span class='pre'>Termina:</span><br><input type='time' id='" + final + "'>";
         });
     });
-    
+
+    $('#alumnoConf').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('#alumnosClase').prop('disabled', false);
+        } else {
+            $('#alumnosClase').prop('disabled', true).val(null).trigger('change');
+        }
+    });
+
 
     $('#docenteClase').select2({
         placeholder: 'Seleccione un docente',
@@ -88,6 +98,91 @@ $(document).ready(function() {
             cache: true
         }
     })
+
+    function convertirHorasMinutos(hora) {
+        var partes = hora.split(':');
+        return parseInt(partes[0]) * 60 + parseInt(partes[1]);
+    }
+
+    function guardarClase() {
+        var nombre = document.getElementById('nombreClase').value;
+        var docenteID = $('#docenteClase').val();
+        var diasVisibles = [];
+        var diasSemana = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+        var errorHorario = false;
+
+        if (document.getElementById('alumnoConf').checked) {
+            var alumnoID = $('#alumnosClase').val();
+        }
+
+        diasSemana.forEach(function(dia) {
+            var inicioInput = $('#' + dia + 'Inicio');
+            var finalInput = $('#' + dia + 'Final');
+
+            if (inicioInput.is(':visible') && finalInput.is(':visible')) {
+                var horarioInicio = inicioInput.val();
+                var horarioFinal = finalInput.val();
+                var minutosInicio = convertirHorasMinutos(horarioInicio);
+                var minutosFinal = convertirHorasMinutos(horarioFinal);
+
+                if (minutosInicio >= minutosFinal) {
+                    errorHorario = true;
+                } else {
+                    diasVisibles.push({
+                        dia: dia,
+                        inicio: horarioInicio,
+                        final: horarioFinal
+                    });
+                }
+            }           
+        });
+
+        if (errorHorario == true) {
+            Swal.fire({
+                title: "Error!",
+                text: "La hora de finalización debe ser mayor que la hora de inicio",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            });
+            exit;
+        } else {
+            if (nombre && docenteID && diasVisibles.length > 0 && diasVisibles.some(d => d.inicio && d.final && d.dia)) {   
+                $.ajax({
+                    url: 'php/guardarclase.php',
+                    type: 'POST',
+                    data: {
+                        nombre: nombre,
+                        docenteID: docenteID,
+                        alumnoID: alumnoID ? alumnoID : null,
+                        diasVisibles: diasVisibles
+                    },
+                    success: function(response) {
+                        Swal.fire ({
+                            title: "Correcto!",
+                            text: "Clase guardada correctamente",
+                            icon: "success",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error al enviar los datos: ", error);
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Faltan ingresar varios datos",
+                    icon: "error",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+            }
+        }
+    }
+
+    document.getElementById('enviar').addEventListener('click', guardarClase);
 
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',

@@ -11,15 +11,14 @@
 
 .claseInput input {
     width: 100%;
-    margin-top: 5px;
     border: 2px solid var(--color-secundario);
     background-color: var(--color-cuartetario);
     font-size: 30px;
-    margin-bottom: 20px;
 }
 
-.claseInput select {
+.claseInput {
     margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .claseInput input::placeholder {
@@ -36,6 +35,7 @@
     width: 20px;
     height: 20px;
     margin-left: 20px;
+    margin-bottom: 0;
 }
 
 .horarioTalDia {
@@ -49,9 +49,44 @@
 }
 
 .horarioTalDia input {
-    width: 10%;
-    margin-top: 5px;
+    width: 140px;
     border: 2px solid var(--color-secundario);
     background-color: var(--color-cuartetario);
     font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pre {
+    font-size: 20px;
+}
+
+.diasHorarios {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+}
+
+#enviar {
+    margin-top: 20px;
+    background-color: var(--color-secundario);
+    padding: 10px;
+    border: none;
+    padding-left: 35px;
+    padding-right: 35px;
+    color: white;
+    border-radius: 20px;
+    transition: 0.25s;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+#enviar:hover {
+    filter: brightness(75%);
+}
+
+@media (max-width: 1060px) {
+    .nuevaClase {
+        display: flex;
+        flex-direction: column;
+    }
 }
