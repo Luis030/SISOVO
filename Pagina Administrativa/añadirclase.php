@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="css/styleañadirclases.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <script src="js/cargarselect.js"></script>
+<script src="js/añadirclase.js"></script>
 <div class="nuevaClase">
     <div class="claseInput">
         <label for="nombreClase">Nombre de la clase</label>
