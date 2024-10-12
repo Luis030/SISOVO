@@ -7,5 +7,8 @@ if($idclase){
     if(mysqli_num_rows($resultado) > 0){
         $envio = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         echo json_encode($envio);
+    } else {
+        $data = [];
+        echo json_encode($data);
     }
 }

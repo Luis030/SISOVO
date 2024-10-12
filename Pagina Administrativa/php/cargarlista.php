@@ -22,7 +22,7 @@ if(mysqli_num_rows($resultado) > 0){
     echo "<input type='hidden' name='actualizando' value='false'>";
     $query = "SELECT a.ID_Alumno, a.Nombre FROM alumnos a
           JOIN alumnos_clase ac ON a.ID_Alumno = ac.ID_Alumno
-          WHERE ac.ID_Clase = $idclase AND a.estado = 1 AND ac.Asistio IS NULL";
+          WHERE ac.ID_Clase = $idclase AND a.estado = 1 AND ac.Estado=1 AND ac.Asistio IS NULL";
 
     $resultado = mysqli_query($conexion, $query);
     if($resultado){

@@ -13,7 +13,7 @@ $idclase = $_GET['id'];
 $sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Horario, COUNT(AC.ID_Alumno) as cantidad
         FROM Clase C
         JOIN Docentes D ON C.ID_Docente = D.ID_Docente
-        LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase WHERE C.ID_Clase=$idclase
+        LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase WHERE AC.Estado=1 AND AC.Asistio IS NULL AND C.ID_Clase=$idclase
         GROUP BY C.ID_Clase;";
 $resultado = mysqli_query($conexion, $sql);
 
