@@ -10,11 +10,8 @@ if(isset($_GET['error'])){
     $error = true;
 }
 $idclase = $_GET['id'];
-$sql = "SELECT C.ID_Docente, D.Nombre as docente, C.Nombre, C.Horario, COUNT(AC.ID_Alumno) as cantidad
-        FROM Clase C
-        JOIN Docentes D ON C.ID_Docente = D.ID_Docente
-        LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase WHERE AC.Estado=1 AND AC.Asistio IS NULL AND C.ID_Clase=$idclase
-        GROUP BY C.ID_Clase;";
+$sql = "SELECT C.ID_Clase, D.ID_Docente, C.Nombre, CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, C.Horario AS Horarios, COUNT(AC.ID_Alumno) AS Cantidad_Alumnos FROM clase C JOIN docentes D ON C.ID_Docente = D.ID_Docente LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase AND AC.Estado = 1 AND AC.Asistio IS NULL WHERE C.Estado = 1 AND C.ID_Clase=$idclase GROUP BY C.ID_Clase;
+";
 $resultado = mysqli_query($conexion, $sql);
 
 $datosClase = [];
@@ -24,10 +21,10 @@ $cantidadAlumnos = 0;
 if (mysqli_num_rows($resultado) > 0) {
     while ($fila = mysqli_fetch_assoc($resultado)) {
         $datosClase['ID_Docente'] = $fila['ID_Docente'];
-        $datosClase['docente'] = $fila['docente'];
+        $datosClase['docente'] = $fila['Docente'];
         $datosClase['Nombre'] = $fila['Nombre'];
-        $datosClase['Dia'] = $fila['Horario'];
-        $cantidadAlumnos = $fila['cantidad'];
+        $datosClase['Dia'] = $fila['Horarios'];
+        $cantidadAlumnos = $fila['Cantidad_Alumnos'];
     }
 }
 
