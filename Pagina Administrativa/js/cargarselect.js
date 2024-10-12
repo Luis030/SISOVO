@@ -182,8 +182,6 @@ $(document).ready(function() {
         }
     }
 
-    document.getElementById('enviar').addEventListener('click', guardarClase);
-
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 

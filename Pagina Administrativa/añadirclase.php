@@ -33,7 +33,7 @@
         
 </div>
 <div class="enviarDiv" id="enviarDiv">
-    <button id="enviar">Enviar</button>
+    <button id="enviar" onclick="guardarClase()">Enviar</button>
 </div>
 <?php
     include("php/footer.php");
