@@ -1,4 +1,11 @@
-    let tablas = {};
+let tablas = {};
+var rollCallBackListaDocente =  function(row, data) {
+    if (data.Tipo === 'Salida') {
+        $(row).addClass('fila-salida');
+    } else if (data.Tipo === 'Entrada') {
+        $(row).addClass('fila-entrada');
+    }
+}
 window.tablas = tablas; 
 document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('#tabla-clases')) {
@@ -13,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('#clases-docente')){
         const ceduladoc = window.ceduladoc;
         tablas['clasesdoc'] = iniciarTabla('clases-docente', `php/obtenertodasclases.php?docente=${ceduladoc}`, clasesDocente(), "60vh");
+    }
+
+    if(document.querySelector('#lista-docente')){
+        tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php', columnasListaDocente(), "50vh", rollCallBackListaDocente);
     }
 });
 
@@ -44,8 +55,24 @@ const TablasConfig = {
         }
     }
 };
+function columnasListaDocente(){
+    return [
+        {
+            "data": "Docente",
+            "render": function(data, type, row){
+                return `<a href="detalle_docente.php?id=${row.ID_Docente}">${data}</a>`
+            }
+        },
+        { "data": "Cedula" },
+        { "data": "Fecha" },
+        { "data": "Tipo" },
+        { "data": "Hora" }
+    ]
+}
 
-function iniciarTabla(tablaId, ajaxUrl, columnas, scroll) {
+    
+
+function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false) {
     const config = {
         ...TablasConfig,
         ajax: {
@@ -55,7 +82,8 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll) {
         },
         columns: columnas,
         scrollY: scroll,
-        deferRender: true
+        deferRender: true,
+        rowCallback: rollCall
     };
     return $(`#${tablaId}`).DataTable(config);
 }

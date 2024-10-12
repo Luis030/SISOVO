@@ -29,8 +29,8 @@ th, td {
     text-align: left;
 }
 
-td {
-    background-color: var(--color-cuartetario);
+tr {
+    background-color: var(--color-cuartetario) !important;
 }
 
 th {

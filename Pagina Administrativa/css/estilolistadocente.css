@@ -1,0 +1,55 @@
+.fila-salida{
+    background-color: rgb(236, 121, 121) !important;
+}
+
+.fila-entrada{
+    background-color: rgb(188, 228, 129) !important;
+}
+
+a{
+color: black !important;
+}
+
+.filtros-divisor{
+    display: flex;
+}
+
+.contenedor-filtros input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+
+.filtros-lista-docente{
+    display: flex;
+}
+
+#tabla-filtros{
+    width: 300px;
+    border: 1px solid black;
+    background-color: transparent;
+}
+#tabla-filtros td{
+    border-right: 0;
+    border-left: 0;
+}
+.botones-filtros{
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.boton-filtros-avanzados{
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-secundario);
+    background-color: var(--color-secundario);
+    color: white;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.boton-filtros-avanzados:hover{
+    filter: brightness(125%);
+}
