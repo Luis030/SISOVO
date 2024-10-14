@@ -63,6 +63,7 @@ require_once("php/header_sidebar.php");
         </div>
     </div>
 </div>
+
 <script src="js/datostablas.js"></script>
 <script src="js/funcionestablas.js"></script>
 <script src="js/filtros.js"></script>

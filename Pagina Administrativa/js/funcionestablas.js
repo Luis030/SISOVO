@@ -58,6 +58,10 @@ function ingresarAlumno(idclase){
         console.log('Respuesta del servidor:', data);
         tablas['alumnosclase'].ajax.reload();
         $('#select-alumnos').val(null).trigger('change');
+        Swal.fire({
+            icon: 'success',
+            title: "Alumno ingresado correctamente"
+        })
     })
     .catch(error => {
         console.error('Error:', error);
