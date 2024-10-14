@@ -17,11 +17,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
     });
 
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'e' || event.key === 'E') {
+        if (event.key === 'z' || event.key === 'Z') {
             entradaCheckbox.checked = true;
             salidaCheckbox.checked = false;
         }
-        if (event.key === 's' || event.key === 'S') {
+        if (event.key === 'x' || event.key === 'X') {
             salidaCheckbox.checked = true;
             entradaCheckbox.checked = false;
         }
@@ -63,8 +63,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         text: "Asistencia ingresada correctamente.",
                         icon: "success",
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 1500
                     })
+                    entradaCheckbox.checked = false;
+                    salidaCheckbox.checked = false;
+                    cedulaIngresada.value = "";
                 }
                 if (datos.mensaje == "no") {
                     Swal.fire({
@@ -72,11 +75,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         text: "Ingrese una cédula válida",
                         icon: "warning",
                         showConfirmButton: false,
-                        timer: 3000
+                        timer: 2000
                     })
                 }
             })
-
         }
     }   
 

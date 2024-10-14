@@ -151,7 +151,7 @@ function columnasAlumnosClase(idclase){
             "render": function(data, type, row) {
                 // Almacenar el ID del alumno en el atributo data-id
                 return `
-                    <button class='boton-editar' onclick='editar(${row.ID_Alumno})'>Editar</button>
+                    <button class='boton-editar' onclick='\`editaralumno.php?id=${row.ID_Alumno}'\`>Editar</button>
                     <button class='boton-borrar' onclick='eliminarAlumnoClase(${idclase}, ${row.ID_Alumno})'>Eliminar</button>
                 `;
             },

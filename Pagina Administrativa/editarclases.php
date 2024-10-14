@@ -34,6 +34,7 @@
                     <button id="guardarInput" onclick="guardarNombre(<?php echo $idClase?>)">Guardar</button>
                 </div>
             </div>
+            <!--
             <div class="editarElemento">
                 <p>Días: <span id="spanDia"><?php echo $diaClase ?></span><img src="img/editar.png" alt="Editar" id="editarDia" onclick="mostrarEditarDia()"></p>
                 <div id="editandoDia" class="fadeDia">
@@ -48,21 +49,6 @@
                     <button id="guardarInput" onclick="guardarDia(<?php echo $idClase?>)">Guardar</button>
                 </div>
             </div>
-            <!--  
-            <div class="editarElemento">
-                <p>Hora de inicio: <span id="spanInicio"><?php echo $inicioClase ?></span><img src="img/editar.png" alt="Editar" id="editarInicio" onclick="mostrarEditarInicio()"></p>
-                <div id="editandoInicio" class="fadeInicio">
-                    <input type="time" id="horaInicio" min="08:00" max="18:00" name="inicioNuevo" required>
-                    <button id="guardarInput" onclick="guardarInicio(<?php echo $idClase?>)">Guardar</button>
-                </div>
-            </div>
-            <div class="editarElemento">
-                <p>Hora final: <span id="spanFinal"><?php echo $finalClase ?></span><img src="img/editar.png" alt="Editar" id="editarFinal" onclick="mostrarEditarFinal()"></p>
-                <div id="editandoFinal" class="fadeFinal">
-                    <input type="time" id="horaFinal" min="08:00" max="18:00" name="finalNuevo" required>   
-                    <button id="guardarInput" onclick="guardarFinal(<?php echo $idClase?>)">Guardar</button>
-                </div>
-            </div>
             -->
             <div class="editarElemento">
                 <p>Docente: <span id="spanDocente"><?php echo $nombreDocente ?></span><img src="img/editar.png" alt="Editar" id="editarDocente" onclick="mostrarEditarDocente()"></p>
@@ -72,7 +58,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 </div>
 <?php
     require_once("php/footer.php");

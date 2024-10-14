@@ -1,85 +1,85 @@
 function mostrarEditarNombre() { 
     const divNombre = document.getElementById('editandoNombre');
-    /*const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');*/
-    const divDocente = document.getElementById('editandoDocente');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
     if (divNombre.classList.contains('visible')) {
         divNombre.classList.remove('visible');
     } else {
         divNombre.classList.add('visible'); 
-        /*divDia.classList.remove('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.remove('visible');*/
-        divDocente.classList.remove('visible'); 
+        divApellido.classList.remove('visible');
+        divFecha.classList.remove('visible');
+        divMail.classList.remove('visible');
+        divCel.classList.remove('visible'); 
     }
 }
 
-/*function mostrarEditarDia() { 
+function mostrarEditarApellido() { 
     const divNombre = document.getElementById('editandoNombre');
-    const divDia = document.getElementById('editandoDia');  
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');
-    const divDocente = document.getElementById('editandoDocente');
-    if (divDia.classList.contains('visible')) {
-        divDia.classList.remove('visible');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
+    if (divApellido.classList.contains('visible')) {
+        divApellido.classList.remove('visible');
     } else {
-        divNombre.classList.remove('visible');
-        divDia.classList.add('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.remove('visible');
-        divDocente.classList.remove('visible'); 
+        divNombre.classList.remove('visible'); 
+        divApellido.classList.add('visible');
+        divFecha.classList.remove('visible');
+        divMail.classList.remove('visible');
+        divCel.classList.remove('visible'); 
     }
-}*/
+}
 
-/*function mostrarEditarInicio() { 
+function mostrarEditarFecha() { 
     const divNombre = document.getElementById('editandoNombre');
-    const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');
-    const divDocente = document.getElementById('editandoDocente');
-    if (divInicio.classList.contains('visible')) {
-        divInicio.classList.remove('visible');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
+    if (divFecha.classList.contains('visible')) {
+        divFecha.classList.remove('visible');
     } else {
-        divNombre.classList.remove('visible');
-        divDia.classList.remove('visible');
-        divInicio.classList.add('visible');
-        divFinal.classList.remove('visible');
-        divDocente.classList.remove('visible'); 
+        divNombre.classList.remove('visible'); 
+        divApellido.classList.remove('visible');
+        divFecha.classList.add('visible');
+        divMail.classList.remove('visible');
+        divCel.classList.remove('visible'); 
     }
-}*/
+}
 
-/*function mostrarEditarFinal() { 
+function mostrarEditarMail() { 
     const divNombre = document.getElementById('editandoNombre');
-    const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');
-    const divDocente = document.getElementById('editandoDocente');
-    if (divFinal.classList.contains('visible')) {
-        divFinal.classList.remove('visible');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
+    if (divMail.classList.contains('visible')) {
+        divMail.classList.remove('visible');
     } else {
-        divNombre.classList.remove('visible');
-        divDia.classList.remove('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.add('visible');
-        divDocente.classList.remove('visible');
+        divNombre.classList.remove('visible'); 
+        divApellido.classList.remove('visible');
+        divFecha.classList.remove('visible');
+        divMail.classList.add('visible');
+        divCel.classList.remove('visible'); 
     }
-}*/
+}
 
-function mostrarEditarDocente() { 
+function mostrarEditarCelular() { 
     const divNombre = document.getElementById('editandoNombre');
-    /*const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');*/
-    const divDocente = document.getElementById('editandoDocente');
-    if (divDocente.classList.contains('visible')) {
-        divDocente.classList.remove('visible');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
+    if (divCel.classList.contains('visible')) {
+        divCel.classList.remove('visible');
     } else {
-        divNombre.classList.remove('visible');
-        /*divDia.classList.remove('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.remove('visible');*/
-        divDocente.classList.add('visible');
+        divNombre.classList.remove('visible'); 
+        divApellido.classList.remove('visible');
+        divFecha.classList.remove('visible');
+        divMail.classList.remove('visible');
+        divCel.classList.add('visible'); 
     }
 }
 
