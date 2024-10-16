@@ -1,34 +1,49 @@
 <?php
-include("../BD/conexionbd.php");
-include("php/funciones.php");
+    include("php/header_sidebar.php");
 ?>
-<?php
-include("php/header_sidebar.php");
-?>
-
-<! ref a estilos 
-!>
-
-<link rel="stylesheet" href="css/estilogestion.css">
-<script src="JS/cargarselect.js"></script>
-<script src="JS/overlay.js"></script>
-<script src="js/overlayreutilizable.js"></script>
-
-<! divs  !> 
-<div class="Graficas">
-    
-    <div class="botones">
-    <a href="pepe" class="boton-inicio">Inicio</a>
-    <a href="añadirdocente.php" class="boton-inicio">Docentes</a>
-    <a href="añadiralumno.php" class="boton-inicio">Alumnos</a>
-    <a href="añadirdocente.php" class="boton-inicio">Informes</a>
-    <a href="añadiralumno.php" class="boton-inicio">Clases</a>
-    <a href="añadirdocente.php" class="boton-inicio">Elementos</a>
+<link rel="stylesheet" href="css/stylegestion.css">
+<div class="gestion">
+    <div class="menuGestion">
+        <button id="inicio">Inicio</button>
+        <button id="docentes">Docentes</button>
+        <button id="alumnos">Alumnos</button>
+        <button id="informes">Informes</button>
+        <button id="elementos">Elementos</button>
     </div>
-
+    <div class="gestionContent" id="gestionContent">
+        <div>
+            <p>Alumnos totales</p>
+            <span id="cantAlumnos"></span>
+        </div>
+        <div>
+            <p>Docentes totales</p>
+            <span id="cantDocentes"></span>
+        </div>
+        <div>
+            <p>Clases totales</p>
+            <span id="cantClases"></span>
+        </div>
+        <div>
+            <p>Informes realizados</p>
+            <div>
+                <canvas id="canvaInf"></canvas>
+            </div>
+        </div>
+        <div>
+            <p>Patologías</p>
+            <div>
+                <canvas id="canvaPat"></canvas>
+            </div>
+        </div>
+        <div>
+            <p>Especialistas</p>
+            <div>
+                <canvas id="canvaEsp"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
-
-
+<script src="js/gestion.js"></script>
 <?php
-include("php/footer.php");
+    include("php/footer.php");
 ?>

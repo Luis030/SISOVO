@@ -1,0 +1,60 @@
+content {
+    padding: 20px;
+    display: flex;
+}
+
+.menuGestion {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    background-color: var(--color-secundario);  
+    border-radius: 20px;
+}
+
+.menuGestion button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: var(--color-secundario);
+    border: none;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.25s;
+    padding: 10px;
+}
+
+.menuGestion button:hover {
+    filter: brightness(75%);
+}
+
+@media (max-width: 1270px) {
+    .menuGestion {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+}
+
+.gestionContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gestionContent div {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 80px;
+}
+
+.gestionContent div p {
+    margin-bottom: 40px;
+}
+
+.gestionContent div span {
+    font-size: 100px;
+    font-weight: 600;
+}
