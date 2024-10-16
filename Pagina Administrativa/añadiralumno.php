@@ -116,16 +116,14 @@ include("php/header_sidebar.php");
                     <input type="text" class="input-formulario" name="correo" placeholder="Ingrese un correo (Opcional)">
                 </div>
                 <div class="input-alumno">
+                    <button class="botonguardar">Guardar</button>
+                </div>
+                <div class="input-alumno">
                     <p>Patologia/s <input type="button" class="nueva-patologia-boton" onclick="patOverlay()" value="&#10010;"></p>
                     <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología" style="width: 100%;">
                     </select>
                 </div>
-                <div class="input-alumno">
 
-                </div>
-                <div class="input-alumno">
-                    <button class="botonguardar">Guardar</button>
-                </div>
                 <?php
                     if($alumnoingresado === TRUE) {
                         echo "<div class='success'>Alumno ingresado correctamente.</div>";

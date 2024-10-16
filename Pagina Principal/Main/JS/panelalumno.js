@@ -23,7 +23,7 @@ window.onload = function() {
                     .then(info => {
                         info.forEach(dato => {
                             const p = document.createElement('p');
-                            p.textContent = "Clase: "+dato.Nombre+", Día: "+dato.Dia+", Horario: "+dato.Inicio+"-"+dato.Final;
+                            p.textContent = "Clase: "+dato.Nombre+", Horario: "+dato.Horario;
                             clasesDiv.appendChild(p);
                         });
                     })

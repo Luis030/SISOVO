@@ -3,11 +3,11 @@
 
     $idAlumno = $_GET['id'];
         
-    $sql = "SELECT C.Nombre, C.Dia, C.Inicio, C.Final, A.ID_Alumno 
+    $sql = "SELECT C.Nombre, C.Horario, A.ID_Alumno 
             FROM alumnos_clase AC 
             JOIN alumnos A ON A.ID_Alumno = AC.ID_Alumno
-            JOIN Clase C ON C.ID_Clase = AC.ID_Clase 
-            WHERE A.ID_Alumno = ?";
+            JOIN clase C ON C.ID_Clase = AC.ID_Clase 
+            WHERE A.ID_Alumno = ? AND C.Estado = 1";
         
     $consultasql = mysqli_prepare($conexion, $sql); 
     mysqli_stmt_bind_param($consultasql, "i", $idAlumno);
