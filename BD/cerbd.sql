@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2024 a las 23:57:35
+-- Tiempo de generación: 17-10-2024 a las 00:09:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -21,11 +21,9 @@ SET time_zone = "+00:00";
 -- Base de datos: `cerbd`
 --
 
-CREATE DATABASE IF NOT EXISTS cerbd;
-USE cerbd;
-
 -- --------------------------------------------------------
-
+CREATE DATABASE IF NOT EXISTS cerbd;
+use cerbd;
 --
 -- Estructura de tabla para la tabla `alumnos`
 --
@@ -91,7 +89,10 @@ INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Asistio`, `Fecha`, `estad
 (2, 6, 0, '2024-10-11', 1),
 (3, 2, NULL, '2024-10-11', 1),
 (3, 3, NULL, '2024-10-11', 0),
-(3, 7, NULL, '2024-10-11', 1);
+(3, 7, NULL, '2024-10-11', 1),
+(2, 11, NULL, '2024-10-16', 1),
+(12, 4, NULL, '2024-10-16', 1),
+(12, 8, NULL, '2024-10-16', 1);
 
 -- --------------------------------------------------------
 
@@ -118,7 +119,8 @@ INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Horario`, `Estado`, `A
 (4, 3, 'Área de lengua', 'Miércoles', 1, 2024),
 (5, 4, 'Lengua', 'Jueves', 0, 2024),
 (8, 5, 'Área de lengua', 'Lunes', 1, 2024),
-(11, 10, 'Inglés', 'Viernes', 0, 2024);
+(11, 10, 'Inglés', 'Viernes', 0, 2024),
+(12, 13, 'Gimnasia', 'Jue(15:00-16:00)', 1, 2024);
 
 -- --------------------------------------------------------
 
@@ -274,7 +276,11 @@ INSERT INTO `lista_docente` (`ID_Asistencia`, `ID_Docente`, `Fecha`, `Hora`, `Ti
 (8, 13, '2024-10-08', '18:46:20', 'E'),
 (9, 13, '2024-10-08', '18:46:20', 'S'),
 (10, 13, '2024-10-08', '18:46:20', 'S'),
-(11, 13, '2024-10-08', '18:46:27', 'E');
+(11, 13, '2024-10-08', '18:46:27', 'E'),
+(12, 13, '2024-10-16', '19:00:47', 'E'),
+(13, 13, '2024-10-16', '19:00:53', 'S'),
+(14, 13, '2024-10-16', '19:00:57', 'E'),
+(15, 13, '2024-10-16', '19:01:00', 'S');
 
 -- --------------------------------------------------------
 
@@ -496,7 +502,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `clase`
 --
 ALTER TABLE `clase`
-  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
@@ -520,7 +526,7 @@ ALTER TABLE `informes`
 -- AUTO_INCREMENT de la tabla `lista_docente`
 --
 ALTER TABLE `lista_docente`
-  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `ocupacion`
