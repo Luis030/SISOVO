@@ -1,3 +1,6 @@
+window.addEventListener('DOMContentLoaded', () => {
+    setInterval(actualizarListaDocente, 10000);
+})
 function eliminarClase(id, nombre) {
     Swal.fire({
         title: "¿Estas seguro de borrar la clase <span class='nombre-clase'>"+nombre+"</span>?",
@@ -112,15 +115,8 @@ function paginaConfirmarAsistencia(){
     window.open("confirmarasistencia", "_blank");
 }
 
-function closeFullscreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) { // Firefox
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) { // Chrome, Safari y Opera
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { // IE/Edge
-        document.msExitFullscreen();
-    }
-}
 
+
+function actualizarListaDocente(){
+    tablas['listadoc'].ajax.reload();
+}

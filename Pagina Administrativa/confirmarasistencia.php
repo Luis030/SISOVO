@@ -2,6 +2,8 @@
     include("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/styleasistencia.css">
+<script src="js/datostablas.js"></script>
+<script src="js/funcionestablas.js"></script>
 <script src="js/confirmarasistencias.js"></script>
 <div class="asistenciaMain">
     <div class="start">
