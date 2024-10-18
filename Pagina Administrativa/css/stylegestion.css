@@ -13,7 +13,7 @@ content {
     border-radius: 20px;
 }
 
-.menuGestion button {
+.menuGestion a {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 5px;
@@ -26,9 +26,10 @@ content {
     border-radius: 20px;
     transition: 0.25s;
     padding: 10px;
+    text-decoration: none;
 }
 
-.menuGestion button:hover {
+.menuGestion a:hover {
     filter: brightness(75%);
 }
 
