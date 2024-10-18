@@ -7,6 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="SCRIPT.JS"></script>
+    <link rel="stylesheet" href="style.css">
     <style>
         /* Ajuste de tamaño para el canvas del gráfico */
         #graficoPatologias {
@@ -29,8 +30,8 @@
     <div class="graficos-div" style="display: flex;">  
         <canvas id="graficoPatologias" width="200" height="200"></canvas>
         <canvas id="graficoListas" width="200" height="200"></canvas>
+        <canvas id="graficoEspecialiades" width="300" height="300"></canvas>
     </div>
-    
     <script>
         const chartColors = [
             'rgba(255, 99, 132, 0.6)', 'rgba(54, 162, 235, 0.6)',
@@ -44,13 +45,10 @@
             dataType: 'json',
             success: function(data) {
                 console.log(data);
-
                 if (Array.isArray(data)) {
                     const nombres = data.map(item => item.nombre);
                     const cantidades = data.map(item => item.cantidad);
                     const backgroundColors = nombres.map((_, index) => chartColors[index % chartColors.length]);
-
-                    
                     const ctx = document.getElementById('graficoPatologias').getContext('2d');
                     const graficoPatologias = new Chart(ctx, {
                         type: 'pie', 
@@ -75,6 +73,54 @@
                                             const label = tooltipItem.label || '';
                                             const value = tooltipItem.raw || 0;
                                             return ` ${value} alumnos`;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    console.error('La respuesta no es un array:', data);
+                }
+            },
+            error: function(error) {
+                console.error("Error al obtener los datos: ", error);
+            }
+        });
+        $.ajax({
+            url: 'docentesespecialidades.php',
+            method: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                if (Array.isArray(data)) {
+                    const nombres = data.map(item => item.nombre);
+                    const cantidades = data.map(item => item.cantidad);
+                    const backgroundColors = nombres.map((_, index) => chartColors[index % chartColors.length]);
+                    const ctx = document.getElementById('graficoEspecialiades').getContext('2d');
+                    const graficoEspecialiades = new Chart(ctx, {
+                        type: 'pie', 
+                        data: {
+                            labels: nombres, 
+                            datasets: [{
+                                data: cantidades, 
+                                backgroundColor: backgroundColors, 
+                                borderColor: 'rgba(255, 255, 255, 1)', 
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    display: false, 
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            const label = tooltipItem.label || '';
+                                            const value = tooltipItem.raw || 0;
+                                            return ` ${value} docentes`;
                                         }
                                     }
                                 }
