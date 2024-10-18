@@ -80,7 +80,7 @@ $(document).ready(function() {
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
         ajax: {
-            url: 'php/obtenerdocentes.php', 
+            url: 'php/obtenerdocentes.php?select=true', 
             dataType: 'json',
             delay: 250,
             data: function (params) {
@@ -103,7 +103,7 @@ $(document).ready(function() {
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
         ajax: {
-            url: 'php/obtenerdocentes.php', 
+            url: 'php/obtenerdocentes.php?select=true', 
             dataType: 'json',
             delay: 250,
             data: function (params) {

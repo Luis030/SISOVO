@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('#lista-docente')){
         tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php?time=hoy', columnasListaDocente(), "50vh", rollCallBackListaDocente);
     }
+
+    if(document.querySelector('#tabla-docentes')){
+        tablas['tabladoc'] = iniciarTabla('tabla-docentes', 'php/obtenerdocentes.php?tabla=true', columnastablaDocentes(), "50vh");
+    }
 });
 
 const TablasConfig = {
@@ -149,7 +153,6 @@ function columnasAlumnosClase(idclase){
         {
             "data": null,
             "render": function(data, type, row) {
-                // Almacenar el ID del alumno en el atributo data-id
                 return `
                     <button class='boton-editar' onclick='\`editaralumno.php?id=${row.ID_Alumno}'\`>Editar</button>
                     <button class='boton-borrar' onclick='eliminarAlumnoClase(${idclase}, ${row.ID_Alumno})'>Eliminar</button>
@@ -160,3 +163,25 @@ function columnasAlumnosClase(idclase){
     ]
 }
 
+function columnastablaDocentes(){
+    return [
+        { "data": "Nombre",
+            "render": function(data, type, row) {
+            return `<a href="detalle_docente.php?id=${row.ID_Docente}">${data}</a>`;
+            }
+        },
+        { "data": "Cedula" },
+        { "data": "Mail" },
+        { "data": "Celular" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-editar' onclick='editarDocente(${row.ID_Docente})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarDocente(${row.ID_Docente}, \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ]
+}

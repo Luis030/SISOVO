@@ -13,7 +13,7 @@ content {
     border-radius: 20px;
 }
 
-.menuGestion a {
+.menuGestion .a-header {
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 5px;
@@ -40,22 +40,22 @@ content {
     }
 }
 
-.gestionContent {
+.gestion-inicio-principal{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.gestionContent div {
+.gestion-inicio-principal .info-inicio {
     text-align: center;
     font-size: 35px;
     margin-bottom: 80px;
 }
 
-.gestionContent div p {
+.gestion-inicio-principal .info-inicio p {
     margin-bottom: 40px;
 }
 
-.gestionContent div span {
+.gestion-inicio-principal .info-inicio span {
     font-size: 100px;
     font-weight: 600;
 }

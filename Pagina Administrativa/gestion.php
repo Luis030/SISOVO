@@ -17,53 +17,70 @@
     }
 ?>
 <link rel="stylesheet" href="css/stylegestion.css">
+<script src="js/datostablas.js"></script>
+<script src="js/funcionestablas.js"></script>
+<link rel="stylesheet" href="css/estilotablas.css">
 <div class="gestion">
     <div class="menuGestion">
-        <a href="gestion.php?pagina=inicio" >Inicio</a>
-        <a href="gestion.php?pagina=docentes">Docentes</a>
-        <a href="gestion.php?pagina=alumnos">Alumnos</a>
-        <a href="gestion.php?pagina=informes">Informes</a>
-        <a href="gestion.php?pagina=elementos">Elementos</a>
+        <a href="gestion.php?pagina=inicio" class="a-header">Inicio</a>
+        <a href="gestion.php?pagina=docentes" class="a-header">Docentes</a>
+        <a href="gestion.php?pagina=alumnos" class="a-header">Alumnos</a>
+        <a href="gestion.php?pagina=informes" class="a-header">Informes</a>
+        <a href="gestion.php?pagina=elementos" class="a-header">Elementos</a>
     </div>
-    <div class="gestionContent" id="gestionContent">
+    <div class="gestion-contenido" id="gestion-contenido">
         <?php
             if($pagina == "inicio") {
         ?>
-        <div>
-            <p>Alumnos totales</p>
-            <span id="cantAlumnos"><?php echo $cantA ?></span>
-        </div>
-        <div>
-            <p>Docentes totales</p>
-            <span id="cantDocentes"><?php echo $cantD ?></span>
-        </div>
-        <div>
-            <p>Clases totales</p>
-            <span id="cantClases"><?php echo $cantC ?></span>
-        </div>
-        <div>
-            <p>Informes realizados</p>
-            <div>
-                <canvas id="canvaInf"></canvas>
+        <div class="gestion-inicio-principal">
+            <div class="info-inicio">
+                <p>Alumnos totales</p>
+                <span id="cantAlumnos"><?php echo $cantA ?></span>
             </div>
-        </div>
-        <div>
-            <p>Patologías</p>
-            <div>
-                <canvas id="canvaPat"></canvas>
+            <div class="info-inicio">
+                <p>Docentes totales</p>
+                <span id="cantDocentes"><?php echo $cantD ?></span>
             </div>
-        </div>
-        <div>
-            <p>Especialistas</p>
-            <div>
-                <canvas id="canvaEsp"></canvas>
+            <div class="info-inicio">
+                <p>Clases totales</p>
+                <span id="cantClases"><?php echo $cantC ?></span>
+            </div>
+            <div class="info-inicio">
+                <p>Informes realizados</p>
+                <div>
+                    <canvas id="canvaInf"></canvas>
+                </div>
+            </div>
+            <div class="info-inicio">
+                <p>Patologías</p>
+                <div>
+                    <canvas id="canvaPat"></canvas>
+                </div>
+            </div>
+            <div class="info-inicio">
+                <p>Especialistas</p>
+                <div>
+                    <canvas id="canvaEsp"></canvas>
+                </div>
             </div>
         </div>
         <?php
             }
             if ($pagina == "docentes") {
         ?>
-        <p>aca va docentes</p>
+        <div class="contenedor-seccion-docentes">
+            <table id="tabla-docentes">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Cédula</th>
+                        <th>Correo</th>
+                        <th>Celular</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <?php
             }
             if ($pagina == "alumnos") {
