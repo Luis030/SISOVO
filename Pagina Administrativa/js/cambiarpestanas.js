@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if(contenedorOcu.style.display == "grid"){
             enviarFormulario("php/añadirocupacion.php");
         }
+        console.log("fdksf")
+
     })
 })
 
@@ -76,10 +78,12 @@ function eliminarItem(index, tipo) {
 }
 
 function enviarFormulario(enlace) {
+    console.log(enlace)
     const contenedorEsp = document.querySelector('.formEsp');
     const selectOcupacion = document.getElementById('ocupacionEspecialidad')
     if(contenedorEsp.style.display !== "none"){
         if(selectOcupacion.value !== ""){
+            console.log("hizo esto")
             fetch(enlace, {
                 method: 'POST',
                 headers: {
@@ -172,6 +176,10 @@ function mostrarErrores(errores) {
 }
 
 function patologiaForm(){ 
+    const selectOcupacion = document.getElementById('ocupacionEspecialidad')
+    if(selectOcupacion){
+        selectOcupacion.disabled = false;
+    }
     const contErrores = document.getElementById('errores-items');
     const contMensajes = document.getElementById('mensaje-items');
     const contenedorPat = document.querySelector('.formPat');
@@ -208,6 +216,10 @@ function patologiaForm(){
 }
 
 function ocupacionForm(){
+    const selectOcupacion = document.getElementById('ocupacionEspecialidad')
+    if(selectOcupacion){
+        selectOcupacion.disabled = false;
+    }
     const contErrores = document.getElementById('errores-items');
     const contMensajes = document.getElementById('mensaje-items');
     const contenedorPat = document.querySelector('.formPat');
