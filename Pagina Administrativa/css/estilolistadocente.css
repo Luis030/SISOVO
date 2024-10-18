@@ -48,10 +48,11 @@ color: black !important;
     color: white;
     cursor: pointer;
     margin-bottom: 20px;
+    transition: 0.25s;
 }
 
 .boton-filtros-avanzados:hover{
-    filter: brightness(125%);
+    filter: brightness(75%);
 }
 
 .swal2-html-container{
