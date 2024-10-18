@@ -1,4 +1,10 @@
 window.onload = function (){
+    const inputs = document.querySelectorAll('input');
+
+    inputs.forEach(function(input) {
+        input.setAttribute('autocomplete', 'off');
+    });
+
     const especialidadesSelect = document.getElementById('especialidades-select');
     const patologiasSelect = document.getElementById("patologias-select");
     const abrirabout = document.getElementById('aboutus');

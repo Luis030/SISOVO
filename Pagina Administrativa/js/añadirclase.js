@@ -58,6 +58,11 @@
                         diasVisibles: diasVisibles
                     },
                     success: function(response) {
+                        $('#diasClase').val(null).trigger('change');
+                        $('#alumnosClase').val(null).trigger('change');
+                        $('#docenteClase').val(null).trigger('change');
+                        document.getElementById('alumnoConf').checked = false;
+                        document.getElementById('nombreClase').value = '';
                         Swal.fire ({
                             title: "Correcto!",
                             text: "Clase guardada correctamente",
