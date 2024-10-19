@@ -12,30 +12,34 @@ document.addEventListener('DOMContentLoaded', function () {
         tablas['clases'] = iniciarTabla('tabla-clases', 'php/obtenertodasclases.php', obtenerColumnasClases(), "60vh");
     }
 
-    if(document.querySelector('#tabla-alumnos')){
+    if(document.querySelector('#tabla-alumnos')) {
         const idclase = window.idclase;
         tablas['alumnosclase'] = iniciarTabla('tabla-alumnos', `php/alumnosclase.php?id=${idclase}`, columnasAlumnosClase(idclase), "30vh");
     }
 
-    if(document.querySelector('#clases-docente')){
+    if(document.querySelector('#clases-docente')) {
         const ceduladoc = window.ceduladoc;
         tablas['clasesdoc'] = iniciarTabla('clases-docente', `php/obtenertodasclases.php?docente=${ceduladoc}`, clasesDocente(), "60vh");
     }
 
-    if(document.querySelector('#lista-docente')){
+    if(document.querySelector('#lista-docente')) {
         tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php?time=hoy', columnasListaDocente(), "50vh", rollCallBackListaDocente);
     }
 
-    if(document.querySelector('#tabla-docentes')){
+    if(document.querySelector('#tabla-docentes')) {
         tablas['tabladoc'] = iniciarTabla('tabla-docentes', 'php/obtenerdocentes.php?tabla=true', columnastablaDocentes(), "50vh");
     }
 
-    if(document.querySelector('#tabla-alumnos-gestion')){
+    if(document.querySelector('#tabla-alumnos-gestion')) {
         tablas['tablaalu'] = iniciarTabla('tabla-alumnos-gestion', 'php/alumnos.php?alumnostabla=true', columnastablaAlumnos(), "50vh");
     }
     
-    if(document.querySelector('#tabla-informes-gestion')){
+    if(document.querySelector('#tabla-informes-gestion')) {
         tablas['tablainformes'] = iniciarTabla('tabla-informes-gestion', 'php/obtenerinformes.php', columnastablaInformes(), "50vh");
+    }
+
+    if(document.querySelector('#tabla-esp-gestion')) {
+        tablas['tablaesp'] = iniciarTabla('tabla-esp-gestion', 'php/obtenerespecialidades.php', columnastablas)
     }
 });
 
@@ -67,6 +71,7 @@ const TablasConfig = {
         }
     }
 };
+
 function columnasListaDocente(){
     return [
         {
@@ -81,8 +86,6 @@ function columnasListaDocente(){
         { "data": "Hora" }
     ]
 }
-
-    
 
 function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false) {
     const config = {
@@ -198,6 +201,7 @@ function columnastablaDocentes(){
         }
     ]
 }
+
 
 function columnastablaAlumnos(){
     return [

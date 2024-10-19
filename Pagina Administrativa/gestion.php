@@ -3,6 +3,9 @@
     include("../BD/conexionbd.php");
     
     $pagina = $_GET['pagina'];
+    if (isset($_GET['tipo'])) {
+        $tipo = $_GET['tipo'];
+    }
 
     $sql = "SELECT (SELECT COUNT(*) FROM alumnos WHERE Estado = 1) AS totalAlumnos,
                    (SELECT COUNT(*) FROM clase WHERE Estado = 1) AS totalClases,
@@ -27,11 +30,12 @@
         <a href="gestion.php?pagina=docentes" class="a-header">Docentes</a>
         <a href="gestion.php?pagina=alumnos" class="a-header">Alumnos</a>
         <a href="gestion.php?pagina=informes" class="a-header">Informes</a>
-        <a href="gestion.php?pagina=elementos" class="a-header">Elementos</a>
+        <a href="gestion.php?pagina=elementos&&tipo=especialidades" class="a-header">Elementos</a>
     </div>
     <div class="gestion-contenido" id="gestion-contenido">
         <?php
-            if($pagina == "inicio") {
+            switch ($pagina) {
+                case "inicio":
         ?>
         <div class="gestion-inicio-principal">
             <div class="info-inicio">
@@ -66,8 +70,8 @@
             </div>
         </div>
         <?php
-            }
-            if ($pagina == "docentes") {
+                break;  
+            case "docentes":
         ?>
         <div class="contenedor-seccion-docentes">
             <table id="tabla-docentes">
@@ -83,8 +87,8 @@
             </table>
         </div>
         <?php
-            }
-            if ($pagina == "alumnos") {
+                break;  
+            case "alumnos":
         ?>
         <div class="contenedor-seccion-alumnos">
             <table id="tabla-alumnos-gestion">
@@ -102,8 +106,8 @@
             </table>
         </div>
         <?php
-            }
-            if ($pagina == "informes") {
+                break;  
+            case "informes":
         ?>
         <div class="contenedor-seccion-informes">
             <table id="tabla-informes-gestion">
@@ -119,11 +123,64 @@
             </table>
         </div>
         <?php
-            }
-            if ($pagina == "elementos") {
+                break;  
+            case "elementos":
         ?>
-        <p>aca va elementos</p>
+        <div class="seleccionPadre">
+            <div class="seleccion">
+                <a href="gestion.php?pagina=elementos&&tipo=especialidades" class="a-header">Especialidades</a>
+                <a href="gestion.php?pagina=elementos&&tipo=patologias" class="a-header">Patologías</a>
+                <a href="gestion.php?pagina=elementos&&tipo=ocupaciones" class="a-header">Ocupaciones</a>
+            </div>
+        </div>
         <?php
+                switch ($tipo) {
+                    case "especialidades":
+        ?>
+        <div class="esp">
+            <h1>Especialidades</h1>
+            <div class="espTabla">
+                <table id="tabla-esp-gestion">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cant. Docentes</th>
+                            <th>Ocupación</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <?php
+                        break;
+                    case "patologias":
+        ?>
+        <h1>Patologias</h1>
+        <?php
+                        break;
+                    case "ocupaciones":
+        ?>
+        <h1>Ocupaciones</h1>
+        <?php
+                        break;
+                    default:
+        ?>
+        <script>
+            window.location.href = "gestion.php?pagina=elementos&&tipo=especialidades";
+        </script>
+        <?php
+                        break;
+                    }
+        ?>
+        <?php
+                break;
+            default:
+        ?>
+        <script>
+            window.location.href = "gestion.php?pagina=inicio";
+        </script>
+        <?php
+                break;
             }
         ?>
     </div>
