@@ -1,7 +1,6 @@
 <?php
 include 'conexionbd.php'; 
 
-
 mysqli_query($conexion, "SET lc_time_names = 'es_ES'");
 
 $sql = "SELECT 
@@ -17,18 +16,20 @@ $sql = "SELECT
 
 $result = mysqli_query($conexion, $sql);
 
+$etiquetas = [];
+$valores = [];
 
-$datos = [];
 
 while ($row = mysqli_fetch_assoc($result)) {
-    $datos[] = [
-        'mes' => $row['Mes'],
-        'cantidad' => $row['Cantidad_Informes']
-    ];
+    $etiquetas[] = $row['Mes'];               
+    $valores[] = (int)$row['Cantidad_Informes'];  
 }
 
 mysqli_close($conexion);
-
+$datos = [
+    'etiquetas' => $etiquetas,
+    'valores' => $valores
+];
 
 header('Content-Type: application/json');
 echo json_encode($datos);
