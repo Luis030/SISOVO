@@ -31,7 +31,7 @@
         <a href="gestion.php?pagina=docentes" class="a-header">Docentes</a>
         <a href="gestion.php?pagina=alumnos" class="a-header">Alumnos</a>
         <a href="gestion.php?pagina=informes" class="a-header">Informes</a>
-        <a href="gestion.php?pagina=elementos&&tipo=especialidades" class="a-header">Elementos</a>
+        <a href="gestion.php?pagina=elementos" class="a-header">Elementos</a>
     </div>
     <div class="gestion-contenido" id="gestion-contenido">
         <?php
@@ -131,51 +131,15 @@
                 break;  
             case "elementos":
         ?>
-        <div class="seleccionPadre">
-            <div class="seleccion">
-                <a href="gestion.php?pagina=elementos&&tipo=especialidades" class="a-header">Especialidades</a>
-                <a href="gestion.php?pagina=elementos&&tipo=patologias" class="a-header">Patologías</a>
-                <a href="gestion.php?pagina=elementos&&tipo=ocupaciones" class="a-header">Ocupaciones</a>
+        <div class="contenedor-seccion-elementos">
+            <div class="contenedor-primera-fila-seccion-elementos-inicio">
+                
             </div>
         </div>
-        <?php
-                switch ($tipo) {
-                    case "especialidades":
+        <?php     
         ?>
-        <div class="esp">
-            <h1>Especialidades</h1>
-            <div class="espTabla">
-                <table id="tabla-esp-gestion">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Cant. Docentes</th>
-                            <th>Ocupación</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
         <?php
-                        break;
-                    case "patologias":
-        ?>
-        <h1>Patologias</h1>
-        <?php
-                        break;
-                    case "ocupaciones":
-        ?>
-        <h1>Ocupaciones</h1>
-        <?php
-                        break;
-                    default:
-        ?>
-        <script>
-            window.location.href = "gestion.php?pagina=elementos&&tipo=especialidades";
-        </script>
-        <?php
-                        break;
-                    }
+                        
         ?>
         <?php
                 break;
