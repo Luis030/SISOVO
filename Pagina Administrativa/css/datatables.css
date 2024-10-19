@@ -19,12 +19,8 @@
     transition: 0.25s;
 }
 
-a .disabled:hover{
-    background-color: red !important;
-}
-
-a  .enabled:hover {
-    filter: brightness(75%);
+a.paginate_button {
+    background-color: black !important;
 }
 
 /* boton de la pagina actual*/
