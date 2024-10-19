@@ -47,7 +47,7 @@ content {
 
 .gestion-inicio-principal .info-inicio {
     text-align: center;
-    font-size: 35px;
+    font-size: 35px !important;
     margin-bottom: 80px;
 }
 
@@ -98,3 +98,31 @@ select {
     filter: brightness(75%);
 }
 
+.info-inicio div {
+    text-align: center;
+}
+
+.grafs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+    text-align: center;
+}
+
+.info-inicio p {
+    font-size: 35px;
+}
+
+.grafInf {
+    text-align: center;
+    font-size: 35px;
+}
+
+.info-inicio {
+    text-align: center;
+}
+
+#canvaInf {
+    max-height: 300px;
+}

@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="css/stylegestion.css">
 <script src="js/datostablas.js"></script>
 <script src="js/funcionestablas.js"></script>
+<script src="js/graficos.js"></script>
 <link rel="stylesheet" href="css/estilotablas.css">
 <link rel="stylesheet" href="css/datatables.css">
 <div class="gestion">
@@ -50,12 +51,8 @@
                 <p>Clases totales</p>
                 <span id="cantClases"><?php echo $cantC ?></span>
             </div>
-            <div class="info-inicio">
-                <p>Informes realizados</p>
-                <div>
-                    <canvas id="canvaInf"></canvas>
-                </div>
-            </div>
+        </div>
+        <div class="grafs">
             <div class="info-inicio">
                 <p>Patologías</p>
                 <div>
@@ -66,6 +63,14 @@
                 <p>Especialistas</p>
                 <div>
                     <canvas id="canvaEsp"></canvas>
+                 </div>
+            </div>
+        </div>  
+        <div class="grafInf">
+            <div class="info-inicio">
+                <p>Informes realizados</p>
+                <div>
+                    <canvas id="canvaInf"></canvas>
                 </div>
             </div>
         </div>

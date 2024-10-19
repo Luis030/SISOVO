@@ -55,7 +55,8 @@
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
     <!-- Sweet alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
