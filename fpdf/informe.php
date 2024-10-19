@@ -13,6 +13,9 @@
         $cedula = $_SESSION['cedulaAlumno'];
     }
 
+    if($_SESSION['Privilegio'] == "admin"){
+        $cedula = $_GET['Cedula'];
+    } 
     if ($_SESSION['Privilegio'] == "alumno") {
         $cedula = $_SESSION['cedula'];
     }

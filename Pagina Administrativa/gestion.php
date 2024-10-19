@@ -20,6 +20,7 @@
 <script src="js/datostablas.js"></script>
 <script src="js/funcionestablas.js"></script>
 <link rel="stylesheet" href="css/estilotablas.css">
+<link rel="stylesheet" href="css/datatables.css">
 <div class="gestion">
     <div class="menuGestion">
         <a href="gestion.php?pagina=inicio" class="a-header">Inicio</a>
@@ -85,12 +86,38 @@
             }
             if ($pagina == "alumnos") {
         ?>
-        <p>aca va alumnos</p>
+        <div class="contenedor-seccion-alumnos">
+            <table id="tabla-alumnos-gestion">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cédula</th>
+                        <th>Edad</th>
+                        <th>Correo de tutor</th>
+                        <th>Celular tutor</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <?php
             }
             if ($pagina == "informes") {
         ?>
-        <p>aca va informes</p>
+        <div class="contenedor-seccion-informes">
+            <table id="tabla-informes-gestion">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Alumno</th>
+                        <th>Docente</th>
+                        <th>Fecha</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <?php
             }
             if ($pagina == "elementos") {

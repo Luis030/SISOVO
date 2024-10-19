@@ -29,6 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('#tabla-docentes')){
         tablas['tabladoc'] = iniciarTabla('tabla-docentes', 'php/obtenerdocentes.php?tabla=true', columnastablaDocentes(), "50vh");
     }
+
+    if(document.querySelector('#tabla-alumnos-gestion')){
+        tablas['tablaalu'] = iniciarTabla('tabla-alumnos-gestion', 'php/alumnos.php?alumnostabla=true', columnastablaAlumnos(), "50vh");
+    }
+    
+    if(document.querySelector('#tabla-informes-gestion')){
+        tablas['tablainformes'] = iniciarTabla('tabla-informes-gestion', 'php/obtenerinformes.php', columnastablaInformes(), "50vh");
+    }
 });
 
 const TablasConfig = {
@@ -82,7 +90,12 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false) {
         ajax: {
             url: ajaxUrl,
             dataSrc: "",
-            type: "POST"
+            type: "POST",
+            error: function(xhr, error, code) {
+                console.log("ERROR")
+                console.error("Error en la respuesta JSON:", error); // Muestra el error si ocurre
+                console.log("Detalles de la respuesta:", xhr.responseText); // Muestra la respuesta del servidor
+            }
         },
         columns: columnas,
         scrollY: scroll,
@@ -183,5 +196,66 @@ function columnastablaDocentes(){
             },
             "orderable": false
         }
+    ]
+}
+
+function columnastablaAlumnos(){
+    return [
+        { "data": "Nombre",
+            "render": function(data, type, row) {
+            return `<a href="detalle_alumno.php?id=${row.ID_Alumno}">${data}</a>`;
+            }
+        },
+        { "data": "Apellido",
+            "render": function(data, type, row) {
+            return `<a href="detalle_alumno.php?id=${row.ID_Alumno}">${data}</a>`;
+            }
+        },
+        { "data": "Cedula" },
+        { "data": "Edad" },
+        { "data": "Celular_Padres" },
+        { "data": "Mail_Padres" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-editar' onclick='editarAlumno(${row.ID_Alumno})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarAlumno(${row.ID_Alumno}, \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ]
+}
+
+function columnastablaInformes(){
+    return [
+        { "data": "Titulo",
+            "render": function(data, type, row) {
+            return `<a href="../fpdf/informe.php?ID=${row.ID_Informe}&&Cedula=${row.Cedula}" target="_blank">${data}</a>`;
+            }
+        },
+        { "data": "Alumno",
+            "render": function(data, type, row){
+                return `<a href="detalle_alumno.php?id=${row.ID_Alumno}">${data}</a>`;
+            }
+        },
+        { "data": "Docente",
+            "render": function(data, type, row) {
+            return `<a href="detalle_docente.php?id=${row.ID_Docente}">${data}</a>`;
+            }
+        },
+        { "data": "Fecha" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-editar' onclick='editarInforme(${row.ID_Informe})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+        
     ]
 }
