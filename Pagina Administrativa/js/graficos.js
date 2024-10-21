@@ -1,14 +1,34 @@
 window.addEventListener('DOMContentLoaded', () => {
-    crearGrafico('canvaInf', "bar", 'php/informesPorMes.php', [], {
-    });
-    crearGrafico("canvaPat", "pie", "php/patologiasgrafico.php", [], {
-        leyenda: false,
-        label: "Alumnos"
-    })    
-    crearGrafico("canvaEsp", "pie", "php/especialidadesgrafico.php", [], {
-        leyenda: false,
-        label: "Docentes"
-    })
+    if(document.querySelector('#canvaInf')){
+        crearGrafico('canvaInf', "bar", 'php/informesPorMes.php', [], {
+        });
+    }
+    if(document.querySelector('#canvaPat')){
+        crearGrafico("canvaPat", "pie", "php/patologiasgrafico.php", [], {
+            leyenda: false,
+            label: "Alumnos"
+        })  
+    }
+    if(document.querySelector('#canvaEsp')){
+        crearGrafico("canvaEsp", "pie", "php/especialidadesgrafico.php", [], {
+            leyenda: false,
+            label: "Docentes"
+        })
+    }
+
+    if(document.querySelector('#canvaPatElementos')){
+        crearGrafico("canvaPatElementos", "pie", "php/patologiasgrafico.php", [], {
+            leyenda: false,
+            label: "Alumnos"
+        })
+    }
+
+    if(document.querySelector('#canvaEmpleados')){
+        crearGrafico("canvaEmpleados", "pie", "php/ocupacionesgrafico.php", [], {
+            leyenda: false,
+            label: "Personas"
+        })
+    }
 })
 
 function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], opcionesExtras = {}) {

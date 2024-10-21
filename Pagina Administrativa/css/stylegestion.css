@@ -126,3 +126,77 @@ select {
 #canvaInf {
     max-height: 300px;
 }
+
+.contenedor-botones{
+    display: flex;
+    flex-direction: column;
+}
+
+.contenedor-botones a{
+    text-align: center;
+    font-size: 25px;
+    padding: 10px;
+    color: white;
+    border: 1px solid black;
+    background-color: var(--color-secundario);
+    cursor: pointer;
+    transition: all 0.25s;
+}
+.contenedor-botones a:visited{
+    color: white;
+}
+.contenedor-botones a:hover{
+    filter: brightness(75%);
+}
+
+.contenedor-botones a:active{
+    filter: brightness(125%);
+}
+
+
+
+.contenedor-primera-fila-seccion-elementos-inicio{
+    display: flex;
+    gap: 10%;
+}
+.contenedor-segunda-fila-seccion-elementos-inicio{
+    display: flex;
+    gap: 10%;
+}
+.primera-fila-div, .segunda-fila-div{
+    width: 30%;
+    height: 40vh;
+    text-align: center;
+}
+
+.contenedor-segunda-fila-seccion-elementos-inicio span {
+    font-size: 100px;
+    font-weight: 600;
+}
+
+.contenedor-segunda-fila-seccion-elementos-inicio p{
+    margin-bottom: 40px;
+    font-size: 35px;
+}
+
+.activo-pagina{
+    filter: brightness(120%);
+}
+
+.activo-seccion{
+    filter: brightness(160%);
+}
+
+#canvaPatElementos, #canvaEmpleados{
+    max-width: 100% !important;
+    max-height: 30vh !important;
+}
+
+.contenedor-grafico-patologias{
+    text-align: center;
+}
+
+.primera-fila-tabla{
+    width: 71.2%;
+    height: 40vh;
+}
