@@ -39,7 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if(document.querySelector('#tabla-esp-gestion')) {
-        tablas['tablaesp'] = iniciarTabla('tabla-esp-gestion', 'php/obtenerespecialidades.php', columnastablas)
+        //tablas['tablaesp'] = iniciarTabla('tabla-esp-gestion', 'php/obtenerespecialidades.php', columnastablas)
+    }
+
+    if(document.querySelector('#tabla-patologias-gestion')){
+        tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php?tabla=true', columnastablaPatologias(), "70vh")
     }
 });
 
@@ -207,18 +211,18 @@ function columnastablaAlumnos(){
     return [
         { "data": "Nombre",
             "render": function(data, type, row) {
-            return `<a href="detalle_alumno.php?id=${row.ID_Alumno}">${data}</a>`;
+            return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
             }
         },
         { "data": "Apellido",
             "render": function(data, type, row) {
-            return `<a href="detalle_alumno.php?id=${row.ID_Alumno}">${data}</a>`;
+            return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
             }
         },
         { "data": "Cedula" },
         { "data": "Edad" },
-        { "data": "Celular_Padres" },
         { "data": "Mail_Padres" },
+        { "data": "Celular_Padres" },
         {
             "data": null,
             "render": function(data, type, row) {
@@ -261,5 +265,22 @@ function columnastablaInformes(){
             "orderable": false
         }
         
+    ]
+}
+
+function columnastablaPatologias(){
+    return [
+        { "data": "Nombre" },
+        { "data": "Cantidad" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-editar' onclick='editarInforme(${row.ID_Patologia})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Patologia}, \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
     ]
 }
