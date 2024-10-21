@@ -41,6 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('#tabla-esp-gestion')) {
         tablas['tablaesp'] = iniciarTabla('tabla-esp-gestion', 'php/obtenerespecialidades.php', columnastablas)
     }
+
+    if(document.querySelector('#pat')) {
+        const idalumno = window.idalumnotabla;
+        tablas['tablapatalumno'] = iniciarTabla('pat', `php/traerpatologiaalumno?id=${idalumno}`, patologiasAlumno(), "50vh");
+    }
+    if(document.querySelector('#patD')) {
+        const idalumno = window.idalumnotabla;
+        tablas['tablapatalumnoD'] = iniciarTabla('patD ', `php/traerpatologiaalumno?id=${idalumno}`, patologiasAlumnoDocente(), "50vh");
+    }
 });
 
 const TablasConfig = {
@@ -106,6 +115,28 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false) {
         rowCallback: rollCall
     };
     return $(`#${tablaId}`).DataTable(config);
+}
+
+function patologiasAlumno() {
+    const idalumno = window.idalumnotabla;
+    return [
+        { "data": "Nombre" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-borrar' onclick='eliminarPatAlumno(${row.ID_Patologia}, ${idalumno})'>Desasignar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ]
+}
+
+function patologiasAlumnoDocente() {
+    return [
+        { "data": "Nombre" },
+    ]
 }
 
 function clasesDocente(){

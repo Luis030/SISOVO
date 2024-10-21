@@ -1,4 +1,5 @@
 function mostrarEditarNombre() { 
+    console.log("hola");
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
@@ -87,154 +88,132 @@ function volverAtras() {
     window.history.back();
 }
 
-let tipo = '';
-
-function guardarNombre(id) {
-    const nombreNuevo = document.getElementById('ingresarNombre');
-    const spanNombre = document.getElementById('spanNombre');
-    if (nombreNuevo.value == "") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar un nombre.",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "nombre";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&nombre=" + nombreNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Nombre cambiado correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanNombre.textContent = nombreNuevo.value;
-            }
-        })
-    }
+function formatearFecha(fechaSQL) {
+    const [anio, mes, dia] = fechaSQL.split('-');
+    return `${dia}/${mes}/${anio}`;
 }
 
-function guardarDia(id) {
-    const diaNuevo = document.getElementById('ingresarDia');
-    const spanDia = document.getElementById('spanDia');
-    if (diaNuevo.value === "" || diaNuevo.value === "Seleccione un día") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar un día.",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "dia";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&dia=" + diaNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Día cambiado correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanDia.textContent = diaNuevo.value;
-            }
-        })
-    }
-}
 
-function guardarInicio(id) {
-    const inicioNuevo = document.getElementById('horaInicio');
-    const spanInicio = document.getElementById('spanInicio');
-    if (inicioNuevo.value == "" || inicioNuevo.value < "08:00" || inicioNuevo.value >= "18:00") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar una franja de tiempo valida (08:00 - 18:00).",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "inicio";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&inicio=" + inicioNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Hora de inicio cambiada correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanInicio.textContent = inicioNuevo.value;
-            }
-        })
+function guardarAtributo(id, atributo) {
+    if (atributo == "nombre") {
+        const nombreNuevo = document.getElementById('ingresarNombre');
+        if (nombreNuevo.value == "") {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar un nombre.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            })
+        } else {
+            txt = nombreNuevo.value;
+            valido = true;
+        }
     }
-}
-
-function guardarFinal(id) {
-    const finalNuevo = document.getElementById('horaFinal');
-    const spanFinal = document.getElementById('spanFinal');
-    if (finalNuevo.value == "" || finalNuevo.value < "08:00" || finalNuevo.value >= "18:00") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar una franja de tiempo valida (08:00 - 18:00).",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "final";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&final=" + finalNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Hora final cambiada correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanFinal.textContent = finalNuevo.value;
-            }
-        })
+    if (atributo == "apellido") {
+        const apellidoNuevo = document.getElementById('ingresarApellido');
+        if (apellidoNuevo.value == "") {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar un apellido.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            })
+        } else {
+            txt = apellidoNuevo.value;
+            valido = true;
+        }
     }
-}
-
-function guardarDocente(id) {
-    const docenteNuevo = document.getElementById('ingresarDocente');
-    const spanDocente = document.getElementById('spanDocente');
-    if (docenteNuevo.value == "") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar un docente.",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "docente";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&docente=" + docenteNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Docente cambiado correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanDocente.textContent = datos.docente;
-            }
-        })
+    if (atributo == "fecha") {
+        const fechaNuevo = document.getElementById('ingresarFecha');
+        if (fechaNuevo.value === "") {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar una fecha.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            });
+        } else {
+            txt = fechaNuevo.value;
+            valido = true;
+        }
+    }
+    if (atributo == "mail") {
+        const mailNuevo = document.getElementById('ingresarMail');
+        if (mailNuevo.value === "") {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar un mail.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            });
+        } else {
+            txt = mailNuevo.value;
+            valido = true;
+        }
+    }
+    if (atributo == "celular") {
+        const celularNuevo = document.getElementById('ingresarCelular');
+        if (celularNuevo.value === "") {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar un celular.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            })
+        } else {
+            txt = celularNuevo.value;
+            valido = true;
+        }
+    }
+    if (valido === true) {  
+        if (txt != '') {
+            fetch("php/cambiaralumno.php?id=" + id + "&&atributo=" + atributo + "&&txt=" + txt)
+            .then(datos => datos.json())
+            .then(datos => {    
+                if (datos.mensaje == "si") {
+                    Swal.fire({
+                        title: "Correcto!",
+                        text: "Atributo cambiado correctamente.",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                    if (atributo == "nombre") {
+                        const spanNombre = document.getElementById('spanNombre');   
+                        spanNombre.textContent = txt;
+                    }
+                    if (atributo == "apellido") {
+                        const spanApellido = document.getElementById('spanApellido');
+                        spanApellido.textContent = txt;
+                    }
+                    if (atributo == "fecha") {
+                        const spanFecha = document.getElementById('spanFecha');                 
+                        spanFecha.textContent = formatearFecha(txt);
+                    }
+                    if (atributo == "mail") {
+                        const spanMail = document.getElementById('spanMail');
+                        spanMail.textContent = txt;
+                    }
+                    if (atributo == "celular") {
+                        const spanCelular = document.getElementById('spanCelular');
+                        spanCelular.textContent = txt;
+                    }
+                    txt = '';
+                } else {
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Ha ocurrido un error inesperado",
+                        icon: "error",
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+                }
+            })
+        }
     }
 }

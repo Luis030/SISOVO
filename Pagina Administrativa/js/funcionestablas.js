@@ -73,7 +73,7 @@ function ingresarAlumno(idclase){
 
 function eliminarAlumnoClase(idclase, idalumno){
     Swal.fire({
-        title: "¿Estas seguro quitar el alumno?",
+        title: "¿Estas seguro de quitar el alumno?",
         text: "Se desvinculara al alumno",
         icon: "warning",
         showCancelButton: true,
@@ -115,8 +115,41 @@ function paginaConfirmarAsistencia(){
     window.open("confirmarasistencia", "_blank");
 }
 
-
-
 function actualizarListaDocente(){
     tablas['listadoc'].ajax.reload();
+}
+
+function eliminarPatAlumno(idp, ida) {
+    Swal.fire({
+        title: "¿Estas seguro de desvincular esta patología?",
+        text: "Se desvinculara la patología del alumno",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Si, desvincular"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            fetch("php/eliminarpatologiaalumno.php?idp=" + idp + "&&ida=" + ida)
+            .then(respuesta => respuesta.json())
+            .then(data => {
+            if(data.resultado == "exito"){
+                Swal.fire({
+                    title: "Desvinculado exitosamente.",
+                    text: "Se ha desvinculado exitosamente la patología",
+                    icon: "success"
+                });
+                tablas['tablapatalumno'].ajax.reload();
+            }
+            if(data.resultado == "error"){
+                Swal.fire({
+                    title: "Ha ocurrido un error",
+                    text: "Algo ha salido mal.",
+                    icon: "error"
+                });
+            }
+    })
+        }
+    });
 }

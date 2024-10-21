@@ -6,7 +6,6 @@
 
     function formatearFecha($fechaSQL) {
         $fecha = new DateTime($fechaSQL);
-        $fecha->modify('+1 day');
         return $fecha->format('d/m/Y');
     }
     
@@ -28,10 +27,18 @@
         }
     }
 ?>
+<script>
+    window.idalumnotabla = <?php echo $idAlumno ?>
+</script>
 <link rel="stylesheet" href="css/styleeditarclases.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
+<link rel="stylesheet" href="css/estilotablas.css">
+<link rel="stylesheet" href="css/datatables.css">
+<link rel="stylesheet" href="css/stye.css">
+<script src="js/funcionestablas.js"></script>
 <script src="js/editaralumno.js"></script>
 <script src="js/cargarselect.js"></script>
+<script src="js/datostablas.js"></script>
 <div class="editarClase">
     <div class="mainEditar">
         <div class="editarTop">
@@ -46,37 +53,48 @@
                 <p>Nombre: <span id="spanNombre"><?php echo $nombreAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarNombre" onclick="mostrarEditarNombre()"></p>
                 <div id="editandoNombre" class="fadeNombre">
                     <input type="text" id="ingresarNombre" placeholder="Ingrese nombre(s)" name="nombreNuevo" required>
-                    <button id="guardarInput" onclick="">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'nombre')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Apellido: <span id="spanApellido"><?php echo $apellidoAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarApellido" onclick="mostrarEditarApellido()"></p>
                 <div id="editandoApellido" class="fadeApellido">
                     <input type ="text" id="ingresarApellido" placeholder="Ingrese apellido(s)" name="apellidoNuevo" required   ></input>
-                    <button id="guardarInput" onclick="">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'apellido')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaAlumno)     ?></span><img src="img/editar.png" alt="Editar" id="editarFecha" onclick="mostrarEditarFecha()"></p>
+                <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaAlumno) ?></span><img src="img/editar.png" alt="Editar" id="editarFecha" onclick="mostrarEditarFecha()"></p>
                 <div id="editandoFecha" class="fadeFecha">
                     <input type="date" id="ingresarFecha" name="fechaNuevo" required></input>
-                    <button id="guardarInput" onclick="">Guardar</button>   
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'fecha')">Guardar</button>   
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Mail padres: <span id="spanMail"><?php echo $mailAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarMail" onclick="mostrarEditarMail()"></p>
                 <div id="editandoMail" class="fadeMail">
                     <input type="text" id="ingresarMail" placeholder="Ingrese mail" name="mailNuevo" required></input>
-                    <button id="guardarInput" onclick="">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'mail')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Celular padres: <span id="spanCelular"><?php echo $celAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarCelular()"></p>
                 <div id="editandoCelular" class="fadeCelular">
                     <input type="number" id="ingresarCelular" placeholder="Ingrese celular" name="celularNuevo" required></input>
-                    <button id="guardarInput" onclick="">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'celular')">Guardar</button>
                 </div>
             </div>
+        </div>
+        <div class="tablaPat">
+            <h1>Patologías del alumno</h1>
+            <table id="pat">
+                <thead>
+                    <tr>
+                        <th>Nombre de patología</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <?php
             }
@@ -85,45 +103,35 @@
         <div class="editarBottom">
             <div class="editarElemento">
                 <p>Nombre: <span id="spanNombre"><?php echo $nombreAlumno ?></span></p>
-                <div id="editandoNombre" class="fadeNombre">
-                    <input type="text" id="ingresarNombre" placeholder="Ingrese un nombre" name="nombreNuevo" required>
-                    <button id="guardarInput" onclick="">Guardar</button>
-                </div>
             </div>
             <div class="editarElemento">
                 <p>Apellido: <span id="spanApellido"><?php echo $apellidoAlumno ?></span></p>
-                <div id="editandoApellido" class="fadeApellido">
-                    <select id="ingresarApellido" name="apellidoNuevo" required style="width: 100%"></select>
-                    <button id="guardarInput" onclick="">Guardar</button>
-                </div>
             </div>
             <div class="editarElemento">
-                <p>Fecha de nacimiento: <span id="spanFecha"><?php echo $fechaAlumno ?></span></p>
-                <div id="editandoFecha" class="fadeFecha">
-                    <select id="ingresarFecha" name="fechaNuevo" required style="width: 100%"></select>
-                    <button id="guardarInput" onclick="">Guardar</button>
-                </div>
+                <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaAlumno) ?></span></p>
             </div>
             <?php
                 if ($mailAlumno != '') {
             ?>
             <div class="editarElemento">
                 <p>Mail padres: <span id="spanMail"><?php echo $mailAlumno ?></span></p>
-                <div id="editandoMail" class="fadeMail">
-                    <select id="ingresarMail" name="mailNuevo" required style="width: 100%"></select>
-                    <button id="guardarInput" onclick="">Guardar</button>
-                </div>
             </div>
             <?php
                 }
             ?>
             <div class="editarElemento">
                 <p>Celular padres: <span id="spanCelular"><?php echo $celAlumno ?></span></p>
-                <div id="editandoCelular" class="fadeCelular">
-                    <select id="ingresarCelular" name="celularNuevo" required style="width: 100%"></select>
-                    <button id="guardarInput" onclick="">Guardar</button>
-                </div>
             </div>
+        </div>
+        <div class="tablaPat">
+            <h1>Patologías del alumno</h1>
+            <table id="patD">
+                <thead>
+                    <tr>
+                        <th>Nombre de patología</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
         <?php
             }
