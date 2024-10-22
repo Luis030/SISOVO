@@ -1,7 +1,26 @@
 <?php
 include("../../BD/conexionbd.php");
 session_start();
-
+if(isset($_GET['tabla'])){
+    if($_GET['tabla'] == "true"){
+        $sql = "SELECT o.Nombre AS Ocupacion, COUNT(DISTINCT ed.ID_Docente) AS Total_Docentes
+        FROM ocupacion o
+        LEFT JOIN especializaciones e ON o.ID_Ocupacion = e.ID_Ocupacion
+        LEFT JOIN especializacion_docente ed ON e.ID_Especializacion = ed.ID_Especializacion AND ed.Estado = 1
+        WHERE o.Estado = 1
+        GROUP BY o.Nombre;
+        ";
+        $resultado = mysqli_query($conexion, $sql);
+        if($resultado){
+            $ocupaciones = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+            echo json_encode($ocupaciones);
+            exit;
+        } else {
+            echo json_encode([]);
+            exit;
+        }
+    }
+}
 $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
 
 
@@ -22,5 +41,7 @@ $resultado = mysqli_query($conexion, $sql);
 if ($resultado) {
     $ocupaciones = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
     echo json_encode($ocupaciones);
+} else {
+    echo json_encode([]);
 }
 ?>

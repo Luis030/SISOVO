@@ -187,7 +187,7 @@ select {
     filter: brightness(160%);
 }
 
-#canvaPatElementos, #canvaEmpleados{
+#canvaPatElementos, #canvaEmpleados, #canvaDocAlu, #canvaDocCla, #canvaDocInf{
     max-width: 100% !important;
     max-height: 30vh !important;
 }
@@ -199,4 +199,30 @@ select {
 .primera-fila-tabla{
     width: 71.2%;
     height: 40vh;
+}
+
+.contenedor-seccion-elementos-altura{
+    height: 24vh;
+}
+
+.contenedor-segunda-fila-seccion-elementos-patologias span, .contenedor-tercera-fila-seccion-elementos-inicio span{
+    font-size: 100px;
+    font-weight: 600;
+}
+
+.contenedor-segunda-fila-seccion-elementos-patologias p, .contenedor-tercera-fila-seccion-elementos-inicio p{
+    font-size: 36px;
+}
+
+.contenedor-tercera-fila-seccion-elementos-inicio{
+    display: flex;
+}
+
+.grafico-docentes{
+    width: 33%;
+    text-align: center;
+}
+
+.contenedor-graficos-docentes{
+    display: flex;
 }

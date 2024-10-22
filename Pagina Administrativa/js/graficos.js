@@ -29,6 +29,27 @@ window.addEventListener('DOMContentLoaded', () => {
             label: "Personas"
         })
     }
+
+    if(document.querySelector('#canvaDocAlu')){
+        crearGrafico("canvaDocAlu", "pie", "php/alumnosdocentegrafico.php", [], {
+            leyenda: false,
+            label: "Alumnos"
+        })
+    }
+
+    if(document.querySelector('#canvaDocCla')){
+        crearGrafico("canvaDocCla", "pie", "php/docentesclasegrafico.php", [], {
+            leyenda: false,
+            label: "Clases"
+        })
+    }
+
+    if(document.querySelector('#canvaDocInf')){
+        crearGrafico("canvaDocInf", "pie", "php/informesdocentegrafico.php", [], {
+            leyenda: false,
+            label: "Informes"
+        })
+    }
 })
 
 function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], opcionesExtras = {}) {

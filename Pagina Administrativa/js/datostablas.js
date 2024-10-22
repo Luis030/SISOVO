@@ -38,10 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         tablas['tablainformes'] = iniciarTabla('tabla-informes-gestion', 'php/obtenerinformes.php', columnastablaInformes(), "50vh");
     }
 
-    if(document.querySelector('#tabla-esp-gestion')) {
-        //tablas['tablaesp'] = iniciarTabla('tabla-esp-gestion', 'php/obtenerespecialidades.php', columnastablas)
-    }
-
     if(document.querySelector('#tabla-patologias-gestion')){
         tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php?tabla=true', columnastablaPatologias(), "70vh")
     }
@@ -53,6 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
     if(document.querySelector('#patD')) {
         const idalumno = window.idalumnotabla;
         tablas['tablapatalumnoD'] = iniciarTabla('patD ', `php/traerpatologiaalumno?id=${idalumno}`, patologiasAlumnoDocente(), "50vh");
+    }
+    if(document.querySelector('#tabla-ocupaciones-gestion')){
+        tablas['ocugestion'] = iniciarTabla('tabla-ocupaciones-gestion', 'php/obtenerocupaciones.php?tabla=true', columnastablaOcupaciones(), "50vh");
+    }
+
+    if(document.querySelector('#tabla-especialidades-gestion')){
+        tablas['espgestion'] = iniciarTabla('tabla-especialidades-gestion', 'php/obtenerespecialidades.php?tabla=true', columnastablaEspecialidades(), "50vh");
     }
 });
 
@@ -290,7 +293,6 @@ function columnastablaInformes(){
             "render": function(data, type, row) {
                 return `
                     <button class='boton-editar' onclick='editarInforme(${row.ID_Informe})'>Editar</button>
-                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Nombre}\`)'>Eliminar</button>
                 `;
             },
             "orderable": false
@@ -309,6 +311,39 @@ function columnastablaPatologias(){
                 return `
                     <button class='boton-editar' onclick='editarInforme(${row.ID_Patologia})'>Editar</button>
                     <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Patologia}, \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ]
+}
+
+function columnastablaOcupaciones(){
+    return [
+        { "data": "Ocupacion" },
+        { "data": "Total_Docentes" },
+        { "data": null,
+            "render": function(data, type, row){
+                return `
+                    <button class='boton-editar' onclick='editarInforme(${row.ID_Informe})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Nombre}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
+    ]
+}
+
+function columnastablaEspecialidades(){
+    return [
+        { "data": "Especializacion" },
+        { "data": "Ocupacion" },
+        { "data": "Total_Docentes" },
+        { "data": null,
+            "render": function(data, type, row){
+                return `
+                    <button class='boton-editar' onclick='editarInforme(${row.ID_Informe})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Nombre}\`)'>Eliminar</button>
                 `;
             },
             "orderable": false

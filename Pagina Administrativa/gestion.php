@@ -93,6 +93,20 @@
                     </tr>
                 </thead>
             </table>
+            <div class="contenedor-graficos-docentes">
+                <div class="grafico-docentes">
+                    <h1>Docentes con alumnos</h1>
+                    <canvas id="canvaDocAlu"></canvas>
+                </div>
+                <div class="grafico-docentes">
+                    <h1>Docentes con clase</h1>
+                    <canvas id="canvaDocCla"></canvas>
+                </div>
+                <div class="grafico-docentes">
+                    <h1>Informes realizados</h1>
+                    <canvas id="canvaDocInf"></canvas>
+                </div>
+            </div>
         </div>
         <?php
                 break;  
@@ -139,9 +153,23 @@
         if($seccion != ""){
             switch($seccion){
                 case "patologias":
+                    $sql = "SELECT 
+                    (SELECT COUNT(*) FROM Patologias WHERE Estado = 1) AS Total_Patologias_Activas,
+                    (SELECT COUNT(p.ID_Patologia) 
+                    FROM Patologias p 
+                    LEFT JOIN patologia_alumno pa ON p.ID_Patologia = pa.ID_Patologia AND pa.Estado = 1
+                    WHERE p.Estado = 1 AND pa.ID_Alumno IS NULL) AS Patologias_Sin_Alumnos;
+                    ";
+                    $resultado = mysqli_query($conexion, $sql);
+                    if(mysqli_num_rows($resultado) > 0){
+                        while($fila = mysqli_fetch_assoc($resultado)){
+                            $cantidadpatologias = $fila['Total_Patologias_Activas'];
+                            $patologiassinalumnos = $fila['Patologias_Sin_Alumnos'];
+                        }
+                    }
         ?>
         <div class="contenedor-seccion-elementos">
-            <div class="contenedor-primera-fila-seccion-elementos-inicio">
+            <div class="contenedor-primera-fila-seccion-elementos-inicio contenedor-seccion-elementos-altura">
                 <div class="contenedor-botones primera-fila-div">
                     <a href="gestion.php?pagina=elementos" class="<?php echo $seccion_actual == 'inicio' ? 'activo-seccion' : '' ?>">Inicio</a>
                     <a href="gestion.php?pagina=elementos&&seccion=patologias" class="<?php echo $seccion_actual == 'patologias' ? 'activo-seccion' : '' ?>">Patologias</a>
@@ -160,38 +188,68 @@
                     </table>
                 </div>
             </div>
+            <div class="contenedor-segunda-fila-seccion-elementos-patologias">
+                <p>Patologias totales</p>
+                <?php echo "<span>$cantidadpatologias</span>" ?>
+            </div>
+            <div class="contenedor-tercera-fila-seccion-elementos-inicio">
+                <div class="contenedor-patologias-sin-alumnos">
+                    <p>Patologias sin alumnos</p>
+                    <?php echo "<span>$patologiassinalumnos</span>" ?>
+                </div>
+            </div>
         </div>
-        <p>estas en patologias susususuusus igajjajg</p>
         <?php
                     break;
                 case "ocupaciones":
         ?>
         <div class="contenedor-seccion-elementos">
             <div class="contenedor-primera-fila-seccion-elementos-inicio">
-                <div class="contenedor-botones">
+                <div class="contenedor-botones primera-fila-div">
                     <a href="gestion.php?pagina=elementos" class="<?php echo $seccion_actual == 'inicio' ? 'activo-seccion' : '' ?>">Inicio</a>
                     <a href="gestion.php?pagina=elementos&&seccion=patologias" class="<?php echo $seccion_actual == 'patologias' ? 'activo-seccion' : '' ?>">Patologias</a>
                     <a href="gestion.php?pagina=elementos&&seccion=especialidades" class="<?php echo $seccion_actual == 'especialidades' ? 'activo-seccion' : '' ?>">Especialidades</a>
                     <a href="gestion.php?pagina=elementos&&seccion=ocupaciones" class="<?php echo $seccion_actual == 'ocupaciones' ? 'activo-seccion' : '' ?>">Ocupaciones</a>
                 </div>
+                <div class="contenedor-tabla-ocupaciones primera-fila-tabla">
+                    <table id="tabla-ocupaciones-gestion">
+                        <thead>
+                            <tr>
+                                <th>Nombre de ocupacion</th>
+                                <th>Personas</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
-        <p>estas en ocupaciones susajjasdja</p>
         <?php
                     break;
                 case "especialidades":
         ?>
         <div class="contenedor-seccion-elementos">
             <div class="contenedor-primera-fila-seccion-elementos-inicio">
-                <div class="contenedor-botones">
+                <div class="contenedor-botones primera-fila-div">
                     <a href="gestion.php?pagina=elementos" class="<?php echo $seccion_actual == 'inicio' ? 'activo-seccion' : '' ?>">Inicio</a>
                     <a href="gestion.php?pagina=elementos&&seccion=patologias" class="<?php echo $seccion_actual == 'patologias' ? 'activo-seccion' : '' ?>">Patologias</a>
                     <a href="gestion.php?pagina=elementos&&seccion=especialidades" class="<?php echo $seccion_actual == 'especialidades' ? 'activo-seccion' : '' ?>">Especialidades</a>
                     <a href="gestion.php?pagina=elementos&&seccion=ocupaciones" class="<?php echo $seccion_actual == 'ocupaciones' ? 'activo-seccion' : '' ?>">Ocupaciones</a>
                 </div>
+                <div class="contenedor-tabla-especialidades primera-fila-tabla">
+                    <table id="tabla-especialidades-gestion">
+                        <thead>
+                            <tr>
+                                <th>Nombre de especialidad</th>
+                                <th>Ocupacion</th>
+                                <th>Personas</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
             </div>
         </div>
-        <p>estas en especialidades isaisdua jdaskdjhajajaja</p>
         <?php
                     break;
                 default:

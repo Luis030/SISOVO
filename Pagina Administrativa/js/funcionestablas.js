@@ -149,7 +149,47 @@ function eliminarPatAlumno(idp, ida) {
                     icon: "error"
                 });
             }
-    })
+            })
+        }
+    });
+}
+
+function editarAlumno(id){
+    window.location.href = "detalle_alumnos.php?id="+id;
+}
+
+function eliminarAlumno(id, nombre){
+    Swal.fire({
+        title: "¿Estas seguro de eliminar el alumno "+nombre+" ?",
+        text: "Se borrara de todas sus clases",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Borrar"
+        }).then((result) => {
+        if (result.isConfirmed) {
+            fetch("php/borraralumno.php?id="+id)
+            .then(data => data.json())
+            .then(data => {
+                console.log(data)
+                if(data.Resultado == "exitoso"){
+                    Swal.fire({
+                        title: "Eliminado correctamente.",
+                        text: "Se eliminado correctamente el alumno "+nombre,
+                        icon: "success"
+                    });
+                    tablas['tablaalu'].ajax.reload();
+                }
+                if(data.resultado == "error"){
+                    Swal.fire({
+                        title: "Ha ocurrido un error",
+                        text: "Algo ha salido mal.",
+                        icon: "error"
+                    });
+                }
+            })
         }
     });
 }
