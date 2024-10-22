@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 00:09:09
+-- Tiempo de generación: 22-10-2024 a las 22:06:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -21,9 +21,10 @@ SET time_zone = "+00:00";
 -- Base de datos: `cerbd`
 --
 
--- --------------------------------------------------------
 CREATE DATABASE IF NOT EXISTS cerbd;
 use cerbd;
+-- --------------------------------------------------------
+
 --
 -- Estructura de tabla para la tabla `alumnos`
 --
@@ -51,11 +52,11 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (4, 4, 'Lucía', 'Martínez', 41447172, '2016-09-07', 'padres.lucía.martínez@example.com', '097560505', 1),
 (5, 5, 'Mateo', 'López', 58681693, '2008-02-15', 'padres.mateo.lópez@example.com', '094637655', 1),
 (6, 6, 'Sofía', 'Díaz', 17812342, '2009-08-17', 'padres.sofía.díaz@example.com', '094385559', 1),
-(7, 7, 'Tomás', 'Fernández', 13956930, '2011-04-30', 'padres.tomás.fernández@example.com', '095140250', 1),
-(8, 8, 'Camila', 'García', 59170771, '2013-11-27', 'padres.camila.garcía@example.com', '098646116', 1),
+(7, 7, 'Tomás', 'Fernández', 13956930, '2011-04-30', '', '095140250', 1),
+(8, 8, 'vbcbgc', 'fran', 59170771, '2013-11-27', 'padres.camila.garcía@example.com', '098646116', 1),
 (9, 9, 'Martín', 'Hernández', 12111791, '2009-05-28', 'padres.martín.hernández@example.com', '093064627', 1),
 (10, 10, 'Valentina', 'Sánchez', 55397008, '2009-02-28', 'padres.valentina.sánchez@example.com', '095808961', 1),
-(11, 22, 'Federico Nicolás', 'Simonelli Cavallo', 56129975, '2006-09-21', 'nopetif@gmail.com', '091890608', 1);
+(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', 'lmanuelsosa@gmial.com', '092504454', 1);
 
 -- --------------------------------------------------------
 
@@ -114,13 +115,13 @@ CREATE TABLE `clase` (
 --
 
 INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Horario`, `Estado`, `Año`) VALUES
-(2, 13, 'Matemáticas', 'Lunes', 1, 2024),
+(2, 5, 'hgfhfth', 'Lunes', 1, 2024),
 (3, 8, 'Historia', 'Martes', 0, 2024),
 (4, 3, 'Área de lengua', 'Miércoles', 1, 2024),
 (5, 4, 'Lengua', 'Jueves', 0, 2024),
 (8, 5, 'Área de lengua', 'Lunes', 1, 2024),
 (11, 10, 'Inglés', 'Viernes', 0, 2024),
-(12, 13, 'Gimnasia', 'Jue(15:00-16:00)', 1, 2024);
+(12, 13, 'clases', 'Jue(15:00-16:00)', 1, 2024);
 
 -- --------------------------------------------------------
 
@@ -167,39 +168,43 @@ INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedul
 CREATE TABLE `especializaciones` (
   `ID_Especializacion` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
-  `ID_Ocupacion` int(11) DEFAULT NULL
+  `ID_Ocupacion` int(11) DEFAULT NULL,
+  `Estado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `especializaciones`
 --
 
-INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`) VALUES
-(1, 'Marketing', 8),
-(2, 'Francés', 5),
-(3, 'Alemán', 5),
-(4, 'Inglés', 5),
-(5, 'Ingeniería de software', 3),
-(6, 'Psicología', 3),
-(7, 'Administración de empresas', 3),
-(8, 'Orientación académica', 7),
-(9, 'Consejería psicológica', 7),
-(10, 'Desarrollo profesional y vocacional', 7),
-(11, 'Diseño instruccional', 8),
-(12, 'Tecnología educativa', 8),
-(13, 'Formación de habilidades técnicas', 6),
-(14, 'Formación en tecnología de la información', 6),
-(15, 'Formación en salud y seguridad laboral', 6),
-(16, 'Educación inclusiva', 1),
-(17, 'Educación emocional y social', 1),
-(18, 'Metodologías activas de aprendizaje', 1),
-(19, 'Educación interdisciplinaria', 2),
-(20, 'Educación tecnológica', 2),
-(21, 'Orientación vocacional y profesional', 2),
-(22, 'Tutoría académica personalizada', 10),
-(23, 'Desarrollo de habilidades de estudio', 10),
-(24, 'Orientación en aprendizaje socioemocional', 10),
-(25, 'auxiliar', 7);
+INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`, `Estado`) VALUES
+(1, 'Marketing', 8, 1),
+(2, 'Francés', 5, 1),
+(3, 'Alemán', 5, 1),
+(4, 'Inglés', 5, 1),
+(5, 'Ingeniería de software', 3, 1),
+(6, 'Psicología', 3, 1),
+(7, 'Administración de empresas', 3, 1),
+(8, 'Orientación académica', 7, 1),
+(9, 'Consejería psicológica', 7, 1),
+(10, 'Desarrollo profesional y vocacional', 7, 1),
+(11, 'Diseño instruccional', 8, 1),
+(12, 'Tecnología educativa', 8, 1),
+(13, 'Formación de habilidades técnicas', 6, 1),
+(14, 'Formación en tecnología de la información', 6, 1),
+(15, 'Formación en salud y seguridad laboral', 6, 1),
+(16, 'Educación inclusiva', 1, 1),
+(17, 'Educación emocional y social', 1, 1),
+(18, 'Metodologías activas de aprendizaje', 1, 1),
+(19, 'Educación interdisciplinaria', 2, 1),
+(20, 'Educación tecnológica', 2, 1),
+(21, 'Orientación vocacional y profesional', 2, 1),
+(22, 'Tutoría académica personalizada', 10, 1),
+(23, 'Desarrollo de habilidades de estudio', 10, 1),
+(24, 'Orientación en aprendizaje socioemocional', 10, 1),
+(25, 'auxiliar', 7, 1),
+(26, 'gdgdgdf', 7, 1),
+(27, 'perro', 1, 1),
+(28, 'fgvdcgdf', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -209,18 +214,19 @@ INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`)
 
 CREATE TABLE `especializacion_docente` (
   `ID_Especializacion` int(11) NOT NULL,
-  `ID_Docente` int(11) NOT NULL
+  `ID_Docente` int(11) NOT NULL,
+  `Estado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `especializacion_docente`
 --
 
-INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`) VALUES
-(3, 13),
-(15, 14),
-(14, 14),
-(13, 14);
+INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`, `Estado`) VALUES
+(3, 13, 1),
+(15, 14, 1),
+(14, 14, 1),
+(13, 14, 1);
 
 -- --------------------------------------------------------
 
@@ -245,7 +251,8 @@ CREATE TABLE `informes` (
 
 INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`, `Grado`, `Estado`) VALUES
 (1, 13, 11, 'Informe de prueba', 'Informe de prueba del alumno Federico Nicolás.', '2024-09-27', 13, 1),
-(2, 13, 11, 'Informe de prueba 2', 'Segundo informe de prueba del alumno Federico Nicolás.', '2024-09-27', 13, 1);
+(2, 13, 11, 'Informe de prueba 2', 'Segundo informe de prueba del alumno Federico Nicolás.', '2024-09-27', 13, 1),
+(3, 13, 2, 'informe nocturno', 'lo del grado lo va a solucionar dios asi nomas te lo digo zednic', '2024-10-18', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -280,7 +287,15 @@ INSERT INTO `lista_docente` (`ID_Asistencia`, `ID_Docente`, `Fecha`, `Hora`, `Ti
 (12, 13, '2024-10-16', '19:00:47', 'E'),
 (13, 13, '2024-10-16', '19:00:53', 'S'),
 (14, 13, '2024-10-16', '19:00:57', 'E'),
-(15, 13, '2024-10-16', '19:01:00', 'S');
+(15, 13, '2024-10-16', '19:01:00', 'S'),
+(16, 13, '2024-10-18', '16:14:40', 'E'),
+(17, 13, '2024-10-18', '16:17:53', 'S'),
+(18, 13, '2024-10-18', '16:17:59', 'E'),
+(19, 13, '2024-10-18', '16:18:19', 'E'),
+(20, 13, '2024-10-18', '16:22:17', 'S'),
+(21, 13, '2024-10-18', '16:25:48', 'S'),
+(22, 13, '2024-10-18', '16:26:06', 'E'),
+(23, 13, '2024-10-18', '16:28:16', 'S');
 
 -- --------------------------------------------------------
 
@@ -318,24 +333,34 @@ INSERT INTO `ocupacion` (`ID_Ocupacion`, `Nombre`, `Estado`) VALUES
 
 CREATE TABLE `patologias` (
   `ID_Patologia` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL
+  `Nombre` varchar(50) NOT NULL,
+  `Estado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `patologias`
 --
 
-INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
-(8, 'Depresión'),
-(5, 'Discapacidad intelectual'),
-(3, 'Dislexia'),
-(4, 'Parálisis cerebral'),
-(2, 'TEA'),
-(7, 'Trastorno de ansiedad'),
-(1, 'Trastorno del déficit de atención e hiperactividad'),
-(10, 'Trastornos de la comunicación'),
-(6, 'Trastornos del aprendizaje'),
-(9, 'Trastornos del comportamiento');
+INSERT INTO `patologias` (`ID_Patologia`, `Nombre`, `Estado`) VALUES
+(1, 'Trastorno del déficit de atención e hiperactividad', 1),
+(2, 'TEA', 1),
+(3, 'Dislexia', 1),
+(4, 'Parálisis cerebral', 1),
+(5, 'Discapacidad intelectual', 1),
+(6, 'Trastornos del aprendizaje', 1),
+(7, 'Trastorno de ansiedad', 1),
+(8, 'Depresión', 1),
+(9, 'Trastornos del comportamiento', 1),
+(10, 'Trastornos de la comunicación', 1),
+(11, 'f', 1),
+(12, 'perro', 1),
+(13, 'gato', 1),
+(14, 'anashe', 1),
+(15, 'piromano', 1),
+(16, 'grhdh', 1),
+(17, 'gfdgsdfg', 1),
+(18, 'faltando', 1),
+(19, 'zombie', 1);
 
 -- --------------------------------------------------------
 
@@ -345,15 +370,33 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`) VALUES
 
 CREATE TABLE `patologia_alumno` (
   `ID_Patologia` int(11) NOT NULL,
-  `ID_Alumno` int(11) NOT NULL
+  `ID_Alumno` int(11) NOT NULL,
+  `Estado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `patologia_alumno`
 --
 
-INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`) VALUES
-(3, 11);
+INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`, `Estado`) VALUES
+(4, 10, 1),
+(4, 11, 1),
+(10, 7, 1),
+(14, 7, 1),
+(16, 2, 1),
+(16, 3, 1),
+(16, 4, 1),
+(16, 5, 1),
+(16, 6, 1),
+(17, 2, 1),
+(16, 3, 1),
+(16, 4, 1),
+(11, 2, 1),
+(10, 2, 1),
+(15, 2, 1),
+(6, 2, 1),
+(9, 2, 1),
+(12, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -514,19 +557,19 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `lista_docente`
 --
 ALTER TABLE `lista_docente`
-  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Asistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `ocupacion`
@@ -538,7 +581,7 @@ ALTER TABLE `ocupacion`
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
