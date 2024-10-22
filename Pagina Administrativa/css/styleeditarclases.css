@@ -141,3 +141,28 @@ p span {
 .tablaPat select {
     margin-bottom: 3%;  
 }
+
+.tablaPat {
+    margin-bottom: 20px;
+}
+
+.agregar {
+    display: flex;
+    gap: 10px;
+}
+
+#agregarPatA {
+    width: 70px;
+    margin-left: 10px;
+    background-color: var(--color-secundario);
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid var(--color-secundario);
+    transition: 0.25s;
+}
+
+#agregarPatA:hover {
+    filter: brightness(75%);
+}

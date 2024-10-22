@@ -19,6 +19,23 @@ if(isset($_GET['tabla'])){
         exit;
     }
 }
+
+if (isset($_GET['editaralumno'])){
+    $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
+    $id = $_GET['id'];
+    $sql = "SELECT P.ID_Patologia, P.Nombre FROM patologias p
+            WHERE P.Nombre LIKE '%$q%' AND P.Estado = 1 AND P.ID_Patologia NOT IN 
+            (SELECT ID_Patologia 
+            FROM patologia_alumno 
+            WHERE ID_Alumno = $id AND Estado = 1);";
+    $resultado = mysqli_query($conexion, $sql);
+    if($resultado){
+        $patologias = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+        echo json_encode($patologias);
+    }
+    exit;
+}
+
 // Obtener el término de búsqueda desde la solicitud AJAX (si existe)
 $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
 

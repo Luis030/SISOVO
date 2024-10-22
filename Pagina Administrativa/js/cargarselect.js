@@ -1,6 +1,31 @@
 $(document).ready(function() {
     const idclase = window.idclase;
     const idclaselista = window.idclaselista;
+    const idalumnoactual = window.idalumnotabla;
+
+    $('#agregarPatAlumno').select2({
+        placeholder: 'Seleccione patologías para agregar',
+        minimumInputLength: 0,
+        cache: true,
+        ajax: {
+            url: 'php/obtenerpatologias.php?editaralumno=si&&id=' + idalumnoactual,
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || ''
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (patologias) {
+                        return { id: patologias.ID_Patologia, text: patologias.Nombre };
+                    })
+                };
+            },
+            cache: true
+        }
+    })
 
     $('#alumnosClase').select2({
         placeholder: 'Seleccione alumnos',

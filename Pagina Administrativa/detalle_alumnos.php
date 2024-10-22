@@ -34,9 +34,8 @@
 <link rel="stylesheet" href="css/estiloselect2.css">
 <link rel="stylesheet" href="css/estilotablas.css">
 <link rel="stylesheet" href="css/datatables.css">
-<link rel="stylesheet" href="css/stye.css">
+<link rel="stylesheet" href="css/styles.css">
 <script src="js/funcionestablas.js"></script>
-<script src="js/editaralumno.js"></script>
 <script src="js/cargarselect.js"></script>
 <script src="js/datostablas.js"></script>
 <div class="editarClase">
@@ -96,6 +95,10 @@
                 </thead>
             </table>
         </div>
+        <div class="agregar">
+            <select id="agregarPatAlumno" style="width: 100%;" multiple></select> 
+            <button id="agregarPatA">Agregar</button>
+        </div>
         <?php
             }
             if ($_SESSION['Privilegio'] == 'docente') {
@@ -138,6 +141,7 @@
         ?>
     </div>  
 </div>
+<script src="js/editaralumno.js"></script>
 <?php
     require_once("php/footer.php");
 ?>

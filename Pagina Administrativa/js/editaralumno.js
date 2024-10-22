@@ -1,5 +1,4 @@
 function mostrarEditarNombre() { 
-    console.log("hola");
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
@@ -93,7 +92,6 @@ function formatearFecha(fechaSQL) {
     return `${dia}/${mes}/${anio}`;
 }
 
-
 function guardarAtributo(id, atributo) {
     if (atributo == "nombre") {
         const nombreNuevo = document.getElementById('ingresarNombre');
@@ -108,6 +106,9 @@ function guardarAtributo(id, atributo) {
         } else {
             txt = nombreNuevo.value;
             valido = true;
+            const divNombre = document.getElementById('editandoNombre');
+            divNombre.classList.remove('visible');
+            nombreNuevo.value = "";
         }
     }
     if (atributo == "apellido") {
@@ -123,6 +124,9 @@ function guardarAtributo(id, atributo) {
         } else {
             txt = apellidoNuevo.value;
             valido = true;
+            const divApellido = document.getElementById('editandoApellido');
+            divApellido.classList.remove('visible');
+            apellidoNuevo.value = "";
         }
     }
     if (atributo == "fecha") {
@@ -138,6 +142,9 @@ function guardarAtributo(id, atributo) {
         } else {
             txt = fechaNuevo.value;
             valido = true;
+            const divFecha = document.getElementById('editandoFecha');
+            divFecha.classList.remove('visible');
+            fechaNuevo.value = "";
         }
     }
     if (atributo == "mail") {
@@ -153,6 +160,9 @@ function guardarAtributo(id, atributo) {
         } else {
             txt = mailNuevo.value;
             valido = true;
+            const divMail = document.getElementById('editandoMail');
+            divMail.classList.remove('visible');
+            mailNuevo.value = "";
         }
     }
     if (atributo == "celular") {
@@ -168,6 +178,9 @@ function guardarAtributo(id, atributo) {
         } else {
             txt = celularNuevo.value;
             valido = true;
+            const divCel = document.getElementById('editandoCelular');
+            divCel.classList.remove('visible');
+            celularNuevo.value = "";
         }
     }
     if (valido === true) {  
@@ -217,3 +230,44 @@ function guardarAtributo(id, atributo) {
         }
     }
 }
+
+function agregarPatologias() {
+    var ida = window.idalumnotabla;
+    var idp = $('#agregarPatAlumno').val();
+    if (idp == "") {
+        Swal.fire({
+            title: "Error!",
+            text: "Debes ingresar al menos una patología.",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 3000
+        });
+        exit;
+    } else {
+        $.ajax({
+            url: 'php/agregarpatologiaalumno.php',
+            type: 'POST',
+            data: {
+                idp: idp,
+                ida: ida
+            },
+            success: function() {
+                tablas['tablapatalumno'].ajax.reload();
+                $('#agregarPatAlumno').val(null).trigger('change');
+                Swal.fire ({
+                    title: "Correcto!",
+                    text: "Patologías agregadas correctamente",
+                    icon: "success",
+                    showConfirmButton: false,   
+                    timer: 3000
+                })
+            }
+        })
+    }
+}
+
+const boton = document.getElementById('agregarPatA');
+
+boton.addEventListener('click', function() {
+    agregarPatologias();
+});
