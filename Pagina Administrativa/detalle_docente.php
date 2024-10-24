@@ -70,14 +70,14 @@
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Mail padres: <span id="spanMail"><?php echo $mailDocente ?></span><img src="img/editar.png" alt="Editar" id="editarMail" onclick="mostrarEditarMail()"></p>
+                <p>Mail: <span id="spanMail"><?php echo $mailDocente ?></span><img src="img/editar.png" alt="Editar" id="editarMail" onclick="mostrarEditarMail()"></p>
                 <div id="editandoMail" class="fadeMail">
                     <input type="text" id="ingresarMail" placeholder="Ingrese mail" name="mailNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'mail', 'docente')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Celular padres: <span id="spanCelular"><?php echo $celDocente ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarCelular()"></p>
+                <p>Celular: <span id="spanCelular"><?php echo $celDocente ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarCelular()"></p>
                 <div id="editandoCelular" class="fadeCelular">
                     <input type="number" id="ingresarCelular" placeholder="Ingrese celular" name="celularNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'celular', 'docente')">Guardar</button>

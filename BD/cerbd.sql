@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-10-2024 a las 22:06:32
+-- Tiempo de generación: 24-10-2024 a las 18:16:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cerbd`
 --
-
 CREATE DATABASE IF NOT EXISTS cerbd;
 use cerbd;
 -- --------------------------------------------------------
@@ -48,7 +47,7 @@ CREATE TABLE `alumnos` (
 INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Fecha_Nac`, `Mail_Padres`, `Celular_Padres`, `Estado`) VALUES
 (1, 1, 'Juan', 'Pérez', 78713177, '2016-08-06', 'padres.juan.pérez@example.com', '094523278', 1),
 (2, 2, 'María', 'González', 84409802, '2007-08-19', 'padres.maría.gonzález@example.com', '098032878', 1),
-(3, 3, 'Carlos', 'Rodríguez', 33045395, '2016-10-03', 'padres.carlos.rodríguez@example.com', '096292114', 1),
+(3, 3, 'Carlos', 'Rodríguez', 33045395, '2016-10-03', 'padres.carlos.rodríguez@example.com', '096292114', 0),
 (4, 4, 'Lucía', 'Martínez', 41447172, '2016-09-07', 'padres.lucía.martínez@example.com', '097560505', 1),
 (5, 5, 'Mateo', 'López', 58681693, '2008-02-15', 'padres.mateo.lópez@example.com', '094637655', 1),
 (6, 6, 'Sofía', 'Díaz', 17812342, '2009-08-17', 'padres.sofía.díaz@example.com', '094385559', 1),
@@ -56,7 +55,8 @@ INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`
 (8, 8, 'vbcbgc', 'fran', 59170771, '2013-11-27', 'padres.camila.garcía@example.com', '098646116', 1),
 (9, 9, 'Martín', 'Hernández', 12111791, '2009-05-28', 'padres.martín.hernández@example.com', '093064627', 1),
 (10, 10, 'Valentina', 'Sánchez', 55397008, '2009-02-28', 'padres.valentina.sánchez@example.com', '095808961', 1),
-(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', 'lmanuelsosa@gmial.com', '092504454', 1);
+(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', 'lmanuelsosa@gmial.com', '092504454', 1),
+(12, 26, 'Sofía Milagros', 'Gallero Monte', 56437766, '2006-10-23', 'sofiagallero698@gmail.com', '098280012', 1);
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,17 @@ INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Asistio`, `Fecha`, `estad
 (3, 7, NULL, '2024-10-11', 1),
 (2, 11, NULL, '2024-10-16', 1),
 (12, 4, NULL, '2024-10-16', 1),
-(12, 8, NULL, '2024-10-16', 1);
+(12, 8, NULL, '2024-10-16', 1),
+(12, 4, 0, '2024-10-23', 1),
+(12, 8, 1, '2024-10-23', 1),
+(12, 4, 0, '2024-10-24', 1),
+(12, 8, 0, '2024-10-24', 1),
+(13, 4, NULL, '2024-10-24', 1),
+(13, 1, NULL, '2024-10-24', 1),
+(13, 5, NULL, '2024-10-24', 1),
+(13, 2, NULL, '2024-10-24', 1),
+(13, 3, NULL, '2024-10-24', 1),
+(13, 11, NULL, '2024-10-24', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +131,8 @@ INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Horario`, `Estado`, `A
 (5, 4, 'Lengua', 'Jueves', 0, 2024),
 (8, 5, 'Área de lengua', 'Lunes', 1, 2024),
 (11, 10, 'Inglés', 'Viernes', 0, 2024),
-(12, 13, 'clases', 'Jue(15:00-16:00)', 1, 2024);
+(12, 13, 'clases', 'Jue(15:00-16:00)', 1, 2024),
+(13, 13, 'naufrago', 'Mar(14:04-14:05)', 1, 2024);
 
 -- --------------------------------------------------------
 
@@ -146,11 +157,11 @@ CREATE TABLE `docentes` (
 --
 
 INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`, `Estado`) VALUES
-(1, 11, 'Ana', 'Ramírez', 69647322, 'ana.ramírez@example.com', '097958413', '1994-07-28', 1),
+(1, 11, 'Ana', 'Ramírez', 69647322, 'ana.ramírez@example.com', '097958413', '2024-10-24', 1),
 (2, 12, 'Pedro', 'Gómez', 26673841, 'pedro.gómez@example.com', '097816287', '1991-08-14', 1),
 (3, 13, 'Laura', 'Fernández', 73882441, 'laura.fernández@example.com', '095430551', '2000-11-03', 1),
 (4, 14, 'Santiago', 'Morales', 61377294, 'santiago.morales@example.com', '098171709', '2003-10-26', 1),
-(5, 15, 'Claudia', 'Ruiz', 92692705, 'claudia.ruiz@example.com', '096836842', '2002-04-05', 1),
+(5, 15, 'Claudia', 'Ruiz', 92692705, 'qur carajo@gmail.copm', '096836842', '2024-11-09', 1),
 (6, 16, 'Roberto', 'Torres', 52837341, 'roberto.torres@example.com', '092898511', '1986-11-23', 1),
 (7, 17, 'María', 'López', 16156404, 'maría.lópez@example.com', '098583986', '2000-09-07', 1),
 (8, 18, 'Carlos', 'Méndez', 45659784, 'carlos.méndez@example.com', '091633174', '1998-12-04', 1),
@@ -226,7 +237,24 @@ INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`, `Esta
 (3, 13, 1),
 (15, 14, 1),
 (14, 14, 1),
-(13, 14, 1);
+(13, 14, 1),
+(4, 5, 1),
+(5, 8, 1),
+(6, 8, 1),
+(9, 8, 1),
+(3, 8, 1),
+(4, 8, 1),
+(2, 8, 1),
+(1, 8, 1),
+(13, 8, 1),
+(11, 8, 1),
+(7, 8, 1),
+(8, 8, 1),
+(10, 8, 1),
+(12, 8, 1),
+(17, 8, 1),
+(15, 8, 1),
+(18, 8, 1);
 
 -- --------------------------------------------------------
 
@@ -323,7 +351,8 @@ INSERT INTO `ocupacion` (`ID_Ocupacion`, `Nombre`, `Estado`) VALUES
 (7, 'Consejero escolar', 1),
 (8, 'Educador en línea', 1),
 (9, 'Coordinador académico', 1),
-(10, 'Tutor de estudio', 1);
+(10, 'Tutor de estudio', 1),
+(11, 'nadie trabaja aca', 1);
 
 -- --------------------------------------------------------
 
@@ -360,7 +389,9 @@ INSERT INTO `patologias` (`ID_Patologia`, `Nombre`, `Estado`) VALUES
 (16, 'grhdh', 1),
 (17, 'gfdgsdfg', 1),
 (18, 'faltando', 1),
-(19, 'zombie', 1);
+(19, 'zombie', 1),
+(20, 'dsadas', 1),
+(21, 'asdad', 1);
 
 -- --------------------------------------------------------
 
@@ -379,24 +410,35 @@ CREATE TABLE `patologia_alumno` (
 --
 
 INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`, `Estado`) VALUES
-(4, 10, 1),
 (4, 11, 1),
 (10, 7, 1),
 (14, 7, 1),
 (16, 2, 1),
 (16, 3, 1),
-(16, 4, 1),
 (16, 5, 1),
 (16, 6, 1),
 (17, 2, 1),
 (16, 3, 1),
-(16, 4, 1),
 (11, 2, 1),
 (10, 2, 1),
 (15, 2, 1),
 (6, 2, 1),
 (9, 2, 1),
-(12, 2, 1);
+(12, 2, 1),
+(6, 4, 1),
+(4, 4, 1),
+(3, 12, 1),
+(8, 12, 1),
+(5, 12, 1),
+(13, 12, 1),
+(10, 12, 1),
+(9, 12, 1),
+(4, 12, 1),
+(2, 12, 1),
+(6, 12, 1),
+(7, 12, 1),
+(1, 12, 1),
+(15, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -440,7 +482,8 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`,
 (20, 'Jorge Herrera', 112233, 'clave707', 'docente', 1),
 (22, 'Federico Nicolás Simonelli Cavallo', 56129975, '$2y$10$4Z0SClNg.Evh2eVrI.daWuKodQfZeObBqRewU2uInm9OSC1Vmkwxe', 'alumno', 1),
 (24, 'Luis Manuel Sosa Berroa', 56777350, '$2y$10$AEGAlZvNY1avPNO2yiQzcO4JgDlSCg2BA7kQ1e5dIEn3Np3m6hYvy', 'docente', 1),
-(25, 'Ian Andrés Volpi Zamit', 56499637, '$2y$10$y2cGLZVJKWR31MPz5d7yu.VUnM1RMTkA4GYVnTDBec3zxzC6CslK2', 'admin', 1);
+(25, 'Ian Andrés Volpi Zamit', 56499637, '$2y$10$y2cGLZVJKWR31MPz5d7yu.VUnM1RMTkA4GYVnTDBec3zxzC6CslK2', 'admin', 1),
+(26, 'Sofía Milagros Gallero Monte', 56437766, '$2y$10$05u5ljEissXBYxLvbHMdAOI9dsuoEvuM7ZIJfBZRXURxYKXCaYbz6', 'alumno', 1);
 
 --
 -- Índices para tablas volcadas
@@ -539,13 +582,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `clase`
 --
 ALTER TABLE `clase`
-  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
@@ -575,19 +618,19 @@ ALTER TABLE `lista_docente`
 -- AUTO_INCREMENT de la tabla `ocupacion`
 --
 ALTER TABLE `ocupacion`
-  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Restricciones para tablas volcadas
@@ -629,7 +672,7 @@ ALTER TABLE `especializaciones`
 --
 ALTER TABLE `especializacion_docente`
   ADD CONSTRAINT `especializacion_docente_ibfk_2` FOREIGN KEY (`ID_Docente`) REFERENCES `docentes` (`ID_Docente`),
-  ADD CONSTRAINT `especializacion_docente_ibfk_3` FOREIGN KEY (`ID_Especializacion`) REFERENCES `especializaciones` (`ID_Especializacion`) ON DELETE CASCADE;
+  ADD CONSTRAINT `especializacion_docente_ibfk_3` FOREIGN KEY (`ID_Especializacion`) REFERENCES `especializaciones` (`ID_Especializacion`);
 
 --
 -- Filtros para la tabla `informes`
@@ -649,7 +692,7 @@ ALTER TABLE `lista_docente`
 --
 ALTER TABLE `patologia_alumno`
   ADD CONSTRAINT `patologia_alumno_ibfk_2` FOREIGN KEY (`ID_Alumno`) REFERENCES `alumnos` (`ID_Alumno`),
-  ADD CONSTRAINT `patologia_alumno_ibfk_3` FOREIGN KEY (`ID_Patologia`) REFERENCES `patologias` (`ID_Patologia`) ON DELETE CASCADE;
+  ADD CONSTRAINT `patologia_alumno_ibfk_3` FOREIGN KEY (`ID_Patologia`) REFERENCES `patologias` (`ID_Patologia`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
