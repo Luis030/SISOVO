@@ -39,7 +39,6 @@ if (isset($_GET['editardocente'])){
     exit;
 }
 
-$q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
 $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
 $ocupacion = isset($_POST['ocupacion']) ? mysqli_real_escape_string($conexion, $_POST['ocupacion']) : '';
 
