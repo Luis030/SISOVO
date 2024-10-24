@@ -46,7 +46,7 @@
         <input type="submit" value="Agregar todo" class="botonAgregarTodo">
     </div>
 </div>
-<script src="JS/cambiarpestanas.js"></script>
+<script src="js/cambiarpestanas.js"></script>
 <script src="js/cargarselect.js"></script>
 
 <?php
