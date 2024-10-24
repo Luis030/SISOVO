@@ -2,7 +2,7 @@
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad
-            FROM Patologias P
+            FROM patologias P
             JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia 
             JOIN alumnos A ON A.ID_Alumno = PA.ID_Alumno 
             WHERE A.Estado = 1

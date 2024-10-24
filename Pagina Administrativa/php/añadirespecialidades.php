@@ -13,7 +13,7 @@ if (isset($data['items']) && isset($data['ocupacion'])) {
     $especialidadesAgregadas = 0;
 
     foreach ($especialidades as $especialidad) {
-        $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM Especializaciones WHERE Nombre = ?");
+        $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM especializaciones WHERE Nombre = ?");
         mysqli_stmt_bind_param($consulta, 's', $especialidad);
         mysqli_stmt_execute($consulta);
         mysqli_stmt_store_result($consulta);
@@ -21,7 +21,7 @@ if (isset($data['items']) && isset($data['ocupacion'])) {
         if (mysqli_stmt_num_rows($consulta) > 0) {
             $errores[] = "La especialidad '$especialidad' ya existe.";
         } else {
-            $insertar = mysqli_prepare($conexion, "INSERT INTO Especializaciones (Nombre, ID_Ocupacion) VALUES (?, ?)");
+            $insertar = mysqli_prepare($conexion, "INSERT INTO especializaciones (Nombre, ID_Ocupacion) VALUES (?, ?)");
             mysqli_stmt_bind_param($insertar, 'si', $especialidad, $ocupacion);
             if (!mysqli_stmt_execute($insertar)) {
                 $errores[] = "Error al insertar '$especialidad': " . mysqli_error($conexion);

@@ -154,9 +154,9 @@
             switch($seccion){
                 case "patologias":
                     $sql = "SELECT 
-                    (SELECT COUNT(*) FROM Patologias WHERE Estado = 1) AS Total_Patologias_Activas,
+                    (SELECT COUNT(*) FROM patologias WHERE Estado = 1) AS Total_Patologias_Activas,
                     (SELECT COUNT(p.ID_Patologia) 
-                    FROM Patologias p 
+                    FROM patologias p 
                     LEFT JOIN patologia_alumno pa ON p.ID_Patologia = pa.ID_Patologia AND pa.Estado = 1
                     WHERE p.Estado = 1 AND pa.ID_Alumno IS NULL) AS Patologias_Sin_Alumnos;
                     ";
@@ -261,7 +261,7 @@
                     break;
             }
         } else {
-            $sql = "SELECT (SELECT COUNT(*) FROM Patologias WHERE Estado=1) AS Cantidad_Patologias, (SELECT COUNT(*) FROM especializaciones WHERE Estado=1) AS Cantidad_Especialidades, (SELECT COUNT(*) FROM ocupacion WHERE Estado=1) AS Cantidad_Ocupaciones;
+            $sql = "SELECT (SELECT COUNT(*) FROM patologias WHERE Estado=1) AS Cantidad_Patologias, (SELECT COUNT(*) FROM especializaciones WHERE Estado=1) AS Cantidad_Especialidades, (SELECT COUNT(*) FROM ocupacion WHERE Estado=1) AS Cantidad_Ocupaciones;
 ";
             $resultado = mysqli_query($conexion, $sql);
             if (mysqli_num_rows($resultado) > 0) {

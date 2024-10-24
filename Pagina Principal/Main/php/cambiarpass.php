@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $query = "SELECT contraseña FROM usuarios WHERE cedula = ?";
+    $query = "SELECT Contraseña FROM usuarios WHERE Cedula = ?";
     if ($consulta = mysqli_prepare($conexion, $query)) {
         mysqli_stmt_bind_param($consulta, "s", $cedula);
         mysqli_stmt_execute($consulta);
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_fetch($consulta);
             if (password_verify($contrasena_antigua, $db_contraseña)) {
                 $contrasena_nueva_hash = password_hash($contrasena_nueva, PASSWORD_DEFAULT);
-                $query_update = "UPDATE usuarios SET contraseña = ? WHERE cedula = ?";
+                $query_update = "UPDATE usuarios SET Contraseña = ? WHERE Cedula = ?";
                 if ($consulta_update = mysqli_prepare($conexion, $query_update)) {
                     mysqli_stmt_bind_param($consulta_update, "ss", $contrasena_nueva_hash, $cedula);
                     if (mysqli_stmt_execute($consulta_update)) {

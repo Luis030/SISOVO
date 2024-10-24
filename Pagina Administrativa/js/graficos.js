@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('#canvaInf')){
-        crearGrafico('canvaInf', "bar", 'php/informesPorMes.php', [], {
+        crearGrafico('canvaInf', "bar", 'php/informespormes.php', [], {
         });
     }
     if(document.querySelector('#canvaPat')){

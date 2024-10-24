@@ -4,7 +4,7 @@ session_start();
 if(isset($_GET['tabla'])){
     if($_GET['tabla'] == "true"){
         $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad, P.ID_Patologia
-        FROM Patologias P
+        FROM patologias P
         LEFT JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia AND PA.Estado = 1
         LEFT JOIN alumnos A ON A.ID_Alumno = PA.ID_Alumno AND A.Estado = 1
         GROUP BY P.Nombre, P.ID_Patologia;

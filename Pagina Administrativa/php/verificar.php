@@ -3,7 +3,7 @@ include("../../BD/conexionbd.php");
 
 if(isset($_GET['esp']) && isset($_GET['item'])){
     $item = $_GET['item'];
-    $sql = "SELECT * FROM Especializaciones WHERE Nombre='$item'";
+    $sql = "SELECT * FROM especializaciones WHERE Nombre='$item'";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0){
         echo json_encode([

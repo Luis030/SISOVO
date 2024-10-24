@@ -5,7 +5,7 @@
     $tipo = $_GET['tipo'];
 
 $sql = "SELECT ID_Docente, Cedula 
-        FROM Docentes
+        FROM docentes
         WHERE Cedula = '$cedula' AND Estado = 1;";
 
 $resultado = mysqli_query($conexion, $sql);

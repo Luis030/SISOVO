@@ -26,7 +26,7 @@ if(isset($_GET['tabla'])){
 if (isset($_GET['editardocente'])){
     $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
     $id = $_GET['id'];
-    $sql = "SELECT E.ID_Especializacion, E.Nombre FROM Especializaciones E
+    $sql = "SELECT E.ID_Especializacion, E.Nombre FROM especializaciones E
             WHERE E.Nombre LIKE '%$q%' AND E.Estado = 1 AND E.ID_Especializacion NOT IN 
             (SELECT ID_Especializacion 
             FROM especializacion_docente 

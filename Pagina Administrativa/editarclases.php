@@ -5,7 +5,7 @@
     $idClase = $_GET['id'];; 
     
     $sql = "SELECT C.Nombre AS NombreClase, Horario, D.Nombre AS NombreDocente, Apellido
-    FROM Clase C, Docentes D
+    FROM clase C, docentes D
     WHERE C.ID_Docente = D.ID_Docente AND ID_Clase = $idClase";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {

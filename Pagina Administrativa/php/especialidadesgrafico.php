@@ -2,9 +2,9 @@
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT E.Nombre, COUNT(ED.ID_Docente) AS Cantidad
-            FROM Especializaciones E
+            FROM especializaciones E
             JOIN especializacion_docente ED ON E.ID_Especializacion = ED.ID_Especializacion 
-            JOIN Docentes D on D.ID_Docente = ED.ID_Docente 
+            JOIN docentes D on D.ID_Docente = ED.ID_Docente 
             WHERE D.Estado = 1
             GROUP BY E.Nombre";
 
