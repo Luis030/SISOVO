@@ -2,7 +2,7 @@
 include("../../BD/conexionbd.php");
 session_start();
 $cedula = $_SESSION['cedula'];
-$q = isset($_GET['q']) ? $_GET['q'] : '';
+$q = isset($_POST['q']) ? $_POST['q'] : '';
 
 
 $sql = "SELECT C.ID_Clase, C.Nombre FROM clase C JOIN docentes D on C.ID_Docente=D.ID_Docente WHERE D.Cedula=$cedula AND C.Nombre LIKE '%$q%'";

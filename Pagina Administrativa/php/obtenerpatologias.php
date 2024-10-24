@@ -20,9 +20,9 @@ if(isset($_GET['tabla'])){
     }
 }
 
-if (isset($_GET['editaralumno'])){
-    $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
-    $id = $_GET['id'];
+if (isset($_POST['editaralumno'])){
+    $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
+    $id = $_POST['id'];
     $sql = "SELECT P.ID_Patologia, P.Nombre FROM patologias p
             WHERE P.Nombre LIKE '%$q%' AND P.Estado = 1 AND P.ID_Patologia NOT IN 
             (SELECT ID_Patologia 
@@ -37,7 +37,7 @@ if (isset($_GET['editaralumno'])){
 }
 
 // Obtener el término de búsqueda desde la solicitud AJAX (si existe)
-$q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
+$q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
 
 
 if ($q) {

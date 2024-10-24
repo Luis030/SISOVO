@@ -1,4 +1,5 @@
 <?php
+
 require_once("../../BD/conexionbd.php");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idclase = $_GET['id'];

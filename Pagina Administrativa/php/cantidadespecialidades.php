@@ -1,6 +1,6 @@
 <?php
 include("../../BD/conexionbd.php");
-$idocupacion = $_GET['ocupacion'];
+$idocupacion = $_POST['ocupacion'];
 $sql = "SELECT 
     O.ID_Ocupacion,
     O.Nombre AS OcupacionNombre,

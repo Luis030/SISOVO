@@ -22,8 +22,8 @@ if(isset($_GET['tabla'])){
         }
     }
 }
-$q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
-$ocupacion = isset($_GET['ocupacion']) ? mysqli_real_escape_string($conexion, $_GET['ocupacion']) : '';
+$q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
+$ocupacion = isset($_POST['ocupacion']) ? mysqli_real_escape_string($conexion, $_POST['ocupacion']) : '';
 
 
 
