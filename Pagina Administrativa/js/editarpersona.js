@@ -92,7 +92,7 @@ function formatearFecha(fechaSQL) {
     return `${dia}/${mes}/${anio}`;
 }
 
-function guardarAtributo(id, atributo) {
+function guardarAtributo(id, atributo, tipo) {
     if (atributo == "nombre") {
         const nombreNuevo = document.getElementById('ingresarNombre');
         if (nombreNuevo.value == "") {
@@ -185,7 +185,13 @@ function guardarAtributo(id, atributo) {
     }
     if (valido === true) {  
         if (txt != '') {
-            fetch("php/cambiaralumno.php?id=" + id + "&&atributo=" + atributo + "&&txt=" + txt)
+            fetch("php/actualizarpersona.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "id=" + id + "&atributo=" + atributo + "&txt=" + txt + "&tipo=" + tipo 
+            })
             .then(datos => datos.json())
             .then(datos => {    
                 if (datos.mensaje == "si") {
@@ -232,6 +238,7 @@ function guardarAtributo(id, atributo) {
 }
 
 function agregarPatologias() {
+    const tipo = 'alumno';
     var ida = window.idalumnotabla;
     var idp = $('#agregarPatAlumno').val();
     if (idp == "") {
@@ -245,9 +252,10 @@ function agregarPatologias() {
         exit;
     } else {
         $.ajax({
-            url: 'php/agregarpatologiaalumno.php',
+            url: 'php/agregarelementopersona.php',
             type: 'POST',
             data: {
+                tipo: tipo,
                 idp: idp,
                 ida: ida
             },
@@ -266,8 +274,39 @@ function agregarPatologias() {
     }
 }
 
-const boton = document.getElementById('agregarPatA');
-
-boton.addEventListener('click', function() {
-    agregarPatologias();
-});
+function agregarEspecialidad() {
+    const tipo = 'docente';
+    var idd = window.idDocente;
+    var ide = $('#agregarEspDocente').val();
+    if (ide == "") {
+        Swal.fire({
+            title: "Error!",
+            text: "Debes ingresar al menos una especialización.",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 3000
+        });
+        exit;
+    } else {
+        $.ajax({
+            url: 'php/agregarelementopersona.php',
+            type: 'POST',
+            data: {
+                tipo: tipo,
+                idd: idd,
+                ide: ide
+            },
+            success: function() {
+                tablas['tablaespdocente'].ajax.reload();
+                $('#agregarEspDocente').val(null).trigger('change');
+                Swal.fire ({
+                    title: "Correcto!",
+                    text: "Especializaciones agregadas correctamente",
+                    icon: "success",
+                    showConfirmButton: false,   
+                    timer: 3000
+                })
+            }
+        })
+    }
+}

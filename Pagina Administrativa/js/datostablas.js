@@ -44,18 +44,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if(document.querySelector('#pat')) {
         const idalumno = window.idalumnotabla;
-        tablas['tablapatalumno'] = iniciarTabla('pat', `php/traerpatologiaalumno?id=${idalumno}`, patologiasAlumno(), "50vh");
+        tablas['tablapatalumno'] = iniciarTabla('pat', `php/traerelementospersonas?id=${idalumno}&&alumno=si`, patologiasAlumno(), "50vh");
     }
+
     if(document.querySelector('#patD')) {
         const idalumno = window.idalumnotabla;
-        tablas['tablapatalumnoD'] = iniciarTabla('patD ', `php/traerpatologiaalumno?id=${idalumno}`, patologiasAlumnoDocente(), "50vh");
+        tablas['tablapatalumnoD'] = iniciarTabla('patD ', `php/traerelementospersonas?id=${idalumno}&&alumno=si`, patologiasAlumnoDocente(), "50vh");
     }
+
     if(document.querySelector('#tabla-ocupaciones-gestion')){
         tablas['ocugestion'] = iniciarTabla('tabla-ocupaciones-gestion', 'php/obtenerocupaciones.php?tabla=true', columnastablaOcupaciones(), "50vh");
     }
 
     if(document.querySelector('#tabla-especialidades-gestion')){
         tablas['espgestion'] = iniciarTabla('tabla-especialidades-gestion', 'php/obtenerespecialidades.php?tabla=true', columnastablaEspecialidades(), "50vh");
+    }
+
+    if (document.querySelector('#esp')) {
+        const idDocente = window.idDocente
+        tablas['tablaespdocente'] = iniciarTabla('esp', `php/traerelementospersonas?id=${idDocente}&&docente=si`, especializacionesDocentes(), "50vh");
     }
 });
 
@@ -132,10 +139,26 @@ function patologiasAlumno() {
             "data": null,
             "render": function(data, type, row) {
                 return `
-                    <button class='boton-borrar' onclick='eliminarPatAlumno(${row.ID_Patologia}, ${idalumno})'>Desasignar</button>
+                    <button class='boton-borrar' onclick='eliminarElementoPersona(${row.ID_Patologia}, ${idalumno}, "alumno")'>Desasignar</button>
                 `;
             },
             "orderable": false
+        }
+    ]
+}
+
+function especializacionesDocentes() {
+    const idDocente = window.idDocente;
+    return [
+        { "data": "Nombre" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-borrar' onclick='eliminarElementoPersona(${row.ID_Especializacion}, ${idDocente}, "docente")'>Desasignar</button>
+                `;
+            },
+            "orderable": false  
         }
     ]
 }

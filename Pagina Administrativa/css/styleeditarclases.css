@@ -151,7 +151,7 @@ p span {
     gap: 10px;
 }
 
-#agregarPatA {
+#agregarPatA, #agregarEspD {
     width: 70px;
     margin-left: 10px;
     background-color: var(--color-secundario);
@@ -163,6 +163,6 @@ p span {
     transition: 0.25s;
 }
 
-#agregarPatA:hover {
+#agregarPatA:hover, #agregarEspD:hover {
     filter: brightness(75%);
 }

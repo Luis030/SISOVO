@@ -2,6 +2,31 @@ $(document).ready(function() {
     const idclase = window.idclase;
     const idclaselista = window.idclaselista;
     const idalumnoactual = window.idalumnotabla;
+    const idDocente = window.idDocente;
+
+    $('#agregarEspDocente').select2({
+        placeholder: 'Seleccione especialidades para agregar',
+        minimumInputLength: 0,
+        cache: true,
+        ajax: {
+            url: 'php/obtenerespecialidades.php?editardocente=si&&id=' + idDocente,
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term || ''
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (especialidades) {
+                        return { id: especialidades.ID_Especializacion, text: especialidades.Nombre };
+                    })
+                };
+            },
+            cache: true
+        }
+    })
 
     $('#agregarPatAlumno').select2({
         placeholder: 'Seleccione patologías para agregar',

@@ -1,4 +1,4 @@
-<?php
+    <?php
 include("../../BD/conexionbd.php");
 session_start();
 
@@ -22,6 +22,23 @@ if(isset($_GET['tabla'])){
         }
     }
 }
+
+if (isset($_GET['editardocente'])){
+    $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
+    $id = $_GET['id'];
+    $sql = "SELECT E.ID_Especializacion, E.Nombre FROM Especializaciones E
+            WHERE E.Nombre LIKE '%$q%' AND E.Estado = 1 AND E.ID_Especializacion NOT IN 
+            (SELECT ID_Especializacion 
+            FROM especializacion_docente 
+            WHERE ID_Docente = $id AND Estado = 1);";
+    $resultado = mysqli_query($conexion, $sql);
+    if($resultado){
+        $especialidades = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
+        echo json_encode($especialidades);
+    }
+    exit;
+}
+
 $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
 $ocupacion = isset($_GET['ocupacion']) ? mysqli_real_escape_string($conexion, $_GET['ocupacion']) : '';
 

@@ -52,35 +52,35 @@
                 <p>Nombre: <span id="spanNombre"><?php echo $nombreAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarNombre" onclick="mostrarEditarNombre()"></p>
                 <div id="editandoNombre" class="fadeNombre">
                     <input type="text" id="ingresarNombre" placeholder="Ingrese nombre(s)" name="nombreNuevo" required>
-                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'nombre')">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'nombre', 'alumno')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Apellido: <span id="spanApellido"><?php echo $apellidoAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarApellido" onclick="mostrarEditarApellido()"></p>
                 <div id="editandoApellido" class="fadeApellido">
                     <input type ="text" id="ingresarApellido" placeholder="Ingrese apellido(s)" name="apellidoNuevo" required   ></input>
-                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'apellido')">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'apellido', 'alumno')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaAlumno) ?></span><img src="img/editar.png" alt="Editar" id="editarFecha" onclick="mostrarEditarFecha()"></p>
                 <div id="editandoFecha" class="fadeFecha">
                     <input type="date" id="ingresarFecha" name="fechaNuevo" required></input>
-                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'fecha')">Guardar</button>   
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'fecha', 'alumno')">Guardar</button>   
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Mail padres: <span id="spanMail"><?php echo $mailAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarMail" onclick="mostrarEditarMail()"></p>
                 <div id="editandoMail" class="fadeMail">
                     <input type="text" id="ingresarMail" placeholder="Ingrese mail" name="mailNuevo" required></input>
-                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'mail')">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'mail', 'alumno')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
                 <p>Celular padres: <span id="spanCelular"><?php echo $celAlumno ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarCelular()"></p>
                 <div id="editandoCelular" class="fadeCelular">
                     <input type="number" id="ingresarCelular" placeholder="Ingrese celular" name="celularNuevo" required></input>
-                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'celular')">Guardar</button>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'celular', 'alumno')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -97,7 +97,7 @@
         </div>
         <div class="agregar">
             <select id="agregarPatAlumno" style="width: 100%;" multiple></select> 
-            <button id="agregarPatA">Agregar</button>
+            <button id="agregarPatA" onclick="agregarPatologias()">Agregar</button>
         </div>
         <?php
             }
@@ -141,7 +141,7 @@
         ?>
     </div>  
 </div>
-<script src="js/editaralumno.js"></script>
+<script src="js/editarpersona.js"></script>
 <?php
     require_once("php/footer.php");
 ?>

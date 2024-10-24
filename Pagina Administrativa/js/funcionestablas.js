@@ -119,39 +119,87 @@ function actualizarListaDocente(){
     tablas['listadoc'].ajax.reload();
 }
 
-function eliminarPatAlumno(idp, ida) {
-    Swal.fire({
-        title: "¿Estas seguro de desvincular esta patología?",
-        text: "Se desvinculara la patología del alumno",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        cancelButtonText: "Cancelar",
-        confirmButtonText: "Si, desvincular"
-        }).then((result) => {
-        if (result.isConfirmed) {
-            fetch("php/eliminarpatologiaalumno.php?idp=" + idp + "&&ida=" + ida)
-            .then(respuesta => respuesta.json())
-            .then(data => {
-            if(data.resultado == "exito"){
-                Swal.fire({
-                    title: "Desvinculado exitosamente.",
-                    text: "Se ha desvinculado exitosamente la patología",
-                    icon: "success"
-                });
-                tablas['tablapatalumno'].ajax.reload();
+function eliminarElementoPersona(ide, idp, tipo) {
+    if (tipo == "alumno") {
+        Swal.fire({
+            title: "¿Estas seguro de desvincular esta patología?",
+            text: "Se desvinculara la patología del alumno",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Si, desvincular"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                fetch("php/eliminarelementopersona.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "ide=" + ide + "&idp=" + idp + "&tipo=" + tipo
+                })
+                .then(respuesta => respuesta.json())
+                .then(data => {
+                if(data.resultado == "exito"){
+                    Swal.fire({
+                        title: "Desvinculado exitosamente.",
+                        text: "Se ha desvinculado exitosamente la patología",
+                        icon: "success"
+                    });
+                    tablas['tablapatalumno'].ajax.reload();
+                }
+                if(data.resultado == "error"){
+                    Swal.fire({
+                        title: "Ha ocurrido un error",
+                        text: "Algo ha salido mal.",
+                        icon: "error"
+                    });
+                }
+                })
             }
-            if(data.resultado == "error"){
-                Swal.fire({
-                    title: "Ha ocurrido un error",
-                    text: "Algo ha salido mal.",
-                    icon: "error"
-                });
+        });
+    }
+    if (tipo == "docente") {
+        Swal.fire({
+            title: "¿Estas seguro de desvincular esta especialización?",
+            text: "Se desvinculara la especialidad del docente",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            cancelButtonText: "Cancelar",
+            confirmButtonText: "Si, desvincular"
+            }).then((result) => {
+            if (result.isConfirmed) {
+                fetch("php/eliminarelementopersona.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "ide=" + ide + "&idp=" + idp + "&tipo=" + tipo
+                })
+                .then(respuesta => respuesta.json())    
+                .then(data => {
+                if(data.resultado == "exito"){
+                    Swal.fire({
+                        title: "Desvinculado exitosamente.",
+                        text: "Se ha desvinculado exitosamente la patología",
+                        icon: "success"
+                    });
+                    tablas['tablaespdocente'].ajax.reload();
+                }
+                if(data.resultado == "error"){
+                    Swal.fire({
+                        title: "Ha ocurrido un error",
+                        text: "Algo ha salido mal.",
+                        icon: "error"
+                    });
+                }
+                })
             }
-            })
-        }
-    });
+        });
+    }
 }
 
 function editarAlumno(id){
