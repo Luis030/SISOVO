@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(contenedorOcu.style.display == "grid"){
             enviarFormulario("php/añadirocupacion.php");
         }
-        console.log("fdksf")
-
     })
 })
 
