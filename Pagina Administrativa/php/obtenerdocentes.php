@@ -1,8 +1,8 @@
 <?php
     include("../../BD/conexionbd.php");
     session_start();
-    if(isset($_GET['select'])){
-        $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
+    if(isset($_POST['select'])){
+        $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
         if ($q) {
             $sql = "SELECT ID_Docente, Nombre, Apellido FROM docentes WHERE Nombre LIKE '%$q%' LIMIT 50";
         } else {

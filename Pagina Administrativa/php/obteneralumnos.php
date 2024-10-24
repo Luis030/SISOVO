@@ -2,8 +2,8 @@
     include("../../BD/conexionbd.php");
     session_start();
     $cedula = $_SESSION['cedula'];
-    $q = isset($_GET['q']) ? $_GET['q'] : '';
-    $clase = isset($_GET['clase']) ? $_GET['clase'] : '';
+    $q = isset($_POST['q']) ? $_POST['q'] : '';
+    $clase = isset($_POST['clase']) ? $_POST['clase'] : '';
 
     $sql = "SELECT DISTINCT A.ID_Alumno, A.Nombre, A.Apellido FROM 
     alumnos A JOIN alumnos_clase AC ON A.ID_Alumno=AC.ID_Alumno 

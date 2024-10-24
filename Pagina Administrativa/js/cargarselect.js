@@ -28,17 +28,21 @@ $(document).ready(function() {
         }
     })
 
+    //POST
     $('#agregarPatAlumno').select2({
         placeholder: 'Seleccione patologías para agregar',
         minimumInputLength: 0,
         cache: true,
         ajax: {
-            url: 'php/obtenerpatologias.php?editaralumno=si&&id=' + idalumnoactual,
+            url: 'php/obtenerpatologias.php',
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 return {
-                    q: params.term || ''
+                    q: params.term || '',
+                    editaralumno: "si",
+                    id: idalumnoactual
                 };
             },
             processResults: function (data) {
@@ -51,7 +55,7 @@ $(document).ready(function() {
             cache: true
         }
     })
-
+    //POST
     $('#alumnosClase').select2({
         placeholder: 'Seleccione alumnos',
         minimumInputLength: 0,
@@ -60,6 +64,7 @@ $(document).ready(function() {
             url: 'php/obteneralumnos2.php', 
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 return {
                     q: params.term || ''
@@ -78,26 +83,8 @@ $(document).ready(function() {
 
     $('#diasClase').select2({
         placeholder: 'Seleccione día(s)',
-        minimumInputLength: 0, 
-        ajax: {
-            url: 'php/obteneralumnos2.php', 
-            dataType: 'json',
-            delay: 250,
-            data: function (params) {
-                return {
-                    q: params.term || ''
-                };
-            },
-            processResults: function (data) {
-                return {
-                    results: data.map(function (alumnos) {
-                        return { id: alumnos.ID_Alumno, text: alumnos.Nombre +" "+ alumnos.Apellido };
-                    })
-                };
-            },
-            cache: true
-        }
-    });
+        minimumInputLength: 0,
+    })
 
     $('#diasClase').select2({
         placeholder: 'Seleccione día(s)',
@@ -125,17 +112,19 @@ $(document).ready(function() {
         }
     });
 
-
+    //POST
     $('#docenteClase').select2({
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
         ajax: {
-            url: 'php/obtenerdocentes.php?select=true', 
+            url: 'php/obtenerdocentes.php', 
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 return {
-                    q: params.term || ''
+                    q: params.term || '',
+                    select: true
                 };
             },
             processResults: function (data) {
@@ -148,17 +137,19 @@ $(document).ready(function() {
             cache: true
         }
     })
-
+    //POST
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
         ajax: {
-            url: 'php/obtenerdocentes.php?select=true', 
+            url: 'php/obtenerdocentes.php', 
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 return {
-                    q: params.term || ''
+                    q: params.term || '',
+                    select: true
                 };
             },
             processResults: function (data) {
@@ -171,17 +162,19 @@ $(document).ready(function() {
             cache: true
         }
     })
-
+    //POST
     $('#select-alumnos').select2({
         placeholder: "Buscar alumno..",
         minimumInputLength: 0,
         ajax: {
-            url: `php/alumnos.php?idclase=${idclase}`, 
+            url: "php/alumnos.php", 
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 return {
                     q: params.term || '',
+                    idclase: idclase
                 };
             },
             processResults: function (data) {
@@ -195,7 +188,7 @@ $(document).ready(function() {
         }
     });
 
-
+    //POST
     if($('#patologias-select').length){
         $('#patologias-select').select2({
             placeholder: 'Busca o selecciona patologías...', 
@@ -203,7 +196,8 @@ $(document).ready(function() {
             ajax: {
                 url: 'php/obtenerpatologias.php', 
                 dataType: 'json',
-                delay: 250,  
+                delay: 250,
+                method: "POST",  
                 data: function (params) {
                     // Definir el término de búsqueda; si no hay término, obtener los primeros resultados
                     return {
@@ -222,13 +216,14 @@ $(document).ready(function() {
         });
     }
     
-
+    //POST
     $('#ocupacionEspecialidad').select2({
         placeholder: 'Seleccione una ocupación',
         ajax: {
             url: 'php/obtenerocupaciones.php',  
             dataType: 'json',
             delay: 250,
+            method: "POST",
             processResults: function (data) {
                 return {
                     results: data.map(function (ocupacion) {
@@ -240,13 +235,19 @@ $(document).ready(function() {
         },
         minimumInputLength: 0
     })
-
+    //POST
     $('#ocupacion-select').select2({
         placeholder: 'Selecciona una ocupación',
         ajax: {
             url: 'php/obtenerocupaciones.php',  
             dataType: 'json',
             delay: 250,
+            method: "POST",
+            data: function (params) {
+                return {
+                    q: params.term || '', 
+                };
+            },
             processResults: function (data) {
                 return {
                     results: data.map(function (ocupacion) {
@@ -258,7 +259,7 @@ $(document).ready(function() {
         },
         minimumInputLength: 0
     });
-
+    //POST
     $('#select-alumno-ingresado').select2({
         placeholder: "Seleccione un alumno",
         minimumInputLength: 0,
@@ -266,6 +267,7 @@ $(document).ready(function() {
             url: 'php/obteneralumnos.php', 
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 const claseSeleccionada = $('.informeClaseAlumno').val();
                 console.log(claseSeleccionada)
@@ -289,7 +291,7 @@ $(document).ready(function() {
     $('.informeClaseAlumno').select2({
         placeholder: 'Filtrar por clase'
     })
-
+    //POST
     $('.porClase').change(function() {
         if ($(this).is(':checked')) {
             $('.informeClaseAlumno').prop('disabled', false).select2({
@@ -299,6 +301,7 @@ $(document).ready(function() {
                     url: 'php/obtenerclases.php', 
                     dataType: 'json',
                     delay: 250,
+                    method: "POST",
                     processResults: function (data) {
                         return {
                             results: data.map(function (clase) {
@@ -317,14 +320,20 @@ $(document).ready(function() {
         }
     })
 
-
+    //POST
     $('#select-ocupacion-overlay').select2({
         placeholder: 'Elija la ocupación',
         minimumInputLength: 0,
         ajax: {
             url: 'php/obtenerocupaciones.php',  // Ruta para obtener las ocupaciones
             dataType: 'json',
+            method: 'POST',
             delay: 250,
+            data: function(params){
+                return {
+                    q: params.term || '',
+                }
+            },
             processResults: function (data) {
                 return {
                     results: data.map(function (ocupacion) {
@@ -335,60 +344,70 @@ $(document).ready(function() {
             cache: true
         }
     })
-
+    //POST
     // Inicializar Select2 para especialidades, pero desactivado inicialmente
     $('#especialidades-select').select2({
         placeholder: 'Busca o selecciona especialidades',
         minimumInputLength: 0,
         ajax: {
             url: 'php/obtenerespecialidades.php',
+            type: 'POST', 
             dataType: 'json',
             delay: 250,
-            data: function (params){
+            data: function (params) {
                 const selectedOcupacion = $('#ocupacion-select').val();
                 return {
-                    q: params.term || '',
-                    ocupacion: selectedOcupacion
+                    q: params.term || '', 
+                    ocupacion: selectedOcupacion 
                 };
             },
             processResults: function (data) {
                 return {
-                    results: data.map(function (especialidad){
+                    results: data.map(function (especialidad) {
                         return { id: especialidad.ID_Especializacion, text: especialidad.Nombre };
                     })
                 };
             },
             cache: true
         }
-    }).prop('disabled', true); 
-
+    }).prop('disabled', true);
+    
+    //POST
     // Habilitar/Deshabilitar select de especialidades según la ocupación seleccionada
     $('#ocupacion-select').on('change', function() {
         $('#especialidades-select').val([]).trigger('change');
         const selectedOcupacion = $('#ocupacion-select').val();
-        fetch("php/cantidadespecialidades.php?ocupacion="+ selectedOcupacion)
+        fetch("php/cantidadespecialidades.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "ocupacion=" + encodeURIComponent(selectedOcupacion)
+        })
         .then(datos => datos.json())
         .then(filas => {
-                filas.forEach(fila => {
-                    if(fila.CantidadEspecializaciones > 0){
-                        $('#especialidades-select').prop('disabled', false);
-                    } else {
-                        $('#especialidades-select').prop('disabled', true);
-                    }
+            filas.forEach(fila => {
+                if(fila.CantidadEspecializaciones > 0){
+                    $('#especialidades-select').prop('disabled', false);
+                } else {
+                    $('#especialidades-select').prop('disabled', true);
+                }
             });
-        })
+        });
     });
-    
+    //POST
     $('#fecha').select2({
         placeholder: 'Busca o selecciona especialidades',
         minimumInputLength: 0,
         ajax: {
-            url: 'php/cargarfechalista.php?idclase=' + idclaselista,
+            url: 'php/cargarfechalista.php', 
+            type: 'POST', 
             dataType: 'json',
             delay: 250,
             data: function (params) {
                 return {
-                    q: params.term || '',
+                    idclase: idclaselista, 
+                    q: params.term || ''
                 };
             },
             processResults: function (data) {
@@ -405,6 +424,7 @@ $(document).ready(function() {
             cache: true
         }
     });
+    
     
     
     
