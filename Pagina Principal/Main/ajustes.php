@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php
-    require_once("php/header.php");
+    require_once("PHP/header.php");
     if(!isset($_SESSION['usuario'])){
         header("Location:index.");
     }
@@ -104,7 +104,7 @@
         </div>
     </main>
     <?php
-    require_once("php/footer.php");
+    require_once("PHP/footer.php");
     ?>
 </body>
 </html>

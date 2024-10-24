@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-    require_once("php/header.php");
+    require_once("PHP/header.php");
     ?>
     <div class="titulo-galeria">
         <h1>Galería</h1>
@@ -65,7 +65,7 @@
     
     
     <?php
-    require_once("php/footer.php");
+    require_once("PHP/footer.php");
     ?>
     <script src="JS/galeria.js"></script>
 </body>
