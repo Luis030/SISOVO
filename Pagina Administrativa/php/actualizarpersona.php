@@ -1,4 +1,7 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+
     include("../../BD/conexionbd.php");
 
     $id = $_POST['id'];
@@ -57,4 +60,7 @@
     if ($resultado == TRUE) {
         echo json_encode(['mensaje' => 'si']);
     }
+} else {
+    header("Location: ../../");
+}
 ?>

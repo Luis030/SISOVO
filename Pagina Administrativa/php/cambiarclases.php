@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
     
     $tipo = $_POST['tipo'];
@@ -32,4 +33,7 @@
     } else {
         echo json_encode(['mensaje' => 'si']);
     }
+} else {
+    header("Location: ../../");
+}
 ?>

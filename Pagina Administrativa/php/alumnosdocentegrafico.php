@@ -1,6 +1,6 @@
 <?php
-    include("../../BD/conexionbd.php"); 
-
+include("../../BD/conexionbd.php"); 
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql = "SELECT 
     CONCAT(d.Nombre, ' ', d.Apellido) AS Nombre_Completo,
     COUNT(DISTINCT ac.ID_Alumno) AS Total_Alumnos
@@ -43,4 +43,7 @@
     ];
     header('Content-Type: application/json');
     echo json_encode($datos);
+} else {
+    header("Location: ../../");
+}
 ?>

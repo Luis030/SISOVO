@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
 
     mysqli_query($conexion, "SET lc_time_names = 'es_ES'");
@@ -33,4 +34,7 @@
 
     header('Content-Type: application/json');
     echo json_encode($datos);
+} else {
+    header("Location: ../../");
+}
 ?>

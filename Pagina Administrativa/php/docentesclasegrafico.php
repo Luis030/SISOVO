@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT 
@@ -44,4 +45,5 @@
     ];
     header('Content-Type: application/json');
     echo json_encode($datos);
+}
 ?>

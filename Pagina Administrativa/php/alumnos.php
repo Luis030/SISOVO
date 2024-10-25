@@ -1,5 +1,6 @@
 <?php
     require_once("../../BD/conexionbd.php");
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $q = isset($_POST['q']) ? $_POST['q'] : '';
     if(isset($_POST['idclase'])){
         $idclase = $_POST['idclase'];
@@ -20,4 +21,7 @@
         }
     }
     echo json_encode($alumnos); 
+} else {
+    header("Location: ../../");
+}
 ?>

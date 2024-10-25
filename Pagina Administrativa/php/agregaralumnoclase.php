@@ -46,5 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'message' => 'No se enviaron datos válidos'
         ]);
     }
+} else {
+    header("Location: ../../");
 }
 ?>

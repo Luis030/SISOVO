@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
     session_start();
 
@@ -16,4 +17,7 @@
         $alumnos = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         echo json_encode($alumnos);
     }
+} else {
+    header("Location: ../../");
+}
 ?>

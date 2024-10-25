@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT E.Nombre, COUNT(ED.ID_Docente) AS Cantidad
@@ -30,4 +31,7 @@
     mysqli_close($conexion);
     header('Content-Type: application/json');
     echo json_encode($datos);
+} else {
+    header("Location: ../../");
+}
 ?>

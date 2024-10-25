@@ -1,6 +1,6 @@
 <?php
     include("../../BD/conexionbd.php");
-
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     $tipo  = $_POST['tipo'];
 
     if ($tipo == 'alumno') {
@@ -20,5 +20,7 @@
             $resultado = mysqli_query($conexion, $sql);
         }
     }
-
+} else {
+    header("Location: ../../");
+}
 ?>

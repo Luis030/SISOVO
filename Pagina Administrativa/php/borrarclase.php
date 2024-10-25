@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     require_once("../../BD/conexionbd.php");
 
     $IDClase = $_POST['id'];
@@ -20,4 +21,7 @@
             ]);
         }
     }
+} else {
+    header("Location: ../../");
+}
 ?>

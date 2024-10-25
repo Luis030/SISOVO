@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     require_once("../../BD/conexionbd.php");
 
     $tipo = $_POST['tipo'];
@@ -33,4 +34,7 @@
             ]); 
         } 
     }
+} else {
+    header("Location: ../../");
+}
 ?>

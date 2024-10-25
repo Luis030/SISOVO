@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
     session_start();
     if(isset($_POST['select'])){
@@ -25,5 +26,7 @@
             echo json_encode($docentes);
         }
     }
-    
+} else {
+    header("Location: ../../");
+}
 ?>

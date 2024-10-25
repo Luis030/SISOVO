@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
     session_start();
     $cedulaDocente = $_SESSION['cedula'];
@@ -37,4 +38,7 @@
             header("Location: ../crearinforme.php?error=true");
         }
     }
+} else {
+    header("Location: ../../");
+}    
 ?>

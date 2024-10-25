@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     require_once("../../BD/conexionbd.php");
 
     $id = $_POST['id'];
@@ -21,4 +22,7 @@
         $quedio = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
         echo json_encode($quedio);
     }
+} else {
+    header("Location: ../../");
+}
 ?>

@@ -1,4 +1,5 @@
 <?php
+if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
 
     $nombre = $_POST['nombre'];
@@ -31,4 +32,7 @@
             $resultado = mysqli_query($conexion, $sql);
         }
     }
+} else {
+    header("Location: ../../");
+}
 ?>
