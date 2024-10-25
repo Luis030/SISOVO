@@ -1,8 +1,8 @@
 <?php
     include("../../BD/conexionbd.php");
 
-    $cedula = $_GET['cedula'];
-    $tipo = $_GET['tipo'];
+    $cedula = $_POST['cedula'];
+    $tipo = $_POST['tipo'];
 
 $sql = "SELECT ID_Docente, Cedula 
         FROM docentes

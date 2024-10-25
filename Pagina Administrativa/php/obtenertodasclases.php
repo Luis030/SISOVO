@@ -2,8 +2,8 @@
 require_once("../../BD/conexionbd.php");
 
 header('Content-Type: application/json');  
-if(isset($_GET['docente'])){
-    $ceduladoc = $_GET['docente'];
+if(isset($_POST['docente'])){
+    $ceduladoc = $_POST['docente'];
     $sql = "SELECT 
     C.ID_Clase, D.ID_Docente,
     C.Nombre,

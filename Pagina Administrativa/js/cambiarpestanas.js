@@ -135,7 +135,6 @@ function enviarFormulario(enlace) {
             return response.json(); 
         })
         .then(data => {
-            console.log("se llego hasta aca")
             items = [];
             const lista = document.querySelector('.ingresado');
             lista.innerHTML = '';

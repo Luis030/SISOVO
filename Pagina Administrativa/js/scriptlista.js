@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function(){
     function cargarAlumnosParaNuevaAsistencia(idClase) {
         $.ajax({
             url: 'php/cargarlista.php',
-            method: 'GET',
+            method: 'POST',
             data: { ID_Clase: idClase },
             success: function(response) {
                 $('#lista-alumnos').html(response); // Mostrar la lista de alumnos
@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function cargarAsistenciaPorFecha(fecha, idClase) {
         $.ajax({
-            url: 'php/cargarasistencia.php?idclase='+idclase,
-            method: 'GET',
-            data: { fecha: fecha, ID_Clase: idClase },
+            url: 'php/cargarasistencia.php',
+            method: 'POST',
+            data: { fecha: fecha, idclase: idClase },
             success: function(response) {
                 $('#lista-alumnos').html(response); // Rellenar la tabla con la asistencia
             }

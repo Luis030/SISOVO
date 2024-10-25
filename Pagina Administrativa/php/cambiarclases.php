@@ -1,34 +1,17 @@
 <?php
     include("../../BD/conexionbd.php");
-    $tipo = $_GET['tipo'];
-    $id = $_GET['id'];
+    
+    $tipo = $_POST['tipo'];
+    $id = $_POST['id'];
 
     if ($tipo === "nombre") {
-        $nombre = $_GET['nombre'];
+        $nombre = $_POST['nombre'];
         $sql = "UPDATE clase
                 SET Nombre = '$nombre'
                 WHERE ID_Clase = $id";
     }   
-    if ($tipo === "dia") {
-        $dia = $_GET['dia'];
-        $sql = "UPDATE clase
-                SET Dia = '$dia'
-                WHERE ID_Clase = $id";
-    } 
-    if ($tipo === "inicio") {
-        $inicio = $_GET['inicio'];
-        $sql = "UPDATE clase
-                SET Inicio = '$inicio'
-                WHERE ID_Clase = $id";
-    }
-    if ($tipo === "final") {
-        $final = $_GET['final'];
-        $sql = "UPDATE clase
-                SET Final = '$final'
-                WHERE ID_Clase = $id";
-    }
     if ($tipo === "docente") {
-        $docente = $_GET['docente'];
+        $docente = $_POST['docente'];
         $sql2 = "SELECT Nombre, Apellido
                  FROM docentes
                  WHERE ID_Docente = $docente";

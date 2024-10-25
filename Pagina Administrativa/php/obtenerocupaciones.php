@@ -1,8 +1,8 @@
 <?php
 include("../../BD/conexionbd.php");
 session_start();
-if(isset($_GET['tabla'])){
-    if($_GET['tabla'] == "true"){
+if(isset($_POST['tabla'])){
+    if($_POST['tabla'] == "true"){
         $sql = "SELECT o.Nombre AS Ocupacion, COUNT(DISTINCT ed.ID_Docente) AS Total_Docentes
         FROM ocupacion o
         LEFT JOIN especializaciones e ON o.ID_Ocupacion = e.ID_Ocupacion

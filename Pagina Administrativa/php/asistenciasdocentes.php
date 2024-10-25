@@ -1,7 +1,7 @@
 <?php
 require_once("../../BD/conexionbd.php");
-if(isset($_GET['time'])){
-    $rango = $_GET['time'];
+if(isset($_POST['time'])){
+    $rango = $_POST['time'];
     switch($rango){
         case 'hoy':
             $sql = "SELECT CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, D.ID_Docente, D.Cedula, CASE WHEN LD.Tipo = 'E' THEN 'Entrada' WHEN LD.Tipo = 'S' THEN 'Salida' END AS Tipo, DATE_FORMAT(LD.Fecha, '%d/%m/%Y') AS Fecha, LD.Hora FROM docentes D JOIN lista_docente LD ON LD.ID_Docente = D.ID_Docente WHERE LD.Fecha=curdate() ORDER BY Fecha DESC, Hora DESC;";
@@ -23,14 +23,14 @@ if(isset($_GET['time'])){
             break;
     }
 } else {
-    $docente = isset($_GET['docente']) ? $_GET['docente'] : '';
-    $fecha = isset($_GET['fecha']) ? $_GET['fecha'] : '';
-    $tipo = isset($_GET['tipo']) ? $_GET['tipo'] : '';
-    $hora = isset($_GET['hora']) ? $_GET['hora'] : '';
-    $rangofecha1 = isset($_GET['rangofecha1']) ? $_GET['rangofecha1'] : '';
-    $rangofecha2 = isset($_GET['rangofecha2']) ? $_GET['rangofecha2'] : '';
-    $rangohora1 = isset($_GET['rangohora1']) ? $_GET['rangohora1'] : '';
-    $rangohora2 = isset($_GET['rangohora2']) ? $_GET['rangohora2'] : '';
+    $docente = isset($_POST['docente']) ? $_POST['docente'] : '';
+    $fecha = isset($_POST['fecha']) ? $_POST['fecha'] : '';
+    $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : '';
+    $hora = isset($_POST['hora']) ? $_POST['hora'] : '';
+    $rangofecha1 = isset($_POST['rangofecha1']) ? $_POST['rangofecha1'] : '';
+    $rangofecha2 = isset($_POST['rangofecha2']) ? $_POST['rangofecha2'] : '';
+    $rangohora1 = isset($_POST['rangohora1']) ? $_POST['rangohora1'] : '';
+    $rangohora2 = isset($_POST['rangohora2']) ? $_POST['rangohora2'] : '';
     $sql = "SELECT CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, D.ID_Docente, D.Cedula, 
             CASE WHEN LD.Tipo = 'E' THEN 'Entrada' WHEN LD.Tipo = 'S' THEN 'Salida' END AS Tipo, 
             DATE_FORMAT(LD.Fecha, '%d/%m/%Y') AS Fecha, LD.Hora 

@@ -55,7 +55,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], opcionesExtras = {}) {
     $.ajax({
         url: urlDatos,
-        method: "GET",
+        method: "POST",
         dataType: "json",
         success: function (data) {
             const etiquetas = data.etiquetas || [];

@@ -1,6 +1,5 @@
 var items = []; 
 
-    
 document.addEventListener('DOMContentLoaded', function() {
     const OcupacionValor = document.getElementById('select-ocupacion-overlay');
     document.getElementById('nueva-especialidad-boton').addEventListener('click', function(){
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
 function agregarItem() {
     const input = document.getElementById('boton-agregar-items'); 
     const valor = input.value.trim();
@@ -30,7 +28,6 @@ function agregarItem() {
         input.value = ''; 
     }
 }
-
 
 
 function mostrarItems() {
@@ -58,12 +55,10 @@ function mostrarItems() {
     actualizarLongitud();
 }
 
-
 function eliminarItem(index) {
     items.splice(index, 1);
     mostrarItems();
 }
-
 
 function enviarFormulario(enlace) {
     const selectOcupacion = document.getElementById('select-ocupacion-overlay')

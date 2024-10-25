@@ -17,7 +17,7 @@
         }
     }
 
-    if(isset($_GET['tabla'])){
+    if(isset($_POST['tabla'])){
         $sql = "SELECT ID_Docente, CONCAT(Nombre, ' ', Apellido) AS Nombre, Cedula, Mail, Celular FROM docentes WHERE Estado=1;";
         $resultado = mysqli_query($conexion, $sql);
         if($resultado){

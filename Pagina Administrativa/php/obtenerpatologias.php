@@ -1,8 +1,8 @@
 <?php
 include("../../BD/conexionbd.php");
 session_start();
-if(isset($_GET['tabla'])){
-    if($_GET['tabla'] == "true"){
+if(isset($_POST['tabla'])){
+    if($_POST['tabla'] == "true"){
         $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad, P.ID_Patologia
         FROM patologias P
         LEFT JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia AND PA.Estado = 1

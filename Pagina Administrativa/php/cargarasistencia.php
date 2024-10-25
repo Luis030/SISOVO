@@ -1,8 +1,8 @@
 <?php
 include("../../BD/conexionbd.php");
 
-$fecha = $_GET['fecha'];
-$id_clase = $_GET['idclase'];
+$fecha = $_POST['fecha'];
+$id_clase = $_POST['idclase'];
 
 $query = "SELECT a.ID_Alumno, CONCAT(a.Nombre, ' ', a.Apellido) AS Nombre, ac.Asistio FROM alumnos_clase ac
           JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
@@ -13,7 +13,6 @@ if ($resultado) {
     while ($row = mysqli_fetch_assoc($resultado)) {
         // Si el alumno faltó (Asistio = 0), el checkbox estará marcado
         $asistio = $row['Asistio'] == 0 ? 'checked' : ''; 
-
         echo "<tr>
                 <td>{$row['Nombre']}</td>
                 <td>

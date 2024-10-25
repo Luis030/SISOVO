@@ -1,9 +1,11 @@
 window.addEventListener('DOMContentLoaded', () => {
     setInterval(actualizarListaDocente, 10000);
 })
+
+//POST
 function eliminarClase(id, nombre) {
     Swal.fire({
-        title: "¿Estas seguro de borrar la clase <span class='nombre-clase'>"+nombre+"</span>?",
+        title: "¿Estas seguro de borrar la clase <span class='nombre-clase'>" + nombre + "</span>?",
         text: "No se podra deshacer",
         icon: "warning",
         showCancelButton: true,
@@ -13,17 +15,23 @@ function eliminarClase(id, nombre) {
         confirmButtonText: "Si, borrar"
         }).then((result) => {
         if (result.isConfirmed) {
-            fetch("php/borrarclase.php?id="+id)
+            fetch("php/borrarclase.php", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: "id=" + id
+            })
             .then(data => data.json())
             .then(dato => {
             if(dato.Resultado == "exitoso"){
                 tablas['clases'].ajax.reload();
                 Swal.fire({
                     title: "Borrado exitosamente.",
-                    text: "Se ha borrado exitosamente la clase "+nombre,
+                    text: "Se ha borrado exitosamente la clase " + nombre,
                     icon: "success"
                 });
-            } else if(dato.Resultado == "error"){
+            } else if (dato.Resultado == "error"){
                 alert("error");
             }
         })
@@ -36,6 +44,7 @@ function editarClase(id){
     window.location.href = "editarclases.php?id="+id;
 }
 
+//POST
 function ingresarAlumno(idclase){
     var select = document.getElementById('select-alumnos');
     var valoresSeleccionados = [];
@@ -46,15 +55,17 @@ function ingresarAlumno(idclase){
     for (var opcion of select.selectedOptions) {
         valoresSeleccionados.push(opcion.value);
     }
-
     console.log(valoresSeleccionados);
     console.log(idclase);
-    fetch('php/agregaralumnoclase.php?id='+idclase, {
+    fetch('php/agregaralumnoclase.php', {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json',
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ valores: valoresSeleccionados })
+        body: JSON.stringify({ 
+            valores: valoresSeleccionados,
+            id: idclase
+        })
     })
     .then(response => response.json())
     .then(data => {
@@ -71,6 +82,7 @@ function ingresarAlumno(idclase){
     });
 }
 
+//POST
 function eliminarAlumnoClase(idclase, idalumno){
     Swal.fire({
         title: "¿Estas seguro de quitar el alumno?",
@@ -83,7 +95,13 @@ function eliminarAlumnoClase(idclase, idalumno){
         confirmButtonText: "Si, borrar"
         }).then((result) => {
         if (result.isConfirmed) {
-            fetch("php/sacaralumnoclase.php?clase="+idclase+"&&alumno="+idalumno)
+            fetch("php/sacaralumnoclase.php", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: "clase=" + idclase + "&&alumno=" + idalumno
+            })
             .then(respuesta => respuesta.json())
             .then(data => {
             if(data.resultado == "exito"){
@@ -119,6 +137,7 @@ function actualizarListaDocente(){
     tablas['listadoc'].ajax.reload();
 }
 
+//POST
 function eliminarElementoPersona(ide, idp, tipo) {
     if (tipo == "alumno") {
         Swal.fire({
@@ -203,12 +222,13 @@ function eliminarElementoPersona(ide, idp, tipo) {
 }
 
 function editarAlumno(id){
-    window.location.href = "detalle_alumnos.php?id="+id;
+    window.location.href = "detalle_alumnos.php?id=" + id;
 }
 
+//POST
 function eliminarAlumno(id, nombre){
     Swal.fire({
-        title: "¿Estas seguro de eliminar el alumno "+nombre+" ?",
+        title: "¿Estas seguro de eliminar el alumno " + nombre + "?",
         text: "Se borrara de todas sus clases",
         icon: "warning",
         showCancelButton: true,
@@ -218,14 +238,20 @@ function eliminarAlumno(id, nombre){
         confirmButtonText: "Borrar"
         }).then((result) => {
         if (result.isConfirmed) {
-            fetch("php/borraralumno.php?id="+id)
+            fetch("php/borraralumno.php", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: "id=" + id
+            })
             .then(data => data.json())
             .then(data => {
                 console.log(data)
                 if(data.Resultado == "exitoso"){
                     Swal.fire({
                         title: "Eliminado correctamente.",
-                        text: "Se eliminado correctamente el alumno "+nombre,
+                        text: "Se eliminado correctamente el alumno " + nombre,
                         icon: "success"
                     });
                     tablas['tablaalu'].ajax.reload();

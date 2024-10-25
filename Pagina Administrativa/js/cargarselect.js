@@ -4,17 +4,21 @@ $(document).ready(function() {
     const idalumnoactual = window.idalumnotabla;
     const idDocente = window.idDocente;
 
+    //POST
     $('#agregarEspDocente').select2({
         placeholder: 'Seleccione especialidades para agregar',
         minimumInputLength: 0,
         cache: true,
         ajax: {
-            url: 'php/obtenerespecialidades.php?editardocente=si&&id=' + idDocente,
+            url: 'php/obtenerespecialidades.php',
             dataType: 'json',
             delay: 250,
+            method: "POST",
             data: function (params) {
                 return {
-                    q: params.term || ''
+                    q: params.term || '',
+                    editardocente: "si",
+                    id: idDocente
                 };
             },
             processResults: function (data) {
@@ -55,6 +59,7 @@ $(document).ready(function() {
             cache: true
         }
     })
+
     //POST
     $('#alumnosClase').select2({
         placeholder: 'Seleccione alumnos',
@@ -137,6 +142,7 @@ $(document).ready(function() {
             cache: true
         }
     })
+
     //POST
     $('#ingresarDocente').select2({
         placeholder: 'Seleccione un docente',
@@ -162,6 +168,7 @@ $(document).ready(function() {
             cache: true
         }
     })
+
     //POST
     $('#select-alumnos').select2({
         placeholder: "Buscar alumno..",
@@ -235,6 +242,7 @@ $(document).ready(function() {
         },
         minimumInputLength: 0
     })
+
     //POST
     $('#ocupacion-select').select2({
         placeholder: 'Selecciona una ocupación',
@@ -259,6 +267,7 @@ $(document).ready(function() {
         },
         minimumInputLength: 0
     });
+
     //POST
     $('#select-alumno-ingresado').select2({
         placeholder: "Seleccione un alumno",
@@ -291,6 +300,7 @@ $(document).ready(function() {
     $('.informeClaseAlumno').select2({
         placeholder: 'Filtrar por clase'
     })
+
     //POST
     $('.porClase').change(function() {
         if ($(this).is(':checked')) {
@@ -344,8 +354,8 @@ $(document).ready(function() {
             cache: true
         }
     })
+
     //POST
-    // Inicializar Select2 para especialidades, pero desactivado inicialmente
     $('#especialidades-select').select2({
         placeholder: 'Busca o selecciona especialidades',
         minimumInputLength: 0,
@@ -373,7 +383,6 @@ $(document).ready(function() {
     }).prop('disabled', true);
     
     //POST
-    // Habilitar/Deshabilitar select de especialidades según la ocupación seleccionada
     $('#ocupacion-select').on('change', function() {
         $('#especialidades-select').val([]).trigger('change');
         const selectedOcupacion = $('#ocupacion-select').val();
@@ -395,6 +404,7 @@ $(document).ready(function() {
             });
         });
     });
+
     //POST
     $('#fecha').select2({
         placeholder: 'Busca o selecciona especialidades',
@@ -424,10 +434,5 @@ $(document).ready(function() {
             cache: true
         }
     });
-    
-    
-    
-    
-    
 });
 

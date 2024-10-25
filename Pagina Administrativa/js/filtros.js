@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function(){
 })
 
 function filtrarListaDocente(tipo){
-    tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php?time='+tipo, columnasListaDocente(), "50vh", rollCallBackListaDocente);
+    tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php', columnasListaDocente(), "50vh", rollCallBackListaDocente, {
+      time: tipo
+    });
 }
 
 function filtrosAvanzadosListaDocente(){
@@ -102,7 +104,16 @@ function filtrosAvanzadosListaDocente(){
           rangohoras2 = ValorHoras2;
         }
         
-        tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php?docente='+docente+'&&fecha='+fecha+'&&tipo='+tipo+'&&hora='+hora+'&&rangofecha1='+rangofechas1+'&&rangofecha2='+rangofechas2+'&&rangohora1='+rangohoras1+'&&rangohora2='+rangohoras2, columnasListaDocente(), "50vh", rollCallBackListaDocente);
+        tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php', columnasListaDocente(), "50vh", rollCallBackListaDocente, {
+          docente: docente,
+          fecha: fecha,
+          tipo: tipo,
+          hora: hora,
+          rangofecha1: rangofechas1,
+          rangofecha2: rangofechas2,
+          rangohora1: rangohoras1,
+          rangohora2: rangohoras2
+        });
         const radios = document.querySelectorAll('.checkfiltro');
         radios.forEach(radio => {
             radio.checked = false;

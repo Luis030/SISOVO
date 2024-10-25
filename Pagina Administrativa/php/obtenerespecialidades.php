@@ -2,8 +2,8 @@
 include("../../BD/conexionbd.php");
 session_start();
 
-if(isset($_GET['tabla'])){
-    if($_GET['tabla'] == "true"){
+if(isset($_POST['tabla'])){
+    if($_POST['tabla'] == "true"){
         $sql = "SELECT e.Nombre AS Especializacion, o.Nombre AS Ocupacion, COUNT(DISTINCT ed.ID_Docente) AS Total_Docentes
         FROM especializaciones e
         LEFT JOIN ocupacion o ON e.ID_Ocupacion = o.ID_Ocupacion
@@ -23,9 +23,9 @@ if(isset($_GET['tabla'])){
     }
 }
 
-if (isset($_GET['editardocente'])){
-    $q = isset($_GET['q']) ? mysqli_real_escape_string($conexion, $_GET['q']) : '';
-    $id = $_GET['id'];
+if (isset($_POST['editardocente'])){
+    $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
+    $id = $_POST['id'];
     $sql = "SELECT E.ID_Especializacion, E.Nombre FROM especializaciones E
             WHERE E.Nombre LIKE '%$q%' AND E.Estado = 1 AND E.ID_Especializacion NOT IN 
             (SELECT ID_Especializacion 

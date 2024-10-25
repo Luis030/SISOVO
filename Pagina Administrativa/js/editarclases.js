@@ -89,6 +89,7 @@ function volverAtras() {
 
 let tipo = '';
 
+//POST
 function guardarNombre(id) {
     const nombreNuevo = document.getElementById('ingresarNombre');
     const spanNombre = document.getElementById('spanNombre');
@@ -102,7 +103,13 @@ function guardarNombre(id) {
         })
     } else {
         tipo = "nombre";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&nombre=" + nombreNuevo.value + "&&id=" + id)
+        fetch("php/cambiarclases.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "tipo=" + tipo + "&nombre=" + nombreNuevo.value + "&id=" + id
+        })
         .then(datos => datos.json())
         .then(datos => {    
             if (datos.mensaje == "si") {
@@ -119,96 +126,7 @@ function guardarNombre(id) {
     }
 }
 
-function guardarDia(id) {
-    const diaNuevo = document.getElementById('ingresarDia');
-    const spanDia = document.getElementById('spanDia');
-    if (diaNuevo.value === "" || diaNuevo.value === "Seleccione un día") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar un día.",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "dia";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&dia=" + diaNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Día cambiado correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanDia.textContent = diaNuevo.value;
-            }
-        })
-    }
-}
-
-function guardarInicio(id) {
-    const inicioNuevo = document.getElementById('horaInicio');
-    const spanInicio = document.getElementById('spanInicio');
-    if (inicioNuevo.value == "" || inicioNuevo.value < "08:00" || inicioNuevo.value >= "18:00") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar una franja de tiempo valida (08:00 - 18:00).",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "inicio";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&inicio=" + inicioNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Hora de inicio cambiada correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanInicio.textContent = inicioNuevo.value;
-            }
-        })
-    }
-}
-
-function guardarFinal(id) {
-    const finalNuevo = document.getElementById('horaFinal');
-    const spanFinal = document.getElementById('spanFinal');
-    if (finalNuevo.value == "" || finalNuevo.value < "08:00" || finalNuevo.value >= "18:00") {
-        Swal.fire({
-            title: "Error!",
-            text: "Debes ingresar una franja de tiempo valida (08:00 - 18:00).",
-            icon: "error",
-            showConfirmButton: false,
-            timer: 3000
-        })
-    } else {
-        tipo = "final";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&final=" + finalNuevo.value + "&&id=" + id)
-        .then(datos => datos.json())
-        .then(datos => {    
-            if (datos.mensaje == "si") {
-                Swal.fire({
-                    title: "Correcto!",
-                    text: "Hora final cambiada correctamente.",
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 3000
-                })
-                spanFinal.textContent = finalNuevo.value;
-            }
-        })
-    }
-}
-
+//POST
 function guardarDocente(id) {
     const docenteNuevo = document.getElementById('ingresarDocente');
     const spanDocente = document.getElementById('spanDocente');
@@ -222,7 +140,13 @@ function guardarDocente(id) {
         })
     } else {
         tipo = "docente";
-        fetch("php/cambiarclases.php?tipo=" + tipo + "&&docente=" + docenteNuevo.value + "&&id=" + id)
+        fetch("php/cambiarclases.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "tipo=" + tipo + "&docente=" + docenteNuevo.value + "&id=" + id
+        })
         .then(datos => datos.json())
         .then(datos => {    
             if (datos.mensaje == "si") {

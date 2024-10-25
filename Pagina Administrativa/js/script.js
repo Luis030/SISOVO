@@ -58,7 +58,6 @@ function updateTime() {
         document.getElementById('horaactual').textContent = timeString; // Actualiza la hora en el index.php
     }
     
-
     const dateString = now.toLocaleDateString('es-ES', {
         weekday: 'long',
         year: 'numeric',

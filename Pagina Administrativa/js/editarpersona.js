@@ -92,6 +92,7 @@ function formatearFecha(fechaSQL) {
     return `${dia}/${mes}/${anio}`;
 }
 
+//POST
 function guardarAtributo(id, atributo, tipo) {
     if (atributo == "nombre") {
         const nombreNuevo = document.getElementById('ingresarNombre');
@@ -237,6 +238,7 @@ function guardarAtributo(id, atributo, tipo) {
     }
 }
 
+//POST
 function agregarPatologias() {
     const tipo = 'alumno';
     var ida = window.idalumnotabla;
@@ -274,6 +276,7 @@ function agregarPatologias() {
     }
 }
 
+//POST
 function agregarEspecialidad() {
     const tipo = 'docente';
     var idd = window.idDocente;

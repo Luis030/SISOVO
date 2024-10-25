@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         guardarCedula();
     });
 
+    //POST
     function guardarCedula() {
         let tipo = "";
         const cedula = cedulaIngresada.value;
@@ -54,7 +55,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 timer: 3000
             })
         } else {
-            fetch("php/asistenciadocente.php?cedula=" + cedula + "&&tipo=" + tipo)
+            fetch("php/asistenciadocente.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "cedula=" + cedula + "&tipo=" + tipo
+            })
             .then(datos => datos.json())
             .then(datos => {    
                 if (datos.mensaje == "si") {

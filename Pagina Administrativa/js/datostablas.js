@@ -7,6 +7,8 @@ var rollCallBackListaDocente =  function(row, data) {
     }
 }
 window.tablas = tablas; 
+
+//POST
 document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('#tabla-clases')) {
         tablas['clases'] = iniciarTabla('tabla-clases', 'php/obtenertodasclases.php', obtenerColumnasClases(), "60vh");
@@ -14,24 +16,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if(document.querySelector('#tabla-alumnos')) {
         const idclase = window.idclase;
-        tablas['alumnosclase'] = iniciarTabla('tabla-alumnos', `php/alumnosclase.php?id=${idclase}`, columnasAlumnosClase(idclase), "30vh");
+        tablas['alumnosclase'] = iniciarTabla('tabla-alumnos', 'php/alumnosclase.php', columnasAlumnosClase(idclase), "30vh", false, {
+            id: idclase
+        });
     }
 
     if(document.querySelector('#clases-docente')) {
         const ceduladoc = window.ceduladoc;
-        tablas['clasesdoc'] = iniciarTabla('clases-docente', `php/obtenertodasclases.php?docente=${ceduladoc}`, clasesDocente(), "60vh");
+        tablas['clasesdoc'] = iniciarTabla('clases-docente', 'php/obtenertodasclases.php', clasesDocente(), "60vh", false, {
+            docente: ceduladoc
+        });
     }
 
     if(document.querySelector('#lista-docente')) {
-        tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php?time=hoy', columnasListaDocente(), "50vh", rollCallBackListaDocente);
+        tablas['listadoc'] = iniciarTabla('lista-docente', 'php/asistenciasdocentes.php', columnasListaDocente(), "50vh", rollCallBackListaDocente, {
+            time: "hoy"
+        });
     }
 
     if(document.querySelector('#tabla-docentes')) {
-        tablas['tabladoc'] = iniciarTabla('tabla-docentes', 'php/obtenerdocentes.php?tabla=true', columnastablaDocentes(), "50vh");
+        tablas['tabladoc'] = iniciarTabla('tabla-docentes', 'php/obtenerdocentes.php', columnastablaDocentes(), "50vh", false, {
+            tabla: true
+        });
     }
 
     if(document.querySelector('#tabla-alumnos-gestion')) {
-        tablas['tablaalu'] = iniciarTabla('tabla-alumnos-gestion', 'php/alumnos.php?alumnostabla=true', columnastablaAlumnos(), "50vh");
+        tablas['tablaalu'] = iniciarTabla('tabla-alumnos-gestion', 'php/alumnos.php', columnastablaAlumnos(), "50vh", false, {
+            alumnostabla: true
+        });
     }
     
     if(document.querySelector('#tabla-informes-gestion')) {
@@ -39,36 +51,51 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if(document.querySelector('#tabla-patologias-gestion')){
-        tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php?tabla=true', columnastablaPatologias(), "70vh")
+        tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php', columnastablaPatologias(), "70vh", false, {
+            tabla: true
+        })
     }
 
     if(document.querySelector('#pat')) {
         const idalumno = window.idalumnotabla;
-        tablas['tablapatalumno'] = iniciarTabla('pat', `php/traerelementospersonas?id=${idalumno}&&alumno=si`, patologiasAlumno(), "50vh");
+        tablas['tablapatalumno'] = iniciarTabla('pat', 'php/traerelementospersonas', patologiasAlumno(), "50vh", false, {
+            id: idalumno,
+            alumno: "si"
+        });
     }
 
     if(document.querySelector('#patD')) {
         const idalumno = window.idalumnotabla;
-        tablas['tablapatalumnoD'] = iniciarTabla('patD ', `php/traerelementospersonas?id=${idalumno}&&alumno=si`, patologiasAlumnoDocente(), "50vh");
+        tablas['tablapatalumnoD'] = iniciarTabla('patD ', 'php/traerelementospersonas', patologiasAlumnoDocente(), "50vh", false, {
+            id: idalumno,
+            alumno: "si"
+        });
     }
 
     if(document.querySelector('#tabla-ocupaciones-gestion')){
-        tablas['ocugestion'] = iniciarTabla('tabla-ocupaciones-gestion', 'php/obtenerocupaciones.php?tabla=true', columnastablaOcupaciones(), "50vh");
+        tablas['ocugestion'] = iniciarTabla('tabla-ocupaciones-gestion', 'php/obtenerocupaciones.php', columnastablaOcupaciones(), "50vh", false, {
+            tabla: true
+        });
     }
 
     if(document.querySelector('#tabla-especialidades-gestion')){
-        tablas['espgestion'] = iniciarTabla('tabla-especialidades-gestion', 'php/obtenerespecialidades.php?tabla=true', columnastablaEspecialidades(), "50vh");
+        tablas['espgestion'] = iniciarTabla('tabla-especialidades-gestion', 'php/obtenerespecialidades.php', columnastablaEspecialidades(), "50vh", false, {
+            tabla: true
+        });
     }
 
     if (document.querySelector('#esp')) {
         const idDocente = window.idDocente
-        tablas['tablaespdocente'] = iniciarTabla('esp', `php/traerelementospersonas?id=${idDocente}&&docente=si`, especializacionesDocentes(), "50vh");
+        tablas['tablaespdocente'] = iniciarTabla('esp', 'php/traerelementospersonas', especializacionesDocentes(), "50vh", false, {
+            id: idDocente,
+            docente: "si"
+        })
     }
 });
 
 const TablasConfig = {
     "scrollY": '60vh',
-    "scrollCollapse": true,
+    "scrollCollapse": true,     
     "paging": true,
     "pageLength": 10,
     "destroy": true,
@@ -110,13 +137,19 @@ function columnasListaDocente(){
     ]
 }
 
-function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false) {
+//POST
+function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false, param = {}) {
     const config = {
         ...TablasConfig,
         ajax: {
             url: ajaxUrl,
             dataSrc: "",
             type: "POST",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: param,
             error: function(xhr, error, code) {
                 console.log("ERROR")
                 console.error("Error en la respuesta JSON:", error); // Muestra el error si ocurre

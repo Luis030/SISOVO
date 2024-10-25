@@ -1,7 +1,7 @@
 <?php
 include("../../BD/conexionbd.php");
 
-$idclase = $_GET['ID_Clase'];
+$idclase = $_POST['ID_Clase'];
 $sql = "SELECT a.ID_Alumno, a.Nombre, ac.Asistio FROM alumnos_clase ac
           JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
           WHERE ac.ID_Clase = '$idclase' AND ac.Fecha = curdate() AND ac.Asistio IS NOT NULL";
