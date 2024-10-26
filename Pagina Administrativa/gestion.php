@@ -191,12 +191,12 @@
             </div>
             <div class="contenedor-segunda-fila-seccion-elementos-patologias">
                 <p>Patologias totales</p>
-                <?php echo "<span>$cantidadpatologias</span>" ?>
+                <span id="pattotalesgestion"></span>
             </div>
             <div class="contenedor-tercera-fila-seccion-elementos-inicio">
                 <div class="contenedor-patologias-sin-alumnos">
                     <p>Patologias sin alumnos</p>
-                    <?php echo "<span>$patologiassinalumnos</span>" ?>
+                    <span id="patsinA"></span>
                 </div>
             </div>
         </div>

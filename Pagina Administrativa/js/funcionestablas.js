@@ -1,5 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
-    setInterval(actualizarListaDocente, 10000);
+    if(document.querySelector('#tabla-docentes')){
+        setInterval(actualizarListaDocente, 10000);
+    }
+    if(document.querySelector('#patsinA')){
+        actualizarDatosPat();
+    }
 })
 
 //POST
@@ -266,4 +271,119 @@ function eliminarAlumno(id, nombre){
             })
         }
     });
+}
+
+function editarPat(id, nombre){
+    Swal.fire({
+        title: "Editar Patologia",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Aceptar",
+        html: `
+        <span>Nombre: <input type='text' placeholder=`+nombre+` id='nuevonombrePat'></span>
+        `
+    }).then((resultado) => {
+        if(resultado.isConfirmed){
+            const nuevoNombre = document.getElementById('nuevonombrePat').value;
+            if(nuevoNombre){
+                fetch("php/cambiarelementos.php", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: "id=" + id + "&nombre=" + nuevoNombre + "&tipo=pat&opcion=editar"
+                })
+                .then(datos => datos.json())
+                .then(datos => {
+                    if(datos.resultado == "exito"){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Nombre actualizado",
+                            text: "Nombre actualizado de "+nombre+" a "+datos.nombre
+                        })
+                        tablas['patgestion'].ajax.reload();
+                    }
+                    if(datos.resultado == "agregado"){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Nombre existente, intente otro"
+                        })
+                    }
+                })
+            }
+        }
+    })
+}
+
+function eliminarPat(id, nombre){
+    fetch("php/cambiarelementos.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "id="+id+"&nombre="+nombre+"&tipo=pat&opcion=borrar&eliminar=false"
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        if(datos.resultado == "imposible"){
+            Swal.fire({
+                title: "Esta patologia no se puede eliminar",
+                text: "Esta patologia pertenece al menos a 1 alumno",
+                icon: "error"
+            })
+        }
+        if(datos.resultado == "posible"){
+            Swal.fire({
+                icon: "warning",
+                title: "¿Esta seguro de borrar la patologia "+nombre+"?",
+                text: "Esto no se podrá deshacer",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Borrar",
+            }).then((resultado) => {
+                if(resultado.isConfirmed){
+                    fetch("php/cambiarelementos.php", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: "id="+id+"&nombre="+nombre+"&tipo=pat&opcion=borrar&eliminar=true"
+                    })
+                    .then(datos => datos.json())
+                    .then(datos => {
+                        if(datos.resultado == "exito"){
+                            Swal.fire({
+                                icon: "success",
+                                title: "Borrado correctamente",
+                                text: "La patologia "+nombre+" se ha borrado correctamente."
+                            })
+                            tablas['patgestion'].ajax.reload();
+                            actualizarDatosPat();
+                        }
+                    })
+                }
+            })
+        }
+    })
+}
+
+function actualizarDatosPat(){
+    fetch("php/obtenerpatologias.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "datospagina=true"
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        const pattotales = document.getElementById('pattotalesgestion');
+        const patsinA = document.getElementById('patsinA');
+        pattotales.innerText = datos.totalpat
+        patsinA.innerText = datos.patsinalumnos
+    })
 }

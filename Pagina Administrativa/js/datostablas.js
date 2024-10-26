@@ -365,8 +365,8 @@ function columnastablaPatologias(){
             "data": null,
             "render": function(data, type, row) {
                 return `
-                    <button class='boton-editar' onclick='editarInforme(${row.ID_Patologia})'>Editar</button>
-                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Patologia}, \`${row.Nombre}\`)'>Eliminar</button>
+                    <button class='boton-editar' onclick='editarPat(${row.ID_Patologia}, \`${row.Nombre}\`)'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarPat(${row.ID_Patologia}, \`${row.Nombre}\`)'>Eliminar</button>
                 `;
             },
             "orderable": false
