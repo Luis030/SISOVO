@@ -1,5 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $cantidadA = isset($_POST['cantidadA']) ? $_POST['cantidadA'] : 2;
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad
@@ -19,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['Cantidad'] < 1) {
+        if ($row['Cantidad'] < $cantidadA) {
             //Se agrupa en otras si es es menor a cierta cantidad
             $otras += $row['Cantidad'];
         } else {

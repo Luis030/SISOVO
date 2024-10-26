@@ -1,5 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+    $cantidadD = isset($_POST['cantidadD']) ? $_POST['cantidadD'] : 2;
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT E.Nombre, COUNT(ED.ID_Docente) AS Cantidad
@@ -15,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $otrasCantidad = 0;
 
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['Cantidad'] < 1) {
+        if ($row['Cantidad'] < $cantidadD) {
             $otrasCantidad += $row['Cantidad'];
         } else {
             $datos['etiquetas'][] = $row['Nombre'];

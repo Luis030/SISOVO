@@ -1,20 +1,49 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
-
-    mysqli_query($conexion, "SET lc_time_names = 'es_ES'");
-
-    $sql = "SELECT 
-                DATE_FORMAT(Fecha, '%Y-%m') AS Mes_Numero, 
-                CONCAT(UPPER(SUBSTRING(DATE_FORMAT(Fecha, '%M'), 1, 1)), LOWER(SUBSTRING(DATE_FORMAT(Fecha, '%M'), 2))) AS Mes, 
-                COUNT(*) AS Cantidad_Informes 
+    if(isset($_POST['primermes']) && isset($_POST['segundomes'])){
+        $primermes = $_POST['primermes'];
+        $segundomes = $_POST['segundomes'];
+        $sql = "SELECT 
+                    MONTHNAME(Fecha) AS nombre_mes,
+                    COUNT(*) AS cantidad_informes
+                FROM 
+                    informes
+                WHERE 
+                    DATE_FORMAT(Fecha, '%Y-%m') BETWEEN '$primermes' AND '$segundomes'
+                GROUP BY 
+                    nombre_mes
+                ORDER BY 
+                    MONTH(Fecha);
+                ";
+    } else if(isset($_GET['nmes'])){
+        $meses = $_GET['nmes'];
+        $numero = (int)$meses;
+        $sql = "SELECT 
+            MONTHNAME(Fecha) AS nombre_mes,
+            COUNT(*) AS cantidad_informes
+        FROM 
+            informes
+        WHERE 
+            Fecha >= DATE_SUB(CURDATE(), INTERVAL $numero MONTH)
+        GROUP BY 
+            nombre_mes
+        ORDER BY 
+            Fecha;";
+    } else {
+        $sql = "SELECT 
+                MONTHNAME(Fecha) AS nombre_mes,
+                COUNT(*) AS cantidad_informes
             FROM 
-                informes 
+                informes
+            WHERE 
+                Fecha >= DATE_SUB(CURDATE(), INTERVAL 9 MONTH)
             GROUP BY 
-                DATE_FORMAT(Fecha, '%Y-%m') 
+                nombre_mes
             ORDER BY 
-                Mes_Numero";
-
+                Fecha;";
+    }
+    mysqli_query($conexion, "SET lc_time_names = 'es_ES'");
     $result = mysqli_query($conexion, $sql);
 
     $etiquetas = [];
@@ -22,8 +51,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-        $etiquetas[] = $row['Mes'];               
-        $valores[] = (int)$row['Cantidad_Informes'];  
+        $etiquetas[] = $row['nombre_mes'];
+        $valores[] = (int)$row['cantidad_informes'];
     }
 
     mysqli_close($conexion);

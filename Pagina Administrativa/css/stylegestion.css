@@ -112,6 +112,10 @@ select {
 
 .info-inicio p {
     font-size: 35px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .grafInf {
@@ -124,9 +128,21 @@ select {
 }
 
 #canvaInf {
-    max-height: 300px;
+    max-height: 500px;
+}
+#filtroGPAT, #filtroGESP, #filtroGInf{
+    width: 20px;
+}
+.info-inicio svg{
+    width: 35px;
+    height: 35px;
+    margin-left: 10px;
 }
 
+.info-inicio svg:hover{
+    fill: skyblue !important;
+    cursor: pointer;
+}
 .contenedor-botones{
     display: flex;
     flex-direction: column;
@@ -191,6 +207,8 @@ select {
     max-width: 100% !important;
     max-height: 30vh !important;
 }
+
+
 
 .contenedor-grafico-patologias{
     text-align: center;

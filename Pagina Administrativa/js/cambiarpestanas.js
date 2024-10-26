@@ -44,7 +44,9 @@ function mostrarItems(tipo) {
     items.forEach((item, index) => {
         console.log(tipo)
         const itemDiv = document.createElement('div');
-        fetch("php/" + tipo + "&&item=" + item)
+        fetch("php/" + tipo + "&&item=" + item, {
+            method: "POST",
+        })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la respuesta');

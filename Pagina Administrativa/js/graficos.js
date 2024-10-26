@@ -1,6 +1,8 @@
+let graficos = {};
 window.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('#canvaInf')){
         crearGrafico('canvaInf', "bar", 'php/informespormes.php', [], {
+            label: "Informes"
         });
     }
     if(document.querySelector('#canvaPat')){
@@ -52,11 +54,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 })
 
-function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], opcionesExtras = {}) {
+function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], opcionesExtras = {}, param = {}) {
     $.ajax({
         url: urlDatos,
         method: "POST",
         dataType: "json",
+        data: param,
         success: function (data) {
             const etiquetas = data.etiquetas || [];
             const valores = data.valores || [];
@@ -95,7 +98,10 @@ function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], o
                 '#D2B4DE'
             ];
             const canvas = document.getElementById(elementoID).getContext('2d');
-            new Chart(canvas, {
+            if (graficos[elementoID]) {
+                graficos[elementoID].destroy();
+            }
+            const grafico = new Chart(canvas, {
                 type: tipoGrafico, 
                 data: {
                     labels: [...etiquetas, ...etiquetasExtras], 
@@ -116,6 +122,7 @@ function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], o
                     }
                 }
             });
+            graficos[elementoID] = grafico;
         },
         error: function (error) {
             console.error("Error obteniendo los datos: ", error);
