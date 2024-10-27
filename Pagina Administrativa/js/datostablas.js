@@ -381,8 +381,8 @@ function columnastablaOcupaciones(){
         { "data": null,
             "render": function(data, type, row){
                 return `
-                    <button class='boton-editar' onclick='editarInforme(${row.ID_Informe})'>Editar</button>
-                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Nombre}\`)'>Eliminar</button>
+                    <button class='boton-editar' onclick='editarOcu(${row.ID_Ocupacion}, \`${row.Ocupacion}\`)'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarOcu(${row.ID_Ocupacion}, \`${row.Ocupacion}\`)'>Eliminar</button>
                 `;
             },
             "orderable": false

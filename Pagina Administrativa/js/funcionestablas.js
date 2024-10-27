@@ -282,7 +282,7 @@ function editarPat(id, nombre){
         cancelButtonText: "Cancelar",
         confirmButtonText: "Aceptar",
         html: `
-        <span>Nombre: <input type='text' placeholder=`+nombre+` id='nuevonombrePat'></span>
+        <span>Nombre: <input type='text' placeholder='${nombre}' id='nuevonombrePat'></span>
         `
     }).then((resultado) => {
         if(resultado.isConfirmed){
@@ -385,5 +385,102 @@ function actualizarDatosPat(){
         const patsinA = document.getElementById('patsinA');
         pattotales.innerText = datos.totalpat
         patsinA.innerText = datos.patsinalumnos
+    })
+}
+
+function editarOcu(id, nombre){
+    Swal.fire({
+        title: "Editar ocupación",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Aceptar",
+        html: `
+        <span>Nombre: <input type='text' placeholder='${nombre}' id='nuevonombreOcu'></span>
+        `
+    }).then((resultado) => {
+        if(resultado.isConfirmed){
+            const nuevoNombre = document.getElementById('nuevonombreOcu').value;
+            if(nuevoNombre){
+                fetch("php/cambiarelementos.php", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: "id=" + id + "&nombre=" + nuevoNombre + "&tipo=ocu&opcion=editar"
+                })
+                .then(datos => datos.json())
+                .then(datos => {
+                    if(datos.resultado == "exito"){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Nombre actualizado",
+                            text: "Nombre actualizado de "+nombre+" a "+datos.nombre
+                        })
+                        tablas['ocugestion'].ajax.reload();
+                    }
+                    if(datos.resultado == "agregado"){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Nombre existente, intente otro"
+                        })
+                    }
+                })
+            }
+        }
+    })
+}
+
+function eliminarOcu(id, nombre){
+    fetch("php/cambiarelementos.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "id="+id+"&nombre="+nombre+"&tipo=ocu&opcion=borrar&eliminar=false"
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        if(datos.resultado == "imposible"){
+            Swal.fire({
+                title: "Esta ocupacion no se puede eliminar",
+                text: "Esta ocupacion pertenece al menos a 1 persona",
+                icon: "error"
+            })
+        }
+        if(datos.resultado == "posible"){
+            Swal.fire({
+                icon: "warning",
+                title: "¿Esta seguro de borrar la ocupacion "+nombre+"?",
+                text: "Esto no se podrá deshacer",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Borrar",
+            }).then((resultado) => {
+                if(resultado.isConfirmed){
+                    fetch("php/cambiarelementos.php", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: "id="+id+"&nombre="+nombre+"&tipo=ocu&opcion=borrar&eliminar=true"
+                    })
+                    .then(datos => datos.json())
+                    .then(datos => {
+                        if(datos.resultado == "exito"){
+                            Swal.fire({
+                                icon: "success",
+                                title: "Borrado correctamente",
+                                text: "La ocupacion "+nombre+" se ha borrado correctamente."
+                            })
+                            tablas['ocugestion'].ajax.reload();
+                        }
+                    })
+                }
+            })
+        }
     })
 }
