@@ -32,8 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     VALUES ('$nombreusuario', '$contraseña', 'docente', '$cedula');";
         if (mysqli_query($conexion, $sqluser) === TRUE) {
             $idUser = mysqli_insert_id($conexion);
-            $añadirDoc = "INSERT INTO docentes(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail, Celular) 
-                          VALUES ('$idUser', '$nombre', '$apellido', '$cedula', '$nacimiento', '$correo', '$celular');";
+            $añadirDoc = "INSERT INTO docentes(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail, Celular, ID_Ocupacion) 
+                          VALUES ('$idUser', '$nombre', '$apellido', '$cedula', '$nacimiento', '$correo', '$celular', '$idocupacion');";
             if (mysqli_query($conexion, $añadirDoc) === TRUE) {
                 $idDoc = mysqli_insert_id($conexion);
                 if ($especialidades) {
