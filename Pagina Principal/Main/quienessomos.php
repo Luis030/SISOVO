@@ -23,7 +23,7 @@
                 <p>Nuestra misión es brindar servicios de reeducación y terapia de alta calidad que faciliten el desarrollo y la integración de los niños. Nos enfocamos en potenciar sus habilidades, promover su independencia y mejorar su calidad de vida a través de un enfoque multidisciplinario y centrado en el paciente.</p>
             </div>
             <div class="imagen-mision">
-                <img src="Diseño/IMG/mision.jpg" alt="">
+                <img src="Diseño/IMG/mision.jpg" alt="n">
             </div>
         </div>
         <div class="vision-container">
