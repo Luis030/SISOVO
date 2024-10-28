@@ -138,11 +138,11 @@ p span {
     }
 }
 
-.tablaPat select {
+.tablaPat select, .tablaEsp select {
     margin-bottom: 3%;  
 }
 
-.tablaPat {
+.tablaPat, .tablaEsp {
     margin-bottom: 20px;
 }
 
