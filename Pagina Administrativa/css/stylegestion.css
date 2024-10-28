@@ -223,12 +223,12 @@ select {
     height: 24vh;
 }
 
-.contenedor-segunda-fila-seccion-elementos-patologias span, .contenedor-tercera-fila-seccion-elementos-inicio span{
+.contenedor-segunda-fila-seccion-elementos-patologias span, .contenedor-tercera-fila-seccion-elementos-inicio span, .contenedor-segunda-fila-seccion-elementos-ocupaciones span{
     font-size: 100px;
     font-weight: 600;
 }
 
-.contenedor-segunda-fila-seccion-elementos-patologias p, .contenedor-tercera-fila-seccion-elementos-inicio p{
+.contenedor-segunda-fila-seccion-elementos-patologias p, .contenedor-tercera-fila-seccion-elementos-inicio p, .contenedor-segunda-fila-seccion-elementos-ocupaciones p{
     font-size: 36px;
 }
 

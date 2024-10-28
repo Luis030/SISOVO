@@ -4,12 +4,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     session_start();
     if(isset($_POST['tabla'])){
         if($_POST['tabla'] == "true"){
-            $sql = "SELECT o.Nombre AS Ocupacion, COUNT(DISTINCT ed.ID_Docente) AS Total_Docentes, o.ID_Ocupacion 
-            FROM ocupacion o
-            LEFT JOIN especializaciones e ON o.ID_Ocupacion = e.ID_Ocupacion
-            LEFT JOIN especializacion_docente ed ON e.ID_Especializacion = ed.ID_Especializacion AND ed.Estado = 1
-            WHERE o.Estado = 1 AND e.Estado=1 
-            GROUP BY o.Nombre;
+            $sql = "SELECT 
+                        O.Nombre AS Ocupacion, 
+                        COUNT(D.ID_Docente) AS Total_Docentes, 
+                        O.ID_Ocupacion 
+                    FROM 
+                        ocupacion O 
+                    LEFT JOIN 
+                        docentes D ON D.ID_Ocupacion = O.ID_Ocupacion AND D.Estado = 1 
+                    WHERE 
+                        O.Estado = 1 
+                    GROUP BY 
+                        O.Nombre, O.ID_Ocupacion;
             ";
             $resultado = mysqli_query($conexion, $sql);
             if($resultado){

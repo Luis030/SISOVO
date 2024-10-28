@@ -205,7 +205,7 @@
                 case "ocupaciones":
         ?>
         <div class="contenedor-seccion-elementos">
-            <div class="contenedor-primera-fila-seccion-elementos-inicio">
+            <div class="contenedor-primera-fila-seccion-elementos-inicio contenedor-seccion-elementos-altura">
                 <div class="contenedor-botones primera-fila-div">
                     <a href="gestion.php?pagina=elementos" class="<?php echo $seccion_actual == 'inicio' ? 'activo-seccion' : '' ?>">Inicio</a>
                     <a href="gestion.php?pagina=elementos&&seccion=patologias" class="<?php echo $seccion_actual == 'patologias' ? 'activo-seccion' : '' ?>">Patologias</a>
@@ -222,6 +222,16 @@
                             </tr>
                         </thead>
                     </table>
+                </div>
+            </div>
+            <div class="contenedor-segunda-fila-seccion-elementos-ocupaciones">
+                <p>Patologias totales</p>
+                <span id="pattotalesgestion"></span>
+            </div>
+            <div class="contenedor-tercera-fila-seccion-elementos-inicio">
+                <div class="contenedor-ocupaciones-sin-personas">
+                    <p>Patologias sin alumnos</p>
+                    <span id="patsinA"></span>
                 </div>
             </div>
         </div>
