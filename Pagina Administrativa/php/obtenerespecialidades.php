@@ -49,11 +49,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if (isset($_POST['editardocente'])){
         $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
         $id = $_POST['id'];
+        $ido = $_POST['ido'];
         $sql = "SELECT E.ID_Especializacion, E.Nombre FROM especializaciones E
-                WHERE E.Nombre LIKE '%$q%' AND E.Estado = 1 AND E.ID_Especializacion NOT IN 
-                (SELECT ID_Especializacion 
-                FROM especializacion_docente 
-                WHERE ID_Docente = $id AND Estado = 1);";
+                WHERE E.Nombre LIKE '%$q%' AND E.Estado = 1 AND E.ID_Ocupacion = $ido AND E.ID_Especializacion NOT IN
+                (SELECT ID_Especializacion
+                FROM especializacion_docente
+                WHERE ID_Docente = $id AND Estado = 1)";
         $resultado = mysqli_query($conexion, $sql);
         if($resultado){
             $especialidades = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
