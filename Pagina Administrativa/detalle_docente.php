@@ -9,15 +9,17 @@
         return $fecha->format('d/m/Y');
     }
     
-    $sql = "SELECT Nombre, Apellido, Fecha_Nac, Mail, Celular
-            FROM docentes
-            WHERE ID_Docente = $idDocente";
+    $sql = "SELECT D.ID_Ocupacion ,D.Nombre AS Docente, Apellido, Fecha_Nac, Mail, Celular, O.Nombre AS Ocupacion
+            FROM docentes D, ocupacion O
+            WHERE ID_Docente = $idDocente AND O.ID_Ocupacion = D.ID_Ocupacion";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) {
-            $nombreDocente = $columna['Nombre'];
+            $idOcu = $columna['ID_Ocupacion'];
+            $nombreDocente = $columna['Docente'];
             $apellidoDocente = $columna['Apellido'];
             $fechaDocente = $columna['Fecha_Nac'];   
+            $docenteOcupacion = $columna['Ocupacion'];
             if ($columna['Mail'] != null) {
                 $mailDocente = $columna['Mail'];
             } else {
@@ -28,6 +30,7 @@
     }
 ?>
 <script>
+    window.idOcu = <?php echo $idOcu ?>;
     window.idDocente = <?php echo $idDocente ?>
 </script>
 <link rel="stylesheet" href="css/styleeditarclases.css">
@@ -81,6 +84,13 @@
                 <div id="editandoCelular" class="fadeCelular">
                     <input type="number" id="ingresarCelular" placeholder="Ingrese celular" name="celularNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'celular', 'docente')">Guardar</button>
+                </div>
+            </div>
+            <div class="editarElemento">
+                <p>Ocupación: <span id="spanOcupacion"><?php echo $docenteOcupacion ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarOcupacion()"></p>
+                <div id="editandoOcupacion" class="fadeOcupacion">
+                    <select id="ingresarOcupacion" style="width: 100%;"></select>
+                    <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'ocupacion', 'docente')">Guardar</button>
                 </div>
             </div>
         </div>

@@ -3,6 +3,35 @@ $(document).ready(function() {
     const idclaselista = window.idclaselista;
     const idalumnoactual = window.idalumnotabla;
     const idDocente = window.idDocente;
+    const idOcu = window.idOcu;
+
+    //POST
+    $('#ingresarOcupacion').select2({
+        placeholder: 'Seleccione Ocupación',
+        minimumInputLength: 0,
+        cache: true,
+        ajax: {
+            url: 'php/obtenerocupaciones.php',
+            dataType: 'json',
+            delay: 250,
+            method: "POST",
+            data: function (params) {
+                return {
+                    q: params.term || '',
+                    editardocente: "si",
+                    id: idDocente
+                };
+            },
+            processResults: function (data) {
+                return {
+                    results: data.map(function (ocupaciones) {
+                        return { id: ocupaciones.ID_Ocupacion, text: ocupaciones.Nombre };
+                    })
+                };
+            },
+            cache: true
+        }
+    })
 
     //POST
     $('#agregarEspDocente').select2({
@@ -18,7 +47,8 @@ $(document).ready(function() {
                 return {
                     q: params.term || '',
                     editardocente: "si",
-                    id: idDocente
+                    id: idDocente,
+                    ido: idOcu
                 };
             },
             processResults: function (data) {

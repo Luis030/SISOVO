@@ -4,6 +4,7 @@ function mostrarEditarNombre() {
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
+    const divOcu = document.getElementById('editandoOcupacion');
     if (divNombre.classList.contains('visible')) {
         divNombre.classList.remove('visible');
     } else {
@@ -12,6 +13,7 @@ function mostrarEditarNombre() {
         divFecha.classList.remove('visible');
         divMail.classList.remove('visible');
         divCel.classList.remove('visible'); 
+        divOcu.classList.remove('visible');
     }
 }
 
@@ -21,6 +23,7 @@ function mostrarEditarApellido() {
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
+    const divOcu = document.getElementById('editandoOcupacion');
     if (divApellido.classList.contains('visible')) {
         divApellido.classList.remove('visible');
     } else {
@@ -29,6 +32,7 @@ function mostrarEditarApellido() {
         divFecha.classList.remove('visible');
         divMail.classList.remove('visible');
         divCel.classList.remove('visible'); 
+        divOcu.classList.remove('visible');
     }
 }
 
@@ -38,6 +42,7 @@ function mostrarEditarFecha() {
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
+    const divOcu = document.getElementById('editandoOcupacion');
     if (divFecha.classList.contains('visible')) {
         divFecha.classList.remove('visible');
     } else {
@@ -46,6 +51,7 @@ function mostrarEditarFecha() {
         divFecha.classList.add('visible');
         divMail.classList.remove('visible');
         divCel.classList.remove('visible'); 
+        divOcu.classList.remove('visible');
     }
 }
 
@@ -55,6 +61,7 @@ function mostrarEditarMail() {
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
+    const divOcu = document.getElementById('editandoOcupacion');
     if (divMail.classList.contains('visible')) {
         divMail.classList.remove('visible');
     } else {
@@ -63,6 +70,7 @@ function mostrarEditarMail() {
         divFecha.classList.remove('visible');
         divMail.classList.add('visible');
         divCel.classList.remove('visible'); 
+        divOcu.classList.remove('visible');
     }
 }
 
@@ -72,6 +80,7 @@ function mostrarEditarCelular() {
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
+    const divOcu = document.getElementById('editandoOcupacion');
     if (divCel.classList.contains('visible')) {
         divCel.classList.remove('visible');
     } else {
@@ -80,6 +89,26 @@ function mostrarEditarCelular() {
         divFecha.classList.remove('visible');
         divMail.classList.remove('visible');
         divCel.classList.add('visible'); 
+        divOcu.classList.remove('visible');
+    }
+}
+
+function mostrarEditarOcupacion() {
+    const divNombre = document.getElementById('editandoNombre');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
+    const divOcu = document.getElementById('editandoOcupacion');
+    if (divOcu.classList.contains('visible')) {
+        divOcu.classList.remove('visible');
+    } else {
+        divNombre.classList.remove('visible'); 
+        divApellido.classList.remove('visible');
+        divFecha.classList.remove('visible');
+        divMail.classList.remove('visible');
+        divCel.classList.remove('visible'); 
+        divOcu.classList.add('visible');
     }
 }
 
@@ -184,6 +213,23 @@ function guardarAtributo(id, atributo, tipo) {
             celularNuevo.value = "";
         }
     }
+    if (atributo == "ocupacion") {
+        if ($('#ingresarOcupacion').val() === null) {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar una ocupación.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            })
+        } else {
+            txt = $('#ingresarOcupacion').val();
+            valido = true;
+            const divOcu = document.getElementById('editandoOcupacion');
+            divOcu.classList.remove('visible');
+            $('#ingresarOcupacion').val(null).trigger('change');
+        }
+    }
     if (valido === true) {  
         if (txt != '') {
             fetch("php/actualizarpersona.php", {
@@ -222,6 +268,10 @@ function guardarAtributo(id, atributo, tipo) {
                     if (atributo == "celular") {
                         const spanCelular = document.getElementById('spanCelular');
                         spanCelular.textContent = txt;
+                    }
+                    if (atributo == "ocupacion") {
+                        const spanOcupacion = document.getElementById('spanOcupacion');
+                        spanOcupacion.textContent = datos.nombre;
                     }
                     txt = '';
                 } else {

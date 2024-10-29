@@ -49,6 +49,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             case "celular":
                 $sql = "UPDATE docentes SET Celular = '$txt' WHERE ID_Docente = $id";
                 break;
+            case "ocupacion":
+                $sql = "UPDATE docentes SET ID_Ocupacion = '$txt' WHERE ID_Docente = $id";
+                $ocu = true;
+                break;
             default:
                 echo json_encode(['mensaje' => 'atributo no válido']);
                 exit;
@@ -57,9 +61,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $resultado = mysqli_query($conexion, $sql);
     
+    if ($ocu) {
+        $sql = "SELECT Nombre FROM ocupacion WHERE ID_Ocupacion = $txt";
+        $resultado2 = mysqli_query($conexion, $sql);
+        while($columna = mysqli_fetch_assoc($resultado2)) {
+            $nombreOcu = $columna['Nombre'];
+        }
+        echo json_encode(['mensaje' => 'si', 'nombre' => $nombreOcu]);
+        exit;
+    }
+
     if ($resultado == TRUE) {
         echo json_encode(['mensaje' => 'si']);
     }
+
 } else {
     header("Location: ../../");
 }

@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (document.querySelector('#esp')) {
-        const idDocente = window.idDocente
+        const idDocente = window.idDocente;
         tablas['tablaespdocente'] = iniciarTabla('esp', 'php/traerelementospersonas', especializacionesDocentes(), "50vh", false, {
             id: idDocente,
             docente: "si"
