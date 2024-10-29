@@ -272,6 +272,9 @@ function guardarAtributo(id, atributo, tipo) {
                     if (atributo == "ocupacion") {
                         const spanOcupacion = document.getElementById('spanOcupacion');
                         spanOcupacion.textContent = datos.nombre;
+                        setTimeout(function() {
+                            location.reload();
+                        }, 3000);
                     }
                     txt = '';
                 } else {

@@ -8,6 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $atributo = $_POST['atributo'];
     $txt = $_POST['txt'];
     $tipo = $_POST['tipo'];
+    $ocu = false;
 
     if ($tipo == "alumno") {
         switch($atributo) { 
@@ -52,6 +53,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             case "ocupacion":
                 $sql = "UPDATE docentes SET ID_Ocupacion = '$txt' WHERE ID_Docente = $id";
                 $ocu = true;
+                $sql2 = "SELECT Nombre FROM ocupacion WHERE ID_Ocupacion = '$txt'";
+                $resultado2 = mysqli_query($conexion, $sql2);
+                while($columna = mysqli_fetch_assoc($resultado2)) {
+                    $nombreOcu = $columna['Nombre'];
+                }
                 break;
             default:
                 echo json_encode(['mensaje' => 'atributo no válido']);
@@ -60,18 +66,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
     $resultado = mysqli_query($conexion, $sql);
-    
-    if ($ocu) {
-        $sql = "SELECT Nombre FROM ocupacion WHERE ID_Ocupacion = $txt";
-        $resultado2 = mysqli_query($conexion, $sql);
-        while($columna = mysqli_fetch_assoc($resultado2)) {
-            $nombreOcu = $columna['Nombre'];
-        }
+
+    if (isset($nombreOcu)) {
         echo json_encode(['mensaje' => 'si', 'nombre' => $nombreOcu]);
         exit;
-    }
-
-    if ($resultado == TRUE) {
+    } else {
         echo json_encode(['mensaje' => 'si']);
     }
 
