@@ -5,6 +5,14 @@ window.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('#patsinA')){
         actualizarDatosPat();
     }
+
+    if(document.querySelector('#ocusinD')){
+        actualizarDatosOcu();
+    }
+
+    if(document.querySelector('#espsinD')){
+        actualizarDatosEsp();
+    }
 })
 
 //POST
@@ -388,6 +396,39 @@ function actualizarDatosPat(){
     })
 }
 
+function actualizarDatosOcu(){
+    fetch("php/obtenerocupaciones.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "datospagina=true"
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        const ocutotales = document.getElementById('ocutotalesgestion')
+        const ocusinD = document.getElementById('ocusinD')
+        ocutotales.innerText = datos.totalocu
+        ocusinD.innerText = datos.ocusindoc
+    })
+}
+
+function actualizarDatosEsp(){
+    fetch("php/obtenerespecialidades.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "datospagina=true"
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        const esptotales = document.getElementById('esptotales')
+        const espsinP = document.getElementById('espsinD')
+        esptotales.innerText = datos.totalesp
+        espsinP.innerText = datos.espsinp
+    })
+}
 function editarOcu(id, nombre){
     Swal.fire({
         title: "Editar ocupación",
@@ -477,10 +518,26 @@ function eliminarOcu(id, nombre){
                                 text: "La ocupacion "+nombre+" se ha borrado correctamente."
                             })
                             tablas['ocugestion'].ajax.reload();
+                            actualizarDatosOcu();
                         }
                     })
                 }
             })
         }
+    })
+}
+
+function editarEsp(id, nombre, ocupacion){
+    Swal.fire({
+        title: "Editar especializad",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Aceptar",
+        html: `
+        <span>Nombre: <input type='text' placeholder='${nombre}' id='nuevonombreEsp'></span>
+        <select name="select-editar-esp" id="select-editar-esp" style:'width: 100%'></select>
+        `
     })
 }

@@ -16,6 +16,7 @@
 <script src="js/funcionestablas.js"></script>
 <script src="js/graficos.js"></script>
 <script src="js/filtros.js"></script>
+<script src="js/cargarselect.js"></script>
 <link rel="stylesheet" href="css/estilotablas.css">
 <link rel="stylesheet" href="css/datatables.css">
 <div class="gestion">
@@ -225,13 +226,13 @@
                 </div>
             </div>
             <div class="contenedor-segunda-fila-seccion-elementos-ocupaciones">
-                <p>Patologias totales</p>
-                <span id="pattotalesgestion"></span>
+                <p>Ocupaciones totales</p>
+                <span id="ocutotalesgestion"></span>
             </div>
             <div class="contenedor-tercera-fila-seccion-elementos-inicio">
                 <div class="contenedor-ocupaciones-sin-personas">
-                    <p>Patologias sin alumnos</p>
-                    <span id="patsinA"></span>
+                    <p>Ocupaciones sin alumnos</p>
+                    <span id="ocusinD"></span>
                 </div>
             </div>
         </div>
@@ -240,7 +241,7 @@
                 case "especialidades":
         ?>
         <div class="contenedor-seccion-elementos">
-            <div class="contenedor-primera-fila-seccion-elementos-inicio">
+            <div class="contenedor-primera-fila-seccion-elementos-inicio contenedor-seccion-elementos-altura">
                 <div class="contenedor-botones primera-fila-div">
                     <a href="gestion.php?pagina=elementos" class="<?php echo $seccion_actual == 'inicio' ? 'activo-seccion' : '' ?>">Inicio</a>
                     <a href="gestion.php?pagina=elementos&&seccion=patologias" class="<?php echo $seccion_actual == 'patologias' ? 'activo-seccion' : '' ?>">Patologias</a>
@@ -258,6 +259,16 @@
                             </tr>
                         </thead>
                     </table>
+                </div>
+            </div>
+            <div class="contenedor-segunda-fila-seccion-elementos-especialidades">
+                <p>Especialidades totales</p>
+                <span id="esptotales"></span>
+            </div>
+            <div class="contenedor-tercera-fila-seccion-elementos-inicio">
+                <div class="contenedor-ocupaciones-sin-personas">
+                    <p>Ocupaciones sin alumnos</p>
+                    <span id="espsinD"></span>
                 </div>
             </div>
         </div>

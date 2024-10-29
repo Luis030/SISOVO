@@ -2,10 +2,32 @@
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
     session_start();
+    if(isset($_POST['datospagina'])){
+        $sql = "SELECT 
+    (SELECT COUNT(*) FROM especializaciones E WHERE E.Estado = 1) AS Total_Especializaciones,
 
+    (SELECT COUNT(*) 
+     FROM especializaciones E 
+     LEFT JOIN especializacion_docente ED ON E.ID_Especializacion = ED.ID_Especializacion 
+     LEFT JOIN docentes D ON ED.ID_Docente = D.ID_Docente 
+     WHERE E.Estado = 1 AND (ED.ID_Docente IS NULL OR D.Estado != 1)) AS Especializaciones_Sin_Docentes;
+    ";
+    $resultado = mysqli_query($conexion, $sql);
+    if(mysqli_num_rows($resultado) > 0){
+        while($fila = mysqli_fetch_assoc($resultado)){
+            $cantidadesp = $fila['Total_Especializaciones'];
+            $espsinP = $fila['Especializaciones_Sin_Docentes'];
+        }
+    }
+    echo json_encode([
+        "totalesp" => $cantidadesp,
+        "espsinp" => $espsinP
+    ]);
+    exit;
+    }
     if(isset($_POST['tabla'])){
         if($_POST['tabla'] == "true"){
-            $sql = "SELECT e.Nombre AS Especializacion, o.Nombre AS Ocupacion, COUNT(DISTINCT ed.ID_Docente) AS Total_Docentes
+            $sql = "SELECT e.Nombre AS Especializacion, o.Nombre AS Ocupacion, COUNT(DISTINCT ed.ID_Docente) AS Total_Docentes, e.ID_Especializacion 
             FROM especializaciones e
             LEFT JOIN ocupacion o ON e.ID_Ocupacion = o.ID_Ocupacion
             LEFT JOIN especializacion_docente ed ON e.ID_Especializacion = ed.ID_Especializacion AND ed.Estado = 1

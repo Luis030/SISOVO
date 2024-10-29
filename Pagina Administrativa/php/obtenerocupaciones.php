@@ -2,6 +2,28 @@
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php");
     session_start();
+    if(isset($_POST['datospagina'])){
+        $sql = "SELECT 
+    (SELECT COUNT(*) FROM ocupacion O WHERE O.Estado = 1) AS Total_Ocupaciones,
+    
+    (SELECT COUNT(*) 
+     FROM ocupacion O 
+     LEFT JOIN docentes D ON O.ID_Ocupacion = D.ID_Ocupacion 
+     WHERE O.Estado = 1 AND D.ID_Docente IS NULL) AS Ocupaciones_Sin_Docentes;
+    ";
+    $resultado = mysqli_query($conexion, $sql);
+    if(mysqli_num_rows($resultado) > 0){
+        while($fila = mysqli_fetch_assoc($resultado)){
+            $cantidadocupaciones = $fila['Total_Ocupaciones'];
+            $ocupacionessindoc = $fila['Ocupaciones_Sin_Docentes'];
+        }
+    }
+    echo json_encode([
+        "totalocu" => $cantidadocupaciones,
+        "ocusindoc" => $ocupacionessindoc
+    ]);
+    exit;
+    }
     if(isset($_POST['tabla'])){
         if($_POST['tabla'] == "true"){
             $sql = "SELECT 
