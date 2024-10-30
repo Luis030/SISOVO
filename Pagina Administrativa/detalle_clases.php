@@ -26,35 +26,47 @@
     if (mysqli_num_rows($resultado) > 0) {
         while ($fila = mysqli_fetch_assoc($resultado)) {
             $datosClase['ID_Docente'] = $fila['ID_Docente'];
-            $datosClase['docente'] = $fila['Docente'];
+            $datosClase['Docente'] = $fila['Docente'];
             $datosClase['Nombre'] = $fila['Nombre'];
             $datosClase['Dia'] = $fila['Horarios'];
             $cantidadAlumnos = $fila['Cantidad_Alumnos'];
         }
     }
 ?>
+<script>
+    window.idClase = <?php echo $idclase ?>
+</script>
 <link rel="stylesheet" href="css/datatables.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <link rel="stylesheet" href="css/estiloclases.css">
+<script src="js/funcionestablas.js"></script>
 <script src="js/editarclases.js"></script>
 <script src="js/cargarselect.js"></script>
 
 <div class="contenedor-detalle-clases">
-    <img src="img/atras.png" alt="Volver" class="volver" id="volver" onclick="volverAtras()">
+    <div class="volverclases">
+        <img src="img/atras.png" alt="Volver" class="volver" id="volver" onclick="volverAtras()">
+        <h1>Información de la clase</h1>
+    </div>
     <div class="detalle-clases">
-        <?php
-        echo "<div>";
-        echo "<p>";
-        echo "<strong>Nombre: </strong>" .$datosClase['Nombre'] ."   <strong>Docente: </strong>" .$datosClase['docente']. "  <strong>Dia: </strong>" .$datosClase['Dia'];
-        echo "</p>";
-        echo "<p>";
-        echo "<strong>Cantidad de alumnos: </strong>" .$cantidadAlumnos;
-        echo "</p>";
-        echo "</div>";
-        ?>
-        <a class="boton-editar-clase" href="editarclases.php?id=<?php echo $idclase ?>">Editar datos</a>
+        <div class="detalle">
+            <p><strong>Nombre: </strong><span id="nombreC"></span></p>
+        </div>
+        <div class="detalle">
+            <p><strong>Docente: </strong><span id="docenteC"></span></p>
+        </div>
+        <div class="detalle">
+            <p><strong>Día: </strong><span id="diaC"></span></p>
+        </div>
+        <div class="detalle">
+            <p><strong>Cantidad de alumnos: </strong><span id="cantC"></span></p>
+        </div>
+        <div class="detalle">
+            <a class="boton-editar-clase" href="editarclases.php?id=<?php echo $idclase ?>">Editar datos</a>
+        </div>
     </div>
     <div class="contenedor-tabla-alumnos">
+        <h1>Alumnos de la clase</h1>
         <table id="tabla-alumnos">
             <thead>
                 <tr>
