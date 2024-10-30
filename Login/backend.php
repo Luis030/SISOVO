@@ -1,6 +1,6 @@
 <?php
    session_start();
-   include("../../BD/conexionbd.php");
+   include("../BD/conexionbd.php");
    
    $password = $_POST['pass'];
    $cedula = $_POST['cedula'];
@@ -19,7 +19,7 @@
        if(password_verify($password, $contraencriptada)){
            $_SESSION['verificacion'] = true;
            $_SESSION['cedula'] = $cedula;
-           header("Location: ../Main/index");
+           header("Location: ../index");
        } else {
            $_SESSION['usuario'] = null;
            $_SESSION['Privilegio'] = null;

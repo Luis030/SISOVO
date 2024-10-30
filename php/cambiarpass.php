@@ -1,5 +1,5 @@
 <?php
-require_once("../../../BD/conexionbd.php");
+require_once("../BD/conexionbd.php");
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

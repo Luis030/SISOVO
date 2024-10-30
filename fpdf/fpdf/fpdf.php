@@ -351,7 +351,7 @@ function AddPage($orientation='', $size='', $rotation=0)
 function Header($mes, $año)
 {
 	$this->SetFont('Times', '', 15);
-	$this->Image('../Pagina Principal/Main/Diseño/IMG/logocer-render.png', null, null, 50, 0, 'PNG');
+	$this->Image('../Diseño/IMG/logocer-render.png', null, null, 50, 0, 'PNG');
 	$this->Cell(0, -90, utf8_decode('Salto, '.$mes.' de '.$año), 0, 0, 'R');
 	$this->Ln(10);
 }

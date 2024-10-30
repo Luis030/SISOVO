@@ -1,6 +1,5 @@
 <?php
-    require_once("../../../BD/conexionbd.php");
-
+    require_once("../BD/conexionbd.php");
     $idAlumno = $_GET['id'];
         
     $sql = "SELECT I.Titulo, I.Fecha, I.Observaciones, A.ID_Alumno, I.ID_Informe

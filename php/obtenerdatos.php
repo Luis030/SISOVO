@@ -1,5 +1,5 @@
 <?php
-require_once("../../../BD/conexionbd.php");
+require_once("../BD/conexionbd.php");
 
 $tipouser = $_GET['tipo'];
 $id = $_GET['id'];

@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(!isset($_SESSION['usuario'])) {
-        header("Location: ../Pagina Principal/Main/");
+        header("Location: ../index.php");
     }
 
     /* Conectar con la libreria FPDF y la base de datos*/

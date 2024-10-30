@@ -1,5 +1,5 @@
 <?php
-include("../../../BD/conexionbd.php");
+require_once("../BD/conexionbd.php");
 session_start();
 
 $cedula = $_SESSION['cedula'];

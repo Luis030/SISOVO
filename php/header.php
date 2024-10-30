@@ -26,7 +26,7 @@
             <?php
             if(!isset($_SESSION['usuario'])) {
                 echo "<div class='login'>";
-                echo "<a href='../Login/index'>Ingresar</a>";
+                echo "<a href='Login/index'>Ingresar</a>";
                 echo "</div>";
             } else if(isset($_SESSION['verificacion'])) {
                 echo "<div class='infoUser'>";
@@ -34,7 +34,7 @@
                 echo "<ul class='menuUser'>";
                 if(isset($_SESSION['Privilegio'])) {
                     if($_SESSION['Privilegio'] == "admin" || $_SESSION['Privilegio'] == "docente") {
-                        echo "<li><a href='../../Pagina Administrativa/index'>Administrador</a></li>";
+                        echo "<li><a href='Pagina Administrativa/index'>Administrador</a></li>";
                     }
                     if($_SESSION['Privilegio'] == "alumno") {
                         echo "<li><a href='panelalumno'>Panel de alumno</a></li>";
