@@ -77,8 +77,6 @@
 <link rel="stylesheet" href="css/estiloañadir.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <script src="JS/cargarselect.js"></script>
-<script src="JS/overlay.js"></script>
-<script src="js/overlayreutilizable.js"></script>
 
 
 <div class="contenedor-anadir-alumno">
@@ -119,7 +117,7 @@
                     <button class="botonguardar">Guardar</button>
                 </div>
                 <div class="input-alumno">
-                    <p>Patologia/s <input type="button" class="nueva-patologia-boton" onclick="patOverlay()" value="&#10010;"></p>
+                    <p>Patologia/s</p>
                     <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología" style="width: 100%;">
                     </select>
                 </div>
@@ -137,29 +135,7 @@
         </form>
     </div>
 </div>
-<div class="agregar-overlay" id="agregar-overlay">
-    <div class="contenido-agregar-overlay">
-        <div class="cerrar-agregar-overlay">
-            <input type="button" value="✖" id="cerrar-agregar-overlay-boton" onclick="cerrarPatOverlay()">
-        </div>
-        <div class="container-agregar-overlay">
-            <div class="form-agregar">
-                <h1>Patologia</h1>
-                <input type="text" id="boton-agregar-items" placeholder="Ingrese una pat.">
-                <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarItem()">
-                <p id="longitud-array-items">Cantidad agregada: 0</p>
-                <a href="#">Pagina de patologias</a>
-                <div id="mensaje-items"></div>
-                <div id="errores-items"></div>
-            </div>
-            <div class="items-agregadas">
-                <h2>Patologias Agregadas</h2>
-                <div class="items-lista" id="items-lista"></div>
-            </div>
-        </div>
-        <input type="button" value="Añadir todo" class="boton-todo" onclick="enviarFormulario('php/añadirpatologias.php')">
-    </div>
-</div>
+
 
 <script src="js/urlactivo.js"></script>
 <script>

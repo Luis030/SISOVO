@@ -116,7 +116,7 @@ include("php/header_sidebar.php");
                     </select>
                 </div>
                 <div class="input-docente">
-                    <p>Especialidad/es <input type="button" class="nueva-especialidad-boton" id="nueva-especialidad-boton" onclick="patOverlay()" value="&#10010;"></p>
+                    <p>Especialidad/es</p>
                     <select name="especialidades[]" id="especialidades-select" style="width: 100%;" multiple required>
 
                     </select>
@@ -140,33 +140,7 @@ include("php/header_sidebar.php");
     </div>
 </div>
 
-<div class="agregar-overlay" id="agregar-overlay">
-    <div class="contenido-agregar-overlay">
-        <div class="cerrar-agregar-overlay">
-            <input type="button" value="✖" id="cerrar-agregar-overlay-boton" onclick="cerrarPatOverlay()">
-        </div>
-        <div class="container-agregar-overlay">
-            <div class="form-agregar">
-                <h1>Ocupación</h1>
-                <select id="select-ocupacion-overlay"></select>
-                <h1>Especialidad</h1>
-                <input type="text" id="boton-agregar-items" placeholder="Ingrese una esp.">
-                <input type="button" value="AGREGAR" class="boton-agregar" onclick="agregarItem()">
-                <p id="longitud-array-items">Cantidad agregada: 0</p>
-                <a href="#">Pagina de especialidades</a>
-                <div id="mensaje-items"></div>
-                <div id="errores-items"></div>
-            </div>
-            <div class="items-agregadas">
-                <h2>Especialidades Agregadas</h2>
-                <div class="items-lista" id="items-lista"></div>
-            </div>
-        </div>
-        <input type="button" value="Añadir todo" class="boton-todo" onclick="enviarFormulario('php/añadirespecialidades.php')">
-    </div>
-</div>
-<script src="JS/overlayreutilizable.js"></script>
-<script src="JS/overlay.js"></script>
+
 <script src="JS/urlactivo.js"></script>
 <script>
     actualizarClasePorHref('añadir-a', 'enlace-activo');
