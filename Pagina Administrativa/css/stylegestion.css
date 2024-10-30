@@ -253,6 +253,25 @@ span.select2-container.select2-container--default.select2-container--open{
     z-index: 10000;
 }
 
+#minimo-edad-filtro, #maximo-edad-filtro{
+    width: 10%;
+}
+
+#boton-filtro-alumnos{
+    font-size: 30px;
+    padding: 10px;
+    background-color: var(--color-secundario);
+    border: 1px solid var(--color-secundario);
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.25s;
+}
+
+#boton-filtro-alumnos:hover{
+    filter: brightness(75%);
+}
+
 
 @media (max-width: 1500px) {
     #ocutotalesgestion{
