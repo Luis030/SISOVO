@@ -28,6 +28,7 @@
                 <th>Titulo</th>
                 <th>Alumno</th>
                 <th>Fecha</th>
+                <th>Opciones</th>
             </tr>
         </thead>
     </table>

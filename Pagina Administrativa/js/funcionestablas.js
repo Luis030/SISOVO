@@ -625,3 +625,43 @@ function eliminarEsp(id, nombre){
         }
     })
 }
+
+function eliminarInforme(id, nombre, fecha){
+    Swal.fire({
+        icon: "warning",
+        title: "¿Seguro de eliminar este informe?",
+        text: "Informe: "+nombre+", Fecha: "+fecha,
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        confirmButtonText: "Borrar",
+    }).then((resultado) => {
+        if(resultado.isConfirmed){
+            fetch("php/borrarinforme.php", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: "id="+id
+            })
+            .then(datos => datos.json())
+            .then(datos => {
+                if(datos.resultado == "exito"){
+                    Swal.fire({
+                        icon: "success",
+                        title: "Informe eliminado exitosamente"
+                    })
+                    if(document.querySelector('#informes')) {
+                        tablas['informesdocentes'].ajax.reload()
+                    }
+                    
+                    if(document.querySelector('#tabla-informes-gestion')) {
+                        tablas['tablainformes'].ajax.reload()
+                    }
+                    
+                }
+            })
+        }
+    })
+}

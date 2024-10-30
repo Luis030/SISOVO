@@ -378,7 +378,7 @@ function columnastablaInformes(){
             "data": null,
             "render": function(data, type, row) {
                 return `
-                    <button class='boton-editar' onclick='editarInforme(${row.ID_Informe})'>Editar</button>
+                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Titulo}\`, \`${row.Fecha}\`)'>Eliminar</button>
                 `;
             },
             "orderable": false
@@ -399,7 +399,16 @@ function tablaInformesDocente() {
                 return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
             }
         },
-        { "data": "Fecha" }
+        { "data": "Fecha" },
+        {
+            "data": null,
+            "render": function(data, type, row) {
+                return `
+                    <button class='boton-borrar' onclick='eliminarInforme(${row.ID_Informe}, \`${row.Titulo}\`, \`${row.Fecha}\`)'>Eliminar</button>
+                `;
+            },
+            "orderable": false
+        }
     ]
 }
 
