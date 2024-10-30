@@ -55,11 +55,15 @@
     width: 35px;
 }
 
+.horario {
+    flex-wrap: wrap;
+}
+
 #nombreClase, #diaClase, #inicioClase, #finalClase, #docenteClase {
     margin-left: 10px;
 }
 
-#ingresarNombre, #ingresarApellido, #ingresarFecha, #ingresarMail, #ingresarCelular {
+#ingresarNombre, #ingresarApellido, #ingresarFecha, #ingresarMail, #ingresarCelular, #ingresarHorario {
     width: 70%;
     height: 34px !important;
     font-size: 30px;
@@ -100,14 +104,14 @@ input[type="time"] {
     filter: brightness(75%);
 }
 
-.fadeNombre, .fadeDia, .fadeInicio, .fadeFinal, .fadeDocente, .fadeApellido, .fadeFecha, .fadeMail, .fadeCelular, .fadeOcupacion {
+.fadeNombre, .fadeDia, .fadeInicio, .fadeFinal, .fadeDocente, .fadeApellido, .fadeFecha, .fadeMail, .fadeCelular, .fadeOcupacion, .fadeHorario {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.15s ease, visibility 0.5s;
     display: flex;
 }
 
-.fadeNombre.visible, .fadeDia.visible, .fadeInicio.visible, .fadeFinal.visible, .fadeDocente.visible, .fadeApellido.visible, .fadeFecha.visible, .fadeMail.visible, .fadeCelular.visible, .fadeOcupacion.visible {
+.fadeNombre.visible, .fadeDia.visible, .fadeInicio.visible, .fadeFinal.visible, .fadeDocente.visible, .fadeApellido.visible, .fadeFecha.visible, .fadeMail.visible, .fadeCelular.visible, .fadeOcupacion.visible, .fadeHorario.visible {
     opacity: 1;
     visibility: visible;
 }

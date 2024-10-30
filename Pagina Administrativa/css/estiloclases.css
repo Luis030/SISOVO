@@ -54,6 +54,7 @@ input[type="image"] {
 
 .detalle-clases {
     display: flex;
+    flex-direction: column;
 }
 
 .detalle-clases div p {
@@ -294,6 +295,46 @@ p {
 
 .conf {
     margin-top: 20px;
+}
+
+.contenedor-detalle-clases {
+    display: flex;
+    padding: 40px;
+    margin-top: -20px;
+    flex-direction: column;
+}
+
+.volverclases {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+#volver {
+    width: 50px;
+    height: 50px;
+    transition: 0.25s;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#volver:hover {
+    width: 60px;
+    height: 60px;
+}
+
+.detalle {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.detalle p {
+    margin: 15px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    white-space: pre;
 }
 
 @media (max-width: 768px) {

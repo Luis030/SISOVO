@@ -10,9 +10,12 @@
     
     /* Traer datos de la BD */
     if ($_SESSION['Privilegio'] == "docente") {
-        $cedula = $_SESSION['cedulaAlumno'];
+        if (isset($_GET['portabla'])) {
+            $cedula = $_GET['Cedula'];
+        } else {
+            $cedula = $_SESSION['cedulaAlumno'];
+        }
     }
-
     if($_SESSION['Privilegio'] == "admin"){
         $cedula = $_GET['Cedula'];
     } 
@@ -112,9 +115,7 @@
     $sql = "SELECT D.Nombre AS NombreDocente, D.Apellido AS ApellidoDocente, O.Nombre AS Ocupacion
             FROM docentes D
             JOIN informes I ON D.ID_Docente = I.ID_Docente
-            JOIN especializacion_docente ED ON ED.ID_Docente = D.ID_Docente
-            JOIN especializaciones E ON ED.ID_Especializacion = E.ID_Especializacion
-            JOIN ocupacion O ON E.ID_Ocupacion = O.ID_Ocupacion
+            JOIN ocupacion O ON D.ID_Ocupacion = O.ID_Ocupacion
             WHERE I.ID_Informe = $idinforme";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {

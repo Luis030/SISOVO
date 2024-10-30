@@ -1,84 +1,41 @@
 function mostrarEditarNombre() { 
     const divNombre = document.getElementById('editandoNombre');
-    /*const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');*/
+    const divHorario = document.getElementById('editandoHorario');
     const divDocente = document.getElementById('editandoDocente');
     if (divNombre.classList.contains('visible')) {
         divNombre.classList.remove('visible');
     } else {
         divNombre.classList.add('visible'); 
-        /*divDia.classList.remove('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.remove('visible');*/
+        divHorario.classList.remove('visible');
         divDocente.classList.remove('visible'); 
     }
 }
 
-/*function mostrarEditarDia() { 
+function mostrarEditarHorario() {
     const divNombre = document.getElementById('editandoNombre');
-    const divDia = document.getElementById('editandoDia');  
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');
+    const divHorario = document.getElementById('editandoHorario');
     const divDocente = document.getElementById('editandoDocente');
-    if (divDia.classList.contains('visible')) {
-        divDia.classList.remove('visible');
+    if (divHorario.classList.contains('visible')) {
+        divHorario.classList.remove('visible');
     } else {
         divNombre.classList.remove('visible');
-        divDia.classList.add('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.remove('visible');
-        divDocente.classList.remove('visible'); 
-    }
-}*/
-
-/*function mostrarEditarInicio() { 
-    const divNombre = document.getElementById('editandoNombre');
-    const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');
-    const divDocente = document.getElementById('editandoDocente');
-    if (divInicio.classList.contains('visible')) {
-        divInicio.classList.remove('visible');
-    } else {
-        divNombre.classList.remove('visible');
-        divDia.classList.remove('visible');
-        divInicio.classList.add('visible');
-        divFinal.classList.remove('visible');
-        divDocente.classList.remove('visible'); 
-    }
-}*/
-
-/*function mostrarEditarFinal() { 
-    const divNombre = document.getElementById('editandoNombre');
-    const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');
-    const divDocente = document.getElementById('editandoDocente');
-    if (divFinal.classList.contains('visible')) {
-        divFinal.classList.remove('visible');
-    } else {
-        divNombre.classList.remove('visible');
-        divDia.classList.remove('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.add('visible');
+        divHorario.classList.add('visible');
         divDocente.classList.remove('visible');
+        var horario = window.horario;
+        var input = document.getElementById('ingresarHorario');
+        input.value = horario
     }
-}*/
+}
 
 function mostrarEditarDocente() { 
     const divNombre = document.getElementById('editandoNombre');
-    /*const divDia = document.getElementById('editandoDia');
-    const divInicio = document.getElementById('editandoInicio');
-    const divFinal = document.getElementById('editandoFinal');*/
+    const divHorario = document.getElementById('editandoHorario');
     const divDocente = document.getElementById('editandoDocente');
     if (divDocente.classList.contains('visible')) {
         divDocente.classList.remove('visible');
     } else {
         divNombre.classList.remove('visible');
-        /*divDia.classList.remove('visible');
-        divInicio.classList.remove('visible');
-        divFinal.classList.remove('visible');*/
+        divHorario.classList.remove('visible');
         divDocente.classList.add('visible');
     }
 }
@@ -158,6 +115,42 @@ function guardarDocente(id) {
                     timer: 3000
                 })
                 spanDocente.textContent = datos.docente;
+            }
+        })
+    }
+}
+
+function guardarHorario(id) {
+    const horarioNuevo = document.getElementById('ingresarHorario');
+    const spanHorario = document.getElementById('spanHorario');
+    if (horarioNuevo.value == "") {
+        Swal.fire({
+            title: "Error!",
+            text: "Debes ingresar un horario.",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 3000
+        })
+    } else {
+        tipo = "horario";
+        fetch("php/cambiarclases.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "tipo=" + tipo + "&horario=" + horarioNuevo.value + "&id=" + id
+        })
+        .then(datos => datos.json())
+        .then(datos => {    
+            if (datos.mensaje == "si") {
+                Swal.fire({
+                    title: "Correcto!",
+                    text: "Horario cambiado correctamente.",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+                spanHorario.textContent = datos.horario;
             }
         })
     }

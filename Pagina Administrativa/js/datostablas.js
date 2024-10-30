@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    if(document.querySelector('#tabla-alumnos-docente')) {
+        const idclase = window.idclase;
+        tablas['alumnosclasedocente'] = iniciarTabla('tabla-alumnos-docente', 'php/alumnosclase.php', columnasAlumnosClaseDocente(), "30vh", false, {
+            id: idclase
+        })
+    }
+
     if(document.querySelector('#clases-docente')) {
         const ceduladoc = window.ceduladoc;
         tablas['clasesdoc'] = iniciarTabla('clases-docente', 'php/obtenertodasclases.php', clasesDocente(), "60vh", false, {
@@ -50,7 +57,15 @@ document.addEventListener('DOMContentLoaded', function () {
         tablas['tablainformes'] = iniciarTabla('tabla-informes-gestion', 'php/obtenerinformes.php', columnastablaInformes(), "50vh");
     }
 
-    if(document.querySelector('#tabla-patologias-gestion')){
+    if(document.querySelector('#informes')) {
+        const id = window.docenteinformes;
+        tablas['informesdocentes'] = iniciarTabla('informes', 'php/obtenerinformes.php', tablaInformesDocente(), "50vh", false, {
+            docente: true,
+            id: id
+        })
+    }
+
+    if(document.querySelector('#tabla-patologias-gestion')) {
         tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php', columnastablaPatologias(), "70vh", false, {
             tabla: true
         })
@@ -72,13 +87,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if(document.querySelector('#tabla-ocupaciones-gestion')){
+    if(document.querySelector('#tabla-ocupaciones-gestion')) {
         tablas['ocugestion'] = iniciarTabla('tabla-ocupaciones-gestion', 'php/obtenerocupaciones.php', columnastablaOcupaciones(), "50vh", false, {
             tabla: true
         });
     }
 
-    if(document.querySelector('#tabla-especialidades-gestion')){
+    if(document.querySelector('#tabla-especialidades-gestion')) {
         tablas['espgestion'] = iniciarTabla('tabla-especialidades-gestion', 'php/obtenerespecialidades.php', columnastablaEspecialidades(), "50vh", false, {
             tabla: true
         });
@@ -273,6 +288,21 @@ function columnasAlumnosClase(idclase){
     ]
 }
 
+function columnasAlumnosClaseDocente() {
+    return [
+        {   "data": "Nombre",
+            "render": function(data, type, row) {
+            return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
+            }
+        },
+        { "data": "Apellido" },
+        { "data": "Cedula" },
+        { "data": "Fecha_nac" },
+        { "data": "Mail_Padres" },
+        { "data": "Celular_Padres" },
+    ]
+}
+
 function columnastablaDocentes(){
     return [
         { "data": "Nombre",
@@ -335,7 +365,7 @@ function columnastablaInformes(){
         },
         { "data": "Alumno",
             "render": function(data, type, row){
-                return `<a href="detalle_alumno.php?id=${row.ID_Alumno}">${data}</a>`;
+                return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
             }
         },
         { "data": "Docente",
@@ -354,6 +384,22 @@ function columnastablaInformes(){
             "orderable": false
         }
         
+    ]
+}
+
+function tablaInformesDocente() {
+    return [
+        { "data": "Titulo",
+            "render": function(data, type, row) {
+            return `<a href="../fpdf/informe.php?ID=${row.ID_Informe}&&Cedula=${row.Cedula}&&portabla=si" target="_blank">${data}</a>`;
+            }
+        },
+        { "data": "Alumno",
+            "render": function(data, type, row){
+                return `<a href="detalle_alumnos.php?id=${row.ID_Alumno}">${data}</a>`;
+            }
+        },
+        { "data": "Fecha" }
     ]
 }
 

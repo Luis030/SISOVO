@@ -16,6 +16,9 @@
         }
     }
 ?>
+<script>
+    window.horario = "<?php echo $diaClase; ?>"
+</script>
 <link rel="stylesheet" href="css/styleeditarclases.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <script src="js/editarclases.js"></script>
@@ -34,22 +37,13 @@
                     <button id="guardarInput" onclick="guardarNombre(<?php echo $idClase?>)">Guardar</button>
                 </div>
             </div>
-            <!--
-            <div class="editarElemento">
-                <p>Días: <span id="spanDia"><?php echo $diaClase ?></span><img src="img/editar.png" alt="Editar" id="editarDia" onclick="mostrarEditarDia()"></p>
-                <div id="editandoDia" class="fadeDia">
-                    <select id="ingresarDia" name="diaNuevo" required>
-                        <option selected disabled>Seleccione un día</option>
-                        <option value="Lunes">Lunes</option>
-                        <option value="Martes">Martes</option>
-                        <option value="Miércoles">Miércoles</option>
-                        <option value="Jueves">Jueves</option>
-                        <option value="Viernes">Viernes</option>
-                    </select>
-                    <button id="guardarInput" onclick="guardarDia(<?php echo $idClase?>)">Guardar</button>
+            <div class="editarElemento horario">
+                <p>Horario(s): <span id="spanHorario"><?php echo $diaClase ?></span><img src="img/editar.png" alt="Editar" id="editarNombre" onclick="mostrarEditarHorario()"></p>
+                <div id="editandoHorario" class="fadeHorario">
+                    <input type="text" id="ingresarHorario" placeholder="Ingrese un nombre" name="horarioNuevo" required>
+                    <button id="guardarInput" onclick="guardarHorario(<?php echo $idClase?>)">Guardar</button>
                 </div>
             </div>
-            -->
             <div class="editarElemento">
                 <p>Docente: <span id="spanDocente"><?php echo $nombreDocente ?></span><img src="img/editar.png" alt="Editar" id="editarDocente" onclick="mostrarEditarDocente()"></p>
                 <div id="editandoDocente" class="fadeDocente">

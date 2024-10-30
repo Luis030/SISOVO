@@ -1,11 +1,12 @@
 <?php
-require_once("../BD/conexionbd.php");
-require_once("php/header_sidebar.php");
-$ceduladoc = $_SESSION['cedula'];
+    require_once("../BD/conexionbd.php");
+    require_once("php/header_sidebar.php");
+    $ceduladoc = $_SESSION['cedula'];
 ?>
 <link rel="stylesheet" href="css/estiloclases.css">
 <link rel="stylesheet" href="css/datatables.css">
 <div class="contenedor-clases-docente">
+    <h1>Clases del docente</h1>
     <div class="contenedor-tabla">
         <table id="clases-docente">
             <thead>
