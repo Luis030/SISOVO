@@ -278,9 +278,13 @@ function filtradoTablaAlumnos() {
     cancelButtonColor: "#d33",
     cancelButtonText: "Cancelar",
     html: `
+    <h3>Edad:</h3>
     <div class="filtros-alumnos-div">
-      <span>Patologias:</span>
-      <select id="select-patologias-filtro" style="width: 70%"></select>
+      <span>Min: <input type="number" min=0 id="minimo-edad-filtro"> Max: <input type="number" min=0 id="maximo-edad-filtro"></span>
+    </div>
+    <h3>Patologia:</h3>
+    <div class="filtros-alumnos-div">
+      <select id="select-patologias-filtro" style="width: 100%"></select>
     </div>
     `,
     didOpen: () => {
@@ -310,7 +314,33 @@ function filtradoTablaAlumnos() {
     }
   }).then((resultado) => {
     if (resultado.isConfirmed) {
-      // Aquí puedes manejar el resultado del filtro
+      let patologia = "";
+      let valEdadMin = "";
+      let valEdadMax = "";
+      let filtros = 0;
+      const valorPat = document.getElementById('select-patologias-filtro').value;
+      const valorEdadMin = document.getElementById('minimo-edad-filtro').value;
+      const valorEdadMax = document.getElementById('maximo-edad-filtro').value;
+      if(valorPat){
+        patologia = valorPat;
+        filtros++;
+      }
+      if(valorEdadMin){
+        valEdadMin = valorEdadMin;
+        filtros++;
+      }
+      if(valorEdadMax){
+        valEdadMax = valorEdadMax;
+        filtros++;
+      }
+      if(filtros > 0){
+        tablas['tablaalu'] = iniciarTabla('tabla-alumnos-gestion', 'php/alumnos.php', columnastablaAlumnos(), "50vh", false, {
+          filtrado: true,
+          patologia: patologia,
+          valemax: valEdadMax,
+          valemin: valEdadMin
+        });
+      }
     }
   });
 }
