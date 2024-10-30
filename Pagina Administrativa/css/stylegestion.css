@@ -252,3 +252,20 @@ select {
 span.select2-container.select2-container--default.select2-container--open{
     z-index: 10000;
 }
+
+
+@media (max-width: 1500px) {
+    #ocutotalesgestion{
+        font-size: 50px !important; 
+    }
+    
+    .contenedor-segunda-fila-seccion-elementos-patologias span, .contenedor-tercera-fila-seccion-elementos-inicio span, .contenedor-segunda-fila-seccion-elementos-ocupaciones span, .contenedor-segunda-fila-seccion-elementos-especialidades span{
+        font-size: 40px;
+        font-weight: 600;
+    }
+    
+
+    #ocusinD{
+        font-size: 50px !important;
+    }
+}
