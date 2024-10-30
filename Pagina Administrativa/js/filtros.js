@@ -269,3 +269,48 @@ function filtradoGraficoInf(){
       }
   })
 }
+
+function filtradoTablaAlumnos() {
+  Swal.fire({
+    title: "Filtros avanzados",
+    showCancelButton: true,
+    confirmButtonText: "Aceptar",
+    cancelButtonColor: "#d33",
+    cancelButtonText: "Cancelar",
+    html: `
+    <div class="filtros-alumnos-div">
+      <span>Patologias:</span>
+      <select id="select-patologias-filtro" style="width: 70%"></select>
+    </div>
+    `,
+    didOpen: () => {
+      $('#select-patologias-filtro').select2({
+        placeholder: 'Selecciona una patologia', 
+        minimumInputLength: 0,
+        ajax: {
+          url: 'php/obtenerpatologias.php', 
+          dataType: 'json',
+          delay: 250,
+          method: "POST",  
+          data: function (params) {
+            return {
+              q: params.term || ''
+            };
+          },
+          processResults: function (data) {
+            return {
+              results: data.map(function (patologia) {
+                return { id: patologia.ID_Patologia, text: patologia.Nombre };
+              })
+            };
+          },
+          cache: true
+        }
+      });
+    }
+  }).then((resultado) => {
+    if (resultado.isConfirmed) {
+      // Aquí puedes manejar el resultado del filtro
+    }
+  });
+}

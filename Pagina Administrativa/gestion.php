@@ -128,6 +128,9 @@
                     </tr>
                 </thead>
             </table>
+            <div class="boton-filtros-alumnos">
+                <button id="boton-filtro-alumnos" onclick="filtradoTablaAlumnos()">Filtrar tabla</button>
+            </div>
         </div>
         <?php
                 break;  
@@ -267,7 +270,7 @@
             </div>
             <div class="contenedor-tercera-fila-seccion-elementos-inicio">
                 <div class="contenedor-ocupaciones-sin-personas">
-                    <p>Ocupaciones sin alumnos</p>
+                    <p>Especialidades sin personas</p>
                     <span id="espsinD"></span>
                 </div>
             </div>

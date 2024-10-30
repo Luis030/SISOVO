@@ -398,7 +398,7 @@ function columnastablaEspecialidades(){
         { "data": null,
             "render": function(data, type, row){
                 return `
-                    <button class='boton-editar' onclick='editarEsp(${row.ID_Especializacion}, \`${row.Especializacion}\`, \`${row.Ocupacion}\`)'>Editar</button>
+                    <button class='boton-editar' onclick='editarEsp(${row.ID_Especializacion}, \`${row.Especializacion}\`)'>Editar</button>
                     <button class='boton-borrar' onclick='eliminarEsp(${row.ID_Especializacion}, \`${row.Especializacion}\`)'>Eliminar</button>
                 `;
             },

@@ -527,7 +527,7 @@ function eliminarOcu(id, nombre){
     })
 }
 
-function editarEsp(id, nombre, ocupacion){
+function editarEsp(id, nombre){
     Swal.fire({
         title: "Editar especializad",
         showCancelButton: true,
@@ -537,7 +537,91 @@ function editarEsp(id, nombre, ocupacion){
         confirmButtonText: "Aceptar",
         html: `
         <span>Nombre: <input type='text' placeholder='${nombre}' id='nuevonombreEsp'></span>
-        <select name="select-editar-esp" id="select-editar-esp" style:'width: 100%'></select>
         `
+    }).then((resultado) => {
+        if(resultado.isConfirmed){
+            const nuevonombreEsp = document.getElementById('nuevonombreEsp').value;
+            if(nuevonombreEsp){
+                fetch("php/cambiarelementos.php", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: "id="+id+"&nombre="+nuevonombreEsp+"&tipo=esp&opcion=editar"
+                })
+                .then(datos => datos.json())
+                .then(datos => {
+                    console.log(datos)
+                    if(datos.resultado == "exito"){
+                        Swal.fire({
+                            icon: "success",
+                            title: "Nombre actualizado",
+                            text: "Nombre actualizado de "+nombre+" a "+datos.nombre
+                        })
+                        tablas['espgestion'].ajax.reload();
+                    }
+                    if(datos.resultado == "agregado"){
+                        Swal.fire({
+                            icon: "error",
+                            title: "Nombre existente, intente otro" 
+                        })
+                    }
+                })
+            }
+        }
+    })
+}
+
+function eliminarEsp(id, nombre){
+    fetch("php/cambiarelementos.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "id="+id+"&nombre="+nombre+"&tipo=esp&opcion=borrar&eliminar=false"
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        if(datos.resultado == "imposible"){
+            Swal.fire({
+                title: "Esta ocupacion no se puede eliminar",
+                text: "Esta ocupacion pertenece al menos a 1 persona",
+                icon: "error"
+            })
+        }
+        if(datos.resultado == "posible"){
+            Swal.fire({
+                icon: "warning",
+                title: "¿Esta seguro de borrar la especialidad "+nombre+"?",
+                text: "Esto no se podrá deshacer",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Borrar",
+            }).then((resultado) => {
+                if(resultado.isConfirmed){
+                    fetch("php/cambiarelementos.php", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: "id="+id+"&nombre="+nombre+"&tipo=esp&opcion=borrar&eliminar=true"
+                    })
+                    .then(datos => datos.json())
+                    .then(datos => {
+                        if(datos.resultado == "exito"){
+                            Swal.fire({
+                                icon: "success",
+                                title: "Borrado correctamente",
+                                text: "La especialidad "+nombre+" se ha borrado correctamente."
+                            })
+                            tablas['espgestion'].ajax.reload();
+                            actualizarDatosEsp();
+                        }
+                    })
+                }
+            })
+        }
     })
 }
