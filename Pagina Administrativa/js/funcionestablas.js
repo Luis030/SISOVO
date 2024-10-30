@@ -13,6 +13,10 @@ window.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('#espsinD')){
         actualizarDatosEsp();
     }
+
+    if(document.querySelector('.detalle-clases')){
+        actualizarDetalleClases();
+    }
 })
 
 //POST
@@ -85,6 +89,7 @@ function ingresarAlumno(idclase){
         console.log('Respuesta del servidor:', data);
         tablas['alumnosclase'].ajax.reload();
         $('#select-alumnos').val(null).trigger('change');
+        actualizarDetalleClases();        
         Swal.fire({
             icon: 'success',
             title: "Alumno ingresado correctamente"
@@ -96,7 +101,7 @@ function ingresarAlumno(idclase){
 }
 
 //POST
-function eliminarAlumnoClase(idclase, idalumno){
+function eliminarAlumnoClase(idclase, idalumno) {
     Swal.fire({
         title: "¿Estas seguro de quitar el alumno?",
         text: "Se desvinculara al alumno",
@@ -117,7 +122,8 @@ function eliminarAlumnoClase(idclase, idalumno){
             })
             .then(respuesta => respuesta.json())
             .then(data => {
-            if(data.resultado == "exito"){
+            if(data.resultado == "exito") {
+                actualizarDetalleClases();   
                 Swal.fire({
                     title: "Borrado exitosamente.",
                     text: "Se ha borrado exitosamente el alumno",
@@ -125,7 +131,7 @@ function eliminarAlumnoClase(idclase, idalumno){
                 });
                 tablas['alumnosclase'].ajax.reload();
             }
-            if(data.resultado == "error"){
+            if(data.resultado == "error") {
                 Swal.fire({
                     title: "Ha ocurrido un error",
                     text: "Algo ha salido mal.",
@@ -429,6 +435,29 @@ function actualizarDatosEsp(){
         espsinP.innerText = datos.espsinp
     })
 }
+
+function actualizarDetalleClases() {
+    const id = window.idClase;
+    fetch("php/obtenerdatosclases.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "idclase=" + id
+    })
+    .then(datos => datos.json())
+    .then(datos => {
+        const nombre = document.getElementById('nombreC');
+        const docente = document.getElementById('docenteC');
+        const dia = document.getElementById('diaC');
+        const cant = document.getElementById('cantC');
+        nombre.textContent = datos.nombre;
+        docente.textContent = datos.docente;
+        dia.textContent = datos.dia;
+        cant.textContent = datos.cant
+    })
+}
+
 function editarOcu(id, nombre){
     Swal.fire({
         title: "Editar ocupación",
