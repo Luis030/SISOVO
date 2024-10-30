@@ -68,8 +68,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $resultado = mysqli_query($conexion, $sql);
 
     if (isset($nombreOcu)) {
-        echo json_encode(['mensaje' => 'si', 'nombre' => $nombreOcu]);
-        exit;
+        $sql3 = "SELECT ID_Especializacion FROM especializacion_docente WHERE ID_Docente = $id AND Estado = 1";
+        $resultado3 = mysqli_query($conexion, $sql3);
+        if (mysqli_num_rows($resultado3) > 0) {
+            echo json_encode(['mensaje' => 'no', 'invalido' => "Elimine las especialidades del docente antes de cambiar su ocupación."]);
+            exit;
+        } else {
+            echo json_encode(['mensaje' => 'si', 'nombre' => $nombreOcu]);
+            exit;
+        }
     } else {
         echo json_encode(['mensaje' => 'si']);
     }

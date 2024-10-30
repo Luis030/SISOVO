@@ -272,19 +272,55 @@ function guardarAtributo(id, atributo, tipo) {
                     if (atributo == "ocupacion") {
                         const spanOcupacion = document.getElementById('spanOcupacion');
                         spanOcupacion.textContent = datos.nombre;
-                        setTimeout(function() {
-                            location.reload();
-                        }, 3000);
+                        const idDocente = window.idDocente;
+                        const idOcu = txt;
+                        $('#agregarEspDocente').select2({
+                            placeholder: 'Seleccione especialidades para agregar',
+                            minimumInputLength: 0,
+                            cache: true,
+                            ajax: {
+                                url: 'php/obtenerespecialidades.php',
+                                dataType: 'json',
+                                delay: 250,
+                                method: "POST",
+                                data: function (params) {
+                                    return {
+                                        q: params.term || '',
+                                        editardocente: "si",
+                                        id: idDocente,
+                                        ido: idOcu
+                                    };
+                                },
+                                processResults: function (data) {
+                                    return {
+                                        results: data.map(function (especialidades) {
+                                            return { id: especialidades.ID_Especializacion, text: especialidades.Nombre };
+                                        })
+                                    };
+                                },
+                                cache: true
+                            }
+                        })
                     }
                     txt = '';
-                } else {
-                    Swal.fire({
-                        title: "Error!",
-                        text: "Ha ocurrido un error inesperado",
-                        icon: "error",
-                        showConfirmButton: false,
-                        timer: 3000
-                    })
+                }
+                if (datos.mensaje == "no") {
+                    if (atributo == "ocupacion") {
+                        Swal.fire({
+                            title: "Error!",
+                            text: datos.invalido,
+                            icon: "error",
+                            showConfirmButton: true
+                        })
+                    } else {
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Ha ocurrido un error inesperado",
+                            icon: "error",
+                            showConfirmButton: false,
+                            timer: 3000
+                        })
+                    }
                 }
             })
         }
