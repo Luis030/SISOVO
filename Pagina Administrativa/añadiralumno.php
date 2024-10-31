@@ -22,7 +22,7 @@
             $nombreusuario = "$nombre $apellido";
             
             // Verificar si la cédula ya está en uso
-            $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula' AND Estado = 1;";
+            $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula = '$cedula' AND Estado = 1;";
             $cedulausadaverif = mysqli_query($conexion, $cedulausada);
 
             if (mysqli_num_rows($cedulausadaverif) > 0) {
@@ -48,7 +48,7 @@
                         }
                     }
 
-                    header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true");
+                    header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $nAalumno);
                     exit;
                 }
             }
@@ -78,8 +78,6 @@
 <link rel="stylesheet" href="css/estiloañadir.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
 <script src="JS/cargarselect.js"></script>
-
-
 <div class="contenedor-anadir-alumno">
     <div class="cambiarpagina">
         <div>
@@ -129,7 +127,11 @@
 
                 <?php
                     if($alumnoingresado === TRUE) {
+                        $id = $_GET['id'];
                         echo "<div class='success'>Alumno ingresado correctamente.</div>";
+                        echo "<div class='input-alumno'>";
+                        echo "<a class='botonguardar nuevo' href='detalle_alumnos.php?id=$id'>Ver último alumno ingresado</a>";
+                        echo "</div>";
                     } else if ($ceduladuplicada === TRUE) {
                         echo "<div class='error'>Cedula ya ingresada.</div>";
                     } else if($cedulanoexiste === TRUE) {
@@ -140,8 +142,6 @@
         </form>
     </div>
 </div>
-
-
 <script src="js/urlactivo.js"></script>
 <script>
     actualizarClasePorHref('añadir-a', 'enlace-activo');
