@@ -1,95 +1,170 @@
-function mostrarEditarNombre() { 
+function mostrarEditarNombre(who) { 
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
-    const divOcu = document.getElementById('editandoOcupacion');
-    if (divNombre.classList.contains('visible')) {
-        divNombre.classList.remove('visible');
-    } else {
-        divNombre.classList.add('visible'); 
-        divApellido.classList.remove('visible');
-        divFecha.classList.remove('visible');
-        divMail.classList.remove('visible');
-        divCel.classList.remove('visible'); 
-        divOcu.classList.remove('visible');
+    if (who == "alumno") {
+        const divGrado = document.getElementById('editandoGrado');
+        if (divNombre.classList.contains('visible')) {
+            divNombre.classList.remove('visible');
+        } else {
+            divNombre.classList.add('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.remove('visible'); 
+            divGrado.classList.remove('visible');
+        }
+    }
+    if (who == "docente") {
+        const divOcu = document.getElementById('editandoOcupacion');
+        if (divNombre.classList.contains('visible')) {
+            divNombre.classList.remove('visible');
+        } else {
+            divNombre.classList.add('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.remove('visible'); 
+            divOcu.classList.remove('visible');
+        }
     }
 }
 
-function mostrarEditarApellido() { 
+function mostrarEditarApellido(who) { 
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
-    const divOcu = document.getElementById('editandoOcupacion');
-    if (divApellido.classList.contains('visible')) {
-        divApellido.classList.remove('visible');
-    } else {
-        divNombre.classList.remove('visible'); 
-        divApellido.classList.add('visible');
-        divFecha.classList.remove('visible');
-        divMail.classList.remove('visible');
-        divCel.classList.remove('visible'); 
-        divOcu.classList.remove('visible');
+    if (who == "alumno") {
+        const divGrado = document.getElementById('editandoGrado');
+        if (divApellido.classList.contains('visible')) {
+            divApellido.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.add('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.remove('visible'); 
+            divGrado.classList.remove('visible');
+        }
+    }
+    if (who == "docente") {
+        const divOcu = document.getElementById('editandoOcupacion');
+        if (divApellido.classList.contains('visible')) {
+            divApellido.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.add('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.remove('visible'); 
+            divOcu.classList.remove('visible');
+        }
     }
 }
 
-function mostrarEditarFecha() { 
+function mostrarEditarFecha(who) { 
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
-    const divOcu = document.getElementById('editandoOcupacion');
-    if (divFecha.classList.contains('visible')) {
-        divFecha.classList.remove('visible');
-    } else {
-        divNombre.classList.remove('visible'); 
-        divApellido.classList.remove('visible');
-        divFecha.classList.add('visible');
-        divMail.classList.remove('visible');
-        divCel.classList.remove('visible'); 
-        divOcu.classList.remove('visible');
+    if (who == "alumno") {
+        const divGrado = document.getElementById('editandoGrado');
+        if (divFecha.classList.contains('visible')) {
+            divFecha.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.add('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.remove('visible'); 
+            divGrado.classList.remove('visible');
+        }
+    }
+    if (who == "docente") {
+        const divOcu = document.getElementById('editandoOcupacion');
+        if (divFecha.classList.contains('visible')) {
+            divFecha.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.add('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.remove('visible'); 
+            divOcu.classList.remove('visible');
+        }
     }
 }
 
-function mostrarEditarMail() { 
+function mostrarEditarMail(who) { 
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
-    const divOcu = document.getElementById('editandoOcupacion');
-    if (divMail.classList.contains('visible')) {
-        divMail.classList.remove('visible');
-    } else {
-        divNombre.classList.remove('visible'); 
-        divApellido.classList.remove('visible');
-        divFecha.classList.remove('visible');
-        divMail.classList.add('visible');
-        divCel.classList.remove('visible'); 
-        divOcu.classList.remove('visible');
+    if (who == "alumno") {
+        const divGrado = document.getElementById('editandoGrado');
+        if (divMail.classList.contains('visible')) {
+            divMail.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.add('visible');
+            divCel.classList.remove('visible'); 
+            divGrado.classList.remove('visible');
+        }
+    }
+    if (who == "docente") {
+        const divOcu = document.getElementById('editandoOcupacion');
+        if (divMail.classList.contains('visible')) {
+            divMail.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.add('visible');
+            divCel.classList.remove('visible'); 
+            divOcu.classList.remove('visible');
+        }
     }
 }
 
-function mostrarEditarCelular() { 
+function mostrarEditarCelular(who) { 
     const divNombre = document.getElementById('editandoNombre');
     const divApellido = document.getElementById('editandoApellido');
     const divFecha = document.getElementById('editandoFecha');
     const divMail = document.getElementById('editandoMail');
     const divCel = document.getElementById('editandoCelular');
-    const divOcu = document.getElementById('editandoOcupacion');
-    if (divCel.classList.contains('visible')) {
-        divCel.classList.remove('visible');
-    } else {
-        divNombre.classList.remove('visible'); 
-        divApellido.classList.remove('visible');
-        divFecha.classList.remove('visible');
-        divMail.classList.remove('visible');
-        divCel.classList.add('visible'); 
-        divOcu.classList.remove('visible');
+    if (who == "alumno") {
+        const divGrado = document.getElementById('editandoGrado');
+        if (divCel.classList.contains('visible')) {
+            divCel.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.add('visible'); 
+            divGrado.classList.remove('visible');
+        }
+    }
+    if (who == "docente") {
+        const divOcu = document.getElementById('editandoOcupacion');
+        if (divCel.classList.contains('visible')) {
+            divCel.classList.remove('visible');
+        } else {
+            divNombre.classList.remove('visible'); 
+            divApellido.classList.remove('visible');
+            divFecha.classList.remove('visible');
+            divMail.classList.remove('visible');
+            divCel.classList.add('visible'); 
+            divOcu.classList.remove('visible');
+        }
     }
 }
 
@@ -109,6 +184,25 @@ function mostrarEditarOcupacion() {
         divMail.classList.remove('visible');
         divCel.classList.remove('visible'); 
         divOcu.classList.add('visible');
+    }
+}
+
+function mostrarEditarGrado() {
+    const divNombre = document.getElementById('editandoNombre');
+    const divApellido = document.getElementById('editandoApellido');
+    const divFecha = document.getElementById('editandoFecha');
+    const divMail = document.getElementById('editandoMail');
+    const divCel = document.getElementById('editandoCelular');
+    const divGrado = document.getElementById('editandoGrado');
+    if (divGrado.classList.contains('visible')) {
+        divGrado.classList.remove('visible');
+    } else {
+        divNombre.classList.remove('visible'); 
+        divApellido.classList.remove('visible');
+        divFecha.classList.remove('visible');
+        divMail.classList.remove('visible');
+        divCel.classList.remove('visible'); 
+        divGrado.classList.add('visible');
     }
 }
 
@@ -230,6 +324,24 @@ function guardarAtributo(id, atributo, tipo) {
             $('#ingresarOcupacion').val(null).trigger('change');
         }
     }
+    if (atributo == "grado") {
+        const gradoNuevo = document.getElementById('ingresarGrado');
+        if (gradoNuevo.value === "") {
+            Swal.fire({
+                title: "Error!",
+                text: "Debes ingresar el grado.",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 3000
+            })
+        } else {
+            txt = gradoNuevo.value;
+            valido = true;
+            const divGrado = document.getElementById('editandoGrado');
+            divGrado.classList.remove('visible');
+            gradoNuevo.value = "";
+        }
+    }
     if (valido === true) {  
         if (txt != '') {
             fetch("php/actualizarpersona.php", {
@@ -301,6 +413,10 @@ function guardarAtributo(id, atributo, tipo) {
                                 cache: true
                             }
                         })
+                    }
+                    if (atributo == "grado") {
+                        const spanGrado = document.getElementById('spanGrado');
+                        spanGrado.textContent = txt + '°';
                     }
                     txt = '';
                 }

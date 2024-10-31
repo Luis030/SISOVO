@@ -5,11 +5,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql = "SELECT 
     CONCAT(d.Nombre, ' ', d.Apellido) AS Nombre_Completo,
     COUNT(i.ID_Informe) AS Total_Informes
-FROM docentes d
-LEFT JOIN informes i ON d.ID_Docente = i.ID_Docente AND i.Estado = 1
-WHERE d.Estado = 1
-GROUP BY d.ID_Docente
-ORDER BY Total_Informes DESC;
+    FROM docentes d
+    LEFT JOIN informes i ON d.ID_Docente = i.ID_Docente AND i.Estado = 1
+    WHERE d.Estado = 1
+    GROUP BY d.ID_Docente
+    ORDER BY Total_Informes DESC;
     ";
 
     $result = mysqli_query($conexion, $sql);

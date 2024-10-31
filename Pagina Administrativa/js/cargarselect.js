@@ -465,6 +465,24 @@ $(document).ready(function() {
         }
     });
 
+    $(document).ready(function() {
+        $('#select-alumno-ingresado').on('change', function() {
+            var id = $(this).val();
+            $.ajax({
+                url: 'php/obtenergrado.php',
+                type: 'POST',
+                data: { id: id },
+                success: function(response) {
+                    console.log("Grado:", response);
+                    var grado = document.getElementById('grado');
+                    grado.placeholder = response
+                },
+                error: function() {
+                    console.error("Error al enviar el ID a PHP.");
+                }
+            });
+        });
+    });
     
 });
 

@@ -52,35 +52,35 @@
         ?>
         <div class="editarBottom">
             <div class="editarElemento">
-                <p>Nombre: <span id="spanNombre"><?php echo $nombreDocente ?></span><img src="img/editar.png" alt="Editar" id="editarNombre" onclick="mostrarEditarNombre()"></p>
+                <p>Nombre: <span id="spanNombre"><?php echo $nombreDocente ?></span><img src="img/editar.png" alt="Editar" id="editarNombre" onclick="mostrarEditarNombre('docente')"></p>
                 <div id="editandoNombre" class="fadeNombre">
                     <input type="text" id="ingresarNombre" placeholder="Ingrese nombre(s)" name="nombreNuevo" required>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'nombre', 'docente')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Apellido: <span id="spanApellido"><?php echo $apellidoDocente ?></span><img src="img/editar.png" alt="Editar" id="editarApellido" onclick="mostrarEditarApellido()"></p>
+                <p>Apellido: <span id="spanApellido"><?php echo $apellidoDocente ?></span><img src="img/editar.png" alt="Editar" id="editarApellido" onclick="mostrarEditarApellido('docente')"></p>
                 <div id="editandoApellido" class="fadeApellido">
                     <input type ="text" id="ingresarApellido" placeholder="Ingrese apellido(s)" name="apellidoNuevo" required   ></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'apellido', 'docente')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaDocente) ?></span><img src="img/editar.png" alt="Editar" id="editarFecha" onclick="mostrarEditarFecha()"></p>
+                <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaDocente) ?></span><img src="img/editar.png" alt="Editar" id="editarFecha" onclick="mostrarEditarFecha('docente')"></p>
                 <div id="editandoFecha" class="fadeFecha">
                     <input type="date" id="ingresarFecha" name="fechaNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'fecha', 'docente')">Guardar</button>   
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Mail: <span id="spanMail"><?php echo $mailDocente ?></span><img src="img/editar.png" alt="Editar" id="editarMail" onclick="mostrarEditarMail()"></p>
+                <p>Mail: <span id="spanMail"><?php echo $mailDocente ?></span><img src="img/editar.png" alt="Editar" id="editarMail" onclick="mostrarEditarMail('docente')"></p>
                 <div id="editandoMail" class="fadeMail">
-                    <input type="text" id="ingresarMail" placeholder="Ingrese mail" name="mailNuevo" required></input>
+                    <input type="email" id="ingresarMail" placeholder="Ingrese mail" name="mailNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'mail', 'docente')">Guardar</button>
                 </div>
             </div>
             <div class="editarElemento">
-                <p>Celular: <span id="spanCelular"><?php echo $celDocente ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarCelular()"></p>
+                <p>Celular: <span id="spanCelular"><?php echo $celDocente ?></span><img src="img/editar.png" alt="Editar" id="editarCelular" onclick="mostrarEditarCelular('docente')"></p>
                 <div id="editandoCelular" class="fadeCelular">
                     <input type="number" id="ingresarCelular" placeholder="Ingrese celular" name="celularNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'celular', 'docente')">Guardar</button>

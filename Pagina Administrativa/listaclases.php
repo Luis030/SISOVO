@@ -116,7 +116,7 @@ if(mysqli_num_rows($resultado) > 0){
         </div>
         <div class="botones-lista-ingresada">
             <a href="clasesdocente.php" class="botonlista botoninicio">Inicio Clases</a>
-            <a href="detalle_clases_docente.php?idclase=<?php echo $idclase ?>" class="botonlista botondetalle">Detalle Clase</a>
+            <a href="detalle_clase_docente.php?id=<?php echo $idclase ?>" class="botonlista botondetalle">Detalle Clase</a>
         </div>
     </div>
     <?php

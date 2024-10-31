@@ -164,7 +164,7 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false, para
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            data: param,
+            data: param,    
             error: function(xhr, error, code) {
                 console.log("ERROR")
                 console.error("Error en la respuesta JSON:", error); // Muestra el error si ocurre
@@ -343,6 +343,7 @@ function columnastablaAlumnos(){
         { "data": "Edad" },
         { "data": "Mail_Padres" },
         { "data": "Celular_Padres" },
+        { "data": "Grado"},
         {
             "data": null,
             "render": function(data, type, row) {

@@ -124,6 +124,7 @@
                         <th>Edad</th>
                         <th>Correo de tutor</th>
                         <th>Celular tutor</th>
+                        <th>Grado</th>
                         <th>Opciones</th>
                     </tr>
                 </thead>

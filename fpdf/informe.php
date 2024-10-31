@@ -27,9 +27,9 @@
     
     $sql = "SELECT Nombre, Apellido, Titulo, Cedula, Observaciones, Fecha_Nac, Fecha, Grado, I.Estado AS EstadoInforme, A.Estado AS EstadoAlumno
     FROM alumnos A, informes I
-    WHERE A.ID_Alumno=I.ID_Alumno
-    AND I.ID_Informe=$idinforme
-    AND Cedula=$cedula;";
+    WHERE A.ID_Alumno = I.ID_Alumno
+    AND I.ID_Informe = $idinforme
+    AND Cedula = $cedula;";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) {

@@ -27,6 +27,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             case "celular":
                 $sql = "UPDATE alumnos SET Celular_Padres = '$txt' WHERE ID_Alumno = $id";
                 break;
+            case "grado":
+                $sql = "UPDATE alumnos SET Grado = '$txt' WHERE ID_Alumno = $id";
+                break;
             default:
                 echo json_encode(['mensaje' => 'atributo no válido']);
                 exit;
