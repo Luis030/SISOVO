@@ -1,10 +1,10 @@
 <?php
-$errorlogin = false;
-if(isset($_GET['errorid'])){
-    if($_GET['errorid'] == '3'){
-        $errorlogin = true;
+    $errorlogin = false;
+    if(isset($_GET['errorid'])){
+        if($_GET['errorid'] == '3'){
+            $errorlogin = true;
+        }
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
