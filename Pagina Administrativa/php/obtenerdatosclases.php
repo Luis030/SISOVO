@@ -6,7 +6,8 @@
     $sql = "SELECT C.ID_Clase, D.ID_Docente, C.Nombre, CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, C.Horario AS Horarios, COUNT(AC.ID_Alumno) AS Cantidad_Alumnos 
             FROM clase C JOIN docentes D ON C.ID_Docente = D.ID_Docente 
             LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase AND AC.Estado = 1 AND AC.Asistio IS NULL 
-            WHERE C.Estado = 1 AND C.ID_Clase = $idclase GROUP BY C.ID_Clase";
+            JOIN alumnos A on AC.ID_Alumno=A.ID_Alumno 
+            WHERE C.Estado = 1 AND C.ID_Clase = $idclase AND A.Estado=1 GROUP BY C.ID_Clase";
     $resultado = mysqli_query($conexion, $sql);
 
     if(mysqli_num_rows($resultado) > 0){
