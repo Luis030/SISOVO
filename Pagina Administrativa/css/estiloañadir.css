@@ -7,6 +7,13 @@
     height: 100%;
 }
 
+.input-grado{
+    width: 40px !important;
+}
+#span-grado{
+    font-size: 40px;
+}
+
 .formulario-alumno {
     display: grid;
     grid-template-columns: 1fr 1fr;

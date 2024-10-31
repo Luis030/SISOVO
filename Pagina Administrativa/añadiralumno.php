@@ -16,6 +16,7 @@
             @$correo = $_POST['correo'];
             @$clases = $_POST['clases'];
             @$patologias = $_POST['patologias'];
+            $grado = $_POST['grado'];
 
             $contraseña = generarPass($cedula);
             $nombreusuario = "$nombre $apellido";
@@ -34,8 +35,8 @@
             if (mysqli_query($conexion, $sqluser) === TRUE) {
                 $IDusuario = mysqli_insert_id($conexion);
 
-                $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres) 
-                                VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular');";
+                $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres, Grado) 
+                                VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$correo', '$celular', '$grado');";
                 if (mysqli_query($conexion, $añadiralumno) === TRUE) {
                     $nAalumno = mysqli_insert_id($conexion);
 
@@ -111,15 +112,19 @@
                 </div>
                 <div class="input-alumno">
                     <p>Correo</p>
-                    <input type="text" class="input-formulario" name="correo" placeholder="Ingrese un correo (Opcional)">
+                    <input type="email" class="input-formulario" name="correo" placeholder="Ingrese un correo (Opcional)">
                 </div>
                 <div class="input-alumno">
-                    <button class="botonguardar">Guardar</button>
+                    <p>Grado</p>
+                    <input type="number" name="grado" class="input-formulario input-grado" maxlength="2" oninput="this.value=this.value.slice(0,2);" required><span id="span-grado">°</span> 
                 </div>
                 <div class="input-alumno">
                     <p>Patologia/s</p>
                     <select name="patologias[]" id="patologias-select" multiple required placeholder="Agregar patología" style="width: 100%;">
                     </select>
+                </div>
+                <div class="input-alumno">
+                    <button class="botonguardar">Guardar</button>
                 </div>
 
                 <?php

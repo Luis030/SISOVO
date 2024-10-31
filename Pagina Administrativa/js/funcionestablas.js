@@ -257,12 +257,12 @@ function eliminarAlumno(id, nombre){
         confirmButtonText: "Borrar"
         }).then((result) => {
         if (result.isConfirmed) {
-            fetch("php/borraralumno.php", {
+            fetch("php/borrarpersona.php", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: "id=" + id
+                body: "id=" + id + "&p=alumno"
             })
             .then(data => data.json())
             .then(data => {
@@ -689,6 +689,66 @@ function eliminarInforme(id, nombre, fecha){
                         tablas['tablainformes'].ajax.reload()
                     }
                     
+                }
+            })
+        }
+    })
+}
+
+function eliminarDocente(id, nombre){
+    fetch("php/borrarpersona.php", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: "id=" + id + "&p=docente&t=verificar"
+    })
+    .then(resultado => resultado.json())
+    .then(datos => {
+        if(datos.borrar = "imposible"){
+            Swal.fire({
+                icon: "warning",
+                title: "Este docente tiene asignada almenos una clase",
+                text: "Borre la clase o cambie el docente para continuar"
+            })
+            return;
+        }
+        if(datos.borrar = "posible"){
+            Swal.fire({
+                icon: "warning",
+                title: "¿Esta Seguro de eliminar este docente?",
+                text: "Docente: "+nombre,
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Borrar",
+            }).then((resultado) => {
+                if(resultado.isConfirmed){
+                    fetch("php/borrarpersona.php", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: "id=" + id + "&p=docente&t=borrar"
+                    })
+                    .then(resultado => resultado.json())
+                    .then(datos => {
+                        if(datos.resultado == "exito"){
+                            Swal.fire({
+                                icon: "success",
+                                title: "Docente eliminado correctamente",
+                                text: "Se ha borrado el docente "+nombre
+                            })
+                            tablas['tabladoc'].ajax.reload()
+                        }
+                        if(datos.resultado == "error"){
+                            Swal.fire({
+                                icon: "error",
+                                title: "Ha ocurrido un error inesperado"
+                            })
+                        }
+                    })
                 }
             })
         }
