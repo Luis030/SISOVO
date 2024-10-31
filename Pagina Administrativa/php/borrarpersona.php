@@ -17,21 +17,23 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         "Resultado" => "exitoso",
                         "IDAlumno" => $IDalumno
                     ]);
+                    exit;
                 }
             } else {
                 echo json_encode([
                     "Resultado" => "error",
                     "IDAlumno" => $IDalumno
                 ]);
+                exit;
             }
         }
     } 
-    if($_POST['p'] = "docente"){
+    if($_POST['p'] == "docente"){
         $IDdocente = $_POST['id'];
         if($_POST['t'] == "verificar"){
             $sql = "SELECT *
                     FROM clase
-                    WHERE ID_Docente = $IDdocente;";
+                    WHERE ID_Docente = $IDdocente AND Estado=1";
             $resultado = mysqli_query($conexion, $sql);
             if(mysqli_num_rows($resultado) > 0){
                 echo json_encode([

@@ -705,7 +705,7 @@ function eliminarDocente(id, nombre){
     })
     .then(resultado => resultado.json())
     .then(datos => {
-        if(datos.borrar = "imposible"){
+        if(datos.borrar == "imposible"){
             Swal.fire({
                 icon: "warning",
                 title: "Este docente tiene asignada almenos una clase",
@@ -713,7 +713,7 @@ function eliminarDocente(id, nombre){
             })
             return;
         }
-        if(datos.borrar = "posible"){
+        if(datos.borrar == "posible"){
             Swal.fire({
                 icon: "warning",
                 title: "¿Esta Seguro de eliminar este docente?",
