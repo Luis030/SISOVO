@@ -7,6 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $titulo = $_POST['informeTitulo'];
         $idAlumno = $_POST['alumnoIngresado'];
         $observaciones = $_POST['informeObservacion'];
+        $grado = $_POST['informeGrado'];
         $sql = "SELECT ID_Docente from docentes WHERE Cedula = $cedulaDocente AND Estado = 1";
         $resultado = mysqli_query($conexion, $sql);
         if(mysqli_num_rows($resultado) > 0){
@@ -15,8 +16,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             }
         }
         
-        $sql = "INSERT INTO informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Estado) 
-        VALUES ('$idDocente', '$idAlumno', '$titulo', '$observaciones', 1)";
+        $sql = "INSERT INTO informes(ID_Docente, ID_Alumno, Titulo, Observaciones, Estado, Grado) 
+        VALUES ('$idDocente', '$idAlumno', '$titulo', '$observaciones', 1, '$grado')";
         if(mysqli_query($conexion, $sql) === TRUE) {
             $idInforme = mysqli_insert_id($conexion);
             $_SESSION['idInforme'] = $idInforme;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2024 a las 21:50:23
+-- Tiempo de generación: 31-10-2024 a las 23:42:39
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,18 +46,20 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Fecha_Nac`, `Mail_Padres`, `Celular_Padres`, `Estado`, `Grado`) VALUES
-(1, 1, 'Juan', 'Pérez', 78713177, '2016-08-06', 'f', '089250435', 0, NULL),
-(2, 2, 'María', 'González', 84409802, '2007-08-19', 'padres.maría.gonzález@example.com', '098032878', 1, NULL),
-(3, 3, 'Carlos', 'Rodríguez', 33045395, '2016-10-03', 'padres.carlos.rodríguez@example.com', '096292114', 0, NULL),
-(4, 4, 'Lucía', 'Martínez', 41447172, '2016-09-07', 'padres.lucía.martínez@example.com', '097560505', 1, NULL),
-(5, 5, 'Mateo', 'López', 58681693, '2008-02-15', 'padres.mateo.lópez@example.com', '094637655', 1, NULL),
-(6, 6, 'Sofía', 'Díaz', 17812342, '2009-08-17', 'padres.sofía.díaz@example.com', '094385559', 1, NULL),
-(7, 7, 'Tomás', 'Fernández', 13956930, '2011-04-30', '', '095140250', 1, NULL),
-(8, 8, 'vbcbgc', 'fran', 59170771, '2013-11-27', 'padres.camila.garcía@example.com', '098646116', 1, NULL),
-(9, 9, 'martinez', 'Hernández', 12111791, '2009-05-28', 'padres.martín.hernández@example.com', '093064627', 1, NULL),
-(10, 10, 'Valentina', 'Sánchez', 55397008, '2009-02-28', 'padres.valentina.sánchez@example.com', '095808961', 1, NULL),
-(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', 'lmanuelsosa@gmial.com', '092504454', 1, NULL),
-(12, 26, 'Sofía Milagros', 'Gallero Monte', 56437766, '2006-10-23', 'sofiagallero698@gmail.com', '098280012', 1, NULL);
+(1, 1, 'Juan', 'Pérez', 78713177, '2016-08-06', 'f', '089250435', 0, 4),
+(2, 2, 'María', 'González', 84409802, '2007-08-19', 'padres.maría.gonzález@example.com', '098032878', 1, 5),
+(3, 3, 'Carlos', 'Rodríguez', 33045395, '2016-10-03', 'padres.carlos.rodríguez@example.com', '096292114', 0, 8),
+(4, 4, 'Lucía', 'Martínez', 41447172, '2016-09-07', 'padres.lucía.martínez@example.com', '097560505', 1, 10),
+(5, 5, 'Mateo', 'López', 58681693, '2008-02-15', 'padres.mateo.lópez@example.com', '094637655', 1, 15),
+(6, 6, 'Sofía', 'Díaz', 17812342, '2009-08-17', 'padres.sofía.díaz@example.com', '094385559', 1, 38),
+(7, 7, 'Tomás', 'Fernández', 13956930, '2011-04-30', '', '095140250', 1, 7),
+(8, 8, 'vbcbgc', 'fran', 59170771, '2013-11-27', 'padres.camila.garcía@example.com', '098646116', 1, 3),
+(9, 9, 'martinez', 'Hernández', 12111791, '2009-05-28', 'padres.martín.hernández@example.com', '093064627', 1, 6),
+(10, 10, 'Valentina', 'Sánchez', 55397008, '2009-02-28', 'padres.valentina.sánchez@example.com', '095808961', 1, 3),
+(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', 'lmanuelsosa@gmial.com', '092504454', 1, 1),
+(12, 26, 'Sofía Milagros', 'Gallero Monte', 56437766, '2006-10-23', 'sofiagallero698@gmail.com', '098280012', 0, 6),
+(14, 29, 'fafsaf', 'sdfsfs', 56437766, '2024-10-31', '', '43253453', 0, 5),
+(15, 30, 'fddgh', 'fsdfsdf', 56437766, '2024-10-31', 'fsdfsd@gfdggd', '453535', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -185,10 +187,10 @@ INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedul
 (2, 12, 'Pedro', 'Gómez', 26673841, 'pedro.gómez@example.com', '097816287', '1991-08-14', 1, 3),
 (3, 13, 'Laura', 'Fernández', 73882441, 'laura.fernández@example.com', '095430551', '2000-11-03', 1, 1),
 (4, 14, 'Santiago', 'Morales', 61377294, 'santiago.morales@example.com', '098171709', '2003-10-26', 1, 5),
-(5, 15, 'Claudia', 'Ruiz', 92692705, 'qur carajo@gmail.copm', '096836842', '2024-11-09', 1, 6),
+(5, 15, 'Claudia', 'Ruiz', 92692705, 'qur carajo@gmail.copm', '096836842', '2024-11-09', 0, 6),
 (6, 16, 'Roberto', 'Torres', 52837341, 'roberto.torres@example.com', '092898511', '1986-11-23', 1, 8),
 (7, 17, 'María', 'López', 16156404, 'maría.lópez@example.com', '098583986', '2000-09-07', 1, 9),
-(8, 18, 'Carlos', 'Méndez', 45659784, 'carlos.méndez@example.com', '091633174', '1998-12-04', 1, 2),
+(8, 18, 'Carlos', 'Méndez', 45659784, 'carlos.méndez@example.com', '091633174', '1998-12-04', 0, 2),
 (9, 19, 'Paula', 'Gutiérrez', 71192529, 'paula.gutiérrez@example.com', '098201334', '2004-08-19', 1, 11),
 (10, 20, 'Jorge', 'Herrera', 15918386, 'jorge.herrera@example.com', '095486464', '1985-02-05', 1, 12),
 (13, 24, 'Luis Manuel', 'Sosa Berroa', 56777350, 'LManuelSosa@gmail.com', '092504454', '2007-03-27', 1, 4),
@@ -276,44 +278,46 @@ CREATE TABLE `informes` (
   `Titulo` varchar(50) NOT NULL,
   `Observaciones` text NOT NULL,
   `Fecha` date NOT NULL DEFAULT curdate(),
-  `Estado` tinyint(1) DEFAULT 1
+  `Estado` tinyint(1) DEFAULT 1,
+  `Grado` int(2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `informes`
 --
 
-INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`, `Estado`) VALUES
-(1, 13, 11, 'Informe de prueba', 'Informe de prueba del alumno Federico Nicolás.', '2024-09-27', 1),
-(2, 13, 11, 'Informe de prueba 2', 'Segundo informe de prueba del alumno Federico Nicolás.', '2024-09-27', 1),
-(3, 13, 2, 'informe nocturno', 'lo del grado lo va a solucionar dios asi nomas te lo digo zednic', '2024-10-18', 1),
-(4, 13, 4, 'informes askfal fklsf', 'probando', '2024-06-25', 1),
-(5, 13, 6, 'dffsdf', 'probando', '2024-06-25', 0),
-(6, 13, 7, 'jajash', 'probando', '2023-10-25', 1),
-(7, 13, 4, 'gjghj', 'probando', '2024-05-25', 1),
-(8, 13, 10, 'hfghfghf', 'probando', '2024-05-25', 1),
-(9, 13, 10, 'gfhfgjfjkghkgh hkh', 'gfdgdfg', '2024-04-25', 0),
-(10, 13, 2, 'larrana', 'probando', '2024-10-25', 1),
-(11, 13, 7, 'gfdgdg', 'probando', '2024-01-25', 0),
-(12, 13, 8, 'gfdgdfgdg', 'probando', '2024-02-25', 1),
-(13, 13, 1, 'gdfdjhfgjh', 'probando', '2024-05-25', 0),
-(14, 13, 11, 'jgjghjghjg', 'probando', '2024-04-25', 1),
-(15, 13, 4, 'hgjhgfj', 'fgsdfsfs', '2024-03-25', 1),
-(16, 13, 5, 'gdgd', 'probando', '2024-10-25', 0),
-(17, 13, 7, 'dfgdgf', 'gdfgd', '2024-10-25', 0),
-(18, 13, 10, 'jfjghjghjg', 'probando', '2024-10-25', 1),
-(19, 13, 6, 'jghjghj', 'probando', '2024-10-25', 1),
-(20, 13, 4, 'fgdgdf', 'probando', '2024-04-25', 0),
-(21, 13, 8, 'dsgdfgdf', 'probando', '2024-04-25', 0),
-(22, 13, 5, 'gfdgdgdfg', 'probando', '2024-04-25', 0),
-(23, 13, 6, 'gdhfjfjf', 'probando', '2024-04-25', 0),
-(24, 13, 7, 'nfgjghfjgkj', 'probando', '2024-08-25', 1),
-(25, 13, 8, 'fgdhfdhfjj', 'probando', '2024-09-25', 0),
-(26, 13, 5, 'hdj', 'probando', '2024-10-25', 1),
-(27, 13, 7, 'hfghdgfh', 'probando', '2024-10-25', 1),
-(28, 13, 11, 'ggfdgdsg', 'probando', '2024-10-25', 0),
-(29, 13, 5, 'dgfshsgfhd', 'probando', '2024-10-25', 0),
-(30, 13, 6, 'gdsgfsgfds', 'probando', '2024-10-25', 0);
+INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Observaciones`, `Fecha`, `Estado`, `Grado`) VALUES
+(1, 13, 11, 'Informe de prueba', 'Informe de prueba del alumno Federico Nicolás.', '2024-09-27', 1, 4),
+(2, 13, 11, 'Informe de prueba 2', 'Segundo informe de prueba del alumno Federico Nicolás.', '2024-09-27', 1, 4),
+(3, 13, 2, 'informe nocturno', 'lo del grado lo va a solucionar dios asi nomas te lo digo zednic', '2024-10-18', 1, 4),
+(4, 13, 4, 'informes askfal fklsf', 'probando', '2024-06-25', 1, 4),
+(5, 13, 6, 'dffsdf', 'probando', '2024-06-25', 0, 4),
+(6, 13, 7, 'jajash', 'probando', '2023-10-25', 1, 4),
+(7, 13, 4, 'gjghj', 'probando', '2024-05-25', 1, 4),
+(8, 13, 10, 'hfghfghf', 'probando', '2024-05-25', 1, 4),
+(9, 13, 10, 'gfhfgjfjkghkgh hkh', 'gfdgdfg', '2024-04-25', 0, 4),
+(10, 13, 2, 'larrana', 'probando', '2024-10-25', 1, 4),
+(11, 13, 7, 'gfdgdg', 'probando', '2024-01-25', 0, 4),
+(12, 13, 8, 'gfdgdfgdg', 'probando', '2024-02-25', 1, 4),
+(13, 13, 1, 'gdfdjhfgjh', 'probando', '2024-05-25', 0, 4),
+(14, 13, 11, 'jgjghjghjg', 'probando', '2024-04-25', 1, 4),
+(15, 13, 4, 'hgjhgfj', 'fgsdfsfs', '2024-03-25', 1, 4),
+(16, 13, 5, 'gdgd', 'probando', '2024-10-25', 0, 4),
+(17, 13, 7, 'dfgdgf', 'gdfgd', '2024-10-25', 0, 4),
+(18, 13, 10, 'jfjghjghjg', 'probando', '2024-10-25', 1, 4),
+(19, 13, 6, 'jghjghj', 'probando', '2024-10-25', 1, 4),
+(20, 13, 4, 'fgdgdf', 'probando', '2024-04-25', 0, 4),
+(21, 13, 8, 'dsgdfgdf', 'probando', '2024-04-25', 0, 4),
+(22, 13, 5, 'gfdgdgdfg', 'probando', '2024-04-25', 0, 4),
+(23, 13, 6, 'gdhfjfjf', 'probando', '2024-04-25', 0, 4),
+(24, 13, 7, 'nfgjghfjgkj', 'probando', '2024-08-25', 1, 4),
+(25, 13, 8, 'fgdhfdhfjj', 'probando', '2024-09-25', 0, 4),
+(26, 13, 5, 'hdj', 'probando', '2024-10-25', 1, 4),
+(27, 13, 7, 'hfghdgfh', 'probando', '2024-10-25', 1, 4),
+(28, 13, 11, 'ggfdgdsg', 'probando', '2024-10-25', 0, 4),
+(29, 13, 5, 'dgfshsgfhd', 'probando', '2024-10-25', 0, 4),
+(30, 13, 6, 'gdsgfsgfds', 'probando', '2024-10-25', 0, 4),
+(31, 13, 9, 'fsfsfs', 'FFSAFASF', '2024-10-31', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -501,7 +505,9 @@ INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`, `Estado`) VALUES
 (15, 12, 1),
 (4, 1, 0),
 (5, 9, 1),
-(4, 9, 1);
+(4, 9, 1),
+(5, 14, 1),
+(5, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -537,16 +543,19 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`,
 (12, 'Pedro Gómez', 22334455, 'clave456', 'docente', 1),
 (13, 'Laura Fernández', 33445566, 'clave789', 'docente', 1),
 (14, 'Santiago Morales', 44556677, 'clave101', 'docente', 1),
-(15, 'Claudia Ruiz', 55667788, 'clave202', 'docente', 1),
+(15, 'Claudia Ruiz', 55667788, 'clave202', 'docente', 0),
 (16, 'Roberto Torres', 66778899, 'clave303', 'docente', 1),
 (17, 'María López', 77889900, 'clave404', 'docente', 1),
-(18, 'Carlos Méndez', 88990011, 'clave505', 'docente', 1),
+(18, 'Carlos Méndez', 88990011, 'clave505', 'docente', 0),
 (19, 'Paula Gutiérrez', 99001122, 'clave606', 'docente', 1),
 (20, 'Jorge Herrera', 112233, 'clave707', 'docente', 1),
 (22, 'Federico Nicolás Simonelli Cavallo', 56129975, '$2y$10$4Z0SClNg.Evh2eVrI.daWuKodQfZeObBqRewU2uInm9OSC1Vmkwxe', 'alumno', 1),
 (24, 'Luis Manuel Sosa Berroa', 56777350, '$2y$10$AEGAlZvNY1avPNO2yiQzcO4JgDlSCg2BA7kQ1e5dIEn3Np3m6hYvy', 'docente', 1),
 (25, 'Ian Andrés Volpi Zamit', 56499637, '$2y$10$y2cGLZVJKWR31MPz5d7yu.VUnM1RMTkA4GYVnTDBec3zxzC6CslK2', 'admin', 1),
-(26, 'Sofía Milagros Gallero Monte', 56437766, '$2y$10$05u5ljEissXBYxLvbHMdAOI9dsuoEvuM7ZIJfBZRXURxYKXCaYbz6', 'alumno', 1);
+(26, 'Sofía Milagros Gallero Monte', 56437766, '$2y$10$05u5ljEissXBYxLvbHMdAOI9dsuoEvuM7ZIJfBZRXURxYKXCaYbz6', 'alumno', 0),
+(28, 'sofia simonelli monte cavallo', 56437766, '$2y$10$d.yDPDt/aJ79lnJHgW.NROE.qTm2pvBBQX.4ZWXM6.6lvku53R18q', 'alumno', 0),
+(29, 'fafsaf sdfsfs', 56437766, '$2y$10$Js7faqODTorQGOO.Zj4oyOvoayZZm3vm0UKECSEQmyRcNRHBGDLrm', 'alumno', 0),
+(30, 'fdsfsd fsdfsdf', 56437766, '$2y$10$YNf8wV9M10eiwBX7hygy6.qBT/tl20X0uWF6xXd/0AHuweNVKKeFO', 'alumno', 0);
 
 --
 -- Índices para tablas volcadas
@@ -557,7 +566,6 @@ INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`,
 --
 ALTER TABLE `alumnos`
   ADD PRIMARY KEY (`ID_Alumno`),
-  ADD UNIQUE KEY `Cedula` (`Cedula`),
   ADD KEY `ID_Usuario` (`ID_Usuario`);
 
 --
@@ -635,8 +643,7 @@ ALTER TABLE `patologia_alumno`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`ID_Usuario`),
-  ADD UNIQUE KEY `Cedula` (`Cedula`);
+  ADD PRIMARY KEY (`ID_Usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -646,7 +653,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_Alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `clase`
@@ -670,7 +677,7 @@ ALTER TABLE `especializaciones`
 -- AUTO_INCREMENT de la tabla `informes`
 --
 ALTER TABLE `informes`
-  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID_Informe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `lista_docente`
@@ -694,7 +701,7 @@ ALTER TABLE `patologias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restricciones para tablas volcadas

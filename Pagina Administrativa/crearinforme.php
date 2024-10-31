@@ -20,7 +20,7 @@
             </div>
             <div class="grado">
                 <p>Grado</p>
-                <input type="number" id="grado" name="informeGrado" class="informeGrado" disabled> °
+                <input type="number" id="grado" name="informeGrado" class="informeGrado" maxlength="2" oninput="this.value=this.value.slice(0,2);" required> °
             </div>
             <div class="botones">
                 <button class="btn">Enviar</button>

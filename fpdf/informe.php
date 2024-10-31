@@ -25,7 +25,7 @@
     
     $idinforme = $_GET['ID'];
     
-    $sql = "SELECT Nombre, Apellido, Titulo, Cedula, Observaciones, Fecha_Nac, Fecha, Grado, I.Estado AS EstadoInforme, A.Estado AS EstadoAlumno
+    $sql = "SELECT Nombre, Apellido, Titulo, Cedula, Observaciones, Fecha_Nac, Fecha, I.Grado, I.Estado AS EstadoInforme, A.Estado AS EstadoAlumno
     FROM alumnos A, informes I
     WHERE A.ID_Alumno = I.ID_Alumno
     AND I.ID_Informe = $idinforme
