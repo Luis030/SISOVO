@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         mysqli_query($conexion, $añadirEsp);
                     }
                 }
-                header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true");
+                header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $idDoc);
                 exit;
             }
         }
@@ -124,17 +124,19 @@ include("php/header_sidebar.php");
                 <div class="input-docente">
                     <button class="botonguardar">Guardar</button>
                 </div>
-                <div class="input-alumno">
-                    <?php
-                    if($docenteingresado === TRUE){
-                        echo "<div class='success'>Docente ingresado correctamente.</div>";
-                    } else if ($ceduladuplicada === TRUE){
+                <?php
+                    if($docenteingresado === TRUE) {
+                    $id = $_GET['id'];
+                    echo "<div class='success'>Docente ingresado correctamente.</div>";
+                    echo "<div class='input-docente'>";
+                    echo "<a class='botonguardar nuevo' href='detalle_docente.php?id=$id'>Ver último docente ingresado</a>";
+                    echo "</div>";
+                    } else if ($ceduladuplicada === TRUE) {
                         echo "<div class='error'>Cedula ya ingresada.</div>";
-                    } else if($cedulanoexiste === TRUE){
-                        echo "<div class='error'>Cedula inválida.</div>";
+                    } else if($cedulanoexiste === TRUE) {
+                    echo "<div class='error'>Cedula inválida.</div>";
                     }
-                    ?>
-                </div>
+                ?>
             </div>
         </form>
     </div>

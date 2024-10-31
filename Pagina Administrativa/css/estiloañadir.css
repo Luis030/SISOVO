@@ -54,7 +54,7 @@
     color: #333333
 }
 
-.input-alumno button {
+.input-alumno button, .input-alumno a {
     font-size: 30px;
     border: 2px solid var(--color-secundario);
 }
@@ -94,6 +94,10 @@
 
 .botonguardar:hover {
     filter: brightness(75%);
+}
+
+.botonguardar.nuevo {
+    text-decoration: none;
 }
 
 .cambiarpagina {
