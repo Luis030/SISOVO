@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
-
+    $cantidad = isset($_POST['filtro']) ? $_POST['filtro'] : 1;
     $sql = "SELECT 
     CONCAT(d.Nombre, ' ', d.Apellido) AS Nombre_Completo,
     COUNT(c.ID_Clase) AS Total_Clases
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['Total_Clases'] < 1) {
+        if ($row['Total_Clases'] < $cantidad) {
             //Se agrupa en otras si es es menor a cierta cantidad
             $otras += $row['Total_Clases'];
         } else {

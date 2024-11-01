@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
-
+    $cantidad = isset($_POST['filtro']) ? $_POST['filtro'] : 1;
     $sql = "SELECT 
     CONCAT(d.Nombre, ' ', d.Apellido) AS Nombre_Completo,
     COUNT(i.ID_Informe) AS Total_Informes
@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-        if ($row['Total_Informes'] < 1) {
+        if ($row['Total_Informes'] < $cantidad) {
             //Se agrupa en otras si es es menor a cierta cantidad
             $otras += $row['Total_Informes'];
         } else {
@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     // Si hay patologías agrupadas como "Otras", añadirlas al array final
     if ($otras > 0) {
-        $etiquetas[] = 'Otras';
+        $etiquetas[] = 'Otros';
         $valores[] = $otras;
     }
 

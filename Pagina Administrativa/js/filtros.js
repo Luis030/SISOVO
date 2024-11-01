@@ -122,7 +122,7 @@ function filtrosAvanzadosListaDocente(){
     })
 }
 let cantidadfiltroPat = 2;
-function filtroGraficoPat(){
+function filtroGraficoPat(grafico){
   Swal.fire({
     title: "Filtro",
         showCancelButton: true,
@@ -145,12 +145,22 @@ function filtroGraficoPat(){
           }
 
           if(filtros > 0){
-            crearGrafico("canvaPat", "pie", "php/patologiasgrafico.php", [], {
-              leyenda: false,
-              label: "Alumnos"
-          }, {
-            cantidadA: cantidad
-          })
+            if(grafico == 1){
+              crearGrafico("canvaPat", "pie", "php/patologiasgrafico.php", [], {
+                leyenda: false,
+                label: "Alumnos"
+              }, {
+                cantidadA: cantidad
+              })
+            } else {
+              crearGrafico("canvaPatElementos", "pie", "php/patologiasgrafico.php", [], {
+                leyenda: false,
+                label: "Alumnos"
+            }, {
+              cantidadA: cantidad
+            })
+            }
+            
           
           cantidadfiltroPat = cantidad;
           if(cantidadfiltroPat != 2){
@@ -343,4 +353,168 @@ function filtradoTablaAlumnos() {
       }
     }
   });
+}
+let cantidadfiltroDocAlu = 2;
+function filtradoGraficoDocAlu(){
+  Swal.fire({
+    title: "Filtro",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        html: `
+        <span>Agrupar en otros: </span>
+        <br>
+        <span>Docentes con menos de <input type='number' id='filtroGDOCALU' min=0 placeholder=`+cantidadfiltroDocAlu+`> alumnos</span>
+              `
+  }).then((resultado) => {
+    if(resultado.isConfirmed){
+      let cantidad = "";
+      let filtros = 0;
+      const valorCantidad = document.getElementById('filtroGDOCALU').value;
+      if(valorCantidad){
+        cantidad = valorCantidad;
+        filtros++;
+      }
+
+      if(filtros > 0){
+        crearGrafico("canvaDocAlu", "pie", "php/alumnosdocentegrafico.php", [], {
+          leyenda: false,
+          label: "Alumnos"
+        }, {
+          filtro: cantidad
+        })
+      
+        cantidadfiltroDocAlu = cantidad;
+        if(cantidadfiltroDocAlu != 2){
+          document.querySelector('.filtradoGDocAlu').style.fill = "blue";
+        } else {
+          document.querySelector('.filtradoGDocAlu').style.fill = "transparent";
+        }
+      }
+    }
+  })
+}
+let cantidadfiltroDocCla = 1;
+function filtradoGraficoDocCla(){
+  Swal.fire({
+    title: "Filtro",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        html: `
+        <span>Agrupar en otros: </span>
+        <br>
+        <span>Docentes con menos de <input type='number' id='filtroGDOCCLA' min=0 placeholder=`+cantidadfiltroDocCla+`> clases</span>
+              `
+  }).then((resultado) => {
+    if(resultado.isConfirmed){
+      let cantidad = "";
+      let filtros = 0;
+      const valorCantidad = document.getElementById('filtroGDOCCLA').value;
+      if(valorCantidad){
+        cantidad = valorCantidad;
+        filtros++;
+      }
+
+      if(filtros > 0){
+        crearGrafico("canvaDocCla", "pie", "php/docentesclasegrafico.php", [], {
+          leyenda: false,
+          label: "Clases"
+      }, {
+        filtro: cantidad
+      })
+      
+        cantidadfiltroDocCla = cantidad;
+        if(cantidadfiltroDocCla != 1){
+          document.querySelector('.filtradoGDocCla').style.fill = "blue";
+        } else {
+          document.querySelector('.filtradoGDocCla').style.fill = "transparent";
+        }
+      }
+    }
+  })
+}
+let cantidadfiltroDocInf = 1;
+function filtradoGraficoDocInf(){
+  Swal.fire({
+    title: "Filtro",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        html: `
+        <span>Agrupar en otros: </span>
+        <br>
+        <span>Docentes con menos de <input type='number' id='filtroGDOCINF' min=0 placeholder=`+cantidadfiltroDocInf+`> informes</span>
+              `
+  }).then((resultado) => {
+    if(resultado.isConfirmed){
+      let cantidad = "";
+      let filtros = 0;
+      const valorCantidad = document.getElementById('filtroGDOCINF').value;
+      if(valorCantidad){
+        cantidad = valorCantidad;
+        filtros++;
+      }
+
+      if(filtros > 0){
+        crearGrafico("canvaDocInf", "pie", "php/informesdocentegrafico.php", [], {
+          leyenda: false,
+          label: "Informes"
+        }, {
+          filtro: cantidad
+        })
+      
+        cantidadfiltroDocInf = cantidad;
+        if(cantidadfiltroDocInf != 1){
+          document.querySelector('.filtradoGDocInf').style.fill = "blue";
+        } else {
+          document.querySelector('.filtradoGDocInf').style.fill = "transparent";
+        }
+      }
+    }
+  })
+}
+let cantidadfiltroOcu = 1;
+function filtroGraficoOcu(){
+  Swal.fire({
+    title: "Filtro",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancelar",
+        html: `
+        <span>Agrupar en otros: </span>
+        <br>
+        <span>Ocupaciones con menos de <input type='number' id='filtroGOcu' min=0 placeholder=`+cantidadfiltroOcu+`> personas</span>
+              `
+  }).then((resultado) => {
+    if(resultado.isConfirmed){
+      let cantidad = "";
+      let filtros = 0;
+      const valorCantidad = document.getElementById('filtroGOcu').value;
+      if(valorCantidad){
+        cantidad = valorCantidad;
+        filtros++;
+      }
+
+      if(filtros > 0){
+        crearGrafico("canvaEmpleados", "pie", "php/ocupacionesgrafico.php", [], {
+          leyenda: false,
+          label: "Personas"
+        }, {
+          filtro: cantidad
+        })
+      
+        cantidadfiltroOcu = cantidad;
+        if(cantidadfiltroOcu != 1){
+          document.querySelector('.filtradoGOcu').style.fill = "blue";
+        } else {
+          document.querySelector('.filtradoGOcu').style.fill = "transparent";
+        }
+      }
+    }
+  })
 }

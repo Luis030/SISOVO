@@ -1,5 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
+        $cantidad = isset($_POST['filtro']) ? $_POST['filtro'] : 1;
         include("../../BD/conexionbd.php"); 
 
         $sql = "SELECT O.Nombre, COUNT(*) AS Cantidad FROM ocupacion O JOIN especializaciones E on E.ID_Ocupacion=O.ID_Ocupacion JOIN especializacion_docente ED on E.ID_Especializacion=ED.ID_Especializacion WHERE ED.Estado=1 AND O.Estado=1 AND E.Estado=1 GROUP by 1;";
@@ -14,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
         while ($row = mysqli_fetch_assoc($result)) {
-            if ($row['Cantidad'] < 1) {
+            if ($row['Cantidad'] < $cantidad) {
                 //Se agrupa en otras si es es menor a cierta cantidad
                 $otras += $row['Cantidad'];
             } else {

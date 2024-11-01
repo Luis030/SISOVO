@@ -117,7 +117,12 @@ select {
     display: flex;
     justify-content: center;
 }
-
+.grafico-docentes h1, .contenedor-grafico-patologias h1{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
 .grafInf {
     text-align: center;
     font-size: 35px;
@@ -130,16 +135,16 @@ select {
 #canvaInf {
     max-height: 500px;
 }
-#filtroGPAT, #filtroGESP, #filtroGInf{
+#filtroGPAT, #filtroGESP, #filtroGInf, #filtroGDOCALU, #filtroGDOCCLA, #filtroGDOCINF, #filtroGOcu{
     width: 20px;
 }
-.info-inicio svg{
+.info-inicio svg, .grafico-docentes svg, .contenedor-grafico-patologias svg, .contenedor-grafico-empleados svg{
     width: 35px;
     height: 35px;
     margin-left: 10px;
 }
 
-.info-inicio svg:hover{
+.info-inicio svg:hover, .grafico-docentes svg:hover, .contenedor-grafico-patologias svg:hover, .contenedor-grafico-empleados svg:hover{
     fill: skyblue !important;
     cursor: pointer;
 }
