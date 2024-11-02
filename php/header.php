@@ -1,4 +1,9 @@
 <?php
+    ini_set('session.cookie_httponly', 1);
+    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+        ini_set('session.cookie_secure', 1);
+    }
+    ini_set('session.use_strict_mode', 1);
     session_start();
 ?>
 <meta http-equiv="Expires" content="0">
