@@ -4,10 +4,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $IDClase = $_POST['id'];
 
-    if ($IDClase && isset($_POST['eliminar'])) {
+    if (isset($_POST['eliminar'])) {
         $sql = "SELECT ID_Alumno
                 FROM alumnos_clase
-                WHERE ID_Clase = $IDClase";
+                WHERE ID_Clase = $IDClase
+                AND Estado = 1";
 
         $resultado = mysqli_query($conexion, $sql);
 
@@ -28,9 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         exit;
     }
 
-    if ($IDClase) {
+    if (isset($_POST['borrar'])) {
         $sql = "UPDATE clase 
-                SET Estado=0
+                SET Estado = 0
                 WHERE ID_Clase = $IDClase";
                 
         if(mysqli_query($conexion, $sql) === TRUE){

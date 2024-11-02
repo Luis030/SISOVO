@@ -54,7 +54,7 @@ function eliminarClase(id, nombre) {
                             headers: {
                                 'Content-Type': 'application/x-www-form-urlencoded'
                             },
-                            body: "id=" + id
+                            body: "id=" + id + "&&borrar=si"
                         })
                         .then(data => data.json())
                         .then(dato => {
