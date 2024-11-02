@@ -25,12 +25,15 @@
                     <p>Contraseña</p>
                     <input type="password" name="pass" required>
                     <p>
-                    <button>Ingresar</button>
+                        <button>Ingresar</button>
+                    </p>
+                    <p class="atrasp">
+                        <a href="../index" class="atras">Atras</a>
                     </p>
                     <?php
-                    if($errorlogin === TRUE){
-                        echo "<div class='errorlogin'>Credenciales incorrectas.</div>";
-                    }
+                        if($errorlogin === TRUE) {
+                            echo "<div class='errorlogin'>Credenciales incorrectas.</div>";
+                        }
                     ?>
                 </form>
             </div>
