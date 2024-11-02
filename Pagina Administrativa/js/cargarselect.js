@@ -7,6 +7,17 @@ $(document).ready(function() {
 
     //POST
     $('#ingresarOcupacion').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione Ocupación',
         minimumInputLength: 0,
         cache: true,
@@ -35,6 +46,17 @@ $(document).ready(function() {
 
     //POST
     $('#agregarEspDocente').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione especialidades para agregar',
         minimumInputLength: 0,
         cache: true,
@@ -64,6 +86,17 @@ $(document).ready(function() {
 
     //POST
     $('#agregarPatAlumno').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione patologías para agregar',
         minimumInputLength: 0,
         cache: true,
@@ -92,6 +125,17 @@ $(document).ready(function() {
 
     //POST
     $('#alumnosClase').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione alumnos',
         minimumInputLength: 0,
         cache: true,
@@ -117,11 +161,33 @@ $(document).ready(function() {
     });
 
     $('#diasClase').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione día(s)',
         minimumInputLength: 0,
     })
 
     $('#diasClase').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione día(s)',
         minimumInputLength: 0, 
         cache: true
@@ -149,6 +215,17 @@ $(document).ready(function() {
 
     //POST
     $('#docenteClase').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
         ajax: {
@@ -175,6 +252,17 @@ $(document).ready(function() {
 
     //POST
     $('#ingresarDocente').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione un docente',
         minimumInputLength: 0, 
         ajax: {
@@ -201,6 +289,17 @@ $(document).ready(function() {
 
     //POST
     $('#select-alumnos').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: "Buscar alumno..",
         minimumInputLength: 0,
         ajax: {
@@ -228,6 +327,17 @@ $(document).ready(function() {
     //POST
     if($('#patologias-select').length){
         $('#patologias-select').select2({
+            language: {
+                noResults: function() {
+                    return "No se encontraron resultados";
+                },
+                searching: function() {
+                    return "Buscando...";
+                },
+                loadingMore: function() {
+                    return "Cargando más resultados...";
+                }
+            },
             placeholder: 'Busca o selecciona patologías...', 
             minimumInputLength: 0, 
             ajax: {
@@ -255,6 +365,17 @@ $(document).ready(function() {
     
     //POST
     $('#ocupacionEspecialidad').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Seleccione una ocupación',
         ajax: {
             url: 'php/obtenerocupaciones.php',  
@@ -275,6 +396,17 @@ $(document).ready(function() {
 
     //POST
     $('#ocupacion-select').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Selecciona una ocupación',
         ajax: {
             url: 'php/obtenerocupaciones.php',  
@@ -300,6 +432,17 @@ $(document).ready(function() {
 
     //POST
     $('#select-alumno-ingresado').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: "Seleccione un alumno",
         minimumInputLength: 0,
         ajax: {
@@ -328,6 +471,17 @@ $(document).ready(function() {
     });
 
     $('.informeClaseAlumno').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Filtrar por clase'
     })
 
@@ -335,6 +489,17 @@ $(document).ready(function() {
     $('.porClase').change(function() {
         if ($(this).is(':checked')) {
             $('.informeClaseAlumno').prop('disabled', false).select2({
+                language: {
+                    noResults: function() {
+                        return "No se encontraron resultados";
+                    },
+                    searching: function() {
+                        return "Buscando...";
+                    },
+                    loadingMore: function() {
+                        return "Cargando más resultados...";
+                    }
+                },
                 placeholder: 'Selecciona una clase',
                 minimumInputLength: 0,
                 ajax: {
@@ -362,6 +527,17 @@ $(document).ready(function() {
 
     //POST
     $('#select-ocupacion-overlay').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Elija la ocupación',
         minimumInputLength: 0,
         ajax: {
@@ -387,6 +563,17 @@ $(document).ready(function() {
 
     //POST
     $('#especialidades-select').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Busca o selecciona especialidades',
         minimumInputLength: 0,
         ajax: {
@@ -437,6 +624,17 @@ $(document).ready(function() {
 
     //POST
     $('#fecha').select2({
+        language: {
+            noResults: function() {
+                return "No se encontraron resultados";
+            },
+            searching: function() {
+                return "Buscando...";
+            },
+            loadingMore: function() {
+                return "Cargando más resultados...";
+            }
+        },
         placeholder: 'Busca o selecciona especialidades',
         minimumInputLength: 0,
         ajax: {
