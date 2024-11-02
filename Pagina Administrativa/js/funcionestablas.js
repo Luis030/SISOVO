@@ -356,7 +356,7 @@ function eliminarPat(id, nombre){
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: "id="+id+"&nombre="+nombre+"&tipo=pat&opcion=borrar&eliminar=false"
+        body: "id=" + id + "&nombre=" + nombre + "&tipo=pat&opcion=borrar&eliminar=false"
     })
     .then(datos => datos.json())
     .then(datos => {
@@ -370,7 +370,7 @@ function eliminarPat(id, nombre){
         if(datos.resultado == "posible"){
             Swal.fire({
                 icon: "warning",
-                title: "¿Esta seguro de borrar la patologia "+nombre+"?",
+                title: "¿Esta seguro de borrar la patologia " + nombre + "?",
                 text: "Esto no se podrá deshacer",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",

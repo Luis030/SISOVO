@@ -13,7 +13,6 @@
     }
 
     $idclase = $_GET['id'];
-
 ?>
 <script>
     window.idClase = <?php echo $idclase ?>
@@ -24,7 +23,6 @@
 <script src="js/funcionestablas.js"></script>
 <script src="js/editarclases.js"></script>
 <script src="js/cargarselect.js"></script>
-
 <div class="contenedor-detalle-clases">
     <div class="volverclases">
         <img src="img/atras.png" alt="Volver" class="volver" id="volver" onclick="volverAtras()">

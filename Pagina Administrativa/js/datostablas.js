@@ -327,7 +327,7 @@ function columnastablaDocentes(){
 }
 
 
-function columnastablaAlumnos(){
+function columnastablaAlumnos() {
     return [
         { "data": "Nombre",
             "render": function(data, type, row) {
@@ -357,7 +357,7 @@ function columnastablaAlumnos(){
     ]
 }
 
-function columnastablaInformes(){
+function columnastablaInformes() {
     return [
         { "data": "Titulo",
             "render": function(data, type, row) {
@@ -413,7 +413,7 @@ function tablaInformesDocente() {
     ]
 }
 
-function columnastablaPatologias(){
+function columnastablaPatologias() {
     return [
         { "data": "Nombre" },
         { "data": "Cantidad" },
@@ -430,7 +430,7 @@ function columnastablaPatologias(){
     ]
 }
 
-function columnastablaOcupaciones(){
+function columnastablaOcupaciones() {
     return [
         { "data": "Ocupacion" },
         { "data": "Total_Docentes" },
@@ -446,7 +446,7 @@ function columnastablaOcupaciones(){
     ]
 }
 
-function columnastablaEspecialidades(){
+function columnastablaEspecialidades() {
     return [
         { "data": "Especializacion" },
         { "data": "Ocupacion" },
