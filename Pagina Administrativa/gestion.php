@@ -235,7 +235,7 @@
             </div>
             <div class="contenedor-tercera-fila-seccion-elementos-inicio">
                 <div class="contenedor-ocupaciones-sin-personas">
-                    <p>Ocupaciones sin alumnos</p>
+                    <p>Ocupaciones sin docentes</p>
                     <span id="ocusinD"></span>
                 </div>
             </div>

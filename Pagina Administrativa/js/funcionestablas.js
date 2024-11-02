@@ -262,7 +262,7 @@ function eliminarAlumno(id, nombre){
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: "id=" + id + "&p=alumno"
+                body: "id=" + id + "&p=alumno&t=borrar"
             })
             .then(data => data.json())
             .then(data => {

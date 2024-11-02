@@ -6,11 +6,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $sql = "SELECT 
     (SELECT COUNT(*) FROM especializaciones E WHERE E.Estado = 1) AS Total_Especializaciones,
 
-    (SELECT COUNT(*) 
-     FROM especializaciones E 
-     LEFT JOIN especializacion_docente ED ON E.ID_Especializacion = ED.ID_Especializacion 
-     LEFT JOIN docentes D ON ED.ID_Docente = D.ID_Docente 
-     WHERE E.Estado = 1 AND (ED.ID_Docente IS NULL OR D.Estado != 1)) AS Especializaciones_Sin_Docentes;
+    (SELECT COUNT(e.ID_Especializacion) FROM especializaciones e
+     LEFT JOIN especializacion_docente ed ON e.ID_Especializacion = ed.ID_Especializacion AND ed.Estado = 1 
+     WHERE ed.ID_Especializacion IS NULL AND e.Estado = 1) AS Especializaciones_Sin_Docentes;
     ";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0){

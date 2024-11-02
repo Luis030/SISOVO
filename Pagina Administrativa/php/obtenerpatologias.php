@@ -8,8 +8,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     (SELECT COUNT(p.ID_Patologia) 
                     FROM patologias p 
                     LEFT JOIN patologia_alumno pa ON p.ID_Patologia = pa.ID_Patologia AND pa.Estado = 1
-                    WHERE p.Estado = 1 AND pa.ID_Alumno IS NULL) AS Patologias_Sin_Alumnos;
-                    ";
+                    WHERE p.Estado = 1 AND pa.ID_Alumno IS NULL) AS Patologias_Sin_Alumnos;";
         $resultado = mysqli_query($conexion, $sql);
         if(mysqli_num_rows($resultado) > 0){
             while($fila = mysqli_fetch_assoc($resultado)){
@@ -29,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad, P.ID_Patologia
             FROM patologias P
             LEFT JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia AND PA.Estado = 1
-            LEFT JOIN alumnos A ON A.ID_Alumno = PA.ID_Alumno AND A.Estado = 1 WHERE P.Estado=1 
+            LEFT JOIN alumnos A ON A.ID_Alumno = PA.ID_Alumno AND A.Estado = 1 WHERE P.Estado=1  
             GROUP BY P.Nombre, P.ID_Patologia;
             ";
             $resultado = mysqli_query($conexion, $sql);
