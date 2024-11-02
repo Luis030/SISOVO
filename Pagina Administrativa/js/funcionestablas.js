@@ -21,44 +21,63 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //POST
 function eliminarClase(id, nombre) {
-    Swal.fire({
-        title: "¿Estas seguro de borrar la clase <span class='nombre-clase'>" + nombre + "</span>?",
-        text: "No se podra deshacer",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        cancelButtonText: "Cancelar",
-        confirmButtonText: "Si, borrar"
-        }).then((result) => {
-        if (result.isConfirmed) {
-            fetch("php/borrarclase.php", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: "id=" + id
-            })
-            .then(data => data.json())
-            .then(dato => {
-            if(dato.Resultado == "exitoso"){
-                tablas['clases'].ajax.reload();
+    fetch('php/borrarclase.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: "id=" + id + "&&nombre=" + nombre + "&&eliminar=si"
+    })
+    .then(data => data.json())
+    .then(dato => {
+        if (dato.Resultado == "exito") {
+            if (dato.Mensaje == "contiene") {
                 Swal.fire({
-                    title: "Borrado exitosamente.",
-                    text: "Se ha borrado exitosamente la clase " + nombre,
-                    icon: "success"
-                });
-            } else if (dato.Resultado == "error"){
-                alert("error");
+                    title: "No se puede eliminar la clase <span class='nombre-clase'>" + nombre + "</span> ya que contiene alumnos.",
+                    icon: "error",
+                })
             }
-        })
-            
+            if (dato.Mensaje == "nocontiene") {
+                Swal.fire({
+                    title: "¿Estas seguro de borrar la clase <span class='nombre-clase'>" + nombre + "</span>?",
+                    text: "No se podra deshacer",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Si, borrar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch("php/borrarclase.php", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: "id=" + id
+                        })
+                        .then(data => data.json())
+                        .then(dato => {
+                            if (dato.Resultado == "exito") {
+                                tablas['clases'].ajax.reload();
+                                Swal.fire({
+                                    title: "Borrado exitosamente.",
+                                    text: "Se ha borrado exitosamente la clase " + nombre,
+                                    icon: "success"
+                                });
+                            }
+                        })
+                    } else if (dato.Resultado == "error") {
+                        alert("error");
+                    }
+                })
+            }
         }
-    });
+    })
 }
 
-function editarClase(id){
-    window.location.href = "editarclases.php?id="+id;
+function editarClase(id) {
+    window.location.href = "editarclases.php?id=" + id;
 }
 
 //POST

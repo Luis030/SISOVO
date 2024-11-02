@@ -77,6 +77,7 @@ body {
     gap: 5%;
     margin-top: 5%;
 }
+
 .imagen-container {
     position: relative;
     display: inline-block; /* Permite que el contenido se ajuste al tamaño de la imagen */
@@ -105,7 +106,6 @@ body {
     text-align: center;
 }
   
-
 /* Ajustes responsive */
 @media (max-width: 768px) {
     .galeria-imagen {

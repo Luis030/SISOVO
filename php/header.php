@@ -10,11 +10,11 @@
 <meta http-equiv="Last-Modified" content="0">
 <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
 <meta http-equiv="Pragma" content="no-cache">
-<link rel="stylesheet" href="Diseño/style.css?aaa">
+<link rel="stylesheet" href="Diseño/style.css">
 <header id="main-header">
         <div class="container">
             <div class="logo">
-                <img src="Diseño/IMG/logocer-render.png" alt="Logo CER">
+                <img src="Diseño/IMG/logocer-render.png" alt="Logo CER" id="logoIMG">
             </div>
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
                 &#9776;

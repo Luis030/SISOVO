@@ -33,24 +33,32 @@
                     <div class="infocuenta">
                         <h1>Información de la cuenta</h1>
                         <div class="datos" id="datosdiv">
-                            
+                            <?php
+                                switch($_SESSION['Privilegio']){
+                                    case 'admin':
+                                        echo "<h2>Usuario administrador.</h2>";
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            ?>
                         </div>
                         <div class="informacion">
                             <?php
-                            switch($_SESSION['Privilegio']){
-                                case 'alumno':
-                                    echo "<h2>Patologías: </h2>";
-                                    echo "<ul id='lista'>";
-                                    echo "</ul>";
-                                    break;
-                                case 'docente':
-                                    echo "<h2>Especialidades: </h2>";
-                                    echo "<ul id='lista'>";
-                                    echo "</ul>";
-                                    break;
-                                default:
-                                    break;
-                            }
+                                switch($_SESSION['Privilegio']){
+                                    case 'alumno':
+                                        echo "<h2>Patologías: </h2>";
+                                        echo "<ul id='lista'>";
+                                        echo "</ul>";
+                                        break;
+                                    case 'docente':
+                                        echo "<h2>Especialidades: </h2>";
+                                        echo "<ul id='lista'>";
+                                        echo "</ul>";
+                                        break;
+                                    default:
+                                        break;
+                                }
                             ?>
                         </div>
                     </div>
@@ -68,30 +76,33 @@
                                     <button>Enviar</button>
                                 </div>
                                 <?php
-                                if($exito === true){
-                                    echo "<p class='bien'>Contraseña actualizada.</p>";
-                                }
-                                switch($codigo){
-                                    case '1':
-                                        echo "<p class='mal'>Las contraseñas no coinciden.</p>";
-                                        break;
-                                    case '2':
-                                        echo "<p class='mal'>Error con el servidor.</p>";
-                                        break;
-                                    case '3':
-                                        echo "<p class='mal'>La contraseña es incorrecta.</p>";
-                                        break;
-                                    case '4':
-                                        echo "<p class='mal'>La nueva contraseña debe tener entre 8 y 20 caracteres.</p>";
-                                        break;
-                                    case '5':
-                                        echo "<p class='mal'>La nueva contraseña contiene caracteres no permitidos (', \", <, >, \\).</p>";
-                                        break;
-                                }
+                                    if($exito === true){
+                                        echo "<p class='bien'>Contraseña actualizada.</p>";
+                                    }
+                                    switch($codigo){
+                                        case '1':
+                                            echo "<p class='mal'>Las contraseñas no coinciden.</p>";
+                                            break;
+                                        case '2':
+                                            echo "<p class='mal'>Error con el servidor.</p>";
+                                            break;
+                                        case '3':
+                                            echo "<p class='mal'>La contraseña es incorrecta.</p>";
+                                            break;
+                                        case '4':
+                                            echo "<p class='mal'>La nueva contraseña debe tener entre 8 y 20 caracteres.</p>";
+                                            break;
+                                        case '5':
+                                            echo "<p class='mal'>La nueva contraseña contiene caracteres no permitidos (', \", <, >, \\).</p>";
+                                            break;
+                                    }
                                 ?>
                             </form>
                         </div>
                     </div>
+                    <?php
+                        if ($_SESSION['Privilegio'] == "alumno") {
+                    ?>                       
                     <div class="panelalumno">
                         <h1>Panel de alumno</h1>
                         <p>Este panel es una página en la cual se puede acceder a información útil del alumno, aquí estarán sus informes y las clases que esta inscrito. Los informes pueden ser impresos desde la web para presentar a BPS.</p>
@@ -99,6 +110,9 @@
                             Haz <a href="panelalumno" class="irAlumno">click aquí</a> para ir!
                         </div>
                     </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

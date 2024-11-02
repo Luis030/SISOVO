@@ -1,4 +1,4 @@
-function toggleMenu(){
+function toggleMenu() {
     const menu = document.querySelector('.menuUser');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
 }
@@ -35,3 +35,13 @@ document.getElementById('menu-toggle').onclick = function() {
         menu.classList.add('active');
     }
 };
+
+const logo = document.getElementById('logoIMG');
+logo.style.cursor = "pointer";
+
+logo.addEventListener("click", function() {
+    window.location.href = "index.php";
+})
+    
+    
+    

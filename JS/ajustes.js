@@ -62,7 +62,7 @@ window.onload = function() {
                     resultadoDiv.appendChild(fechaP);
                 }
                 
-                if(usuario.Mail_Padres){
+                if (usuario.Mail_Padres) {
                     const mailP = document.createElement('p');
                     mailP.style.fontWeight = "bold";
                     const spanMail = document.createElement('span');
@@ -73,7 +73,7 @@ window.onload = function() {
                     resultadoDiv.appendChild(mailP);
                 }
 
-                if(usuario.Mail){
+                if (usuario.Mail) {
                     const mailP = document.createElement('p');
                     mailP.style.fontWeight = "bold";
                     const spanMail = document.createElement('span');
@@ -84,7 +84,7 @@ window.onload = function() {
                     resultadoDiv.appendChild(mailP);
                 }
                 
-                if(usuario.ID_Alumno) {
+                if (usuario.ID_Alumno) {
                     fetch("php/obtenerdatos.php?tipo=alumno&id=" + usuario.ID_Alumno)
                     .then(response => response.json())
                     .then(info => {
@@ -98,7 +98,8 @@ window.onload = function() {
                     })
                     .catch(error => console.error("Error:", error));
                 }
-                if(usuario.ID_Docente){
+
+                if (usuario.ID_Docente) {
                     fetch("php/obtenerdatos.php?tipo=docente&id=" + usuario.ID_Docente)
                     .then(response => response.json())
                     .then(info => {
@@ -111,6 +112,14 @@ window.onload = function() {
                         });
                     })
                     .catch(error => console.error("Error:", error));
+                }
+
+                if (usuario.Tipo == "admin") {
+                    const cartel = document.createElement('h2');
+                    cartel.style.textAlign = "center"; 
+                    cartel.style.fontWeight = "normal";
+                    cartel.textContent = "Usuario administrador.";
+                    resultadoDiv.appendChild(cartel);
                 }
                 
             }

@@ -4,6 +4,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $IDClase = $_POST['id'];
 
+    if ($IDClase && isset($_POST['eliminar'])) {
+        $sql = "SELECT ID_Alumno
+                FROM alumnos_clase
+                WHERE ID_Clase = $IDClase";
+
+        $resultado = mysqli_query($conexion, $sql);
+
+        if ($resultado) {
+            if (mysqli_num_rows($resultado) > 0) {
+                echo json_encode([
+                    "Resultado" => "exito",
+                    "Mensaje" => "contiene"
+                ]);
+            } else {
+                echo json_encode([
+                    "Resultado" => "exito",
+                    "Mensaje" => "nocontiene"
+                ]);
+            }
+        }
+
+        exit;
+    }
+
     if ($IDClase) {
         $sql = "UPDATE clase 
                 SET Estado=0
@@ -11,7 +35,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 
         if(mysqli_query($conexion, $sql) === TRUE){
             echo json_encode([
-                "Resultado" => "exitoso",
+                "Resultado" => "exito",
                 "Clase" => "$IDClase"
             ]);
         } else {

@@ -1,13 +1,15 @@
-body{
+body {
     background-color: #e6e6e6 !important;
 }
+
 .ajustes-container {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: -20px;
 }
-.ajustes-header{
+
+.ajustes-header {
     margin-top: 1.5%;
     display: flex;
     background-color: #b6b6b6;
@@ -17,14 +19,17 @@ body{
     align-items: center;
     justify-content: end;
 }
-.ajustes-header h1{
+
+.ajustes-header h1 {
     margin-right: 70%;
 }
-.ajustes-header img{
+
+.ajustes-header img {
     max-width: 100px;
     max-height: 100px;
 }
-.ajustes{
+
+.ajustes {
     background-color: white;
     width: 70%;
 }
@@ -42,16 +47,16 @@ body{
     text-decoration: none;
 }
 
-.principal-ajustes h1{
+.principal-ajustes h1 {
     border-bottom: 2px solid black;
 }
 
-.infocuenta, .cambiarpass, .panelalumno{
+.infocuenta, .cambiarpass, .panelalumno {
     margin-left: 2%;
     margin-right: 2%;
 }
 
-.informacion{
+.informacion {
     padding-left: 20px;
     display: flex;
     flex-direction: column;
@@ -64,25 +69,28 @@ body{
     margin-bottom: 25px;
 }
 
-.informacion h2{
+.informacion h2 {
     margin-bottom: 0;
 }
 
-.cambiarpass-form{
+.cambiarpass-form {
     width: 40%;
     text-align: center;
 }
-.cambiarpass-form input{
+
+.cambiarpass-form input {
     background-color: #ece9e9;
     font-size: 20px;
     border-radius: 5px;
     border: 0px;
     height: 40px;
 }
-.cambiarpass-form p{
+
+.cambiarpass-form p {
     margin-bottom: 0;
 }
-.botonpass button{
+
+.botonpass button {
     background-color: dodgerblue;
     color: white;
     font-size: 15px;
@@ -98,11 +106,16 @@ body{
     margin-bottom: 20px;
 }
 
-.botonpass button:hover{
+.botonpass button:hover {
     background-color: white;
     color: dodgerblue;
     border: 2px solid dodgerblue;
 }
+
+.cambiarpass-form form {
+    margin-bottom: 30px;
+}
+
 @media (max-width: 860px) {
     .ajustes-container{
         text-align: center;
@@ -121,7 +134,6 @@ body{
     .ajustes-header img{
         display: none;
     }
-
     .cambiarpass-form{
         width: 100%;
     }
