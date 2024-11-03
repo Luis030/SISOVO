@@ -413,6 +413,9 @@ function guardarAtributo(id, atributo, tipo) {
                                 cache: true
                             }
                         })
+                        setInterval(() => {
+                            location.reload();
+                        }, 3500);
                     }
                     if (atributo == "grado") {
                         const spanGrado = document.getElementById('spanGrado');

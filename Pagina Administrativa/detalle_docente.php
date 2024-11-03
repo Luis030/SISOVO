@@ -9,7 +9,7 @@
         return $fecha->format('d/m/Y');
     }
     
-    $sql = "SELECT D.ID_Ocupacion ,D.Nombre AS Docente, Apellido, Fecha_Nac, Mail, Celular, O.Nombre AS Ocupacion
+    $sql = "SELECT D.ID_Ocupacion, D.Nombre AS Docente, Apellido, Fecha_Nac, Mail, Celular, O.Nombre AS Ocupacion, O.Estado
             FROM docentes D, ocupacion O
             WHERE ID_Docente = $idDocente AND O.ID_Ocupacion = D.ID_Ocupacion";
     $resultado = mysqli_query($conexion, $sql);
@@ -19,7 +19,12 @@
             $nombreDocente = $columna['Docente'];
             $apellidoDocente = $columna['Apellido'];
             $fechaDocente = $columna['Fecha_Nac'];   
-            $docenteOcupacion = $columna['Ocupacion'];
+            $estadoOcupacion = $columna['Estado'];
+            if ($estadoOcupacion == 0) {
+                $docenteOcupacion = "No asignado";
+            } else {
+                $docenteOcupacion = $columna['Ocupacion'];
+            }
             if ($columna['Mail'] != null) {
                 $mailDocente = $columna['Mail'];
             } else {
@@ -105,10 +110,16 @@
                 </thead>
             </table>
         </div>
+        <?php
+            if ($docenteOcupacion != "No asignado") {
+        ?>
         <div class="agregar">
             <select id="agregarEspDocente" style="width: 100%;" multiple></select> 
             <button id="agregarEspD" onclick="agregarEspecialidad()">Agregar</button>
         </div>
+        <?php
+            }
+        ?>
         <?php
             }
         ?>

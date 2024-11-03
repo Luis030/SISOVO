@@ -360,11 +360,38 @@ function eliminarPat(id, nombre){
     })
     .then(datos => datos.json())
     .then(datos => {
-        if(datos.resultado == "imposible"){
+        if(datos.resultado == "imposible") {
             Swal.fire({
-                title: "Esta patologia no se puede eliminar",
-                text: "Esta patologia pertenece al menos a 1 alumno",
-                icon: "error"
+                title: "Esta patologia pertenece al menos a 1 alumno",
+                text: "Si la patología " + nombre + " se elimina igualmente, sera desasignada automaticamente de los alumnos que la tengan.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Eliminar de todas formas"
+            }).then((resultado) =>{
+                if (resultado.isConfirmed) {
+                    fetch("php/cambiarelementos.php", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: "id=" + id + "&nombre=" + nombre + "&tipo=pat&opcion=borrar&borrarigual=true"
+                    })
+                    .then(datos => datos.json())
+                    .then(datos => {
+                        if (datos.seborro == "si") {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Borrado correctamente",
+                                text: "La patologia " + nombre + " se ha borrado y desasignado correctamente de sus alumnos."
+                            })
+                            tablas['patgestion'].ajax.reload();
+                            actualizarDatosPat();
+                        }
+                    })
+                }
             })
         }
         if(datos.resultado == "posible"){
@@ -378,13 +405,13 @@ function eliminarPat(id, nombre){
                 cancelButtonText: "Cancelar",
                 confirmButtonText: "Borrar",
             }).then((resultado) => {
-                if(resultado.isConfirmed){
+                if(resultado.isConfirmed) {
                     fetch("php/cambiarelementos.php", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
                         },
-                        body: "id="+id+"&nombre="+nombre+"&tipo=pat&opcion=borrar&eliminar=true"
+                        body: "id="+id+"&nombre=" + nombre + "&tipo=pat&opcion=borrar&eliminar=true"
                     })
                     .then(datos => datos.json())
                     .then(datos => {
@@ -392,7 +419,7 @@ function eliminarPat(id, nombre){
                             Swal.fire({
                                 icon: "success",
                                 title: "Borrado correctamente",
-                                text: "La patologia "+nombre+" se ha borrado correctamente."
+                                text: "La patologia  " + nombre + " se ha borrado correctamente."
                             })
                             tablas['patgestion'].ajax.reload();
                             actualizarDatosPat();
