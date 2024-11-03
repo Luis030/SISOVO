@@ -72,22 +72,26 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         }
     }
 
-    if($_POST['opcion'] == "borrar"){
-        if($_POST['tipo'] == "pat"){
+    if($_POST['opcion'] == "borrar") {
+        if($_POST['tipo'] == "pat") {
             $id = $_POST['id'];
             $nombre = $_POST['nombre'];
-            $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad, P.ID_Patologia from patologias p join patologia_alumno pa on p.ID_Patologia=pa.ID_Patologia and pa.Estado=1 join alumnos a on pa.ID_Alumno=a.ID_Alumno and a.Estado=1 where p.ID_Patologia=$id GROUP by 1;";
+            $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad, P.ID_Patologia 
+                    FROM patologias P 
+                    JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia AND PA.Estado = 1 
+                    JOIN alumnos A on PA.ID_Alumno = A.ID_Alumno AND A.Estado = 1 
+                    WHERE P.ID_Patologia = $id GROUP by 1";
             $resultado = mysqli_query($conexion, $sql);
-            if(mysqli_num_rows($resultado) > 0){
+            if(mysqli_num_rows($resultado) > 0) {
                 echo json_encode([
                     "resultado" => "imposible",
                     "nombre" => $nombre
                 ]);
                 exit;
             } else {
-                if($_POST['eliminar'] == "true"){
-                    $sql = "UPDATE patologias SET Estado=0 WHERE ID_Patologia=$id";
-                    if(mysqli_query($conexion, $sql) == TRUE){
+                if($_POST['eliminar'] == "true") {
+                    $sql = "UPDATE patologias SET Estado = 0 WHERE ID_Patologia = $id";
+                    if(mysqli_query($conexion, $sql) == TRUE) {
                         echo json_encode([
                             "resultado" => "exito",
                             "nombre" => $nombre

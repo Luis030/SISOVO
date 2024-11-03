@@ -13,25 +13,6 @@
     }
 
     $idclase = $_GET['id'];
-
-    $sql = "SELECT C.ID_Clase, D.ID_Docente, C.Nombre, CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, C.Horario AS Horarios, COUNT(AC.ID_Alumno) AS Cantidad_Alumnos 
-            FROM clase C JOIN docentes D ON C.ID_Docente = D.ID_Docente 
-            LEFT JOIN alumnos_clase AC ON C.ID_Clase = AC.ID_Clase AND AC.Estado = 1 AND AC.Asistio IS NULL 
-            WHERE C.Estado = 1 AND C.ID_Clase = $idclase GROUP BY C.ID_Clase";
-    $resultado = mysqli_query($conexion, $sql);
-
-    $datosClase = [];
-    $cantidadAlumnos = 0;
-
-    if (mysqli_num_rows($resultado) > 0) {
-        while ($fila = mysqli_fetch_assoc($resultado)) {
-            $datosClase['ID_Docente'] = $fila['ID_Docente'];
-            $datosClase['Docente'] = $fila['Docente'];
-            $datosClase['Nombre'] = $fila['Nombre'];
-            $datosClase['Dia'] = $fila['Horarios'];
-            $cantidadAlumnos = $fila['Cantidad_Alumnos'];
-        }
-    }
 ?>
 <script>
     window.idClase = <?php echo $idclase ?>
@@ -42,7 +23,6 @@
 <script src="js/funcionestablas.js"></script>
 <script src="js/editarclases.js"></script>
 <script src="js/cargarselect.js"></script>
-
 <div class="contenedor-detalle-clases">
     <div class="volverclases">
         <img src="img/atras.png" alt="Volver" class="volver" id="volver" onclick="volverAtras()">
@@ -97,7 +77,6 @@
             </div>
     </div>
 </div>
-<script src="js/funcionestablas.js"></script>
 <script src="js/datostablas.js"></script>
 <script>
     window.idclase = <?php echo json_encode($idclase) ?>;
