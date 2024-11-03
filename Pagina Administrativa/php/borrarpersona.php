@@ -16,11 +16,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                         }
                         $sql = "UPDATE usuarios SET Estado=0 WHERE ID_Usuario=$iduser;";
                         if(mysqli_query($conexion, $sql) == TRUE){
-                            echo json_encode([
-                                "Resultado" => "exitoso",
-                                "IDAlumno" => $IDalumno
-                            ]);
-                            exit;
+                            $sql = "UPDATE alumnos_clase SET Estado=0 WHERE ID_Alumno=$IDalumno;";
+                            if(mysqli_query($conexion, $sql) == TRUE){
+                                echo json_encode([
+                                    "Resultado" => "exitoso",
+                                    "IDAlumno" => $IDalumno
+                                ]);
+                                exit;
+                            }
                         }
                     }
                 } else {

@@ -60,8 +60,9 @@
 </head>
 <body>
     <header>
-        <h1>Panel administrativo</h1>
+        <h1>Panel administrativo <button href="#" id="aboutus" class="aboutus">About us</button></h1>
         <div class="user-info">
+            <span class="cerrar-sesion"><a href="php/cerrar.php" id="cerrar-boton">Cerrar Sesión</a></span>
             <span class="username"><?php echo $_SESSION['usuario']?></span>
             <span class="time" id="time"></span> 
         </div>
@@ -112,8 +113,7 @@
                     }
                     ?>
                     
-                    <li id="about-button"><a href="#" id="aboutus" class="aboutus">About Us</a></li>
-                    <li><a href="php/cerrar.php" id="cerrar-boton">Cerrar Sesión</a></li>
+                    
                 </ul>
         </aside>
 

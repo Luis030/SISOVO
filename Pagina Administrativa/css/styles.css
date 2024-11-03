@@ -167,25 +167,22 @@ header .menu-toggle {
     padding: 0;
 }
 
-#about-button {
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    display: block;
-    padding: 5px 0;
+.aboutus{
+    background-color: var(--color-secundario);
+    border: 0;
+    text-decoration: dashed;
     cursor: pointer;
-}
+    color: dodgerblue;
 
-#about-button a {
-    color: #1e90ff !important;
 }
-
-#about-button:hover {
-    color: var(--color-secundario);
-    background-color: rgb(221, 217, 217);
+.aboutus:hover{
+    color: white;
 }
-
-.sidebar ul li:hover {
+.cerrar-sesion{
+    margin-right: 10px;
+}
+.sidebar ul li:not(#about-button):hover {
+    color: var(--color-primario);
     background-color: var(--color-primario);
 }
 
@@ -241,11 +238,11 @@ header .menu-toggle {
 
 #cerrar-boton {
     color: red !important;
+    text-decoration: none;
 }
 
 #cerrar-boton:hover {
     color: rgb(126, 2, 2) !important;
-    background-color: rgb(185, 175, 175);
 }
 
 .overlay {
@@ -337,12 +334,12 @@ header .menu-toggle {
 #cerrarabout{
     color: var(--color-secundario);
     font-size: 35px;
-    background-color: var(--color-primario);
+    background-color: white;
     border: 0px;
     cursor: pointer;
 }
 #cerrarabout:hover{
-    color: var(--color-secundario-hover);
+    filter: brightness(150%);
 }
 
 ::-webkit-scrollbar {
