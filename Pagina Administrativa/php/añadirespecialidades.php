@@ -14,8 +14,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $especialidadesAgregadas = 0;
 
         foreach ($especialidades as $especialidad) {
-            $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM especializaciones WHERE Nombre = ?");
-            mysqli_stmt_bind_param($consulta, 's', $especialidad);
+            $consulta = mysqli_prepare($conexion, "SELECT ID_Especializacion FROM especializaciones WHERE Nombre = ? AND Estado=1 AND ID_Ocupacion = ?");
+            mysqli_stmt_bind_param($consulta, 'si', $especialidad, $ocupacion);
             mysqli_stmt_execute($consulta);
             mysqli_stmt_store_result($consulta);
 

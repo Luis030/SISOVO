@@ -3,12 +3,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $cantidadA = isset($_POST['cantidadA']) ? $_POST['cantidadA'] : 2;
     include("../../BD/conexionbd.php"); 
 
-    $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad
-            FROM patologias P
-            JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia 
-            JOIN alumnos A ON A.ID_Alumno = PA.ID_Alumno 
-            WHERE A.Estado = 1
-            GROUP BY P.Nombre";
+    $sql = "SELECT P.Nombre, COUNT(PA.ID_Alumno) AS Cantidad FROM patologias P JOIN patologia_alumno PA ON P.ID_Patologia = PA.ID_Patologia AND PA.Estado=1 GROUP BY P.Nombre;";
 
     $result = mysqli_query($conexion, $sql);
 

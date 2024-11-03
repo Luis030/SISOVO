@@ -29,22 +29,26 @@ function agregarItem(texto, tipo) {
 }
 
 function mostrarItems(tipo) {
+    let ocupacion;
     const selectOcupacion = document.getElementById('ocupacionEspecialidad')
     if(selectOcupacion){
         if(selectOcupacion.value !== ""){
+            ocupacion = selectOcupacion.value;
             if(items.length > 0){
                 selectOcupacion.disabled = true;
             } else {
                 selectOcupacion.disabled = false;
             }
+        } else {
+            ocupacion = false;
         }
     }
+    console.log(ocupacion)
     const lista = document.querySelector('.ingresado'); 
     lista.innerHTML = ''; 
     items.forEach((item, index) => {
-        console.log(tipo)
         const itemDiv = document.createElement('div');
-        fetch("php/" + tipo + "&&item=" + item, {
+        fetch("php/" + tipo + "&&item=" + item + "&&ocupacionEsp="+ocupacion, {
             method: "POST",
         })
         .then(response => {

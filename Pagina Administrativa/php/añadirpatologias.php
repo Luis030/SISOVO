@@ -13,7 +13,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $patologiasAgregadas = 0;
 
         foreach ($patologias as $patologia) {
-            $consulta = mysqli_prepare($conexion, "SELECT ID_Patologia FROM patologias WHERE Nombre = ?");
+            $consulta = mysqli_prepare($conexion, "SELECT ID_Patologia FROM patologias WHERE Nombre = ? AND Estado=1");
             mysqli_stmt_bind_param($consulta, 's', $patologia);
             mysqli_stmt_execute($consulta);
             mysqli_stmt_store_result($consulta);

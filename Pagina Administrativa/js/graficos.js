@@ -108,8 +108,8 @@ function crearGrafico(elementoID, tipoGrafico, urlDatos, etiquetasExtras = [], o
                     datasets: [{
                         label: opcionesExtras.label || 'Datos',
                         data: valores,  
-                        backgroundColor: coloresPredeterminados,  
-                        borderColor: coloresPredeterminados,  
+                        //backgroundColor: coloresPredeterminados,  
+                        //borderColor: coloresPredeterminados,  
                         borderWidth: opcionesExtras.borderWidth || 1
                     }]
                 },
