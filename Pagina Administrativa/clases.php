@@ -1,6 +1,7 @@
 <?php
     require_once("../BD/conexionbd.php");
     require_once("php/header_sidebar.php");
+    include("php/seguridadadmin.php");
 ?>
 
 <link rel="stylesheet" href="css/estiloclases.css">

@@ -27,14 +27,14 @@
                     <p>
                         <button>Ingresar</button>
                     </p>
-                    <p class="atrasp">
-                        <a href="../index" class="atras">Atras</a>
-                    </p>
                     <?php
                         if($errorlogin === TRUE) {
                             echo "<div class='errorlogin'>Credenciales incorrectas.</div>";
                         }
                     ?>
+                    <p class="atrasp">
+                        <a href="../index" class="atras">Atras</a>
+                    </p>
                 </form>
             </div>
         </div>

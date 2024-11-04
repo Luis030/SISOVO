@@ -1,5 +1,6 @@
 <?php
     require_once("php/header_sidebar.php");
+    include("php/seguridadadmin.php");
 ?>
 <link rel="stylesheet" href="css/styleañadirtodo.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
@@ -39,7 +40,7 @@
     </div>
     <div class="agregadoAlMomento">
         <p id="tituloAgregado">Especialidades ingresadas</p>
-        <div class="ingresado">
+        <div class="ingresado" id="ingresado">
 
         </div>
         <h5 id="longitud-array-items">Cantidad ingresada: 0</h5>

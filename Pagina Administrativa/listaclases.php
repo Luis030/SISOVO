@@ -1,28 +1,32 @@
 <?php
-require_once("php/header_sidebar.php");
-include("../BD/conexionbd.php");
-if(isset($_GET['fecha'])){
-    $fechalista = $_GET['fecha'];
-    if($fechalista !== "Hoy"){
-        list($anio, $mes, $dia) = explode("-", $fechalista);
-        $fechaTransformada = $dia . '/' . $mes . '/' . $anio;
-        $fechalista = $fechaTransformada;
+    require_once("php/header_sidebar.php");
+    include("../BD/conexionbd.php");
+    include("php/seguridaddocente.php");
+
+    if(isset($_GET['fecha'])) {
+        $fechalista = $_GET['fecha'];
+        if($fechalista !== "Hoy"){
+            list($anio, $mes, $dia) = explode("-", $fechalista);
+            $fechaTransformada = $dia . '/' . $mes . '/' . $anio;
+            $fechalista = $fechaTransformada;
+        }
+        $fechanormal = $_GET['fecha'];
     }
-    $fechanormal = $_GET['fecha'];
-}
-$cedulaDoc = $_SESSION['cedula'];
-$idclase = $_GET['idclase'];
-$sql = "SELECT C.ID_Clase, C.Nombre from clase C JOIN docentes D on C.ID_Docente=D.ID_Docente WHERE D.Cedula=$cedulaDoc AND C.ID_Clase=$idclase;";
-$resultado = mysqli_query($conexion, $sql);
-if(mysqli_num_rows($resultado) > 0){
-    while($fila = mysqli_fetch_assoc($resultado)){
-        $nombreclase = $fila['Nombre'];
+
+    $cedulaDoc = $_SESSION['cedula'];
+    $idclase = $_GET['idclase'];
+    $sql = "SELECT C.ID_Clase, C.Nombre from clase C JOIN docentes D on C.ID_Docente=D.ID_Docente WHERE D.Cedula=$cedulaDoc AND C.ID_Clase=$idclase;";
+    $resultado = mysqli_query($conexion, $sql);
+
+    if(mysqli_num_rows($resultado) > 0) {
+        while($fila = mysqli_fetch_assoc($resultado)) {
+            $nombreclase = $fila['Nombre'];
+        }
+    } else {
+        echo "<script>";
+        echo "window.location.href = 'error.php'";
+        echo "</script>";
     }
-} else {
-    echo "<script>";
-    echo "window.location.href = 'error.php'";
-    echo "</script>";
-}
 ?>
 <script>
     window.idclaselista = <?php echo json_encode($_GET['idclase']) ?>
@@ -34,7 +38,7 @@ if(mysqli_num_rows($resultado) > 0){
 <script src="js/cargarselect.js"></script>
 <div class="contenedor-lista-clase">
     <?php 
-    if(!isset($_GET['success'])){
+    if(!isset($_GET['success'])) {
     ?>
     <h1>Paso de Lista - Clase <?php echo $nombreclase ?></h1>
     <form id="asistencia-form" action="php/enviarasistencia.php?idclase=<?php echo $_GET['idclase']; ?>" method="post">
@@ -74,42 +78,40 @@ if(mysqli_num_rows($resultado) > 0){
                 </thead>
                 <tbody>
                     <?php
-                    if($fechanormal == "Hoy"){
-                        $query = "SELECT a.ID_Alumno, CONCAT(a.Nombre, ' ', a.Apellido) AS Nombre, ac.Asistio FROM alumnos_clase ac
-                    JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
-                    WHERE ac.ID_Clase = '$idclase' AND ac.Fecha = curdate() AND ac.Asistio IS NOT NULL"; 
-                    } else {
-                        $query = "SELECT a.ID_Alumno, CONCAT(a.Nombre, ' ', a.Apellido) AS Nombre, ac.Asistio FROM alumnos_clase ac
-                    JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
-                    WHERE ac.ID_Clase = '$idclase' AND ac.Fecha = '$fechanormal' AND ac.Asistio IS NOT NULL"; 
-                    }
-                    
-                    $resultado = mysqli_query($conexion, $query);
-            
-                    if ($resultado) {
-                        while ($row = mysqli_fetch_assoc($resultado)) {
-                            // Si el alumno faltó (Asistio = 0), el checkbox estará marcado
-                            $asistio = $row['Asistio'] == 0 ? 'checked' : ''; 
-                            if($asistio == "checked"){
-                                echo "<tr>
-                                    <td class='falto'>{$row['Nombre']}</td>
-                                    <td class='falto'>
-                                        <input type='checkbox' name='asistencia[{$row['ID_Alumno']}]' value='0' {$asistio} disabled>
-                                    </td>
-                                </tr>";
+                        if($fechanormal == "Hoy") {
+                                $query = "SELECT a.ID_Alumno, CONCAT(a.Nombre, ' ', a.Apellido) AS Nombre, ac.Asistio FROM alumnos_clase ac
+                                JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
+                                WHERE ac.ID_Clase = '$idclase' AND ac.Fecha = curdate() AND ac.Asistio IS NOT NULL"; 
                             } else {
-                                echo "<tr>
-                                    <td class='vino'>{$row['Nombre']}</td>
-                                    <td class='vino'>
-                                        <input type='checkbox' name='asistencia[{$row['ID_Alumno']}]' value='0' {$asistio} disabled>
-                                    </td>
-                                </tr>";
+                                $query = "SELECT a.ID_Alumno, CONCAT(a.Nombre, ' ', a.Apellido) AS Nombre, ac.Asistio FROM alumnos_clase ac
+                                JOIN alumnos a ON ac.ID_Alumno = a.ID_Alumno
+                                WHERE ac.ID_Clase = '$idclase' AND ac.Fecha = '$fechanormal' AND ac.Asistio IS NOT NULL"; 
                             }
-                            
+                        
+                        $resultado = mysqli_query($conexion, $query);
+                
+                        if ($resultado) {
+                            while ($row = mysqli_fetch_assoc($resultado)) {
+                                $asistio = $row['Asistio'] == 0 ? 'checked' : ''; 
+                                if($asistio == "checked"){
+                                    echo "<tr>
+                                        <td class='falto'>{$row['Nombre']}</td>
+                                        <td class='falto'>
+                                            <input type='checkbox' name='asistencia[{$row['ID_Alumno']}]' value='0' {$asistio} disabled>
+                                        </td>
+                                    </tr>";
+                                } else {
+                                    echo "<tr>
+                                        <td class='vino'>{$row['Nombre']}</td>
+                                        <td class='vino'>
+                                            <input type='checkbox' name='asistencia[{$row['ID_Alumno']}]' value='0' {$asistio} disabled>
+                                        </td>
+                                    </tr>";
+                                }
+                            }
+                        } else {
+                            echo "Error en la consulta";
                         }
-                    } else {
-                        echo "Error en la consulta";
-                    }
                     ?>
                 </tbody>
             </table>
@@ -120,9 +122,9 @@ if(mysqli_num_rows($resultado) > 0){
         </div>
     </div>
     <?php
-    }
+        }
     ?>
 </div>
 <?php
-require_once("php/footer.php");
+    require_once("php/footer.php");
 ?>

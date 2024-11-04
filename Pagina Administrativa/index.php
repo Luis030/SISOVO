@@ -1,8 +1,13 @@
 <?php 
-include("php/header_sidebar.php");
-$nombreuser = $_SESSION['usuario'];
-$nombredividido = explode(' ', $nombreuser);
-$nombre = $nombredividido[0];
+    include("php/header_sidebar.php");
+
+    if ($_SESSION['Privilegio'] == "alumno") {
+        echo "<script>window.location.href = '../index';</script>";
+    }
+
+    $nombreuser = $_SESSION['usuario'];
+    $nombredividido = explode(' ', $nombreuser);
+    $nombre = $nombredividido[0];
 ?>
 <div class="contenedorinicio">
     <div class="infoinicio">
@@ -14,4 +19,6 @@ $nombre = $nombredividido[0];
     </div>
 </div>
 <link rel="stylesheet" href="css/estiloinicio.css">
-<?php include('php/footer.php'); ?>
+<?php 
+    include('php/footer.php'); 
+?>

@@ -1,6 +1,7 @@
 <?php
     require_once("php/header_sidebar.php");
     require_once("../BD/conexionbd.php");
+    include("php/seguridaddocente.php");
 
     $cedula = $_SESSION['cedula'];
 

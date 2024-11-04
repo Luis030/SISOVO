@@ -1,5 +1,6 @@
 <?php
     include("php/header_sidebar.php");
+    include("php/seguridadadmin.php");
 ?>
 <link rel="stylesheet" href="css/styleañadirclases.css">
 <link rel="stylesheet" href="css/estiloselect2.css">

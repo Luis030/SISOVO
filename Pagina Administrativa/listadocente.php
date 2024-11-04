@@ -1,5 +1,6 @@
 <?php
-require_once("php/header_sidebar.php");
+    require_once("php/header_sidebar.php");
+    include("php/seguridadadmin.php");
 ?>
 <link rel="stylesheet" href="css/estilolistadocente.css">
 <link rel="stylesheet" href="css/datatables.css">
@@ -68,5 +69,5 @@ require_once("php/header_sidebar.php");
 <script src="js/funcionestablas.js"></script>
 <script src="js/filtros.js"></script>
 <?php
-require_once("php/footer.php");
+    require_once("php/footer.php");
 ?>

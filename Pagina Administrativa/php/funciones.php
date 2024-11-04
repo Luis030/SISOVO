@@ -16,7 +16,7 @@ function validarCedula($cedula){
     return $digitoCalculado == $digitoVerificador;
 }
 
-function generarPass($cedula){
+function generarPass($cedula) {
     $num = substr($cedula, 0, 7);
     $digitoVerificador = substr($cedula, -1);
 
@@ -24,6 +24,7 @@ function generarPass($cedula){
     $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
     return $contraseña;
 }
+
 function generarPassDoc($cedula, $nombre, $apellido) {
 
     $inicialNombre = strtoupper(substr(trim($nombre), 0, 1));

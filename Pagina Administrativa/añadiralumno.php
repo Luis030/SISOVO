@@ -1,6 +1,8 @@
 <?php
+    include("php/header_sidebar.php");
     include("../BD/conexionbd.php");
     include("php/funciones.php");
+    include("php/seguridadadmin.php");
 
     $alumnoingresado = false;
     $ceduladuplicada = false;
@@ -71,9 +73,6 @@
                 break;
         }
     }
-?>
-<?php
-    include("php/header_sidebar.php");
 ?>
 <link rel="stylesheet" href="css/estiloañadir.css">
 <link rel="stylesheet" href="css/estiloselect2.css">

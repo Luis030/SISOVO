@@ -1,6 +1,8 @@
 <?php
     require_once("../BD/conexionbd.php");
     require_once("php/header_sidebar.php");
+    include("php/seguridaddocente.php");
+
     $ceduladoc = $_SESSION['cedula'];
 ?>
 <link rel="stylesheet" href="css/estiloclases.css">

@@ -1,6 +1,7 @@
 <?php
     require_once("php/header_sidebar.php");
     require_once("../BD/conexionbd.php");
+    include("php/seguridadadmin.php");
 
     $idDocente = $_GET['id'];; 
 
@@ -9,12 +10,13 @@
         return $fecha->format('d/m/Y');
     }
     
-    $sql = "SELECT D.ID_Ocupacion, D.Nombre AS Docente, Apellido, Fecha_Nac, Mail, Celular, O.Nombre AS Ocupacion, O.Estado
+    $sql = "SELECT D.ID_Ocupacion, D.Nombre AS Docente, Apellido, Fecha_Nac, Mail, Celular, O.Nombre AS Ocupacion, O.Estado, D.Cedula
             FROM docentes D, ocupacion O
             WHERE ID_Docente = $idDocente AND O.ID_Ocupacion = D.ID_Ocupacion";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) {
+            $cedulaDocente = $columna['Cedula'];
             $idOcu = $columna['ID_Ocupacion'];
             $nombreDocente = $columna['Docente'];
             $apellidoDocente = $columna['Apellido'];
@@ -96,6 +98,12 @@
                 <div id="editandoOcupacion" class="fadeOcupacion">
                     <select id="ingresarOcupacion" style="width: 100%;"></select>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idDocente ?>, 'ocupacion', 'docente')">Guardar</button>
+                </div>
+            </div>
+            <div class="editarElemento">
+                <p>Restaurar contraseña de fábrica</p>
+                <div id="editandoContraseña">
+                    <button id="restaurarContraseña" onclick="restaurarContraseña('docente', '<?php echo $nombreDocente ?>', '<?php echo $apellidoDocente ?>', <?php echo $cedulaDocente ?>)">Restaurar</button>
                 </div>
             </div>
         </div>

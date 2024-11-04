@@ -163,15 +163,15 @@ function eliminarAlumnoClase(idclase, idalumno) {
     
 }
 
-function pasarLista(idclase){
+function pasarLista(idclase) {
     window.location.href = "listaclases.php?idclase="+idclase;
 }
 
-function paginaConfirmarAsistencia(){
+function paginaConfirmarAsistencia() {
     window.open("confirmarasistencia", "_blank");
 }
 
-function actualizarListaDocente(){
+function actualizarListaDocente() {
     tablas['listadoc'].ajax.reload();
 }
 
@@ -238,7 +238,7 @@ function eliminarElementoPersona(ide, idp, tipo) {
                 })
                 .then(respuesta => respuesta.json())    
                 .then(data => {
-                if(data.resultado == "exito"){
+                if(data.resultado == "exito") { 
                     Swal.fire({
                         title: "Desvinculado exitosamente.",
                         text: "Se ha desvinculado exitosamente la patología",
@@ -246,7 +246,7 @@ function eliminarElementoPersona(ide, idp, tipo) {
                     });
                     tablas['tablaespdocente'].ajax.reload();
                 }
-                if(data.resultado == "error"){
+                if(data.resultado == "error") {
                     Swal.fire({
                         title: "Ha ocurrido un error",
                         text: "Algo ha salido mal.",
@@ -259,12 +259,12 @@ function eliminarElementoPersona(ide, idp, tipo) {
     }
 }
 
-function editarAlumno(id){
+function editarAlumno(id) {
     window.location.href = "detalle_alumnos.php?id=" + id;
 }
 
 //POST
-function eliminarAlumno(id, nombre){
+function eliminarAlumno(id, nombre) {
     Swal.fire({
         title: "¿Estas seguro de eliminar el alumno " + nombre + "?",
         text: "Se borrara de todas sus clases",
@@ -286,7 +286,7 @@ function eliminarAlumno(id, nombre){
             .then(data => data.json())
             .then(data => {
                 console.log(data)
-                if(data.Resultado == "exitoso"){
+                if(data.Resultado == "exitoso") {
                     Swal.fire({
                         title: "Eliminado correctamente.",
                         text: "Se eliminado correctamente el alumno " + nombre,
@@ -294,7 +294,7 @@ function eliminarAlumno(id, nombre){
                     });
                     tablas['tablaalu'].ajax.reload();
                 }
-                if(data.resultado == "error"){
+                if(data.resultado == "error") {
                     Swal.fire({
                         title: "Ha ocurrido un error",
                         text: "Algo ha salido mal.",
@@ -306,7 +306,7 @@ function eliminarAlumno(id, nombre){
     });
 }
 
-function editarPat(id, nombre){
+function editarPat(id, nombre) {
     Swal.fire({
         title: "Editar Patologia",
         showCancelButton: true,
@@ -350,7 +350,7 @@ function editarPat(id, nombre){
     })
 }
 
-function eliminarPat(id, nombre){
+function eliminarPat(id, nombre) {
     fetch("php/cambiarelementos.php", {
         method: 'POST',
         headers: {
@@ -394,7 +394,7 @@ function eliminarPat(id, nombre){
                 }
             })
         }
-        if(datos.resultado == "posible"){
+        if(datos.resultado == "posible") {
             Swal.fire({
                 icon: "warning",
                 title: "¿Esta seguro de borrar la patologia " + nombre + "?",
@@ -431,7 +431,7 @@ function eliminarPat(id, nombre){
     })
 }
 
-function actualizarDatosPat(){
+function actualizarDatosPat() {
     fetch("php/obtenerpatologias.php", {
         method: 'POST',
         headers: {
@@ -448,7 +448,7 @@ function actualizarDatosPat(){
     })
 }
 
-function actualizarDatosOcu(){
+function actualizarDatosOcu() {
     fetch("php/obtenerocupaciones.php", {
         method: 'POST',
         headers: {
@@ -504,7 +504,7 @@ function actualizarDetalleClases() {
     })
 }
 
-function editarOcu(id, nombre){
+function editarOcu(id, nombre) {
     Swal.fire({
         title: "Editar ocupación",
         showCancelButton: true,
@@ -528,7 +528,7 @@ function editarOcu(id, nombre){
                 })
                 .then(datos => datos.json())
                 .then(datos => {
-                    if(datos.resultado == "exito"){
+                    if(datos.resultado == "exito") {
                         Swal.fire({
                             icon: "success",
                             title: "Nombre actualizado",
@@ -536,7 +536,7 @@ function editarOcu(id, nombre){
                         })
                         tablas['ocugestion'].ajax.reload();
                     }
-                    if(datos.resultado == "agregado"){
+                    if(datos.resultado == "agregado") {
                         Swal.fire({
                             icon: "error",
                             title: "Nombre existente, intente otro"
@@ -548,7 +548,7 @@ function editarOcu(id, nombre){
     })
 }
 
-function eliminarOcu(id, nombre){
+function eliminarOcu(id, nombre) {
     fetch("php/cambiarelementos.php", {
         method: 'POST',
         headers: {
@@ -558,14 +558,14 @@ function eliminarOcu(id, nombre){
     })
     .then(datos => datos.json())
     .then(datos => {
-        if(datos.resultado == "imposible"){
+        if(datos.resultado == "imposible") {
             Swal.fire({
                 title: "Esta ocupacion no se puede eliminar",
                 text: "Esta ocupacion pertenece al menos a 1 persona",
                 icon: "error"
             })
         }
-        if(datos.resultado == "posible"){
+        if(datos.resultado == "posible") {
             Swal.fire({
                 icon: "warning",
                 title: "¿Esta seguro de borrar la ocupacion "+nombre+"?",
@@ -586,7 +586,7 @@ function eliminarOcu(id, nombre){
                     })
                     .then(datos => datos.json())
                     .then(datos => {
-                        if(datos.resultado == "exito"){
+                        if(datos.resultado == "exito") {
                             Swal.fire({
                                 icon: "success",
                                 title: "Borrado correctamente",
@@ -602,7 +602,7 @@ function eliminarOcu(id, nombre){
     })
 }
 
-function editarEsp(id, nombre){
+function editarEsp(id, nombre) {
     Swal.fire({
         title: "Editar especializad",
         showCancelButton: true,
@@ -614,7 +614,7 @@ function editarEsp(id, nombre){
         <span>Nombre: <input type='text' placeholder='${nombre}' id='nuevonombreEsp'></span>
         `
     }).then((resultado) => {
-        if(resultado.isConfirmed){
+        if(resultado.isConfirmed) {
             const nuevonombreEsp = document.getElementById('nuevonombreEsp').value;
             if(nuevonombreEsp){
                 fetch("php/cambiarelementos.php", {
@@ -647,7 +647,7 @@ function editarEsp(id, nombre){
     })
 }
 
-function eliminarEsp(id, nombre){
+function eliminarEsp(id, nombre) {
     fetch("php/cambiarelementos.php", {
         method: 'POST',
         headers: {
@@ -657,7 +657,7 @@ function eliminarEsp(id, nombre){
     })
     .then(datos => datos.json())
     .then(datos => {
-        if(datos.resultado == "imposible"){
+        if(datos.resultado == "imposible") {
             Swal.fire({
                 title: "Esta especialización pertenece al menos a 1 docente",
                 text: "Si la especialización " + nombre + " se elimina igualmente, sera desasignada automaticamente de los docentes que la tengan.",
@@ -691,7 +691,7 @@ function eliminarEsp(id, nombre){
                 }
             })
         }
-        if(datos.resultado == "posible"){
+        if(datos.resultado == "posible") {
             Swal.fire({
                 icon: "warning",
                 title: "¿Esta seguro de borrar la especialidad "+nombre+"?",
@@ -712,7 +712,7 @@ function eliminarEsp(id, nombre){
                     })
                     .then(datos => datos.json())
                     .then(datos => {
-                        if(datos.resultado == "exito"){
+                        if(datos.resultado == "exito") {
                             Swal.fire({
                                 icon: "success",
                                 title: "Borrado correctamente",
@@ -728,7 +728,7 @@ function eliminarEsp(id, nombre){
     })
 }
 
-function eliminarInforme(id, nombre, fecha){
+function eliminarInforme(id, nombre, fecha) {
     Swal.fire({
         icon: "warning",
         title: "¿Seguro de eliminar este informe?",
@@ -749,7 +749,7 @@ function eliminarInforme(id, nombre, fecha){
             })
             .then(datos => datos.json())
             .then(datos => {
-                if(datos.resultado == "exito"){
+                if(datos.resultado == "exito") {
                     Swal.fire({
                         icon: "success",
                         title: "Informe eliminado exitosamente"
@@ -768,7 +768,7 @@ function eliminarInforme(id, nombre, fecha){
     })
 }
 
-function eliminarDocente(id, nombre){
+function eliminarDocente(id, nombre) {
     fetch("php/borrarpersona.php", {
         method: 'POST',
         headers: {
@@ -778,7 +778,7 @@ function eliminarDocente(id, nombre){
     })
     .then(resultado => resultado.json())
     .then(datos => {
-        if(datos.borrar == "imposible"){
+        if(datos.borrar == "imposible") {
             Swal.fire({
                 icon: "warning",
                 title: "Este docente tiene asignada almenos una clase",
@@ -786,11 +786,11 @@ function eliminarDocente(id, nombre){
             })
             return;
         }
-        if(datos.borrar == "posible"){
+        if(datos.borrar == "posible") {
             Swal.fire({
                 icon: "warning",
                 title: "¿Esta Seguro de eliminar este docente?",
-                text: "Docente: "+nombre,
+                text: "Docente: " + nombre,
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
@@ -807,7 +807,7 @@ function eliminarDocente(id, nombre){
                     })
                     .then(resultado => resultado.json())
                     .then(datos => {
-                        if(datos.resultado == "exito"){
+                        if(datos.resultado == "exito") {
                             Swal.fire({
                                 icon: "success",
                                 title: "Docente eliminado correctamente",
@@ -815,7 +815,7 @@ function eliminarDocente(id, nombre){
                             })
                             tablas['tabladoc'].ajax.reload()
                         }
-                        if(datos.resultado == "error"){
+                        if(datos.resultado == "error") {
                             Swal.fire({
                                 icon: "error",
                                 title: "Ha ocurrido un error inesperado"
@@ -828,6 +828,6 @@ function eliminarDocente(id, nombre){
     })
 }
 
-function editarDocente(id){
+function editarDocente(id) {
     window.location.href = "detalle_docente.php?id="+id;
 }

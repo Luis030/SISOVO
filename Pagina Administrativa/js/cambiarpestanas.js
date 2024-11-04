@@ -1,18 +1,23 @@
 var items = [];
 
+function actualizarLongitud() {
+    const longitudElemento = document.getElementById('longitud-array-items'); 
+    longitudElemento.textContent = `Cantidad agregada: ${items.length}`;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const agregarTodo = document.querySelector('.botonAgregarTodo');
     agregarTodo.addEventListener('click', function() {
         const contenedorPat = document.querySelector('.formPat');
         const contenedorEsp = document.querySelector('.formEsp');
         const contenedorOcu = document.querySelector('.formOcu');
-        if(contenedorPat.style.display == "grid"){
+        if(contenedorPat.style.display == "grid") {
             enviarFormulario("php/añadirpatologias.php");
         }
-        if(contenedorEsp.style.display == "grid"){
+        if(contenedorEsp.style.display == "grid") {
             enviarFormulario("php/añadirespecialidades.php");
         }
-        if(contenedorOcu.style.display == "grid"){
+        if(contenedorOcu.style.display == "grid") {
             enviarFormulario("php/añadirocupacion.php");
         }
     })
@@ -25,13 +30,14 @@ function agregarItem(texto, tipo) {
         items.push(valor);
         mostrarItems(tipo);
         input.value = ''; 
+        $('#ocupacionEspecialidad').prop('disabled', false);
     }
 }
 
 function mostrarItems(tipo) {
     let ocupacion;
     const selectOcupacion = document.getElementById('ocupacionEspecialidad')
-    if(selectOcupacion){
+    if(selectOcupacion) {
         if(selectOcupacion.value !== ""){
             ocupacion = selectOcupacion.value;
             if(items.length > 0){
@@ -48,7 +54,7 @@ function mostrarItems(tipo) {
     lista.innerHTML = ''; 
     items.forEach((item, index) => {
         const itemDiv = document.createElement('div');
-        fetch("php/" + tipo + "&&item=" + item + "&&ocupacionEsp="+ocupacion, {
+        fetch("php/" + tipo + "&&item=" + item + "&&ocupacionEsp=" + ocupacion, {
             method: "POST",
         })
         .then(response => {
@@ -112,6 +118,7 @@ function enviarFormulario(enlace) {
                 contenedorErrores.innerHTML = '';
                 const mensajeErrores = document.getElementById('mensaje-items'); 
                 mensajeErrores.textContent = data.message;
+                actualizarLongitud();
                 if (data.errors) {
                     mostrarErrores(data.errors);
                 }
@@ -148,6 +155,7 @@ function enviarFormulario(enlace) {
             contenedorErrores.innerHTML = '';
             const mensajeErrores = document.getElementById('mensaje-items'); 
             mensajeErrores.textContent = data.message;
+            actualizarLongitud();
             if (data.errors) {
                 mostrarErrores(data.errors);
             }
@@ -157,11 +165,6 @@ function enviarFormulario(enlace) {
             alert('Error al procesar la solicitud. Intenta nuevamente. otro');
         });
     }
-}
-
-function actualizarLongitud() {
-    const longitudElemento = document.getElementById('longitud-array-items'); 
-    longitudElemento.textContent = `Cantidad agregada: ${items.length}`;
 }
 
 function mostrarErrores(errores) {
@@ -178,9 +181,9 @@ function mostrarErrores(errores) {
     }
 }
 
-function patologiaForm(){ 
+function patologiaForm() { 
     const selectOcupacion = document.getElementById('ocupacionEspecialidad')
-    if(selectOcupacion){
+    if (selectOcupacion) {
         selectOcupacion.disabled = false;
     }
     const contErrores = document.getElementById('errores-items');
@@ -193,17 +196,21 @@ function patologiaForm(){
     const botonOcu = document.getElementById('ocupacionBoton');
     const tituloP = document.getElementById('tituloAgregado');
     const agregarTodo = document.querySelector('.botonAgregarTodo');
+
     contErrores.innerHTML = '';
     contMensajes.innerHTML = '';
+
     agregarTodo.onlick = function(){
         enviarFormulario("añadirpatologias.php");
     }
-    if(contenedorPat.style.display == "none"){
+
+    if (contenedorPat.style.display == "none") {
         items = [];
-        const lista = document.querySelector('.ingresado');
-        lista.innerHTML = '';
+        const lista = document.getElementById('ingresado');
+        lista.textContent = '';
         actualizarLongitud();
     }
+
     tituloP.textContent = 'Patologías agregadas'
     botonPat.style.backgroundColor = 'var(--color-secundario)';
     botonPat.style.color = 'white';
@@ -218,9 +225,9 @@ function patologiaForm(){
     contenedorOcu.style.display = 'none'
 }
 
-function ocupacionForm(){
+function ocupacionForm() {
     const selectOcupacion = document.getElementById('ocupacionEspecialidad')
-    if(selectOcupacion){
+    if(selectOcupacion) {
         selectOcupacion.disabled = false;
     }
     const contErrores = document.getElementById('errores-items');
@@ -232,14 +239,22 @@ function ocupacionForm(){
     const botonEsp = document.getElementById('especialidadBoton');
     const botonOcu = document.getElementById('ocupacionBoton');
     const tituloP = document.getElementById('tituloAgregado');
+    const agregarTodo = document.querySelector('.botonAgregarTodo');
+
     contErrores.innerHTML = '';
     contMensajes.innerHTML = '';
-    if(contenedorOcu.style.display == "none"){
+
+    agregarTodo.onlick = function() {
+        enviarFormulario("añadirocupacion.php");
+    }
+
+    if (contenedorOcu.style.display == "none") {
         items = [];
-        const lista = document.querySelector('.ingresado');
-        lista.innerHTML = '';
+        const lista = document.getElementById('ingresado');
+        lista.textContent = '';
         actualizarLongitud();
     }
+
     botonPat.style.backgroundColor = '#f8f7f7';
     botonPat.style.color = '#000000'
     contenedorPat.style.display = 'none';
@@ -254,7 +269,7 @@ function ocupacionForm(){
     contenedorOcu.style.display = 'grid'
 }
 
-function especialidadForm(){
+function especialidadForm() { 
     const contErrores = document.getElementById('errores-items');
     const contMensajes = document.getElementById('mensaje-items');
     const contenedorPat = document.querySelector('.formPat');
@@ -265,8 +280,21 @@ function especialidadForm(){
     const botonOcu = document.getElementById('ocupacionBoton');
     const tituloP = document.getElementById('tituloAgregado');
     const agregarTodo = document.querySelector('.botonAgregarTodo');
+
     contErrores.innerHTML = '';
     contMensajes.innerHTML = '';
+
+    agregarTodo.onlick = function() {
+        enviarFormulario("añadirespecialidades.php");
+    }
+
+    if (contenedorEsp.style.display == "none") {
+        items = [];
+        const lista = document.getElementById('ingresado');
+        lista.textContent = '';
+        actualizarLongitud();
+    }
+
     agregarTodo.onlick = 'enviarFormulario("añadirespecialidades")'
 
     botonPat.style.backgroundColor = '#f8f7f7';

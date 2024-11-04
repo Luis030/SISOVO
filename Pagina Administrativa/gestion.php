@@ -1,6 +1,7 @@
 <?php
     include("php/header_sidebar.php");
     include("../BD/conexionbd.php");
+    include("php/seguridadadmin.php");
     
     $pagina = $_GET['pagina'];
     if (isset($_GET['seccion'])) {
@@ -156,8 +157,8 @@
                 $seccion_actual = isset($_GET['seccion']) ? $_GET['seccion'] : 'inicio';
         ?>
         <?php 
-        if($seccion != ""){
-            switch($seccion){
+        if($seccion != "") {
+            switch($seccion) {
                 case "patologias":
                     $sql = "SELECT 
                     (SELECT COUNT(*) FROM patologias WHERE Estado = 1) AS Total_Patologias_Activas,

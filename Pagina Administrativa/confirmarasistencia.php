@@ -1,9 +1,6 @@
 <?php
     include("php/header_sidebar.php");
-
-    if ($_SESSION['Privilegio'] != "admin") {
-        echo "<script>window.location.href = '../index';</script>";
-    }
+    include("php/seguridadadmin.php");
 ?>  
 <link rel="stylesheet" href="css/styleasistencia.css">
 <script src="js/datostablas.js"></script>
@@ -18,11 +15,11 @@
     <div class="checkboxs">
         <div class="entrada">
             <label for="entrada">Entrada</label>    
-            <input type="checkbox" name="entrada" id="entrada">
+            <input type="radio" name="entrada" id="entrada">
         </div>
         <div class="salida">
             <label for="salida">Salida</label>
-            <input type="checkbox" name="salida" id="salida">
+            <input type="radio" name="salida" id="salida">
         </div>
     </div>
     <div class="boton">

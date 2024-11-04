@@ -1,14 +1,15 @@
 <?php
     require_once("../BD/conexionbd.php");
     require_once("php/header_sidebar.php");
+    include("php/seguridadadmin.php");
 
     $agregado = false;
     $error = false;
 
-    if(isset($_GET['success'])){
+    if(isset($_GET['success'])) {
         $agregado = true;
     }
-    if(isset($_GET['error'])){
+    if(isset($_GET['error'])) {
         $error = true;
     }
 
@@ -70,7 +71,7 @@
             <div class="boton-mensaje">
                 <button class="agregar-boton-alumno" onclick="ingresarAlumno(<?php echo $idclase ?>)">Agregar</button>
                 <?php
-                if($agregado === true){
+                if($agregado === true) {
                     echo "<p>Alumno/s ingresados correctamente</p>";
                 }
                 ?>

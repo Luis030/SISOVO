@@ -2,6 +2,10 @@
     require_once("php/header_sidebar.php");
     require_once("../BD/conexionbd.php");
 
+    if ($_SESSION['Privilegio'] == "alumno") {
+        echo "<script>window.location.href = '../index';</script>";
+    }
+
     $idAlumno = $_GET['id'];; 
 
     function formatearFecha($fechaSQL) {
@@ -9,12 +13,13 @@
         return $fecha->format('d/m/Y');
     }
     
-    $sql = "SELECT Nombre, Apellido, Fecha_Nac, Mail_Padres, Celular_Padres, CONCAT(Grado, '°') AS Grado
+    $sql = "SELECT Nombre, Cedula, Apellido, Fecha_Nac, Mail_Padres, Celular_Padres, CONCAT(Grado, '°') AS Grado
             FROM alumnos
             WHERE ID_Alumno = $idAlumno";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) {
+            $cedulaAlumno = $columna['Cedula'];
             $nombreAlumno = $columna['Nombre'];
             $apellidoAlumno = $columna['Apellido'];
             $fechaAlumno = $columna['Fecha_Nac'];   
@@ -89,6 +94,12 @@
                 <div id="editandoGrado" class="fadeGrado">
                     <input type="number" id="ingresarGrado" placeholder="Ingrese grado" name="gradoNuevo" required></input>
                     <button id="guardarInput" onclick="guardarAtributo(<?php echo $idAlumno ?>, 'grado', 'alumno')">Guardar</button>
+                </div>
+            </div>
+            <div class="editarElemento">
+                <p>Restaurar contraseña de fábrica</p>
+                <div id="editandoContraseña">
+                    <button id="restaurarContraseña" onclick="restaurarContraseña('alumno', '<?php echo $nombreAlumno ?>', '<?php echo $apellidoAlumno ?>', <?php echo $cedulaAlumno ?>)">Restaurar</button>
                 </div>
             </div>
         </div>

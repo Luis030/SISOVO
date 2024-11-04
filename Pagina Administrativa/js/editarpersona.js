@@ -521,3 +521,43 @@ function agregarEspecialidad() {
         })
     }
 }
+
+//POST
+function restaurarContraseña(tipo, nombre, apellido, cedula) {
+    clave = window.clave;
+    Swal.fire({
+        title: "¿Seguro desea restablecer la contraseña?",
+        text: "Por motivos de seguridad digite a continuación la clave maestra:",
+        input: "text",
+        inputPlaceholder: "Escriba aquí...",
+        showCancelButton: true,
+        confirmButtonText: 'Restaurar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            const claveingresada = result.value;
+            if (claveingresada == clave) {
+                fetch("php/restaurarcontraseña.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "nom=" + nombre + "&ape=" + apellido + "&ced=" + cedula + "&tipo=" + tipo
+                })
+                .then(datos => datos.json())
+                .then(datos => {
+                    if (datos.restaurada == "si") {
+                        Swal.fire({
+                            title: "Correcto!",
+                            text: "Contraseña restaurada correctamente.",
+                            icon: "success",
+                            showConfirmButton: false, 
+                            timer: 3000
+                        })
+                    }
+                })
+                
+            }
+          }
+    })
+}

@@ -1,5 +1,6 @@
 <?php
     include("php/header_sidebar.php");
+    include("php/seguridaddocente.php");
 ?>
 <script src="js/cargarselect.js"></script>
 <link rel="stylesheet" href="css/styleinforme.css">
