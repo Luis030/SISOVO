@@ -9,7 +9,17 @@ body {
 main {
     overflow-y: auto !important;
 }
+.enlace-activo-sidebar{
+    background-color: var(--color-primario);
+}
+.enlace-activo-a{
+    color: var(--color-secundario) !important;
+    background-color: var(--color-primario);
+}
 
+.enlace-activo-sidebar a{
+    color: var(--color-secundario) !important;
+}
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;

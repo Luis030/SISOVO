@@ -81,8 +81,8 @@
 <div class="contenedor-anadir-alumno">
     <div class="cambiarpagina">
         <div>
-            <a href="añadiralumno.php" class="añadir-a">Añadir alumno</a>
-            <a href="añadirdocente.php" class="añadir-a">Añadir docente</a>
+            <a href="añadiralumno.php" class="añadir-a" id="agregar-alumno-a">Añadir alumno</a>
+            <a href="añadirdocente.php" class="añadir-a" id="agregar-docente-a">Añadir docente</a>
         </div>
     </div>
     <div class="contenedor-form-añadir-alumno">
@@ -142,10 +142,6 @@
         </form>
     </div>
 </div>
-<script src="js/urlactivo.js"></script>
-<script>
-    actualizarClasePorHref('añadir-a', 'enlace-activo');
-</script>
 <?php
 include("php/footer.php");
 ?>

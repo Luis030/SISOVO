@@ -33,6 +33,40 @@ window.onload = function (){
       overlay.style.display = 'none';
       document.body.style.overflow = 'auto';
     });
+    
+    let url = decodeURIComponent(window.location.href);
+    let pagina = url.split('?')[0].split('/').pop();
+
+    console.log(pagina)
+    switch(pagina){
+        case 'listadocente.php':
+            document.getElementById('lista-docente-li').classList.add('enlace-activo-sidebar');
+            break;
+        case 'clases.php':
+            document.getElementById('clases-li').classList.add('enlace-activo-sidebar');
+            break;
+        case 'index.php':
+            document.getElementById('inicio-li').classList.add('enlace-activo-sidebar');
+            break;
+        case 'gestion.php':
+            document.getElementById('gestion-li').classList.add('enlace-activo-sidebar');
+            break;
+        case 'añadiralumno.php':
+            document.getElementById('agregar-a').classList.add('enlace-activo-a');
+            document.getElementById('agregar-alumno-a').classList.add('enlace-activo');
+            break;
+        case 'añadirdocente.php':
+            document.getElementById('agregar-a').classList.add('enlace-activo-a');
+            document.getElementById('agregar-docente-a').classList.add('enlace-activo');
+            break;
+        case 'añadirtodo.php':
+            document.getElementById('agregar-a').classList.add('enlace-activo-a');
+            break;
+        case 'añadirclase.php':
+            document.getElementById('agregar-a').classList.add('enlace-activo-a');
+            break;
+    }
+
 }
 
 function toggleSidebar() {
@@ -43,6 +77,11 @@ function toggleSidebar() {
 function toggleDropdown() {
     var dropdownMenu = document.getElementById("dropdown-menu");
     dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+    if(dropdownMenu.style.display == "block"){
+        document.getElementById('agregar-a').classList.add('enlace-activo-a')
+    } else {
+        document.getElementById('agregar-a').classList.remove('enlace-activo-a')
+    }
 }
 
 function updateTime() {
