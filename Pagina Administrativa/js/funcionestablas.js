@@ -653,15 +653,42 @@ function eliminarEsp(id, nombre){
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: "id="+id+"&nombre="+nombre+"&tipo=esp&opcion=borrar&eliminar=false"
+        body: "id=" + id + "&nombre=" + nombre + "&tipo=esp&opcion=borrar&eliminar=false"
     })
     .then(datos => datos.json())
     .then(datos => {
         if(datos.resultado == "imposible"){
             Swal.fire({
-                title: "Esta ocupacion no se puede eliminar",
-                text: "Esta ocupacion pertenece al menos a 1 persona",
-                icon: "error"
+                title: "Esta especialización pertenece al menos a 1 docente",
+                text: "Si la especialización " + nombre + " se elimina igualmente, sera desasignada automaticamente de los docentes que la tengan.",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Eliminar de todas formas"
+            }).then((resultado) =>{
+                if (resultado.isConfirmed) {
+                    fetch("php/cambiarelementos.php", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: "id=" + id + "&nombre=" + nombre + "&tipo=esp&opcion=borrar&borrarigual=true"
+                    })
+                    .then(datos => datos.json())
+                    .then(datos => {
+                        if (datos.seborro == "si") {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Borrado correctamente",
+                                text: "La especialización " + nombre + " se ha borrado y desasignado correctamente de sus docentes."
+                            })
+                            tablas['espgestion'].ajax.reload();
+                            actualizarDatosEsp();
+                        }
+                    })
+                }
             })
         }
         if(datos.resultado == "posible"){

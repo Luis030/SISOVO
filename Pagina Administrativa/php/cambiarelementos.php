@@ -136,7 +136,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 exit;
             } else {
                 if($_POST['eliminar'] == "true"){
-                    $sql = "UPDATE ocupacion SET Estado=0 WHERE ID_Ocupacion=$id";
+                    $sql = "UPDATE ocupacion SET Estado = 0 WHERE ID_Ocupacion = $id";
                     if(mysqli_query($conexion, $sql) == TRUE){
                         echo json_encode([
                             "resultado" => "exito",
@@ -157,13 +157,30 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         if($_POST['tipo'] == "esp") {
             $id = $_POST['id'];
             $nombre = $_POST['nombre'];
-            $sql = "SELECT E.Nombre, COUNT(*) AS Cantidad FROM especializaciones E join especializacion_docente ED on E.ID_Especializacion=ED.ID_Especializacion AND E.Estado=1 join docentes D on D.ID_Docente=ED.ID_Docente AND D.Estado=1 WHERE E.Estado=1 AND E.Nombre='$nombre' GROUP BY 1;";
+            $sql = "SELECT E.Nombre, COUNT(*) AS Cantidad 
+                    FROM especializaciones E
+                    JOIN especializacion_docente ED ON E.ID_Especializacion = ED.ID_Especializacion AND E.Estado = 1 
+                    JOIN docentes D ON D.ID_Docente = ED.ID_Docente AND D.Estado = 1 
+                    WHERE E.Estado = 1 AND E.Nombre = '$nombre' GROUP BY 1;";
             $resultado = mysqli_query($conexion, $sql);
             if(mysqli_num_rows($resultado) > 0){
-                echo json_encode([
-                    "resultado" => "imposible",
-                    "nombre" => $nombre
-                ]);
+                if (isset($_POST['borrarigual'])) {
+                    $sql = "UPDATE especializaciones SET Estado = 0 WHERE ID_Especializacion = $id";
+                    $resultado = mysqli_query($conexion, $sql);
+                    $sql2 = "UPDATE especializacion_docente SET Estado = 0 WHERE ID_Especializacion = $id";
+                    $resultado2 = mysqli_query($conexion, $sql2);
+                    if ($resultado === TRUE && $resultado2 === TRUE) {
+                        echo json_encode([
+                            "seborro" => "si",
+                            "nombre" => $nombre
+                        ]);
+                    }
+                } else {
+                    echo json_encode([
+                        "resultado" => "imposible",
+                        "nombre" => $nombre
+                    ]);
+                }
                 exit;
             } else {
                 if($_POST['eliminar'] == "true") {
