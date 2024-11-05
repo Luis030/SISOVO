@@ -1,5 +1,5 @@
-GRANT ALL PRIVILEGES ON cerbd.* TO cer identified by 'clinicacer';
-grant insert on cerbd.alumnos to administrador identified by 'admin@pass';
+GRANT ALL PRIVILEGES ON cerbd.* TO cer IDENTIFIED by 'clinicacer';
+grant insert on cerbd.alumnos to administrador IDENTIFIED by 'admin@pass';
 grant insert on cerbd.docentes to administrador;
 grant insert on cerbd.clase to administrador;
 grant insert on cerbd.patologias to administrador;
@@ -35,7 +35,7 @@ grant update on cerbd.usuarios to administrador;
 grant update on cerbd.ocupacion to administrador;
 grant update on cerbd.alumnos_clase to administrador;
 
-grant select on cerbd.informes to docente identified by 'docente@pass';
+grant select on cerbd.informes to docente IDENTIFIED by 'docente@pass';
 grant select on cerbd.usuarios to docente;
 grant select on cerbd.alumnos to docente;
 grant select on cerbd.patologia_alumno to docente;
@@ -49,7 +49,7 @@ grant insert on cerbd.alumnos_clase to docente;
 grant update on cerbd.informes to docente;
 grant update on cerbd.alumnos_clase to docente;
 
-grant select on cerbd.informes to alumno identified by 'alumno@pass';
+grant select on cerbd.informes to alumno IDENTIFIED by 'alumno@pass';
 grant select on cerbd.usuarios to alumno;
 
 grant update on cerbd.usuarios to alumno;
