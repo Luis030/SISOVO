@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    if(document.querySelector('#tabla-docentes')){
+    if(document.querySelector('#lista-docente')){
         setInterval(actualizarListaDocente, 10000);
     }
     if(document.querySelector('#patsinA')){
