@@ -35,6 +35,9 @@
                     <p class="atrasp">
                         <a href="../index" class="atras">Atras</a>
                     </p>
+                    <p>
+                        <a href="recuperar.php">Recuperar cuenta</a>
+                    </p>
                 </form>
             </div>
         </div>
