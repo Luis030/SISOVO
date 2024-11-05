@@ -9,12 +9,12 @@ $stmt = null;
 
 switch ($tipouser) {
     case "alumno":
-        $sql = "SELECT ID_Alumno, Nombre, Apellido, Cedula, Fecha_Nac, Mail_Padres, Celular_Padres FROM alumnos WHERE Cedula = ? AND Estado = 1";
+        $sql = "SELECT a.ID_Alumno, a.Nombre, a.Apellido, a.Cedula, a.Fecha_Nac, u.Correo AS Mail_Padres, a.Celular_Padres FROM alumnos a JOIN usuarios u ON a.ID_Usuario=u.ID_Usuario WHERE a.Cedula = ? AND a.Estado = 1";
         $stmt = mysqli_prepare($conexion, $sql); 
         mysqli_stmt_bind_param($stmt, "s", $cedula);  
         break;
     case "docente":
-        $sql = "SELECT ID_Docente, Nombre, Apellido, Cedula, Fecha_Nac, Mail FROM docentes WHERE Cedula = ? AND Estado = 1";
+        $sql = "SELECT d.ID_Docente, d.Nombre, d.Apellido, d.Cedula, d.Fecha_Nac, u.Correo AS Mail FROM docentes d JOIN usuarios u ON d.ID_Usuario=u.ID_Usuario WHERE d.Cedula = ? AND d.Estado = 1";
         $stmt = mysqli_prepare($conexion, $sql);
         mysqli_stmt_bind_param($stmt, "s", $cedula); 
         break;

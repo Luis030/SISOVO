@@ -15,7 +15,7 @@
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $celular = $_POST['celular'];
-            @$correo = $_POST['correo'];
+            $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
             @$especialidades = $_POST['especialidades'];
             $nacimiento = $_POST['nacimiento'];
             $idocupacion = $_POST['ocupacion'];
@@ -30,8 +30,8 @@
                 header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=1");
                 exit;
             }
-            $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) 
-                        VALUES ('$nombreusuario', '$contraseña', 'docente', '$cedula');";
+            $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) 
+                        VALUES ('$nombreusuario', '$contraseña', 'docente', '$cedula', '$correo');";
             if (mysqli_query($conexion, $sqluser) === TRUE) {
                 $idUser = mysqli_insert_id($conexion);
                 $añadirDoc = "INSERT INTO docentes(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail, Celular, ID_Ocupacion) 

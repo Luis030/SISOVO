@@ -10,9 +10,9 @@
         return $fecha->format('d/m/Y');
     }
     
-    $sql = "SELECT D.ID_Ocupacion, D.Nombre AS Docente, Apellido, Fecha_Nac, Mail, Celular, O.Nombre AS Ocupacion, O.Estado, D.Cedula
-            FROM docentes D, ocupacion O
-            WHERE ID_Docente = $idDocente AND O.ID_Ocupacion = D.ID_Ocupacion";
+    $sql = "SELECT D.ID_Ocupacion, D.Nombre AS Docente, D.Apellido, D.Fecha_Nac, U.Correo AS Mail, D.Celular, O.Nombre AS Ocupacion, O.Estado, D.Cedula
+            FROM docentes D, ocupacion O, usuarios U
+            WHERE ID_Docente = $idDocente AND O.ID_Ocupacion = D.ID_Ocupacion AND D.ID_Usuario=U.ID_Usuario";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {
         while($columna = mysqli_fetch_assoc($resultado)) {

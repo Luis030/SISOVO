@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
     if(isset($_POST['tabla'])){
-        $sql = "SELECT ID_Docente, CONCAT(Nombre, ' ', Apellido) AS Nombre, Cedula, Mail, Celular FROM docentes WHERE Estado=1;";
+        $sql = "SELECT d.ID_Docente, CONCAT(d.Nombre, ' ', d.Apellido) AS Nombre, d.Cedula, u.Correo AS Mail, d.Celular FROM docentes d JOIN usuarios u ON d.ID_Usuario=u.ID_Usuario WHERE d.Estado=1;";
         $resultado = mysqli_query($conexion, $sql);
         if($resultado){
             $docentes = mysqli_fetch_all($resultado, MYSQLI_ASSOC);

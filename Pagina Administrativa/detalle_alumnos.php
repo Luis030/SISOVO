@@ -13,8 +13,8 @@
         return $fecha->format('d/m/Y');
     }
     
-    $sql = "SELECT Nombre, Cedula, Apellido, Fecha_Nac, Mail_Padres, Celular_Padres, CONCAT(Grado, '°') AS Grado
-            FROM alumnos
+    $sql = "SELECT a.Nombre, a.Cedula, a.Apellido, a.Fecha_Nac, u.Correo AS Mail_Padres, a.Celular_Padres, CONCAT(Grado, '°') AS Grado
+            FROM alumnos a JOIN usuarios u ON a.ID_Usuario=u.ID_Usuario 
             WHERE ID_Alumno = $idAlumno";
     $resultado = mysqli_query($conexion, $sql);
     if(mysqli_num_rows($resultado) > 0) {

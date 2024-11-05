@@ -22,7 +22,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $sql = "UPDATE alumnos SET Fecha_Nac = '$txt' WHERE ID_Alumno = $id";
                 break;
             case "mail":
-                $sql = "UPDATE alumnos SET Mail_Padres = '$txt' WHERE ID_Alumno = $id";
+                $sql = "SELECT ID_Usuario FROM alumnos WHERE ID_Alumno=$id";
+                $resultado = mysqli_query($conexion, $sql);
+                $filas = mysqli_fetch_assoc($resultado);
+                $iduser = $filas['ID_Usuario'];
+                $sql = "UPDATE usuarios SET Correo = '$txt' WHERE ID_Usuario = $iduser";
                 break;
             case "celular":
                 $sql = "UPDATE alumnos SET Celular_Padres = '$txt' WHERE ID_Alumno = $id";
@@ -48,7 +52,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 $sql = "UPDATE docentes SET Fecha_Nac = '$txt' WHERE ID_Docente = $id";
                 break;
             case "mail":
-                $sql = "UPDATE docentes SET Mail = '$txt' WHERE ID_Docente = $id";
+                $sql = "SELECT ID_Usuario FROM docentes WHERE ID_Docente=$id";
+                $resultado = mysqli_query($conexion, $sql);
+                $filas = mysqli_fetch_assoc($resultado);
+                $iduser = $filas['ID_Usuario'];
+                $sql = "UPDATE usuarios SET Correo = '$txt' WHERE ID_Usuario = $iduser";
                 break;
             case "celular":
                 $sql = "UPDATE docentes SET Celular = '$txt' WHERE ID_Docente = $id";

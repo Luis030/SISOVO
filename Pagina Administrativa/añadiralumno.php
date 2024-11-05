@@ -15,7 +15,7 @@
             $apellido = $_POST['apellido'];
             $fechanac = $_POST['nacimiento'];
             $celular = $_POST['celular'];
-            @$correo = $_POST['correo'];
+            $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
             @$clases = $_POST['clases'];
             @$patologias = $_POST['patologias'];
             $grado = $_POST['grado'];
@@ -33,7 +33,7 @@
             }
 
             // Insertar en la tabla "usuarios"
-            $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula');";
+            $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula', '$correo');";
             if (mysqli_query($conexion, $sqluser) === TRUE) {
                 $IDusuario = mysqli_insert_id($conexion);
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2024 a las 23:42:39
+-- Tiempo de generación: 05-11-2024 a las 23:13:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -35,7 +35,6 @@ CREATE TABLE `alumnos` (
   `Apellido` varchar(20) NOT NULL,
   `Cedula` int(11) NOT NULL,
   `Fecha_Nac` date NOT NULL,
-  `Mail_Padres` varchar(60) NOT NULL,
   `Celular_Padres` varchar(9) NOT NULL,
   `Estado` tinyint(1) DEFAULT 1,
   `Grado` int(2) DEFAULT NULL
@@ -45,21 +44,21 @@ CREATE TABLE `alumnos` (
 -- Volcado de datos para la tabla `alumnos`
 --
 
-INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Fecha_Nac`, `Mail_Padres`, `Celular_Padres`, `Estado`, `Grado`) VALUES
-(1, 1, 'Juan', 'Pérez', 78713177, '2016-08-06', 'f', '089250435', 0, 4),
-(2, 2, 'María', 'González', 84409802, '2007-08-19', 'padres.maría.gonzález@example.com', '098032878', 1, 5),
-(3, 3, 'Carlos', 'Rodríguez', 33045395, '2016-10-03', 'padres.carlos.rodríguez@example.com', '096292114', 0, 8),
-(4, 4, 'Lucía', 'Martínez', 41447172, '2016-09-07', 'padres.lucía.martínez@example.com', '097560505', 1, 10),
-(5, 5, 'Mateo', 'López', 58681693, '2008-02-15', 'padres.mateo.lópez@example.com', '094637655', 1, 15),
-(6, 6, 'Sofía', 'Díaz', 17812342, '2009-08-17', 'padres.sofía.díaz@example.com', '094385559', 1, 38),
-(7, 7, 'Tomás', 'Fernández', 13956930, '2011-04-30', '', '095140250', 1, 7),
-(8, 8, 'vbcbgc', 'fran', 59170771, '2013-11-27', 'padres.camila.garcía@example.com', '098646116', 1, 3),
-(9, 9, 'martinez', 'Hernández', 12111791, '2009-05-28', 'padres.martín.hernández@example.com', '093064627', 1, 6),
-(10, 10, 'Valentina', 'Sánchez', 55397008, '2009-02-28', 'padres.valentina.sánchez@example.com', '095808961', 1, 3),
-(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', 'lmanuelsosa@gmial.com', '092504454', 1, 1),
-(12, 26, 'Sofía Milagros', 'Gallero Monte', 56437766, '2006-10-23', 'sofiagallero698@gmail.com', '098280012', 0, 6),
-(14, 29, 'fafsaf', 'sdfsfs', 56437766, '2024-10-31', '', '43253453', 0, 5),
-(15, 30, 'fddgh', 'fsdfsdf', 56437766, '2024-10-31', 'fsdfsd@gfdggd', '453535', 0, 3);
+INSERT INTO `alumnos` (`ID_Alumno`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Fecha_Nac`, `Celular_Padres`, `Estado`, `Grado`) VALUES
+(1, 1, 'Juan', 'Pérez', 78713177, '2016-08-06', '089250435', 0, 4),
+(2, 2, 'María', 'González', 84409802, '2007-08-19', '098032878', 0, 5),
+(3, 3, 'Carlos', 'Rodríguez', 33045395, '2016-10-03', '096292114', 0, 8),
+(4, 4, 'Lucía', 'Martínez', 41447172, '2016-09-07', '097560505', 0, 10),
+(5, 5, 'Mateo', 'López', 58681693, '2008-02-15', '094637655', 1, 15),
+(6, 6, 'Sofía', 'Díaz', 17812342, '2009-08-17', '094385559', 0, 38),
+(7, 7, 'Tomás', 'Fernández', 13956930, '2011-04-30', '095140250', 0, 7),
+(8, 8, 'vbcbgc', 'fran', 59170771, '2013-11-27', '098646116', 1, 3),
+(9, 9, 'martinez', 'Hernández', 12111791, '2009-05-28', '093064627', 1, 6),
+(10, 10, 'Valentina', 'Sánchez', 55397008, '2009-02-28', '095808961', 1, 3),
+(11, 22, 'luis sosa', 'Simonelli Cavallo', 56129975, '2006-09-21', '092504454', 1, 1),
+(12, 26, 'Sofía Milagros', 'Gallero Monte', 56437766, '2006-10-23', '098280012', 0, 6),
+(14, 29, 'fafsaf', 'sdfsfs', 56437766, '2024-10-31', '43253453', 1, 5),
+(15, 30, 'fddgh', 'fsdfsdf', 56437766, '2024-10-31', '453535', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -80,53 +79,58 @@ CREATE TABLE `alumnos_clase` (
 --
 
 INSERT INTO `alumnos_clase` (`ID_Clase`, `ID_Alumno`, `Asistio`, `Fecha`, `Estado`) VALUES
-(2, 2, NULL, '2024-10-10', 1),
-(2, 1, NULL, '2024-10-10', 1),
-(2, 3, NULL, '2024-10-10', 1),
-(2, 2, 0, '2024-10-10', 1),
-(2, 1, 0, '2024-10-10', 1),
-(2, 3, 1, '2024-10-10', 1),
-(2, 6, NULL, '2024-10-10', 1),
-(2, 2, 0, '2024-10-11', 1),
-(2, 1, 0, '2024-10-11', 1),
-(2, 3, 1, '2024-10-11', 1),
-(2, 6, 0, '2024-10-11', 1),
-(3, 2, NULL, '2024-10-11', 1),
+(2, 2, NULL, '2024-10-10', 0),
+(2, 1, NULL, '2024-10-10', 0),
+(2, 3, NULL, '2024-10-10', 0),
+(2, 2, 0, '2024-10-10', 0),
+(2, 1, 0, '2024-10-10', 0),
+(2, 3, 1, '2024-10-10', 0),
+(2, 6, NULL, '2024-10-10', 0),
+(2, 2, 0, '2024-10-11', 0),
+(2, 1, 0, '2024-10-11', 0),
+(2, 3, 1, '2024-10-11', 0),
+(2, 6, 0, '2024-10-11', 0),
+(3, 2, NULL, '2024-10-11', 0),
 (3, 3, NULL, '2024-10-11', 0),
-(3, 7, NULL, '2024-10-11', 1),
-(2, 11, NULL, '2024-10-16', 1),
-(12, 4, NULL, '2024-10-16', 1),
+(3, 7, NULL, '2024-10-11', 0),
+(2, 11, NULL, '2024-10-16', 0),
+(12, 4, NULL, '2024-10-16', 0),
 (12, 8, NULL, '2024-10-16', 0),
-(12, 4, 0, '2024-10-23', 1),
+(12, 4, 0, '2024-10-23', 0),
 (12, 8, 1, '2024-10-23', 0),
-(12, 4, 0, '2024-10-24', 1),
+(12, 4, 0, '2024-10-24', 0),
 (12, 8, 0, '2024-10-24', 0),
-(13, 4, NULL, '2024-10-24', 1),
-(13, 1, NULL, '2024-10-24', 1),
-(13, 5, NULL, '2024-10-24', 1),
-(13, 2, NULL, '2024-10-24', 1),
-(13, 3, NULL, '2024-10-24', 1),
-(13, 11, NULL, '2024-10-24', 1),
+(13, 4, NULL, '2024-10-24', 0),
+(13, 1, NULL, '2024-10-24', 0),
+(13, 5, NULL, '2024-10-24', 0),
+(13, 2, NULL, '2024-10-24', 0),
+(13, 3, NULL, '2024-10-24', 0),
+(13, 11, NULL, '2024-10-24', 0),
 (12, 5, NULL, '2024-10-24', 0),
-(12, 6, NULL, '2024-10-24', 1),
-(12, 1, NULL, '2024-10-24', 1),
-(12, 2, NULL, '2024-10-24', 1),
+(12, 6, NULL, '2024-10-24', 0),
+(12, 1, NULL, '2024-10-24', 0),
+(12, 2, NULL, '2024-10-24', 0),
 (12, 9, NULL, '2024-10-24', 1),
-(12, 7, NULL, '2024-10-24', 1),
+(12, 7, NULL, '2024-10-24', 0),
 (12, 10, NULL, '2024-10-24', 1),
 (14, 9, NULL, '2024-10-24', 1),
-(13, 4, 1, '2024-10-24', 1),
-(13, 1, 1, '2024-10-24', 1),
-(13, 5, 0, '2024-10-24', 1),
-(13, 2, 1, '2024-10-24', 1),
-(13, 11, 1, '2024-10-24', 1),
-(13, 7, NULL, '2024-10-24', 1),
-(13, 1, 1, '2024-10-30', 1),
-(13, 2, 1, '2024-10-30', 1),
-(13, 4, 1, '2024-10-30', 1),
-(13, 5, 1, '2024-10-30', 1),
-(13, 7, 1, '2024-10-30', 1),
-(13, 11, 1, '2024-10-30', 1);
+(13, 4, 0, '2024-10-24', 0),
+(13, 1, 1, '2024-10-24', 0),
+(13, 5, 0, '2024-10-24', 0),
+(13, 2, 1, '2024-10-24', 0),
+(13, 11, 1, '2024-10-24', 0),
+(13, 7, NULL, '2024-10-24', 0),
+(13, 1, 1, '2024-10-30', 0),
+(13, 2, 1, '2024-10-30', 0),
+(13, 4, 1, '2024-10-30', 0),
+(13, 5, 1, '2024-10-30', 0),
+(13, 7, 1, '2024-10-30', 0),
+(13, 11, 1, '2024-10-30', 0),
+(2, 9, NULL, '2024-10-31', 1),
+(2, 5, NULL, '2024-10-31', 1),
+(4, 6, NULL, '2024-11-01', 0),
+(16, 8, NULL, '2024-11-02', 0),
+(13, 14, NULL, '2024-11-04', 1);
 
 -- --------------------------------------------------------
 
@@ -148,16 +152,17 @@ CREATE TABLE `clase` (
 --
 
 INSERT INTO `clase` (`ID_Clase`, `ID_Docente`, `Nombre`, `Horario`, `Estado`, `Año`) VALUES
-(2, 5, 'hgfhfth', 'Lunes', 1, 2024),
+(2, 5, 'hgfhfth', 'Lunes', 0, 2024),
 (3, 8, 'Historia', 'Martes', 0, 2024),
 (4, 3, 'Área de lengua', 'Miércoles', 1, 2024),
 (5, 4, 'Lengua', 'Jueves', 0, 2024),
-(8, 5, 'Área de lengua', 'Lunes', 1, 2024),
+(8, 5, 'Área de lengua', 'Lunes', 0, 2024),
 (11, 10, 'Inglés', 'Viernes', 0, 2024),
 (12, 13, 'clases', 'Jue(15:00-16:00)', 0, 2024),
 (13, 13, 'naufrago', 'Mar(14:04-14:05)', 1, 2024),
 (14, 5, 'gdfgdfg', 'Jue(03:04-05:03)', 0, 2024),
-(15, 14, 'siempre fdsfsdf', 'Vie(03:09-03:59)', 1, 2024);
+(15, 14, 'siempre fdsfsdf', 'Vie(03:09-03:59)', 1, 2024),
+(16, 10, 'ghnvfcnfgxn dxhg', 'Mie(12:53-12:59)', 0, 2024);
 
 -- --------------------------------------------------------
 
@@ -171,7 +176,6 @@ CREATE TABLE `docentes` (
   `Nombre` varchar(20) NOT NULL,
   `Apellido` varchar(20) NOT NULL,
   `Cedula` int(11) NOT NULL,
-  `Mail` varchar(60) NOT NULL,
   `Celular` varchar(9) DEFAULT NULL,
   `Fecha_Nac` date DEFAULT NULL,
   `Estado` tinyint(1) DEFAULT 1,
@@ -182,19 +186,19 @@ CREATE TABLE `docentes` (
 -- Volcado de datos para la tabla `docentes`
 --
 
-INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Mail`, `Celular`, `Fecha_Nac`, `Estado`, `ID_Ocupacion`) VALUES
-(1, 11, 'Ana', 'Ramírez', 69647322, 'Jue(03:04-05:03), 	', '097958413', '2024-10-24', 1, 6),
-(2, 12, 'Pedro', 'Gómez', 26673841, 'pedro.gómez@example.com', '097816287', '1991-08-14', 1, 3),
-(3, 13, 'Laura', 'Fernández', 73882441, 'laura.fernández@example.com', '095430551', '2000-11-03', 1, 1),
-(4, 14, 'Santiago', 'Morales', 61377294, 'santiago.morales@example.com', '098171709', '2003-10-26', 1, 5),
-(5, 15, 'Claudia', 'Ruiz', 92692705, 'qur carajo@gmail.copm', '096836842', '2024-11-09', 0, 6),
-(6, 16, 'Roberto', 'Torres', 52837341, 'roberto.torres@example.com', '092898511', '1986-11-23', 1, 8),
-(7, 17, 'María', 'López', 16156404, 'maría.lópez@example.com', '098583986', '2000-09-07', 1, 9),
-(8, 18, 'Carlos', 'Méndez', 45659784, 'carlos.méndez@example.com', '091633174', '1998-12-04', 0, 2),
-(9, 19, 'Paula', 'Gutiérrez', 71192529, 'paula.gutiérrez@example.com', '098201334', '2004-08-19', 1, 11),
-(10, 20, 'Jorge', 'Herrera', 15918386, 'jorge.herrera@example.com', '095486464', '1985-02-05', 1, 12),
-(13, 24, 'Luis Manuel', 'Sosa Berroa', 56777350, 'LManuelSosa@gmail.com', '092504454', '2007-03-27', 1, 4),
-(14, 25, 'Ian Andrés', 'Volpi Zamit', 56499637, 'nopetif@gmail.com', '09250944', '2007-03-27', 1, 5);
+INSERT INTO `docentes` (`ID_Docente`, `ID_Usuario`, `Nombre`, `Apellido`, `Cedula`, `Celular`, `Fecha_Nac`, `Estado`, `ID_Ocupacion`) VALUES
+(1, 11, 'Ana', 'Ramírez', 69647322, '097958413', '2024-10-24', 0, 6),
+(2, 12, 'Pedro', 'Gómez', 26673841, '097816287', '1991-08-14', 1, 3),
+(3, 13, 'Laura', 'Fernández', 73882441, '095430551', '2000-11-03', 1, 1),
+(4, 14, 'Santiago', 'Morales', 61377294, '098171709', '2003-10-26', 1, 5),
+(5, 15, 'Claudia', 'Ruiz', 92692705, '096836842', '2024-11-09', 0, 6),
+(6, 16, 'Roberto', 'Torres', 52837341, '092898511', '1986-11-23', 1, 8),
+(7, 17, 'María', 'López', 16156404, '098583986', '2000-09-07', 1, 9),
+(8, 18, 'Carlos', 'Méndez', 45659784, '091633174', '1998-12-04', 0, 2),
+(9, 19, 'Paula', 'Gutiérrez', 71192529, '098201334', '2004-08-19', 0, 2),
+(10, 20, 'Jorge', 'Herrera', 15918386, '095486464', '1985-02-05', 0, 2),
+(13, 24, 'Luis Manuel', 'Sosa Berroa', 56777350, '092504454', '2007-03-27', 1, 4),
+(14, 25, 'Ian Andrés', 'Volpi Zamit', 56499637, '09250944', '2007-03-27', 1, 5);
 
 -- --------------------------------------------------------
 
@@ -244,7 +248,17 @@ INSERT INTO `especializaciones` (`ID_Especializacion`, `Nombre`, `ID_Ocupacion`,
 (28, 'fgvdcgdf', 4, 1),
 (29, 'dfgdfgj', 4, 1),
 (30, 'ghfhdfg', 3, 1),
-(31, 'ghdfhfdgh', 3, 1);
+(31, 'ghdfhfdgh', 3, 1),
+(32, 'carleto', 8, 0),
+(33, 'carleto', 3, 1),
+(34, 'carleto', 6, 1),
+(35, 'carleto', 4, 1),
+(36, 'carleto', 24, 1),
+(37, 'carñps', 4, 1),
+(38, 'jghhj', 4, 1),
+(39, 'fudu', 4, 1),
+(40, 'carleto', 19, 1),
+(41, 'fdsfsdf', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -263,7 +277,22 @@ CREATE TABLE `especializacion_docente` (
 --
 
 INSERT INTO `especializacion_docente` (`ID_Especializacion`, `ID_Docente`, `Estado`) VALUES
-(2, 8, 1);
+(2, 8, 1),
+(14, 1, 1),
+(15, 1, 1),
+(13, 1, 1),
+(19, 9, 0),
+(20, 9, 0),
+(21, 9, 0),
+(20, 10, 0),
+(19, 10, 0),
+(21, 10, 0),
+(2, 14, 1),
+(3, 14, 1),
+(11, 6, 1),
+(1, 6, 1),
+(3, 4, 1),
+(2, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +327,7 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (9, 13, 10, 'gfhfgjfjkghkgh hkh', 'gfdgdfg', '2024-04-25', 0, 4),
 (10, 13, 2, 'larrana', 'probando', '2024-10-25', 1, 4),
 (11, 13, 7, 'gfdgdg', 'probando', '2024-01-25', 0, 4),
-(12, 13, 8, 'gfdgdfgdg', 'probando', '2024-02-25', 1, 4),
+(12, 13, 8, 'gfdgdfgdg', 'probando', '2024-02-25', 0, 4),
 (13, 13, 1, 'gdfdjhfgjh', 'probando', '2024-05-25', 0, 4),
 (14, 13, 11, 'jgjghjghjg', 'probando', '2024-04-25', 1, 4),
 (15, 13, 4, 'hgjhgfj', 'fgsdfsfs', '2024-03-25', 1, 4),
@@ -312,12 +341,12 @@ INSERT INTO `informes` (`ID_Informe`, `ID_Docente`, `ID_Alumno`, `Titulo`, `Obse
 (23, 13, 6, 'gdhfjfjf', 'probando', '2024-04-25', 0, 4),
 (24, 13, 7, 'nfgjghfjgkj', 'probando', '2024-08-25', 1, 4),
 (25, 13, 8, 'fgdhfdhfjj', 'probando', '2024-09-25', 0, 4),
-(26, 13, 5, 'hdj', 'probando', '2024-10-25', 1, 4),
-(27, 13, 7, 'hfghdgfh', 'probando', '2024-10-25', 1, 4),
+(26, 13, 5, 'hdj', 'probando', '2024-10-25', 0, 4),
+(27, 13, 7, 'hfghdgfh', 'probando', '2024-10-25', 0, 4),
 (28, 13, 11, 'ggfdgdsg', 'probando', '2024-10-25', 0, 4),
 (29, 13, 5, 'dgfshsgfhd', 'probando', '2024-10-25', 0, 4),
 (30, 13, 6, 'gdsgfsgfds', 'probando', '2024-10-25', 0, 4),
-(31, 13, 9, 'fsfsfs', 'FFSAFASF', '2024-10-31', 1, 2);
+(31, 13, 9, 'fsfsfs', 'FFSAFASF', '2024-10-31', 0, 2);
 
 -- --------------------------------------------------------
 
@@ -402,7 +431,9 @@ INSERT INTO `ocupacion` (`ID_Ocupacion`, `Nombre`, `Estado`) VALUES
 (19, '18', 1),
 (20, '19', 0),
 (21, 'gfsdgsdgf', 1),
-(22, 'ahfdhf', 1);
+(22, 'ahfdhf', 1),
+(23, 'carleto', 0),
+(24, 'carleto', 1);
 
 -- --------------------------------------------------------
 
@@ -423,39 +454,52 @@ CREATE TABLE `patologias` (
 INSERT INTO `patologias` (`ID_Patologia`, `Nombre`, `Estado`) VALUES
 (1, 'Trastorno del déficit de atención e hiperactividad', 1),
 (2, 'TEA', 1),
-(3, 'islexia', 1),
-(4, 'Parálisis cerebral', 1),
-(5, 'Discapacidad intelectual', 1),
+(3, 'islexia', 0),
+(4, 'Parálisis cerebral', 0),
+(5, 'Discapacidad intelectual', 0),
 (6, 'Trastornos del aprendizaje', 1),
 (7, 'Trastorno de ansiedad', 1),
-(8, 'dafsdsf', 1),
+(8, 'dafsdsf', 0),
 (9, 'Trastornos del comportamiento', 1),
 (10, 'Trastornos de la comunicación', 1),
-(11, 'f', 1),
-(12, 'perro', 1),
-(13, 'gato', 1),
-(14, 'federico cancer', 1),
-(15, 'piromano', 1),
-(16, 'grhdh', 1),
-(17, 'gfdgsdfg', 1),
-(18, 'gfj', 1),
-(19, 'zombie', 1),
+(11, 'f', 0),
+(12, 'perro', 0),
+(13, 'gato', 0),
+(14, 'federico cancer', 0),
+(15, 'piromano', 0),
+(16, 'grhdh', 0),
+(17, 'gfdgsdfg', 0),
+(18, 'gfj', 0),
+(19, 'zombie', 0),
 (20, 'dsadas', 0),
 (21, 'asdad', 0),
 (22, 'hfghfg', 0),
 (23, 'jgjgh', 0),
 (24, 'carlo', 0),
-(25, 'perroviejo', 1),
+(25, 'perroviejo', 0),
 (26, 'fgdgdg', 0),
 (27, 'fsfs', 0),
 (28, 'b', 0),
-(29, 'segsgs', 1),
+(29, 'segsgs', 0),
 (30, 'dar', 0),
 (31, 'e', 0),
 (32, 'g', 0),
 (33, 'h', 0),
-(34, 'gadfgs', 1),
-(35, 'hdshsdh', 1);
+(34, 'gadfgs', 0),
+(35, 'hdshsdh', 0),
+(36, 'carleto', 0),
+(38, 'carleto', 0),
+(39, 'Asma', 0),
+(40, 'Asma', 0),
+(41, 'Asma', 0),
+(42, 'Asma', 0),
+(43, 'Asma', 0),
+(44, 'Asma', 0),
+(45, 'Asma', 0),
+(46, 'Asma', 0),
+(47, 'Asma', 0),
+(48, 'Asma', 0),
+(49, 'Asma', 0);
 
 -- --------------------------------------------------------
 
@@ -474,40 +518,54 @@ CREATE TABLE `patologia_alumno` (
 --
 
 INSERT INTO `patologia_alumno` (`ID_Patologia`, `ID_Alumno`, `Estado`) VALUES
-(4, 11, 1),
-(10, 7, 1),
-(14, 7, 1),
-(16, 2, 1),
-(16, 3, 1),
-(16, 5, 1),
-(16, 6, 1),
-(17, 2, 1),
-(16, 3, 1),
-(11, 2, 1),
-(10, 2, 1),
-(15, 2, 1),
-(6, 2, 1),
-(9, 2, 1),
-(12, 2, 1),
-(6, 4, 1),
-(4, 4, 1),
-(3, 12, 1),
-(8, 12, 1),
-(5, 12, 1),
-(13, 12, 1),
-(10, 12, 1),
-(9, 12, 1),
-(4, 12, 1),
-(2, 12, 1),
-(6, 12, 1),
-(7, 12, 1),
-(1, 12, 1),
-(15, 12, 1),
+(4, 11, 0),
+(10, 7, 0),
+(14, 7, 0),
+(16, 2, 0),
+(16, 3, 0),
+(16, 5, 0),
+(16, 6, 0),
+(17, 2, 0),
+(16, 3, 0),
+(11, 2, 0),
+(10, 2, 0),
+(15, 2, 0),
+(6, 2, 0),
+(9, 2, 0),
+(12, 2, 0),
+(6, 4, 0),
+(4, 4, 0),
+(3, 12, 0),
+(8, 12, 0),
+(5, 12, 0),
+(13, 12, 0),
+(10, 12, 0),
+(9, 12, 0),
+(4, 12, 0),
+(2, 12, 0),
+(6, 12, 0),
+(7, 12, 0),
+(1, 12, 0),
+(15, 12, 0),
 (4, 1, 0),
-(5, 9, 1),
-(4, 9, 1),
-(5, 14, 1),
-(5, 15, 1);
+(5, 9, 0),
+(4, 9, 0),
+(5, 14, 0),
+(5, 15, 0),
+(5, 3, 0),
+(4, 3, 0),
+(6, 3, 0),
+(7, 3, 0),
+(1, 3, 0),
+(25, 3, 0),
+(14, 3, 0),
+(10, 3, 0),
+(6, 10, 0),
+(4, 10, 0),
+(4, 14, 0),
+(5, 14, 0),
+(7, 15, 1),
+(2, 15, 1);
 
 -- --------------------------------------------------------
 
@@ -521,41 +579,42 @@ CREATE TABLE `usuarios` (
   `Cedula` int(11) NOT NULL,
   `Contraseña` varchar(65) NOT NULL,
   `Tipo` varchar(10) NOT NULL,
-  `Estado` tinyint(1) DEFAULT 1
+  `Estado` tinyint(1) DEFAULT 1,
+  `Correo` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`, `Estado`) VALUES
-(1, 'Juan Pérez', 12345678, 'contraseña123', 'alumno', 1),
-(2, 'María González', 87654321, 'contraseña456', 'alumno', 1),
-(3, 'Carlos Rodríguez', 23456789, 'contraseña789', 'alumno', 1),
-(4, 'Lucía Martínez', 34567890, 'contraseña321', 'alumno', 1),
-(5, 'Mateo López', 45678901, 'contraseña654', 'alumno', 1),
-(6, 'Sofía Díaz', 56789012, 'contraseña987', 'alumno', 1),
-(7, 'Tomás Fernández', 67890123, 'contraseña741', 'alumno', 1),
-(8, 'Camila García', 78901234, 'contraseña852', 'alumno', 1),
-(9, 'Martín Hernández', 89012345, 'contraseña963', 'alumno', 1),
-(10, 'Valentina Sánchez', 90123456, 'contraseña159', 'alumno', 1),
-(11, 'Ana Ramírez', 11223344, 'clave123', 'docente', 1),
-(12, 'Pedro Gómez', 22334455, 'clave456', 'docente', 1),
-(13, 'Laura Fernández', 33445566, 'clave789', 'docente', 1),
-(14, 'Santiago Morales', 44556677, 'clave101', 'docente', 1),
-(15, 'Claudia Ruiz', 55667788, 'clave202', 'docente', 0),
-(16, 'Roberto Torres', 66778899, 'clave303', 'docente', 1),
-(17, 'María López', 77889900, 'clave404', 'docente', 1),
-(18, 'Carlos Méndez', 88990011, 'clave505', 'docente', 0),
-(19, 'Paula Gutiérrez', 99001122, 'clave606', 'docente', 1),
-(20, 'Jorge Herrera', 112233, 'clave707', 'docente', 1),
-(22, 'Federico Nicolás Simonelli Cavallo', 56129975, '$2y$10$4Z0SClNg.Evh2eVrI.daWuKodQfZeObBqRewU2uInm9OSC1Vmkwxe', 'alumno', 1),
-(24, 'Luis Manuel Sosa Berroa', 56777350, '$2y$10$AEGAlZvNY1avPNO2yiQzcO4JgDlSCg2BA7kQ1e5dIEn3Np3m6hYvy', 'docente', 1),
-(25, 'Ian Andrés Volpi Zamit', 56499637, '$2y$10$y2cGLZVJKWR31MPz5d7yu.VUnM1RMTkA4GYVnTDBec3zxzC6CslK2', 'admin', 1),
-(26, 'Sofía Milagros Gallero Monte', 56437766, '$2y$10$05u5ljEissXBYxLvbHMdAOI9dsuoEvuM7ZIJfBZRXURxYKXCaYbz6', 'alumno', 0),
-(28, 'sofia simonelli monte cavallo', 56437766, '$2y$10$d.yDPDt/aJ79lnJHgW.NROE.qTm2pvBBQX.4ZWXM6.6lvku53R18q', 'alumno', 0),
-(29, 'fafsaf sdfsfs', 56437766, '$2y$10$Js7faqODTorQGOO.Zj4oyOvoayZZm3vm0UKECSEQmyRcNRHBGDLrm', 'alumno', 0),
-(30, 'fdsfsd fsdfsdf', 56437766, '$2y$10$YNf8wV9M10eiwBX7hygy6.qBT/tl20X0uWF6xXd/0AHuweNVKKeFO', 'alumno', 0);
+INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`, `Estado`, `Correo`) VALUES
+(1, 'Juan Pérez', 12345678, 'contraseña123', 'alumno', 0, 'ccasdamd@gmail.com'),
+(2, 'María González', 87654321, 'contraseña456', 'alumno', 0, 'padres.maría.gonzález@example.com'),
+(3, 'Carlos Rodríguez', 23456789, 'contraseña789', 'alumno', 0, 'padres.carlos.rodríguez@example.com'),
+(4, 'Lucía Martínez', 34567890, 'contraseña321', 'alumno', 0, 'padres.lucía.martínez@example.com'),
+(5, 'Mateo López', 45678901, 'contraseña654', 'alumno', 1, 'padres.mateo.lópez@example.com'),
+(6, 'Sofía Díaz', 56789012, 'contraseña987', 'alumno', 0, 'fsfsfsjfs@gmail.com'),
+(7, 'Tomás Fernández', 67890123, 'contraseña741', 'alumno', 0, 'fsjfs@gmail.com'),
+(8, 'Camila García', 78901234, 'contraseña852', 'alumno', 1, 'fs4234234jfs@gmail.com'),
+(9, 'Martín Hernández', 89012345, 'contraseña963', 'alumno', 1, 'fs12313jfs@gmail.com'),
+(10, 'Valentina Sánchez', 90123456, 'contraseña159', 'alumno', 1, 'fsjfs@gmail.comvdfhfg'),
+(11, 'Ana Ramírez', 11223344, 'clave123', 'docente', 1, 'fsjfs@gmail.com231'),
+(12, 'Pedro Gómez', 22334455, 'clave456', 'docente', 1, 'fsjfs@gmail.com'),
+(13, 'Laura Fernández', 33445566, 'clave789', 'docente', 1, 'fsjfs@gmail.com'),
+(14, 'Santiago Morales', 44556677, 'clave101', 'docente', 1, 'fsjfs@gmail.com'),
+(15, 'Claudia Ruiz', 55667788, 'clave202', 'docente', 1, 'fsjfs@gmail.com'),
+(16, 'Roberto Torres', 66778899, 'clave303', 'docente', 1, 'fsjfs@gmail.com'),
+(17, 'María López', 77889900, 'clave404', 'docente', 1, 'fsjfs@gmail.com'),
+(18, 'Carlos Méndez', 88990011, 'clave505', 'docente', 1, 'fsjfs@gmail.com'),
+(19, 'Paula Gutiérrez', 99001122, 'clave606', 'docente', 1, 'fsjfs@gmail.com'),
+(20, 'Jorge Herrera', 112233, 'clave707', 'docente', 0, 'fsjfs@gmail.com'),
+(22, 'Federico Nicolás Simonelli Cavallo', 56129975, '$2y$10$J4ej1xPRzUb2u7OtBgwQGOKBq.0AlltLeLYV6Cr1/QfBe2koErr.K', 'alumno', 1, 'aguantenlospecaos@gmail.com'),
+(24, 'Luis Manuel Sosa Berroa', 56777350, '$2y$10$h2zuvVvOTP83nDGosFXoVuPvljYWYjzxH0cTDm0RxcHSUYdi20Woi', 'docente', 1, 'luissosaberroa@gmail.com'),
+(25, 'Ian Andrés Volpi Zamit', 56499637, '$2y$10$Toi3W/kIYWR3W0sgNMBiVuHpcAtP8Tc1Ba/R9WUieRPOJQfKHz/Di', 'admin', 1, 'luissosaberroa@gmail.com'),
+(26, 'Sofía Milagros Gallero Monte', 56437766, '$2y$10$05u5ljEissXBYxLvbHMdAOI9dsuoEvuM7ZIJfBZRXURxYKXCaYbz6', 'alumno', 0, NULL),
+(28, 'sofia simonelli monte cavallo', 56437766, '$2y$10$d.yDPDt/aJ79lnJHgW.NROE.qTm2pvBBQX.4ZWXM6.6lvku53R18q', 'alumno', 1, 'fsjfs@gmail.com'),
+(29, 'fafsaf sdfsfs', 56437766, '$2y$10$Js7faqODTorQGOO.Zj4oyOvoayZZm3vm0UKECSEQmyRcNRHBGDLrm', 'alumno', 1, 'gdfgdf'),
+(30, 'fdsfsd fsdfsdf', 56437766, '$2y$10$YNf8wV9M10eiwBX7hygy6.qBT/tl20X0uWF6xXd/0AHuweNVKKeFO', 'alumno', 0, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -629,8 +688,7 @@ ALTER TABLE `ocupacion`
 -- Indices de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  ADD PRIMARY KEY (`ID_Patologia`),
-  ADD UNIQUE KEY `Nombre` (`Nombre`);
+  ADD PRIMARY KEY (`ID_Patologia`);
 
 --
 -- Indices de la tabla `patologia_alumno`
@@ -659,7 +717,7 @@ ALTER TABLE `alumnos`
 -- AUTO_INCREMENT de la tabla `clase`
 --
 ALTER TABLE `clase`
-  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `docentes`
@@ -671,7 +729,7 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `especializaciones`
 --
 ALTER TABLE `especializaciones`
-  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `ID_Especializacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `informes`
@@ -689,13 +747,13 @@ ALTER TABLE `lista_docente`
 -- AUTO_INCREMENT de la tabla `ocupacion`
 --
 ALTER TABLE `ocupacion`
-  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID_Ocupacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `patologias`
 --
 ALTER TABLE `patologias`
-  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ID_Patologia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
