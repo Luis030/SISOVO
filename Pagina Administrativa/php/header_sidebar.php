@@ -1,9 +1,6 @@
 <?php
     session_start();
 
-    $clave = "comodoroRivadavia184";
-    $_SESSION['Clave'] = $clave;
-
     if(!isset($_SESSION["usuario"])) {
         header("Location: ../index");
         exit();
@@ -47,9 +44,6 @@
             <span class="time" id="time"></span> 
         </div>
         <button class="menu-toggle" onclick="toggleSidebar()">☰ Menú</button>
-        <script>
-            window.clave = "<?php echo $_SESSION['Clave']; ?>"
-        </script>
     </header>
 
     <div class="container">

@@ -1,6 +1,5 @@
 window.onload = function (){
     const inputs = document.querySelectorAll('input');
-
     inputs.forEach(function(input) {
         input.setAttribute('autocomplete', 'off');
     });

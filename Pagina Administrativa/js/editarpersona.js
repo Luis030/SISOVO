@@ -536,17 +536,16 @@ function restaurarContraseña(tipo, nombre, apellido, cedula) {
     }).then((result) => {
         if (result.isConfirmed) {
             const claveingresada = result.value;
-            if (claveingresada == clave) {
                 fetch("php/restaurarcontraseña.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
                     },
-                    body: "nom=" + nombre + "&ape=" + apellido + "&ced=" + cedula + "&tipo=" + tipo
+                    body: "nom=" + nombre + "&ape=" + apellido + "&ced=" + cedula + "&tipo=" + tipo + "&con=" + claveingresada
                 })
                 .then(datos => datos.json())
                 .then(datos => {
-                    if (datos.restaurada == "si") {
+                    if (datos.estado == "restaurada") {
                         Swal.fire({
                             title: "Correcto!",
                             text: "Contraseña restaurada correctamente.",
@@ -555,9 +554,16 @@ function restaurarContraseña(tipo, nombre, apellido, cedula) {
                             timer: 3000
                         })
                     }
+                    if(datos.estado == "incorrecta"){
+                        Swal.fire({
+                            title: "Error",
+                            text: "Clave maestra incorrecta",
+                            icon: "error"
+                        })
+                    }
                 })
                 
-            }
-          }
+            
+        }
     })
 }
