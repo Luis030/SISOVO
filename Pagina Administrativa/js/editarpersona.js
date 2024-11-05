@@ -528,8 +528,11 @@ function restaurarContraseña(tipo, nombre, apellido, cedula) {
     Swal.fire({
         title: "¿Seguro desea restablecer la contraseña?",
         text: "Por motivos de seguridad digite a continuación la clave maestra:",
-        input: "text",
+        input: "password",
         inputPlaceholder: "Escriba aquí...",
+        inputAttributes: {
+            autocomplete: "new-password"
+        },
         showCancelButton: true,
         confirmButtonText: 'Restaurar',
         cancelButtonText: 'Cancelar'
@@ -554,11 +557,13 @@ function restaurarContraseña(tipo, nombre, apellido, cedula) {
                             timer: 3000
                         })
                     }
-                    if(datos.estado == "incorrecta"){
+                    if(datos.estado == "incorrecta") {
                         Swal.fire({
                             title: "Error",
                             text: "Clave maestra incorrecta",
-                            icon: "error"
+                            icon: "error",
+                            showConfirmButton: false, 
+                            timer: 3000
                         })
                     }
                 })
