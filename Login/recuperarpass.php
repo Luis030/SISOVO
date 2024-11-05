@@ -13,13 +13,13 @@ function enviarCodigoRecuperacion($destinatario) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'LManuelSosa@gmail.com';
-        $mail->Password = 'uygw hrgl kqam dwho';
+        $mail->Username = 'reeducacionsalto@gmail.com';
+        $mail->Password = 'ukns ecxj cjhh akvv';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
         // Configuración del remitente y destinatario
-        $mail->setFrom('LManuelSosa@gmail.com', 'Centro CER');
+        $mail->setFrom('reeducacionsalto@gmail.com', 'Centro CER');
         $mail->addAddress($destinatario);
 
         // Contenido del correo
