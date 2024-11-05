@@ -48,6 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if(mysqli_num_rows($resultado) > 0){
         $filas = mysqli_fetch_assoc($resultado);
         $tipo = $filas['Tipo'];
+        $_SESSION['userid'] = $filas['ID_Usuario'];
         switch($tipo){
             case 'alumno':
                 $sql = "SELECT Mail_Padres FROM alumnos WHERE Cedula=$cedula AND Estado=1";
@@ -63,6 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     $codigo = enviarCodigoRecuperacion($correo);
                     if($codigo){
                         $_SESSION['codigocorreo'] = $codigo;
+                        $_SESSION['correoverif'] = $correo;
                         header("Location: verificarcodigo.php");
                         break;
                     } else {
@@ -72,6 +74,34 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                     break;
                 } else {
                     header("Location:recuperar.php?errorid=1");
+                    exit;
+                }
+                break;
+            case 'docente':
+                $sql = "SELECT Mail FROM docentes WHERE Cedula=$cedula AND Estado=1";
+                $resultado = mysqli_query($conexion, $sql);
+                $filas = mysqli_fetch_assoc($resultado);
+                if(!empty($filas['Mail'])){
+                    $correo = $filas['Mail'];
+                } else {
+                    header("Location: recuperar.php?errorid=1");
+                    exit;
+                }
+                if(!empty($correo)){
+                    $codigo = enviarCodigoRecuperacion($correo);
+                    if($codigo){
+                        $_SESSION['codigocorreo'] = $codigo;
+                        $_SESSION['correoverif'] = $correo;
+                        header("Location: verificarcodigo.php");
+                        break;
+                    } else {
+                        header("Location: recuperar.php?errorid=3");
+                        exit;
+                    }
+                    break;
+                } else {
+                    header("Location:recuperar.php?errorid=1");
+                    exit;
                 }
                 break;
         }

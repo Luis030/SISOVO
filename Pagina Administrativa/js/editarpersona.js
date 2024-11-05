@@ -524,7 +524,6 @@ function agregarEspecialidad() {
 
 //POST
 function restaurarContraseña(tipo, nombre, apellido, cedula) {
-    clave = window.clave;
     Swal.fire({
         title: "¿Seguro desea restablecer la contraseña?",
         text: "Por motivos de seguridad digite a continuación la clave maestra:",

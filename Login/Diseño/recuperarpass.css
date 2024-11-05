@@ -10,6 +10,24 @@ h1 {
     text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
     margin-bottom: 30px;
 }
+#boton-confirmar-cambiar-pass{
+    margin-bottom: 20px;
+}
+.contenedor-formulario-cambiar-contrasena span{
+    color: white;
+}
+.div-codigo-correo span{
+    color: white;
+}
+#a-ingresar-login{
+    color:#ff6600;
+}
+#a-ingresar-login:hover{
+    color:#2783e1;
+}
+.cont-span span{
+    color: white;
+}
 body {
     background: url(fondo4.jpg);
     text-align: center;
@@ -21,8 +39,10 @@ body {
     justify-content: center;
     font-family: "Montserrat", sans-serif;
 }
-
-.contenedor-formulario{
+.div-codigo-correo{
+    margin-bottom: 20px;
+}
+.contenedor-formulario, .contenedor-formulario-verif-codigo, .contenedor-formulario-cambiar-contrasena, .contenedor-finalizado{
     background: #2783e1;
     border: none;
     box-shadow: 2px 3px 3px rgba(0,0,0,0.5);
@@ -32,7 +52,9 @@ body {
     padding-top: 25px;
     border-radius: 8px;
 }
-
+#error-span{
+    color: white;
+}
 p { 
     font-size: 20px;
     text-transform: uppercase;
