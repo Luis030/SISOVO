@@ -27,15 +27,15 @@
         </div>
         <div id="pic">
             <div id="pics">
-                <img src="../../img/luis2.jpg" alt="Luis Sosa">
+                <img src="img/luis2.jpg" alt="Luis Sosa">
                 <p>Luis Sosa</p>
             </div>
             <div id="pics">
-                <img src="../../img/fede2.jpg" alt="Federico Simonelli">
+                <img src="img/fede2.jpg" alt="Federico Simonelli">
                 <p>Federico Simonelli</p>
             </div>
             <div id="pics">
-                <img src="../../img/ian2.jpg" alt="Ian Volpi">
+                <img src="img/ian2.jpg" alt="Ian Volpi">
                 <p>Ian Volpi</p>
             </div>
         </div>
