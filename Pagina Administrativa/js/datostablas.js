@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if(document.querySelector('#tabla-patologias-gestion')) {
-        tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php', columnastablaPatologias(), "70vh", false, {
+        tablas['patgestion'] = iniciarTabla('tabla-patologias-gestion', 'php/obtenerpatologias.php', columnastablaPatologias(), "50vh", false, {
             tabla: true
         })
     }

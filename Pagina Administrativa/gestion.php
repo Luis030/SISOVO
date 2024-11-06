@@ -195,14 +195,16 @@
                     </table>
                 </div>
             </div>
-            <div class="contenedor-segunda-fila-seccion-elementos-patologias">
-                <p>Patologias totales</p>
-                <span id="pattotalesgestion"></span>
-            </div>
-            <div class="contenedor-tercera-fila-seccion-elementos-inicio">
-                <div class="contenedor-patologias-sin-alumnos">
-                    <p>Patologias sin alumnos</p>
-                    <span id="patsinA"></span>
+            <div class="contenedor-segunda-fila-div">
+                <div class="contenedor-segunda-fila-seccion-elementos-patologias">
+                    <p>Patologias totales</p>
+                    <span id="pattotalesgestion"></span>
+                </div>
+                <div class="contenedor-tercera-fila-seccion-elementos-inicio">
+                    <div class="contenedor-patologias-sin-alumnos">
+                        <p>Patologias sin alumnos</p>
+                        <span id="patsinA"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -230,14 +232,16 @@
                     </table>
                 </div>
             </div>
-            <div class="contenedor-segunda-fila-seccion-elementos-ocupaciones">
-                <p>Ocupaciones totales</p>
-                <span id="ocutotalesgestion"></span>
-            </div>
-            <div class="contenedor-tercera-fila-seccion-elementos-inicio">
-                <div class="contenedor-ocupaciones-sin-personas">
-                    <p>Ocupaciones sin docentes</p>
-                    <span id="ocusinD"></span>
+            <div class="contenedor-segunda-fila-div">
+                <div class="contenedor-segunda-fila-seccion-elementos-ocupaciones">
+                    <p>Ocupaciones totales</p>
+                    <span id="ocutotalesgestion"></span>
+                </div>
+                <div class="contenedor-tercera-fila-seccion-elementos-inicio">
+                    <div class="contenedor-ocupaciones-sin-personas">
+                        <p>Ocupaciones sin docentes</p>
+                        <span id="ocusinD"></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -266,14 +270,16 @@
                     </table>
                 </div>
             </div>
-            <div class="contenedor-segunda-fila-seccion-elementos-especialidades">
-                <p>Especialidades totales</p>
-                <span id="esptotales"></span>
-            </div>
-            <div class="contenedor-tercera-fila-seccion-elementos-inicio">
-                <div class="contenedor-ocupaciones-sin-personas">
-                    <p>Especialidades sin personas</p>
-                    <span id="espsinD"></span>
+            <div class="contenedor-segunda-fila-div">
+                <div class="contenedor-segunda-fila-seccion-elementos-especialidades">
+                    <p>Especialidades totales</p>
+                    <span id="esptotales"></span>
+                </div>
+                <div class="contenedor-tercera-fila-seccion-elementos-inicio">
+                    <div class="contenedor-ocupaciones-sin-personas">
+                        <p>Especialidades sin personas</p>
+                        <span id="espsinD"></span>
+                    </div>
                 </div>
             </div>
         </div>
