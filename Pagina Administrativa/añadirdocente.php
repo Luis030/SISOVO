@@ -10,49 +10,48 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cedula = $_POST['cedula'];
-        
-        if (validarCedula($cedula)) {
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $celular = $_POST['celular'];
-            $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
-            @$especialidades = $_POST['especialidades'];
-            $nacimiento = $_POST['nacimiento'];
-            $idocupacion = $_POST['ocupacion'];
-
-            $contraseña = generarPassDoc($cedula, $nombre, $apellido);
-            $nombreusuario = "$nombre $apellido";
-            
-            $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula' AND Estado = 1;";
-            $cedulausadaverif = mysqli_query($conexion, $cedulausada);
-
-            if (mysqli_num_rows($cedulausadaverif) > 0) {
-                header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=1");
+        if(isset($_POST['validarCedula']) && $_POST['validarCedula'] == "1"){
+            if(!validarCedula($cedula)){
+                header("Location: añadirdocente.php?errorid=2");
                 exit;
             }
-            $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) 
-                        VALUES ('$nombreusuario', '$contraseña', 'docente', '$cedula', '$correo');";
-            if (mysqli_query($conexion, $sqluser) === TRUE) {
-                $idUser = mysqli_insert_id($conexion);
-                $añadirDoc = "INSERT INTO docentes(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Mail, Celular, ID_Ocupacion) 
-                            VALUES ('$idUser', '$nombre', '$apellido', '$cedula', '$nacimiento', '$correo', '$celular', '$idocupacion');";
-                if (mysqli_query($conexion, $añadirDoc) === TRUE) {
-                    $idDoc = mysqli_insert_id($conexion);
-                    if ($especialidades) {
-                        foreach ($especialidades as $especialidad) {
-                            $añadirEsp = "INSERT INTO especializacion_docente(ID_Especializacion, ID_Docente) 
-                                        VALUES ('$especialidad', '$idDoc');";
-                            mysqli_query($conexion, $añadirEsp);
-                        }
-                    }
-                    header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $idDoc);
-                    exit;
-                }
-            }
-        } else {
-        
-            header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=2");
+        }
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $celular = $_POST['celular'];
+        $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
+        @$especialidades = $_POST['especialidades'];
+        $nacimiento = $_POST['nacimiento'];
+        $idocupacion = $_POST['ocupacion'];
+
+        $contraseña = generarPassDoc($cedula, $nombre, $apellido);
+        $nombreusuario = "$nombre $apellido";
+            
+        $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula='$cedula' AND Estado = 1;";
+        $cedulausadaverif = mysqli_query($conexion, $cedulausada);
+
+        if (mysqli_num_rows($cedulausadaverif) > 0) {
+            header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=1");
             exit;
+        }
+        $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) 
+                    VALUES ('$nombreusuario', '$contraseña', 'docente', '$cedula', '$correo');";
+        if (mysqli_query($conexion, $sqluser) === TRUE) {
+            $idUser = mysqli_insert_id($conexion);
+            $añadirDoc = "INSERT INTO docentes(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Celular, ID_Ocupacion) 
+                        VALUES ('$idUser', '$nombre', '$apellido', '$cedula', '$nacimiento', '$celular', '$idocupacion');";
+            if (mysqli_query($conexion, $añadirDoc) === TRUE) {
+                $idDoc = mysqli_insert_id($conexion);
+                if ($especialidades) {
+                    foreach ($especialidades as $especialidad) {
+                        $añadirEsp = "INSERT INTO especializacion_docente(ID_Especializacion, ID_Docente) 
+                                    VALUES ('$especialidad', '$idDoc');";
+                        mysqli_query($conexion, $añadirEsp);
+                    }
+                }
+                header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $idDoc);
+                exit;
+            }
         }
     }
 
@@ -95,12 +94,15 @@
                     <input type="text" class="input-formulario" name="apellido" required placeholder="Ingrese un apellido">
                 </div>
                 <div class="input-docente">
-                    <p>Cédula</p>
+                    <div class="elegirCedula">
+                        <p>Cédula</p>
+                        <input type="checkbox" name="validarCedula" value="1" checked>Verificar cedula
+                    </div>
                     <input type="number" class="input-formulario" name="cedula" required placeholder="Ingrese una cédula">
                 </div>
                 <div class="input-docente">
                     <p>Correo</p>
-                    <input type="text" class="input-formulario" name="correo" placeholder="Ingrese un correo (Opcional)">
+                    <input type="email" class="input-formulario" name="correo" placeholder="Ingrese un correo (Opcional)">
                 </div>
                 <div class="input-docente">
                     <p>Celular</p>

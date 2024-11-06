@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería Responsive</title>
+    <title>Galería</title>
     <link rel="stylesheet" href="Diseño/estilogaleria.css">
-    <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
 </head>
 <body>
     <?php
@@ -17,7 +17,7 @@
     </div>
 
     <div class="galeria-container">
-        <div class="galeria"></div> <!-- Contenedor de las imágenes -->
+        <div class="galeria"></div>
         <div class="flechas-container">
             <button class="flecha flecha-izq disabled">◀</button>
             <button class="flecha flecha-der">▶</button>

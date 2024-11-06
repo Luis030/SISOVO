@@ -12,7 +12,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
-<link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
+<link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

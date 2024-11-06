@@ -6,7 +6,7 @@
     <title>Ajustes</title>
     <link rel="stylesheet" href="Diseño/estiloajustes.css">
     <script src="JS/ajustes.js"></script>
-    <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
 </head>
 <body>
     <?php

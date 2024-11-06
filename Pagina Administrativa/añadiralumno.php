@@ -10,104 +10,56 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cedula = $_POST['cedula'];
-        $tipoCed = $_POST['tipoCed'];
-        if ($tipoCed == "1") {
-            if (validarCedula($cedula)) {
-                $nombre = $_POST['nombre'];
-                $apellido = $_POST['apellido'];
-                $fechanac = $_POST['nacimiento'];
-                $celular = $_POST['celular'];
-                $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
-                @$clases = $_POST['clases'];
-                @$patologias = $_POST['patologias'];
-                $grado = $_POST['grado'];
-    
-                $contraseña = generarPass($cedula);
-                $nombreusuario = "$nombre $apellido";
-                
-                // Verificar si la cédula ya está en uso
-                $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula = '$cedula' AND Estado = 1;";
-                $cedulausadaverif = mysqli_query($conexion, $cedulausada);
-    
-                if (mysqli_num_rows($cedulausadaverif) > 0) {
-                    header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=1");
-                    exit;
-                }
-    
-                // Insertar en la tabla "usuarios"
-                $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula', '$correo');";
-                if (mysqli_query($conexion, $sqluser) === TRUE) {
-                    $IDusuario = mysqli_insert_id($conexion);
-    
-                    $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Celular_Padres, Grado) 
-                                    VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$celular', '$grado');";
-                    if (mysqli_query($conexion, $añadiralumno) === TRUE) {
-                        $nAalumno = mysqli_insert_id($conexion);
-    
-                        if ($patologias) {
-                            foreach ($patologias as $patologia) {
-                                $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) 
-                                            VALUES ('$patologia', '$nAalumno');";
-                                mysqli_query($conexion, $añadirpat);
-                            }
-                        }
-    
-                        header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $nAalumno);
-                        exit;
-                    }
-                }
-            } else {
-                header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=2");
+        if(isset($_POST['validarCedula']) && $_POST['validarCedula'] == "1"){
+            if(!validarCedula($cedula)){
+                header("Location: añadiralumno.php?errorid=2");
                 exit;
             }
         }
-
-        if ($tipoCed == "2") {
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $fechanac = $_POST['nacimiento'];
-            $celular = $_POST['celular'];
-            $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
-            @$clases = $_POST['clases'];
-            @$patologias = $_POST['patologias'];
-            $grado = $_POST['grado'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $fechanac = $_POST['nacimiento'];
+        $celular = $_POST['celular'];
+        $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
+        @$clases = $_POST['clases'];
+        @$patologias = $_POST['patologias'];
+        $grado = $_POST['grado'];
     
-            $contraseña = generarPass($cedula);
-            $nombreusuario = "$nombre $apellido";
+        $contraseña = generarPass($cedula);
+        $nombreusuario = "$nombre $apellido";
                 
-            // Verificar si la cédula ya está en uso
-            $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula = '$cedula' AND Estado = 1;";
-            $cedulausadaverif = mysqli_query($conexion, $cedulausada);
+        // Verificar si la cédula ya está en uso
+        $cedulausada = "SELECT ID_Usuario FROM usuarios WHERE Cedula = '$cedula' AND Estado = 1;";
+        $cedulausadaverif = mysqli_query($conexion, $cedulausada);
     
-            if (mysqli_num_rows($cedulausadaverif) > 0) {
-                $url = $_SERVER['REQUEST_URI'] . "?errorid=1";
-                echo "<script>window.location.href = '$url';</script>";
+        if (mysqli_num_rows($cedulausadaverif) > 0) {
+            header("Location: " . $_SERVER['REQUEST_URI'] . "?errorid=1");
+            exit;
+        }
+    
+        // Insertar en la tabla "usuarios"
+        $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula', '$correo');";
+        if (mysqli_query($conexion, $sqluser) === TRUE) {
+            $IDusuario = mysqli_insert_id($conexion);
+    
+            $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Celular_Padres, Grado) 
+                            VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$celular', '$grado');";
+            if (mysqli_query($conexion, $añadiralumno) === TRUE) {
+                $nAalumno = mysqli_insert_id($conexion);
+    
+                if ($patologias) {
+                    foreach ($patologias as $patologia) {
+                        $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) 
+                                    VALUES ('$patologia', '$nAalumno');";
+                        mysqli_query($conexion, $añadirpat);
+                    }
+                }
+    
+                header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $nAalumno);
                 exit;
             }
-    
-            // Insertar en la tabla "usuarios"
-            $sqluser = "INSERT INTO usuarios(Nombre, Contraseña, Tipo, Cedula, Correo) VALUES ('$nombreusuario','$contraseña', 'alumno', '$cedula', '$correo');";
-            if (mysqli_query($conexion, $sqluser) === TRUE) {
-                $IDusuario = mysqli_insert_id($conexion);
-    
-                $añadiralumno = "INSERT INTO alumnos(ID_Usuario, Nombre, Apellido, Cedula, Fecha_Nac, Celular_Padres, Grado) 
-                                VALUES ('$IDusuario', '$nombre', '$apellido', '$cedula', '$fechanac', '$celular', '$grado');";
-                if (mysqli_query($conexion, $añadiralumno) === TRUE) {
-                    $nAalumno = mysqli_insert_id($conexion);
-    
-                    if ($patologias) {
-                        foreach ($patologias as $patologia) {
-                            $añadirpat = "INSERT INTO patologia_alumno(ID_Patologia, ID_Alumno) 
-                                        VALUES ('$patologia', '$nAalumno');";
-                            mysqli_query($conexion, $añadirpat);
-                        }
-                    }
-                    $url = 
-                    header("Location: " . $_SERVER['REQUEST_URI'] . "?success=true&&id=" . $nAalumno);
-                    exit;
-                }
-            }
         }
+            
     }
     if(isset($_GET['success']) && $_GET['success'] == 'true'){
         $alumnoingresado = true;
@@ -147,11 +99,8 @@
                 </div>
                 <div class="input-alumno">
                     <div class="elegirCedula">
-                        <p>Cedula</p>
-                        <select name="tipoCed" id="tipoCedula">
-                            <option value="1">Nacional</option>
-                            <option value="2">Extranjera</option>
-                        </select>
+                        <p>Cédula</p>
+                        <input type="checkbox" name="validarCedula" value="1" checked>Verificar cedula
                     </div>
                     <input type="number" class="input-formulario" name="cedula" required min="1" placeholder="Ingrese una cédula">
                 </div>

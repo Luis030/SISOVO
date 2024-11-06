@@ -63,9 +63,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
 
     if ($q) {
-        $sql = "SELECT ID_Patologia, Nombre FROM patologias WHERE Nombre LIKE '%$q%' LIMIT 50";
+        $sql = "SELECT ID_Patologia, Nombre FROM patologias WHERE Nombre LIKE '%$q%' AND Estado=1 LIMIT 50";
     } else {
-        $sql = "SELECT ID_Patologia, Nombre FROM patologias ORDER BY Nombre ASC LIMIT 10";
+        $sql = "SELECT ID_Patologia, Nombre FROM patologias WHERE Estado=1 ORDER BY Nombre ASC LIMIT 30";
     }
 
     $resultado = mysqli_query($conexion, $sql);

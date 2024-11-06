@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Panel de alumno</title>
-        <link rel="stylesheet" href="Diseño/stylepanelalumno.css?aa">
+        <link rel="stylesheet" href="Diseño/stylepanelalumno.css">
         <script src="JS/panelalumno.js"></script>
-        <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
+        <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
     </head>
     <body>
         <?php

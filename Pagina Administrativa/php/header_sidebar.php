@@ -1,6 +1,6 @@
 <?php
     session_start();
-
+    ob_start();
     if(!isset($_SESSION["usuario"])) {
         header("Location: ../index");
         exit();
@@ -34,7 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="shortcut icon" href="img/logocer.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logocer-render.png" type="image/x-icon">
 </head>
 <body>  
     <header>
