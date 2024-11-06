@@ -90,11 +90,15 @@
 @media (max-width: 860px) {
     .imagenes-servicios {
         flex-direction: column;
+        height: auto;
     }
     .servicio1, .servicio2, .servicio3, .servicio4 {
         width: 100% !important;
     }
     .contacto-servicios {
         margin-bottom: 7%;
+    }
+    .titulo-servicios{
+        margin-top: 15vh;
     }
 }

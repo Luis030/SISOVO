@@ -76,7 +76,7 @@ header .time {
 
 header .menu-toggle {
     display: none;
-    background-color: #333;
+    background-color: var(--color-hover);
     color: white;
     border: none;
     padding: 10px;
@@ -101,7 +101,9 @@ header .menu-toggle {
     header .menu-toggle {
         display: block;
     }
-
+    .aboutus{
+        display: none;
+    }
     header .user-info {
         justify-content: center;
         margin-bottom: 10px;

@@ -21,6 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verificar codigo</title>
     <link rel="stylesheet" href="Diseño/recuperarpass.css">
+    <link rel="shortcut icon" href="../Diseño/IMG/logocer-render.png" type="image/x-icon">
 </head>
 <body>
     <div class="contenedor-verif-codigo">

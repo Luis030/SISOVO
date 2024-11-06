@@ -126,7 +126,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         if($_POST['tipo'] == "ocu") {
             $id = $_POST['id'];
             $nombre = $_POST['nombre'];
-            $sql = "SELECT O.Nombre, COUNT(ED.ID_Especializacion) AS Cantidad FROM especializacion_docente ED, especializaciones E, ocupacion O WHERE ED.ID_Especializacion=E.ID_Especializacion AND O.ID_Ocupacion=E.ID_Ocupacion AND O.Estado=1 AND E.Estado=1 AND ED.Estado=1 AND O.ID_Ocupacion=$id GROUP BY 1;";
+            $sql = "SELECT COUNT(ID_Docente) FROM docentes D JOIN ocupacion O ON D.ID_Ocupacion=O.ID_Ocupacion WHERE D.Estado=1 AND O.ID_Ocupacion=$id GROUP BY O.ID_Ocupacion;";
             $resultado = mysqli_query($conexion, $sql);
             if(mysqli_num_rows($resultado) > 0){
                 echo json_encode([

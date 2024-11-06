@@ -11,6 +11,7 @@ if(!isset($_SESSION['finalizado'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar cuenta</title>
     <link rel="stylesheet" href="Diseño/recuperarpass.css">
+    <link rel="shortcut icon" href="../Diseño/IMG/logocer-render.png" type="image/x-icon">
 </head>
 <body>
     <h1>La contraseña ha sido actualizada</h1>

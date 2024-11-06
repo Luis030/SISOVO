@@ -211,6 +211,7 @@ h1 span {
     }
     .titulo-movil {
         display: block;
+        margin-top: 15vh;
     }
     .titulo-pc {
         display: none;
@@ -218,4 +219,5 @@ h1 span {
     .titulo{
         margin-top: 20%;
     }
+    
 }

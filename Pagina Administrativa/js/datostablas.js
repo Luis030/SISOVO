@@ -438,10 +438,16 @@ function columnastablaOcupaciones() {
         { "data": "Total_Docentes" },
         { "data": null,
             "render": function(data, type, row){
-                return `
+                if(data.Total_Docentes > 0){
+                    return `
+                    <button class='boton-editar' onclick='editarOcu(${row.ID_Ocupacion}, \`${row.Ocupacion}\`)'>Editar</button>
+                `;
+                } else {
+                    return `
                     <button class='boton-editar' onclick='editarOcu(${row.ID_Ocupacion}, \`${row.Ocupacion}\`)'>Editar</button>
                     <button class='boton-borrar' onclick='eliminarOcu(${row.ID_Ocupacion}, \`${row.Ocupacion}\`)'>Eliminar</button>
                 `;
+                }
             },
             "orderable": false
         }
