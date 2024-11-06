@@ -250,6 +250,7 @@ function obtenerColumnasClases() {
         { "data": "Docente" },
         { "data": "Horarios" },
         { "data": "Cantidad_Alumnos" },
+        { "data": "Año" },
         {
             "data": null,
             "render": function(data, type, row) {
@@ -312,6 +313,7 @@ function columnastablaDocentes(){
         },
         { "data": "Cedula" },
         { "data": "Mail" },
+        { "data": "Ocupacion" },
         { "data": "Celular" },
         {
             "data": null,

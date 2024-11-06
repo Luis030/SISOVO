@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactos</title>
     <link rel="stylesheet" href="Diseño/estilocontactos.css">
+    <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
 </head>
 <body>
     <?php

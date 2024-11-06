@@ -34,8 +34,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="shortcut icon" href="img/logocer.jpg" type="image/x-icon">
 </head>
-<body>
+<body>  
     <header>
         <h1>Panel administrativo <button href="#" id="aboutus" class="aboutus">About us</button></h1>
         <div class="user-info">

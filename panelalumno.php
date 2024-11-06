@@ -6,6 +6,7 @@
         <title>Panel de alumno</title>
         <link rel="stylesheet" href="Diseño/stylepanelalumno.css?aa">
         <script src="JS/panelalumno.js"></script>
+        <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
     </head>
     <body>
         <?php

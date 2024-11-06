@@ -323,6 +323,16 @@
     height: 79.19px;
 }
 
+.elegirCedula {
+    display: flex;
+    align-items: center;
+}
+
+#tipoCedula {
+    height: 30px;
+    margin-left: 10px;
+}
+
 @media (max-width: 2100px) {
     .input-formulario {
         font-size: 30px;

@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $ceduladoc = $_POST['docente'];
         $sql = "SELECT 
         C.ID_Clase, D.ID_Docente,
-        C.Nombre,
+        C.Nombre, C.Año,
         CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, 
         C.Horario AS Horarios, 
         COUNT(AC.ID_Alumno) AS Cantidad_Alumnos
@@ -19,7 +19,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         alumnos_clase AC ON C.ID_Clase = AC.ID_Clase 
         AND AC.Estado = 1 
         AND AC.Asistio IS NULL 
-    
     WHERE 
         C.Estado = 1
         AND D.Cedula=$ceduladoc
@@ -29,7 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     } else {
         $sql = "SELECT 
     C.ID_Clase, D.ID_Docente,
-    C.Nombre, 
+    C.Nombre, C.Año,
     CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, 
     C.Horario AS Horarios, 
     COUNT(CASE WHEN A.Estado = 1 THEN AC.ID_Alumno END) AS Cantidad_Alumnos

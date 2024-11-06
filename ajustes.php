@@ -6,21 +6,29 @@
     <title>Ajustes</title>
     <link rel="stylesheet" href="Diseño/estiloajustes.css">
     <script src="JS/ajustes.js"></script>
+    <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
 </head>
 <body>
     <?php
-    require_once("php/header.php");
-    if(!isset($_SESSION['usuario'])){
-        header("Location:index.");
-    }
-    $exito = false;
-    $codigo = 0;
-    if(isset($_GET['success'])){
-        $exito = true;
-    }
-    if(isset($_GET['errorid'])){
-        $codigo = $_GET['errorid'];
-    }
+        require_once("php/header.php");
+        if(!isset($_SESSION['usuario'])) {
+            header("Location:index.");
+        }
+        $exito = false;
+        $exito2 = false;
+        $codigo = 0;
+
+        if (isset($_GET['successp'])) {
+            $exito = true;
+        }
+
+        if (isset($_GET['successm'])) {
+            $exito2 = true;
+        }
+
+        if(isset($_GET['errorid'])) {
+            $codigo = $_GET['errorid'];
+        }
     ?>
     <main>
         <div class="ajustes-container">
@@ -76,10 +84,10 @@
                                     <button>Enviar</button>
                                 </div>
                                 <?php
-                                    if($exito === true){
+                                    if ($exito === true) {
                                         echo "<p class='bien'>Contraseña actualizada.</p>";
                                     }
-                                    switch($codigo){
+                                    switch($codigo) {
                                         case '1':
                                             echo "<p class='mal'>Las contraseñas no coinciden.</p>";
                                             break;
@@ -94,6 +102,33 @@
                                             break;
                                         case '5':
                                             echo "<p class='mal'>La nueva contraseña contiene caracteres no permitidos (', \", <, >, \\).</p>";
+                                            break;
+                                    }
+                                ?>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="cambiarpass">
+                        <h1>Cambiar correo</h1>
+                        <div class="cambiarpass-form">
+                            <form action="php/cambiarmail.php" method="post">
+                                <p>Correo nuevo</p>
+                                <input type="mail" name="nuevomail" required>
+                                <p>Repita el nuevo correo</p>
+                                <input type="mail" name="nuevomailconfirm" required>
+                                <div class="botonpass">
+                                    <button>Enviar</button>
+                                </div>
+                                <?php
+                                    if ($exito2 === true) {
+                                        echo "<p class='bien'>Correo actualizado.</p>";
+                                    }
+                                    switch($codigo) {
+                                        case '6':
+                                            echo "<p class='mal'>Los correos no coinciden.</p>";
+                                            break;
+                                        case '7':
+                                            echo "<p class='mal'>Error con el servidor.</p>";
                                             break;
                                     }
                                 ?>

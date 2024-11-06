@@ -14,21 +14,27 @@
     <title>Ingreso</title>
     <link rel="stylesheet" href="Diseño/logincss.css?"> 
     <link rel="shortcut icon" href="Diseño/logocer.jpg" type="image/x-icon">
+    <script src="JS/script.js"></script>
 </head>
     <body>
         <div class="all">
             <h1>Iniciar Sesión</h1>
             <div class="login">
                 <form action="backend.php" method="POST">
-                    <p>Cedula</p>
-                    <input type="text" name="cedula" required>
-                    <p>Contraseña</p>
-                    <input type="password" name="pass" required>
+                    <div class="input">
+                        <p>Cedula</p>
+                        <input type="text" name="cedula" required>
+                    </div>
+                    <div class="input">
+                        <p>Contraseña</p>
+                        <input type="password" name="pass" id="contra" required>
+                        <span class="mostrarContra" onclick="mostrarContra()">👁️</span>
+                    </div>
                     <p>
                         <button>Ingresar</button>
                     </p>
                     <?php
-                        if($errorlogin === TRUE) {
+                        if ($errorlogin === TRUE) {
                             echo "<div class='errorlogin'>Credenciales incorrectas.</div>";
                         }
                     ?>

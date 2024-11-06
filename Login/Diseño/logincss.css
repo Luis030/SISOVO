@@ -88,3 +88,28 @@ button:hover {
 .errorlogin{
     color: white;
 }
+
+.input {
+    position: relative;
+    width: 300px;
+}
+
+.input input {
+    width: 100%;
+    padding-right: 45px; /* Espacio para el ícono */
+    padding-left: 15px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input .mostrarContra {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    cursor: pointer;
+    font-size: 18px;
+}

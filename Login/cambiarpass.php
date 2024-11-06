@@ -46,15 +46,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar contraseña</title>
     <link rel="stylesheet" href="Diseño/recuperarpass.css">
+    <script src="JS/script.js"></script>
 </head>
 <body>
     <div class="contenedor-cambiar-contrasena">
         <div class="contenedor-formulario-cambiar-contrasena">
             <form action="cambiarpass.php" method="post">
-                <p>Nueva contraseña</p>
-                <input type="password" name="nuevapass" required>
-                <p>Confirmar contraseña</p>
-                <input type="password" name="nuevapassconfirm" required>
+                <div class="input">
+                    <p>Nueva contraseña</p>
+                    <input type="password" name="nuevapass" id="pass" required>
+                    <span class="mostrarContra" id="ojo1" onclick="mostrarContraNueva()">👁️</span>
+                </div>
+                <div class="input">
+                    <p>Confirmar contraseña</p>
+                    <input type="password" name="nuevapassconfirm" id="passnueva" required>
+                    <span class="mostrarContra" id="ojo2" onclick="mostrarContraNueva2()">👁️</span>
+                </div>
                 <button id="boton-confirmar-cambiar-pass">Confirmar</button>
             </form>
             <?php

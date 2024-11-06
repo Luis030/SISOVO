@@ -10,6 +10,7 @@
         <title>Sobre nosotros</title>
         <link rel="stylesheet" href="Diseño/styleaboutus.css?aaaaa">
         <script src="JS/aboutusnew.js" type="Application/JavaScript"></script>
+        <link rel="shortcut icon" href="Diseño/IMG/logocer.jpg" type="image/x-icon">
     </head>
     <body>
         <div id="cambiarIdioma">

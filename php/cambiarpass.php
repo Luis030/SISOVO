@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if ($consulta_update = mysqli_prepare($conexion, $query_update)) {
                     mysqli_stmt_bind_param($consulta_update, "ss", $contrasena_nueva_hash, $cedula);
                     if (mysqli_stmt_execute($consulta_update)) {
-                        header("Location:../ajustes?success=true"); 
+                        header("Location:../ajustes?successp=true"); 
                         exit;
                     } else {
                         header("Location:../ajustes?errorid=2"); 

@@ -15,6 +15,7 @@
                     <th>Docente</th>
                     <th>Horarios</th>
                     <th>Alumnos</th>
+                    <th>Año</th>
                     <th>Opciones</th>
                 </tr>
             </thead>

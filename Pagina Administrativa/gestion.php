@@ -91,6 +91,7 @@
                         <th>Nombre Completo</th>
                         <th>Cédula</th>
                         <th>Correo</th>
+                        <th>Ocupación</th>
                         <th>Celular</th>
                         <th>Opciones</th>
                     </tr>
