@@ -136,7 +136,7 @@ button:hover {
 
 .input input {
     width: 100%;
-    padding-right: 45px; /* Espacio para el ícono */
+    padding-right: 45px;
     padding-left: 15px;
     height: 40px;
     border-radius: 20px;
@@ -146,10 +146,11 @@ button:hover {
     box-sizing: border-box;
 }
 
-.input .mostrarContra {
+.mostrarContra {
     position: absolute;
     right: 10px;
-    top: 60%;
+    top: 61%;
     cursor: pointer;
-    font-size: 18px;
+    width: 25px;
+    height: 25px;
 }

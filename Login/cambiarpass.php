@@ -1,9 +1,11 @@
 <?php
 session_start();
+
 if(!isset($_SESSION['userid']) || !isset($_SESSION['cambiarpass'])){
     header("Location: index.php");
 }
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+if($_SERVER['REQUEST_METHOD'] == "POST") {
     $nuevacon = $_POST['nuevapass'];
     $nuevapassconf = $_POST['nuevapassconfirm'];
 
@@ -27,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $sql = "UPDATE usuarios SET Contraseña = ? WHERE ID_Usuario = ?";
     $consulta = mysqli_prepare($conexion, $sql);
     mysqli_stmt_bind_param($consulta, "si", $nuevacontraseña, $usuario);
-    if(mysqli_stmt_execute($consulta)){
+    if(mysqli_stmt_execute($consulta)) {
         session_unset();
         $_SESSION['finalizado'] = true;
         header("Location: finalizado.php");
@@ -36,7 +38,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         header("Location: cambiarpass.php?errorid=4");
         exit;
     }
-    
 }
 ?>
 <!DOCTYPE html>
@@ -55,12 +56,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                 <div class="input">
                     <p>Nueva contraseña</p>
                     <input type="password" name="nuevapass" id="pass" required>
-                    <span class="mostrarContra" id="ojo1" onclick="mostrarContraNueva()">👁️</span>
+                    <img src="Diseño/ver.svg" alt="ojo2" class="mostrarContra" id="ojo1" onclick="mostrarContraNueva()">
                 </div>
                 <div class="input">
                     <p>Confirmar contraseña</p>
                     <input type="password" name="nuevapassconfirm" id="passnueva" required>
-                    <span class="mostrarContra" id="ojo2" onclick="mostrarContraNueva2()">👁️</span>
+                    <img src="Diseño/ver.svg" alt="ojo3" class="mostrarContra" id="ojo2" onclick="mostrarContraNueva2()">
                 </div>
                 <button id="boton-confirmar-cambiar-pass">Confirmar</button>
             </form>

@@ -28,7 +28,7 @@
                     <div class="input">
                         <p>Contraseña</p>
                         <input type="password" name="pass" id="contra" required>
-                        <span class="mostrarContra" onclick="mostrarContra()">👁️</span>
+                        <img src="Diseño/ver.svg" alt="ojo1" class="mostrarContra" onclick="mostrarContra()">
                     </div>
                     <p>
                         <button>Ingresar</button>

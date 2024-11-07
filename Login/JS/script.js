@@ -3,10 +3,10 @@ function mostrarContra() {
     const ojo = document.querySelector(".mostrarContra");
     if (contraseñaInput.type === "password") {
         contraseñaInput.type = "text";
-        ojo.textContent = "🙈"; // Cambia el icono al de ocultar
+        ojo.src = "Diseño/nover.svg";
     } else {
         contraseñaInput.type = "password";
-        ojo.textContent = "👁️"; // Cambia el icono al de mostrar
+        ojo.src = "Diseño/ver.svg";
     }
 }
 
@@ -15,10 +15,10 @@ function mostrarContraNueva() {
     const ojo2 = document.getElementById("ojo1");
     if (contraseñaInput.type === "password") {
         contraseñaInput.type = "text";
-        ojo2.textContent = "🙈"; // Cambia el icono al de ocultar
+        ojo2.src = "Diseño/nover.svg";
     } else {
         contraseñaInput.type = "password";
-        ojo2.textContent = "👁️"; // Cambia el icono al de mostrar
+        ojo2.src = "Diseño/ver.svg";
     }
 }
 
@@ -27,9 +27,9 @@ function mostrarContraNueva2() {
     const ojo3 = document.getElementById("ojo2");
     if (contraseñaInput.type === "password") {
         contraseñaInput.type = "text";
-        ojo3.textContent = "🙈"; // Cambia el icono al de ocultar
+        ojo3.src = "Diseño/nover.svg";
     } else {
         contraseñaInput.type = "password";
-        ojo3.textContent = "👁️"; // Cambia el icono al de mostrar
+        ojo3.src = "Diseño/ver.svg";
     }
 }
