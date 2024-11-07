@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     }
 
-    $sql = "SELECT D.ID_Docente, A.ID_Alumno, I.ID_Informe, CONCAT(A.Nombre, ' ', A.Apellido) AS Alumno, CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, Titulo, Fecha, A.Cedula 
+    $sql = "SELECT D.ID_Docente, A.ID_Alumno, I.ID_Informe, CONCAT(A.Nombre, ' ', A.Apellido) AS Alumno, CONCAT(D.Nombre, ' ', D.Apellido) AS Docente, Titulo, DATE_FORMAT(Fecha, '%d/%m/%Y') AS Fecha, A.Cedula 
     FROM docentes D 
     JOIN informes I on I.ID_Docente = D.ID_Docente 
     JOIN alumnos A on I.ID_Alumno = A.ID_Alumno 
