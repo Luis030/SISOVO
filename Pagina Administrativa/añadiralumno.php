@@ -78,7 +78,7 @@
 ?>
 <link rel="stylesheet" href="css/estiloañadir.css">
 <link rel="stylesheet" href="css/estiloselect2.css">
-<script src="JS/cargarselect.js"></script>
+<script src="js/cargarselect.js"></script>
 <div class="contenedor-anadir-alumno">
     <div class="cambiarpagina">
         <div>
