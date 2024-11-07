@@ -7,6 +7,15 @@
         <link rel="stylesheet" href="Diseño/stylepanelalumno.css">
         <script src="JS/panelalumno.js"></script>
         <link rel="shortcut icon" href="Diseño/IMG/logocer-render.png" type="image/x-icon">
+                <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GVWX27RV2"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2GVWX27RV2');
+        </script>
     </head>
     <body>
         <?php
