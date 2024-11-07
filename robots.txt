@@ -11,5 +11,8 @@ Disallow: /cgi-bin/
 Disallow: /Pagina Administrativa/
 Disallow: /BD/
 Disallow: /fpdf/
-Disallow: /Pagina Principal/Main/php/
-Disallow: /Pagina Principal/Login/backend.php
+Disallow: /php/
+Disallow: /Login/backend.php
+Disallow: /PHPMailer/
+Disallow: /img/
+
