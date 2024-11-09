@@ -16,12 +16,18 @@ function validarCedula($cedula){
     return $digitoCalculado == $digitoVerificador;
 }
 
-function generarPass($cedula) {
-    $num = substr($cedula, 0, 7);
-    $digitoVerificador = substr($cedula, -1);
+function generarPass($cedula, $extranjera = false) {
+    if($extranjera == false){
+        $num = substr($cedula, 0, 7);
+        $digitoVerificador = substr($cedula, -1);
 
-    $cedulacompleta = $num . '-' . $digitoVerificador;
-    $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
+        $cedulacompleta = $num . '-' . $digitoVerificador;
+        $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
+    }
+    if($extranjera == true){
+        $cedulacompleta = $cedula . '-E';
+        $contraseña = password_hash($cedulacompleta, PASSWORD_DEFAULT);
+    }
     return $contraseña;
 }
 

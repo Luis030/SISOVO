@@ -14,7 +14,11 @@
             if(!validarCedula($cedula)){
                 header("Location: añadiralumno.php?errorid=2");
                 exit;
+            } else {
+                $extranjera = false;
             }
+        } else {
+            $extranjera = true;
         }
         $nombre = $_POST['nombre'];
         $apellido = $_POST['apellido'];
@@ -25,7 +29,7 @@
         @$patologias = $_POST['patologias'];
         $grado = $_POST['grado'];
     
-        $contraseña = generarPass($cedula);
+        $contraseña = generarPass($cedula, $extranjera);
         $nombreusuario = "$nombre $apellido";
                 
         // Verificar si la cédula ya está en uso
