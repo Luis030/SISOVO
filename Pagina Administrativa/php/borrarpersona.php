@@ -5,18 +5,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $IDalumno = $_POST['id'];
         if($_POST['t'] == "borrar"){
             if($IDalumno){
-                $sql = "UPDATE alumnos SET Estado=0 WHERE ID_Alumno = $IDalumno;";
+                $sql = "UPDATE alumnos SET Estado = 0 WHERE ID_Alumno = $IDalumno;";
                 if(mysqli_query($conexion, $sql) === TRUE){
-                    $sql = "UPDATE patologia_alumno SET Estado=0 WHERE ID_Alumno=$IDalumno;";
+                    $sql = "UPDATE patologia_alumno SET Estado = 0 WHERE ID_Alumno = $IDalumno;";
                     if(mysqli_query($conexion, $sql) == TRUE){
-                        $sql = "SELECT ID_Usuario FROM alumnos WHERE ID_Alumno= $IDalumno;";
+                        $sql = "SELECT ID_Usuario FROM alumnos WHERE ID_Alumno = $IDalumno;";
                         $resultado = mysqli_query($conexion, $sql);
                         while($fila = mysqli_fetch_assoc($resultado)){
                             $iduser = $fila['ID_Usuario'];
                         }
-                        $sql = "UPDATE usuarios SET Estado=0 WHERE ID_Usuario=$iduser;";
+                        $sql = "UPDATE usuarios SET Estado = 0 WHERE ID_Usuario = $iduser;";
                         if(mysqli_query($conexion, $sql) == TRUE){
-                            $sql = "UPDATE alumnos_clase SET Estado=0 WHERE ID_Alumno=$IDalumno;";
+                            $sql = "UPDATE alumnos_clase SET Estado = 0 WHERE ID_Alumno = $IDalumno;";
                             if(mysqli_query($conexion, $sql) == TRUE){
                                 echo json_encode([
                                     "Resultado" => "exitoso",
