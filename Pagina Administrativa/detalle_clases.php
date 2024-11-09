@@ -57,6 +57,7 @@
                     <th>Fecha de nacimiento</th>
                     <th>Correo</th>
                     <th>Celular</th>
+                    <th>Faltas</th>
                     <th>Opciones</th>
                 </tr>
             </thead>

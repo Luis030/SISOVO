@@ -24,9 +24,21 @@
 
             // Contenido del correo
             $mail->isHTML(true);
-            $mail->Subject = 'Código de Recuperación de Contraseña';
-            $mail->Body = "Tu código de recuperación es: <strong>$codigo_recuperacion</strong>";
-            $mail->AltBody = "Tu código de recuperación es: $codigo_recuperacion"; // Texto alternativo en caso de que el correo no soporte HTML
+            $mail->Subject = mb_encode_mimeheader('🔑 Tu Código de Recuperación de Contraseña', 'UTF-8');
+            
+            $mail->Body = "
+            <html>
+            <body>
+                <h1 style='color: #2E86C1;'>Centro CER - Recuperación de Contraseña</h1>
+                <p>Hola,</p>
+                <p>Tu código de recuperación es: <strong>$codigo_recuperacion</strong></p>
+                <p>Por favor, utiliza este código para recuperar tu cuenta.</p>
+                <p>Si no solicitaste este código, ignora este correo.</p>
+                <p>Saludos,<br>Centro CER</p>
+            </body>
+            </html>";
+
+            $mail->AltBody = "Hola,\n\nTu código de recuperación es: $codigo_recuperacion\n\nPor favor, utiliza este código para recuperar tu cuenta.\nSi no solicitaste este código, ignora este correo.\n\nSaludos,\nCentro CER";
 
             // Enviar el correo
             $mail->send();
@@ -38,7 +50,8 @@
             return null;
         }
     }
-    
+
+
     if($_SERVER['REQUEST_METHOD'] == "POST") {
         include("../BD/conexionbd.php");
         $cedula = mysqli_real_escape_string($conexion, $_POST['cedula']);

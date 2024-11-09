@@ -276,6 +276,7 @@ function columnasAlumnosClase(idclase){
         { "data": "Fecha_nac" },
         { "data": "Mail_Padres" },
         { "data": "Celular_Padres" },
+        { "data": "Faltas" },
         {
             "data": null,
             "render": function(data, type, row) {
@@ -301,6 +302,7 @@ function columnasAlumnosClaseDocente() {
         { "data": "Fecha_nac" },
         { "data": "Mail_Padres" },
         { "data": "Celular_Padres" },
+        { "data": "Faltas" } 
     ]
 }
 

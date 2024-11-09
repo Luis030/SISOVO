@@ -7,6 +7,24 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $codigoingresado = $_POST['codigo'];
     $codigofd = $_SESSION['codigocorreo'];
     if($codigoingresado == $_SESSION['codigocorreo']){
+        if(isset($_SESSION['cambiarcorreo'])){
+            if($_SESSION['cambiarcorreo'] == true){
+                require_once("../BD/conexionbd.php");
+                $cedula = $_SESSION['cedula'];
+                $correonuevo = $_SESSION['correoverif'];
+                $query = "UPDATE usuarios SET Correo = '$correonuevo' WHERE Cedula = $cedula";
+                $resultado = mysqli_query($conexion, $query);
+                if ($resultado == TRUE) {
+                    header("Location:../ajustes?successm=true");
+                    exit;
+                } else {
+                    header("Location:../ajustes?errorid=7");
+                    exit;
+                }
+                exit;
+            }
+            exit;
+        }
         $_SESSION['cambiarpass'] = true;
         header("Location: cambiarpass.php");
     } else {
