@@ -9,7 +9,7 @@ window.onload = function() {
         return diaBien + "/" + mesBien + "/" + año;
     } 
     function obtenerClases() {
-        fetch("PHP/infouser.php")
+        fetch("php/infouser.php")
         .then(respuesta => respuesta.json())
         .then(info => {
             console.log(info);
@@ -32,7 +32,7 @@ window.onload = function() {
         })
     }
     function obtenerInformes() {
-        fetch("PHP/infouser.php")
+        fetch("php/infouser.php")
         .then(respuesta => respuesta.json())
         .then(info => {
             console.log(info);

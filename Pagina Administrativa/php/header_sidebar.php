@@ -23,10 +23,10 @@
     <title>Panel Administrativo</title>
     <link rel="stylesheet" href="css/styles.css">
     <!-- JQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../Librerias/jquery-3.7.1.min.js"></script>
     <!-- Select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="../Librerias/select2.min.css" rel="stylesheet" />
+    <script src="../Librerias/select2.min.js"></script>
     <!-- Datatables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
     <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
