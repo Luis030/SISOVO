@@ -52,7 +52,7 @@ window.onload = function() {
                             a.textContent = dato.Titulo + " " + "(" + formatearFecha(dato.Fecha) + ")";
                             a.onclick = function() {
                                 localStorage.setItem('informeSeleccionado', JSON.stringify(dato));
-                                window.open('fpdf/Informe?ID='+dato.ID_Informe, '_blank');
+                                window.open('fpdf/informe.php?ID=' + dato.ID_Informe, '_blank');
                             };
                             li.appendChild(a);
                             listaInformes.appendChild(li);
