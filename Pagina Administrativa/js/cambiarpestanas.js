@@ -3,6 +3,9 @@ var items = [];
 function actualizarLongitud() {
     const longitudElemento = document.getElementById('longitud-array-items'); 
     longitudElemento.textContent = `Cantidad agregada: ${items.length}`;
+    if (items.length == 0) {
+        $('#ocupacionEspecialidad').prop('disabled', false);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,7 +33,7 @@ function agregarItem(texto, tipo) {
         items.push(valor);
         mostrarItems(tipo);
         input.value = ''; 
-        $('#ocupacionEspecialidad').prop('disabled', false);
+        $('#ocupacionEspecialidad').prop('disabled', true);
     }
 }
 
@@ -102,7 +105,7 @@ function enviarFormulario(enlace) {
                 body: JSON.stringify({ 
                     items: items,
                     ocupacion: selectOcupacion.value
-                 })
+                })
             })
             .then(response => {
                 if (!response.ok) {
