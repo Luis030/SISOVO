@@ -121,7 +121,7 @@ function filtrosAvanzadosListaDocente(){
       }
     })
 }
-let cantidadfiltroPat = 2;
+let cantidadfiltroPat = '-';
 function filtroGraficoPat(grafico){
   Swal.fire({
     title: "Filtro",
@@ -156,23 +156,21 @@ function filtroGraficoPat(grafico){
               crearGrafico("canvaPatElementos", "pie", "php/patologiasgrafico.php", [], {
                 leyenda: false,
                 label: "Alumnos"
-            }, {
-              cantidadA: cantidad
-            })
+              }, {
+                cantidadA: cantidad
+              })
             }
             
           
-          cantidadfiltroPat = cantidad;
-          if(cantidadfiltroPat != 2){
-            document.querySelector('.filtradoGPat').style.fill = "blue";
-          } else {
-            document.querySelector('.filtradoGPat').style.fill = "transparent";
-          }
+            cantidadfiltroPat = cantidad;
+            if(cantidadfiltroPat != '-'){
+              document.querySelector('.filtradoGPat').style.fill = "blue";
+            }
           }
       }
   })
 }
-let cantidadfiltroEsp = 2;
+let cantidadfiltroEsp = '-';
 function filtroGraficoEsp(){
   Swal.fire({
     title: "Filtro",
@@ -199,16 +197,14 @@ function filtroGraficoEsp(){
             crearGrafico("canvaEsp", "pie", "php/especialidadesgrafico.php", [], {
               leyenda: false,
               label: "Docentes"
-          }, {
-            cantidadD: cantidad
-          })
+            }, {
+              cantidadD: cantidad
+            })
           
-          cantidadfiltroEsp = cantidad;
-          if(cantidadfiltroEsp != 2){
-            document.querySelector('.filtradoGEsp').style.fill = "blue";
-          } else {
-            document.querySelector('.filtradoGEsp').style.fill = "transparent";
-          }
+            cantidadfiltroEsp = cantidad;
+            if(cantidadfiltroEsp != '-'){
+              document.querySelector('.filtradoGEsp').style.fill = "blue";
+            }
           }
       }
   })
@@ -395,7 +391,7 @@ function filtradoGraficoDocAlu(){
     }
   })
 }
-let cantidadfiltroDocCla = 1;
+let cantidadfiltroDocCla = '-';
 function filtradoGraficoDocCla(){
   Swal.fire({
     title: "Filtro",
@@ -422,21 +418,19 @@ function filtradoGraficoDocCla(){
         crearGrafico("canvaDocCla", "pie", "php/docentesclasegrafico.php", [], {
           leyenda: false,
           label: "Clases"
-      }, {
-        filtro: cantidad
-      })
-      
+        }, {
+          filtro: cantidad
+        })
+        
         cantidadfiltroDocCla = cantidad;
-        if(cantidadfiltroDocCla != 1){
+        if(cantidadfiltroDocCla != '-'){
           document.querySelector('.filtradoGDocCla').style.fill = "blue";
-        } else {
-          document.querySelector('.filtradoGDocCla').style.fill = "transparent";
         }
       }
     }
   })
 }
-let cantidadfiltroDocInf = 1;
+let cantidadfiltroDocInf = '-';
 function filtradoGraficoDocInf(){
   Swal.fire({
     title: "Filtro",
@@ -468,16 +462,14 @@ function filtradoGraficoDocInf(){
         })
       
         cantidadfiltroDocInf = cantidad;
-        if(cantidadfiltroDocInf != 1){
+        if(cantidadfiltroDocInf != '-'){
           document.querySelector('.filtradoGDocInf').style.fill = "blue";
-        } else {
-          document.querySelector('.filtradoGDocInf').style.fill = "transparent";
         }
       }
     }
   })
 }
-let cantidadfiltroOcu = 1;
+let cantidadfiltroOcu = '-';
 function filtroGraficoOcu(){
   Swal.fire({
     title: "Filtro",
@@ -509,10 +501,8 @@ function filtroGraficoOcu(){
         })
       
         cantidadfiltroOcu = cantidad;
-        if(cantidadfiltroOcu != 1){
+        if(cantidadfiltroOcu != '-'){
           document.querySelector('.filtradoGOcu').style.fill = "blue";
-        } else {
-          document.querySelector('.filtradoGOcu').style.fill = "transparent";
         }
       }
     }

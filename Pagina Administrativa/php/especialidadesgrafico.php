@@ -1,6 +1,6 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $cantidadD = isset($_POST['cantidadD']) ? $_POST['cantidadD'] : 2;
+    $cantidadD = isset($_POST['cantidadD']) ? $_POST['cantidadD'] : 1;
     include("../../BD/conexionbd.php"); 
 
     $sql = "SELECT E.Nombre, COUNT(ED.ID_Docente) AS Cantidad
