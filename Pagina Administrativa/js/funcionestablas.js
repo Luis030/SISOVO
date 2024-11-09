@@ -1,20 +1,20 @@
 window.addEventListener('DOMContentLoaded', () => {
-    if(document.querySelector('#lista-docente')){
+    if(document.querySelector('#lista-docente')) {
         setInterval(actualizarListaDocente, 10000);
     }
-    if(document.querySelector('#patsinA')){
+    if(document.querySelector('#patsinA')) {
         actualizarDatosPat();
     }
 
-    if(document.querySelector('#ocusinD')){
+    if(document.querySelector('#ocusinD')) {
         actualizarDatosOcu();
     }
 
-    if(document.querySelector('#espsinD')){
+    if(document.querySelector('#espsinD')) {
         actualizarDatosEsp();
     }
 
-    if(document.querySelector('.detalle-clases')){
+    if(document.querySelector('.detalle-clases')) {
         actualizarDetalleClases();
     }
 })
@@ -33,8 +33,35 @@ function eliminarClase(id, nombre) {
         if (dato.Resultado == "exito") {
             if (dato.Mensaje == "contiene") {
                 Swal.fire({
-                    title: "No se puede eliminar la clase <span class='nombre-clase'>" + nombre + "</span> ya que contiene alumnos.",
-                    icon: "error",
+                    title: "La clase <span class='nombre-clase'>" + nombre + "</span> contiene al menos 1 alumno",
+                    text: "Si la clase " + nombre + " se elimina igualmente, los alumnos inscritos a ella se desasignaran.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Eliminar de todas formas"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch("php/borrarclase.php", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: "id=" + id + "&&borrarigual=si"
+                        })
+                        .then(datos => datos.json())
+                        .then(datos => {
+                            if (datos.Resultado == "si") {
+                                Swal.fire({
+                                    icon: "success",
+                                    title: "Borrado correctamente",
+                                    text: "La clase " + nombre + " se ha borrado y desasignado correctamente de sus alumnos."
+                                })
+                                tablas['clases'].ajax.reload();
+                            }
+                        })
+                    }
                 })
             }
             if (dato.Mensaje == "nocontiene") {

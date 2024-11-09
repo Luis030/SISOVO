@@ -46,6 +46,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             ]);
         }
     }
+
+    if (isset($_POST['borrarigual'])) {
+        $sql1 = "UPDATE clase
+                SET Estado = 0
+                WHERE ID_Clase = $IDClase";
+        $resultado1 = mysqli_query($conexion, $sql1);
+
+        $sql2 = "UPDATE alumnos_clase
+                SET Estado = 0
+                WHERE ID_Clase = $IDClase";
+        $resultado2 = mysqli_query($conexion, $sql2);
+
+        if ($resultado1 == TRUE && $resultado2 == TRUE) {
+            echo json_encode([
+                "Resultado" => "si",
+                "Clase" => $IDClase
+            ]);
+        } else {
+            echo json_encode([
+                "Resultado" => "no",
+                "Clase" => $IDClase
+            ]);
+        }
+    }
+
 } else {
     header("Location: ../../");
 }
