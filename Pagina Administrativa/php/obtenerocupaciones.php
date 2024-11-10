@@ -7,8 +7,8 @@
             $sql = "SELECT 
         (SELECT COUNT(*) FROM ocupacion O WHERE O.Estado = 1) AS Total_Ocupaciones,
         
-        (SELECT COUNT(o.ID_Ocupacion) FROM ocupacion o LEFT JOIN docentes d ON o.ID_Ocupacion = d.ID_Ocupacion AND d.Estado = 1
-        WHERE o.Estado = 1 AND d.ID_Docente IS NULL) AS Ocupaciones_Sin_Docentes;
+        (SELECT COUNT(O.ID_Ocupacion) FROM ocupacion O LEFT JOIN docentes D ON O.ID_Ocupacion = D.ID_Ocupacion AND D.Estado = 1
+        WHERE O.Estado = 1 AND D.ID_Docente IS NULL) AS Ocupaciones_Sin_Docentes;
         ";
         $resultado = mysqli_query($conexion, $sql);
         if(mysqli_num_rows($resultado) > 0){

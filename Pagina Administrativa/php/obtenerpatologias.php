@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if (isset($_POST['editaralumno'])){
         $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
         $id = $_POST['id'];
-        $sql = "SELECT P.ID_Patologia, P.Nombre FROM patologias p
+        $sql = "SELECT P.ID_Patologia, P.Nombre FROM patologias P
                 WHERE P.Nombre LIKE '%$q%' AND P.Estado = 1 AND P.ID_Patologia NOT IN 
                 (SELECT ID_Patologia 
                 FROM patologia_alumno 

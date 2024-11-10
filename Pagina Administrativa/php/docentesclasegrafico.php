@@ -3,12 +3,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     include("../../BD/conexionbd.php"); 
     $cantidad = isset($_POST['filtro']) ? $_POST['filtro'] : 1;
     $sql = "SELECT 
-    CONCAT(d.Nombre, ' ', d.Apellido) AS Nombre_Completo,
-    COUNT(c.ID_Clase) AS Total_Clases
-    FROM docentes d
-    JOIN clase c ON d.ID_Docente = c.ID_Docente AND c.Estado = 1
-    WHERE d.Estado = 1
-    GROUP BY d.ID_Docente
+    CONCAT(D.Nombre, ' ', D.Apellido) AS Nombre_Completo,
+    COUNT(C.ID_Clase) AS Total_Clases
+    FROM docentes D
+    JOIN clase C ON D.ID_Docente = C.ID_Docente AND C.Estado = 1
+    WHERE D.Estado = 1
+    GROUP BY D.ID_Docente
     ORDER BY Total_Clases DESC;
     ";
 
