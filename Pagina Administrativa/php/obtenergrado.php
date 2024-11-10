@@ -15,5 +15,7 @@
             }
             echo json_encode(intval($grado));
         }
+    } else {
+        header("Location: ../../");
     }
 ?>

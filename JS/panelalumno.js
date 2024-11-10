@@ -27,6 +27,8 @@ window.onload = function() {
                             clasesDiv.appendChild(p);
                         });
                     })
+                } else {
+                    console.log("ladron")
                 }
             }
         })

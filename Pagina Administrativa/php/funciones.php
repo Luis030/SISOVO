@@ -1,5 +1,5 @@
 <?php
-function validarCedula($cedula){
+function validarCedula($cedula) {
     $cedula = str_replace(array('.', '-'), '', $cedula);
     if (strlen($cedula) != 8) {
         return false;

@@ -1,9 +1,9 @@
 <?php
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
         include("../../BD/conexionbd.php");
         session_start();
         
-        if(isset($_POST['datospagina'])){
+        if(isset($_POST['datospagina'])) {
             $sql = "SELECT 
         (SELECT COUNT(*) FROM ocupacion O WHERE O.Estado = 1) AS Total_Ocupaciones,
         
@@ -24,8 +24,8 @@
         exit;
         }
 
-        if(isset($_POST['tabla'])){
-            if($_POST['tabla'] == "true"){
+        if(isset($_POST['tabla'])) {
+            if($_POST['tabla'] == "true") {
                 $sql = "SELECT 
                             O.Nombre AS Ocupacion, 
                             COUNT(D.ID_Docente) AS Total_Docentes, 
@@ -37,8 +37,7 @@
                         WHERE 
                             O.Estado = 1 
                         GROUP BY 
-                            O.Nombre, O.ID_Ocupacion;
-                ";
+                            O.Nombre, O.ID_Ocupacion";
                 $resultado = mysqli_query($conexion, $sql);
                 if($resultado){
                     $ocupaciones = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
@@ -51,14 +50,14 @@
             }
         }
 
-        if (isset($_POST['editardocente'])){
+        if (isset($_POST['editardocente'])) {
             $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
             $id = $_POST['id'];
             $sql = "SELECT O.ID_Ocupacion, O.Nombre FROM ocupacion O
                     WHERE O.Nombre LIKE '%$q%' AND O.Estado = 1 AND O.ID_Ocupacion NOT IN 
                     (SELECT D.ID_Ocupacion
                     FROM docentes D, ocupacion O
-                    WHERE D.ID_Docente = $id AND O.Estado = 1 AND D.ID_Ocupacion = O.ID_Ocupacion);";
+                    WHERE D.ID_Docente = $id AND O.Estado = 1 AND D.ID_Ocupacion = O.ID_Ocupacion)";
             $resultado = mysqli_query($conexion, $sql);
             if($resultado){
                 $ocupaciones = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
@@ -90,5 +89,7 @@
         } else {
             echo json_encode([]);
         }
+    } else {
+        header("Location: ../../");
     }
 ?>
