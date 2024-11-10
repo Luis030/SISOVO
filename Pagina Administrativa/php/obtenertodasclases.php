@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         AND AC.Asistio IS NULL 
     WHERE 
         C.Estado = 1
-        AND D.Cedula=$ceduladoc
+        AND D.Cedula = $ceduladoc
     GROUP BY 
         C.ID_Clase; 
     ";

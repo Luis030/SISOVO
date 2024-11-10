@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $sql = "SELECT A.ID_Alumno, CONCAT(Nombre, ' ', Apellido) AS NombreCompleto FROM alumnos A LEFT JOIN alumnos_clase AC on A.ID_Alumno=AC.ID_Alumno AND AC.ID_Clase=$idclase WHERE (CONCAT(Nombre, ' ', Apellido) LIKE '%$q%' OR Cedula LIKE '%$q%') AND A.Estado = 1 AND AC.ID_Clase is null;";
     } else if(isset($_POST['alumnostabla']) && $_POST['alumnostabla'] == "true") {
         $q = isset($_POST['q']) ? $_POST['q'] : '';
-        $sql = "SELECT a.ID_Alumno, a.ID_Usuario, a.Nombre, a.Apellido, a.Cedula, TIMESTAMPDIFF(YEAR, Fecha_Nac, CURDATE()) AS Edad, Celular_Padres, u.Correo AS Mail_Padres, CONCAT(Grado, '°') AS Grado FROM alumnos a JOIN usuarios u ON a.ID_Usuario=u.ID_Usuario WHERE a.Estado=1;";
+        $sql = "SELECT A.ID_Alumno, A.ID_Usuario, A.Nombre, A.Apellido, A.Cedula, TIMESTAMPDIFF(YEAR, Fecha_Nac, CURDATE()) AS Edad, Celular_Padres, U.Correo AS Mail_Padres, CONCAT(Grado, '°') AS Grado FROM alumnos A JOIN usuarios U ON A.ID_Usuario = U.ID_Usuario WHERE A.Estado = 1";
     } else {
         $q = isset($_POST['q']) ? $_POST['q'] : '';
         $sql = "SELECT ID_Alumno, CONCAT(Nombre, ' ', Apellido) AS NombreCompleto FROM alumnos WHERE (CONCAT(Nombre, ' ', Apellido) LIKE '%$q%' OR Cedula LIKE '%$q%') AND A.Estado = 1 LIMIT 50";
