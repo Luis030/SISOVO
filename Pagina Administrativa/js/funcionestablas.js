@@ -631,7 +631,7 @@ function eliminarOcu(id, nombre) {
 
 function editarEsp(id, nombre) {
     Swal.fire({
-        title: "Editar especializad",
+        title: "Editar especialización",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
@@ -654,7 +654,7 @@ function editarEsp(id, nombre) {
                 .then(datos => datos.json())
                 .then(datos => {
                     console.log(datos)
-                    if(datos.resultado == "exito"){
+                    if(datos.resultado == "exito") {
                         Swal.fire({
                             icon: "success",
                             title: "Nombre actualizado",

@@ -6,7 +6,6 @@
         $atributo = $_POST['atributo'];
         $txt = $_POST['txt'];
         $tipo = $_POST['tipo'];
-        $ocu = false;
 
         if ($tipo == "alumno") {
             switch($atributo) { 
@@ -60,8 +59,6 @@
                     $sql = "UPDATE docentes SET Celular = '$txt' WHERE ID_Docente = $id";
                     break;
                 case "ocupacion":
-                    $sql = "UPDATE docentes SET ID_Ocupacion = '$txt' WHERE ID_Docente = $id";
-                    $ocu = true;
                     $sql2 = "SELECT Nombre FROM ocupacion WHERE ID_Ocupacion = '$txt'";
                     $resultado2 = mysqli_query($conexion, $sql2);
                     while($columna = mysqli_fetch_assoc($resultado2)) {
@@ -74,7 +71,7 @@
             }
         }
 
-        $resultado = mysqli_query($conexion, $sql);
+        $resultado = mysqli_query($conexion, $sql2);
 
         if (isset($nombreOcu)) {
             $sql3 = "SELECT ID_Especializacion FROM especializacion_docente WHERE ID_Docente = $id AND Estado = 1";
@@ -83,6 +80,8 @@
                 echo json_encode(['mensaje' => 'no', 'invalido' => "Elimine las especialidades del docente antes de cambiar su ocupación."]);
                 exit;
             } else {
+                $sql4 = "UPDATE docentes SET ID_Ocupacion = '$txt' WHERE ID_Docente = $id";
+                $resultado4 = mysqli_query($conexion, $sql4);
                 echo json_encode(['mensaje' => 'si', 'nombre' => $nombreOcu]);
                 exit;
             }
