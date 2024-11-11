@@ -65,7 +65,7 @@ CREATE TABLE `alumnos_clase` (
 CREATE TABLE `clase` (
   `ID_Clase` int(11) NOT NULL,
   `ID_Docente` int(11) NOT NULL,
-  `Nombre` varchar(20) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
   `Horario` varchar(100) NOT NULL,
   `Estado` tinyint(1) DEFAULT 1,
   `Año` int(11) DEFAULT year(curdate())
