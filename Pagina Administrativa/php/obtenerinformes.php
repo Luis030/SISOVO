@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['docente'])) {
         $id = $_POST['id'];
 
-        $sql = "SELECT A.ID_Alumno, I.ID_Informe, Titulo, Fecha, CONCAT(A.Nombre, ' ', A.Apellido) AS Alumno, A.Cedula
+        $sql = "SELECT A.ID_Alumno, I.ID_Informe, Titulo, DATE_FORMAT(Fecha, '%d/%m/%Y') AS Fecha, CONCAT(A.Nombre, ' ', A.Apellido) AS Alumno, A.Cedula
         FROM informes I 
         JOIN alumnos A ON A.ID_Alumno = I.ID_Alumno 
         WHERE ID_Docente = $id AND I.Estado = 1 

@@ -165,7 +165,9 @@ ul {
 }
 
 /* Responsive */
-
+.informes{
+    margin-bottom: 700px;
+}
 @media (max-width: 1100px) {
     .panelAlumnoMain {
         margin-top: 105px;
