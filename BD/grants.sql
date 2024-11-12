@@ -49,6 +49,7 @@ grant insert on cerbd.alumnos_clase to docente;
 
 grant update on cerbd.informes to docente;
 grant update on cerbd.alumnos_clase to docente;
+grant update on cerbd.usuarios to docente;
 
 grant select on cerbd.informes to alumno IDENTIFIED by 'alumno@pass';
 grant select on cerbd.usuarios to alumno;
