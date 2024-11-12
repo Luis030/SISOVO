@@ -59,8 +59,8 @@
                     $sql = "UPDATE docentes SET Celular = '$txt' WHERE ID_Docente = $id";
                     break;
                 case "ocupacion":
-                    $sql2 = "SELECT Nombre FROM ocupacion WHERE ID_Ocupacion = '$txt'";
-                    $resultado2 = mysqli_query($conexion, $sql2);
+                    $sql = "SELECT Nombre FROM ocupacion WHERE ID_Ocupacion = '$txt'";
+                    $resultado2 = mysqli_query($conexion, $sql);
                     while($columna = mysqli_fetch_assoc($resultado2)) {
                         $nombreOcu = $columna['Nombre'];
                     }
@@ -71,7 +71,7 @@
             }
         }
 
-        $resultado = mysqli_query($conexion, $sql2);
+        $resultado = mysqli_query($conexion, $sql);
 
         if (isset($nombreOcu)) {
             $sql3 = "SELECT ID_Especializacion FROM especializacion_docente WHERE ID_Docente = $id AND Estado = 1";
