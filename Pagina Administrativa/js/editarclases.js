@@ -21,9 +21,6 @@ function mostrarEditarHorario() {
         divNombre.classList.remove('visible');
         divHorario.classList.add('visible');
         divDocente.classList.remove('visible');
-        var horario = window.horario;
-        var input = document.getElementById('ingresarHorario');
-        input.value = horario
     }
 }
 
@@ -50,6 +47,7 @@ let tipo = '';
 function guardarNombre(id) {
     const nombreNuevo = document.getElementById('ingresarNombre');
     const spanNombre = document.getElementById('spanNombre');
+    const divNombre = document.getElementById('editandoNombre');
     if (nombreNuevo.value == "") {
         Swal.fire({
             title: "Error!",
@@ -78,6 +76,8 @@ function guardarNombre(id) {
                     timer: 3000
                 })
                 spanNombre.textContent = nombreNuevo.value;
+                nombreNuevo.value = "";
+                divNombre.classList.remove('visible');  
             }
         })
     }
@@ -87,6 +87,7 @@ function guardarNombre(id) {
 function guardarDocente(id) {
     const docenteNuevo = document.getElementById('ingresarDocente');
     const spanDocente = document.getElementById('spanDocente');
+    const divDocente = document.getElementById('editandoDocente');
     if (docenteNuevo.value == "") {
         Swal.fire({
             title: "Error!",
@@ -115,6 +116,7 @@ function guardarDocente(id) {
                     timer: 3000
                 })
                 spanDocente.textContent = datos.docente;
+                divDocente.classList.remove('visible');
             }
         })
     }
@@ -123,6 +125,7 @@ function guardarDocente(id) {
 function guardarHorario(id) {
     const horarioNuevo = document.getElementById('ingresarHorario');
     const spanHorario = document.getElementById('spanHorario');
+    const divHorario = document.getElementById('editandoHorario');
     if (horarioNuevo.value == "") {
         Swal.fire({
             title: "Error!",
@@ -132,7 +135,7 @@ function guardarHorario(id) {
             timer: 3000
         })
     } else {
-        tipo = "horario";
+        tipo = "horario";   
         fetch("php/cambiarclases.php", {
             method: "POST",
             headers: {
@@ -151,6 +154,8 @@ function guardarHorario(id) {
                     timer: 3000
                 })
                 spanHorario.textContent = datos.horario;
+                horarioNuevo.value = datos.horario;
+                divHorario.classList.remove('visible');
             }
         })
     }
