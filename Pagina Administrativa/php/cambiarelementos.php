@@ -65,7 +65,8 @@
                     if(mysqli_query($conexion, $sql) == TRUE) {
                         echo json_encode([
                             "resultado" => "exito",
-                            "nombre" => $nuevonombre
+                            "nombre" => $nuevonombre,
+                            "aca" => true
                         ]);
                         exit;
                     }

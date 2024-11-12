@@ -225,12 +225,13 @@ select {
 }
 
 .contenedor-seccion-elementos-altura{
-    height: 70vh;
+    height: 50vh;
 }
 .contenedor-segunda-fila-div{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 100px;
 }
 .contenedor-segunda-fila-seccion-elementos-patologias span, .contenedor-tercera-fila-seccion-elementos-inicio span, .contenedor-segunda-fila-seccion-elementos-ocupaciones span, .contenedor-segunda-fila-seccion-elementos-especialidades span{
     font-size: 7vw;
@@ -298,12 +299,7 @@ span.select2-container.select2-container--default.select2-container--open{
     #ocusinD{
         font-size: 50px !important;
     }
-    .contenedor-segunda-fila-seccion-elementos-patologias{
-        margin-top: 20%;
-    }
-    .contenedor-segunda-fila-seccion-elementos-especialidades{
-        margin-top: 20%;
-    }
+
 }
 
 @media (max-width: 900px){

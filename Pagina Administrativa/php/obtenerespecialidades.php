@@ -23,7 +23,7 @@
         }
         if(isset($_POST['tabla'])) {
             if($_POST['tabla'] == "true") {
-                $sql = "SELECT E.Nombre AS Especializacion, O.Nombre AS Ocupacion, COUNT(DISTINCT ED.ID_Docente) AS Total_Docentes, ED.ID_Especializacion 
+                $sql = "SELECT E.Nombre AS Especializacion, O.Nombre AS Ocupacion, COUNT(DISTINCT ED.ID_Docente) AS Total_Docentes, E.ID_Especializacion 
                 FROM especializaciones E
                 LEFT JOIN ocupacion O ON E.ID_Ocupacion = O.ID_Ocupacion
                 LEFT JOIN especializacion_docente ED ON E.ID_Especializacion = ED.ID_Especializacion AND ED.Estado = 1
