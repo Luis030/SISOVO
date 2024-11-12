@@ -16,7 +16,7 @@
                 $idDocente = $fila['ID_Docente'];
             }
             $sql = "INSERT INTO lista_docente (ID_Docente, Fecha, Hora, Tipo)
-                    VALUES ($idDocente, CURDATE(), CURTIME(), '$tipo');";
+                    VALUES ($idDocente, CURDATE(), CURTIME(), '$tipo')";
             $resultado = mysqli_query($conexion, $sql);
             if ($resultado == TRUE) {
                 echo json_encode(['mensaje' => 'si']);

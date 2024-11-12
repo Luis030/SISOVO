@@ -137,7 +137,7 @@ const TablasConfig = {
     }
 };
 
-function columnasListaDocente(){
+function columnasListaDocente() {
     return [
         {
             "data": "Docente",

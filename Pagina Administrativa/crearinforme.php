@@ -29,7 +29,7 @@
                     if(isset($_GET['success'])){
                         echo "<p>Se ha ingresado el informe correctamente.</p>";
                         $idInforme = $_SESSION['idInforme'];
-                        echo "<a href='../fpdf/informe.php?ID=$idInforme' target='_blank'>Ver vista previa.</a>";
+                        echo "<a href='../fpdf/informe.php?ID=$idInforme' target='_blank'>Ver informe.</a>";
                     }
                 ?>
             </div>
