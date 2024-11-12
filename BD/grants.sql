@@ -34,6 +34,7 @@ grant update on cerbd.especializacion_docente to administrador;
 grant update on cerbd.usuarios to administrador;
 grant update on cerbd.ocupacion to administrador;
 grant update on cerbd.alumnos_clase to administrador;
+grant update on cerbd.informes to administrador;
 
 grant select on cerbd.informes to docente IDENTIFIED by 'docente@pass';
 grant select on cerbd.usuarios to docente;
