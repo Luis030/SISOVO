@@ -596,7 +596,7 @@ function eliminarOcu(id, nombre) {
             Swal.fire({
                 icon: "warning",
                 title: "¿Esta seguro de borrar la ocupacion "+nombre+"?",
-                text: "Esto no se podrá deshacer",
+                text: "Se borraran todas sus especialidades asignadas",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",

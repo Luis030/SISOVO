@@ -139,10 +139,14 @@
                     if($_POST['eliminar'] == "true"){
                         $sql = "UPDATE ocupacion SET Estado = 0 WHERE ID_Ocupacion = $id";
                         if(mysqli_query($conexion, $sql) == TRUE){
-                            echo json_encode([
-                                "resultado" => "exito",
-                                "nombre" => $nombre
-                            ]);
+                            $sql = "UPDATE especializaciones SET Estado=0 WHERE ID_Ocupacion= $id";
+                            if(mysqli_query($conexion, $sql)){
+                                echo json_encode([
+                                    "resultado" => "exito",
+                                    "nombre" => $nombre
+                                ]);
+                                exit;
+                            }
                             exit;
                         }
                     } else {

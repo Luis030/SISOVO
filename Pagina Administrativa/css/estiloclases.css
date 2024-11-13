@@ -336,6 +336,11 @@ p {
     align-items: center;
     white-space: pre;
 }
+@media (max-width: 1500px){
+    .select-alumnos-container{
+        margin-top: 100px;
+    }
+}
 
 @media (max-width: 768px) {
     .filtros {

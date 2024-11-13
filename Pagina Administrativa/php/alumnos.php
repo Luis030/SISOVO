@@ -9,7 +9,7 @@
                 $consultabase = "
                 SELECT DISTINCT A.ID_Alumno, A.ID_Usuario, A.Nombre, A.Apellido, A.Cedula,
                                 TIMESTAMPDIFF(YEAR, A.Fecha_Nac, CURDATE()) AS Edad,
-                                A.Celular_Padres, U.Correo AS Mail_Padres
+                                A.Celular_Padres, U.Correo AS Mail_Padres, A.Grado 
                 FROM alumnos A
                 JOIN usuarios U ON U.ID_Usuario = A.ID_Usuario
                 LEFT JOIN patologia_alumno PA ON A.ID_Alumno = PA.ID_Alumno AND PA.Estado = 1
