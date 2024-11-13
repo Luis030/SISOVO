@@ -19,6 +19,9 @@
                 $datosClase['Dia'] = $fila['Horario'];
                 $cantidadAlumnos = $fila['Cantidad'];
             }
+        } else {
+            echo json_encode([]);
+            exit;
         }
     
         echo json_encode([

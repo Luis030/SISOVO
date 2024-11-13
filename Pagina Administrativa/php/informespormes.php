@@ -5,7 +5,7 @@
             $primermes = $_POST['primermes'];
             $segundomes = $_POST['segundomes'];
             $sql = "SELECT 
-                        MONTHNAME(Fecha) AS nombre_mes,
+                        UPPER(MONTHNAME(Fecha)) AS nombre_mes,
                         COUNT(*) AS cantidad_informes
                     FROM 
                         informes
@@ -19,7 +19,7 @@
             $meses = $_GET['nmes'];
             $numero = (int)$meses;
             $sql = "SELECT 
-                MONTHNAME(Fecha) AS nombre_mes,
+                UPPER(MONTHNAME(Fecha)) AS nombre_mes,
                 COUNT(*) AS cantidad_informes
             FROM 
                 informes
@@ -31,7 +31,7 @@
                 Fecha;";
         } else {
             $sql = "SELECT 
-                    MONTHNAME(Fecha) AS nombre_mes,
+                    UPPER(MONTHNAME(Fecha)) AS nombre_mes,
                     COUNT(*) AS cantidad_informes
                 FROM 
                     informes

@@ -230,9 +230,13 @@ function clasesDocente(){
         {
             "data": null,
             "render": function(data, type, row) {
-                return `
+                if(row.Cantidad_Alumnos > 0){
+                    return `
                     <button class='boton-editar' onclick='pasarLista(${row.ID_Clase})'>Pasar Lista</button>
                 `;
+                } else {
+                    return '';
+                }
             },
             "orderable": false
         }

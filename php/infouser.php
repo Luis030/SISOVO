@@ -19,7 +19,7 @@
             mysqli_stmt_bind_param($stmt, "s", $cedula); 
             break;
         case "admin":
-            $sql = "SELECT Tipo FROM usuarios WHERE Cedula = ? AND Estado = 1";
+            $sql = "SELECT Nombre, Correo AS Mail, Tipo FROM usuarios WHERE Cedula = ? AND Estado = 1";
             $stmt = mysqli_prepare($conexion, $sql);
             mysqli_stmt_bind_param($stmt, "s", $cedula); 
             break;
