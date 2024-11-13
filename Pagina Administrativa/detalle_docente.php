@@ -73,6 +73,9 @@
                 </div>
             </div>
             <div class="editarElemento">
+                <p>Cédula: <span id="spanCedula"><?php echo $cedulaDocente ?></span></p>
+            </div>
+            <div class="editarElemento">
                 <p>Fecha de nacimiento: <span id="spanFecha"><?php echo formatearFecha($fechaDocente) ?></span><img src="img/editar.png" alt="Editar" id="editarFecha" onclick="mostrarEditarFecha('docente')"></p>
                 <div id="editandoFecha" class="fadeFecha">
                     <input type="date" id="ingresarFecha" name="fechaNuevo" required></input>
