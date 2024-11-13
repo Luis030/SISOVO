@@ -21,7 +21,7 @@
             }
         } else {
             echo "<input type='hidden' name='actualizando' value='false'>";
-            $query = "SELECT A.ID_Alumno, A.Nombre FROM alumnos A
+            $query = "SELECT A.ID_Alumno, CONCAT(A.Nombre, ' ', A.Apellido) AS Nombre FROM alumnos A
                 JOIN alumnos_clase AC ON A.ID_Alumno = AC.ID_Alumno
                 WHERE AC.ID_Clase = $idclase AND A.estado = 1 AND AC.Estado = 1 AND AC.Asistio IS NULL";
 

@@ -13,11 +13,11 @@
                 <input type="text" name="informeTitulo" placeholder="Ingrese un título" required>
             </div>
             <div class="alumno">
-                <p class="alumnop">Alumno</p>
-                <select name="alumnoIngresado" id="select-alumno-ingresado" style="width: 100%" style="max-width: 100%;" required></select>
                 <p class="filtrop">Filtrar por clase<input type="checkbox" name="filtrarPorClase" class="porClase"></p>
                 <select name="informeClaseAlumno" class="informeClaseAlumno" style="width:100%" required disabled>
                 </select>
+                <p class="alumnop">Alumno</p>
+                <select name="alumnoIngresado" id="select-alumno-ingresado" style="width: 100%" style="max-width: 100%;" required></select>
             </div>
             <div class="grado">
                 <p>Grado</p>

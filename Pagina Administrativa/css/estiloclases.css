@@ -336,9 +336,9 @@ p {
     align-items: center;
     white-space: pre;
 }
-@media (max-width: 1500px){
+@media (max-width: 1700px){
     .select-alumnos-container{
-        margin-top: 100px;
+        margin-top: 200px;
     }
 }
 

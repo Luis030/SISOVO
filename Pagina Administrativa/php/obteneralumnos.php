@@ -13,7 +13,7 @@
         WHERE D.Cedula = $cedula AND (A.Nombre LIKE '%$q%' OR A.Cedula LIKE '%$q%') AND A.Estado = 1";
 
         if ($clase !== '') {
-            $sql .= " AND C.ID_Clase = $clase";
+            $sql .= " AND C.ID_Clase = $clase AND AC.Estado=1";
         }
 
         $resultado = mysqli_query($conexion, $sql);
