@@ -47,7 +47,7 @@
             });
             exit;
         } else {
-            if (nombre && docenteID && diasVisibles.length > 0 && diasVisibles.some(d => d.inicio && d.final && d.dia)) {   
+            if (nombre && docenteID && diasVisibles.length > 0 && diasVisibles.every(d => d.inicio && d.final && d.dia)) {   
                 $.ajax({
                     url: 'php/guardarclase.php',
                     type: 'POST',
