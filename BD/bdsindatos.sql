@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2024 a las 18:26:46
+-- Tiempo de generación: 13-11-2024 a las 16:51:30
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,10 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `cerbd`
 --
-
 CREATE DATABASE IF NOT EXISTS cerbd;
-USE cerbd;
-
+use cerbd;
 -- --------------------------------------------------------
 
 --
@@ -202,7 +200,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_Usuario`, `Nombre`, `Cedula`, `Contraseña`, `Tipo`, `Estado`, `Correo`) VALUES
-(1, 'admin', 12345678, '$2y$10$8dcqUdE3w7KC1/2YzXhN9uV7ThhEo.7Fsm7vcLpTsFkM67E.4t9ia', 'admin', 1, 'reeducacionsalto@gmail.com');
+(1, 'admin', 101, '$2y$10$1ASu9MLxP7ELcTD/TXa2w.2iNfm51hAPX7QUdFWnT/Ha9mGQVdL2K', 'admin', 1, 'reeducacionsalto@gmail.com');
 
 --
 -- Índices para tablas volcadas
