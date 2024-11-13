@@ -856,5 +856,9 @@ function eliminarDocente(id, nombre) {
 }
 
 function editarDocente(id) {
-    window.location.href = "detalle_docente.php?id="+id;
+    window.location.href = "detalle_docente.php?id=" + id;
+}
+
+function irEditar(id) {
+    window.location.href = "detalle_alumnos.php?id=" + id;
 }

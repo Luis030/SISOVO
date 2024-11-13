@@ -6,7 +6,7 @@
         $q = isset($_POST['q']) ? mysqli_real_escape_string($conexion, $_POST['q']) : '';
 
         if ($q) {
-            $sql = "SELECT ID_Alumno, Nombre, Apellido FROM alumnos WHERE Nombre LIKE '%$q%' LIMIT 50";
+            $sql = "SELECT ID_Alumno, Nombre, Apellido FROM alumnos WHERE (Nombre LIKE '%$q%' OR Cedula LIKE '%$q%') LIMIT 50";
         } else {
             $sql = "SELECT ID_Alumno, Nombre, Apellido FROM alumnos ORDER BY Nombre ASC LIMIT 10";
         }

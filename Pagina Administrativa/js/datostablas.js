@@ -264,7 +264,7 @@ function obtenerColumnasClases() {
     ];
 }
 
-function columnasAlumnosClase(idclase){
+function columnasAlumnosClase(idclase) {
     return [
         {   "data": "Nombre",
             "render": function(data, type, row) {
@@ -281,7 +281,7 @@ function columnasAlumnosClase(idclase){
             "data": null,
             "render": function(data, type, row) {
                 return `
-                    <button class='boton-editar' onclick='\`editaralumno.php?id=${row.ID_Alumno}'\`>Editar</button>
+                    <button class='boton-editar' onclick='irEditar(${row.ID_Alumno})'>Editar</button>
                     <button class='boton-borrar' onclick='eliminarAlumnoClase(${idclase}, ${row.ID_Alumno})'>Eliminar</button>
                 `;
             },
@@ -306,7 +306,7 @@ function columnasAlumnosClaseDocente() {
     ]
 }
 
-function columnastablaDocentes(){
+function columnastablaDocentes() {
     return [
         { "data": "Nombre",
             "render": function(data, type, row) {
