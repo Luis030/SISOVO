@@ -10,16 +10,26 @@
         if ($tipo == "alumno") {
             switch($atributo) { 
                 case "nombre":
+                    $con = "SELECT Apellido, ID_Usuario FROM alumnos WHERE ID_Alumno = $id";
+                    $conEnviada = mysqli_query($conexion, $con);
+                    $filas = mysqli_fetch_assoc($conEnviada);
+                    $apellidoA = $filas["Apellido"];
+                    $idU = $filas['ID_Usuario'];
                     $sql = "UPDATE alumnos SET Nombre = '$txt' WHERE ID_Alumno = $id";
                     break;
                 case "apellido":
+                    $con = "SELECT Nombre, ID_Usuario FROM alumnos WHERE ID_Alumno = $id";
+                    $conEnviada = mysqli_query($conexion, $con);
+                    $filas = mysqli_fetch_assoc($conEnviada);
+                    $nombreA = $filas["Nombre"];
+                    $idU = $filas['ID_Usuario'];
                     $sql = "UPDATE alumnos SET Apellido = '$txt' WHERE ID_Alumno = $id";
                     break;
                 case "fecha":
                     $sql = "UPDATE alumnos SET Fecha_Nac = '$txt' WHERE ID_Alumno = $id";
                     break;
                 case "mail":
-                    $sql = "SELECT ID_Usuario FROM alumnos WHERE ID_Alumno=$id";
+                    $sql = "SELECT ID_Usuario FROM alumnos WHERE ID_Alumno = $id";
                     $resultado = mysqli_query($conexion, $sql);
                     $filas = mysqli_fetch_assoc($resultado);
                     $iduser = $filas['ID_Usuario'];
@@ -40,9 +50,19 @@
         if ($tipo == "docente") {
             switch($atributo) {
                 case "nombre":
+                    $con = "SELECT Apellido, ID_Usuario FROM docentes WHERE ID_Docente = $id";
+                    $conEnviada = mysqli_query($conexion, $con);
+                    $filas = mysqli_fetch_assoc($conEnviada);
+                    $apellidoD = $filas["Apellido"];
+                    $idU = $filas['ID_Usuario'];
                     $sql = "UPDATE docentes SET Nombre = '$txt' WHERE ID_Docente = $id";
                     break;
                 case "apellido":
+                    $con = "SELECT Nombre, ID_Usuario FROM docentes WHERE ID_Docente = $id";
+                    $conEnviada = mysqli_query($conexion, $con);
+                    $filas = mysqli_fetch_assoc($conEnviada);
+                    $nombreD = $filas["Nombre"];
+                    $idU = $filas['ID_Usuario'];
                     $sql = "UPDATE docentes SET Apellido = '$txt' WHERE ID_Docente = $id";
                     break;
                 case "fecha":
@@ -72,6 +92,30 @@
         }
 
         $resultado = mysqli_query($conexion, $sql);
+
+        if (isset($apellidoA)) {
+            $todoNombre = $txt . " " . $apellidoA;
+            $sql = "UPDATE usuarios SET Nombre = '$todoNombre' WHERE ID_Usuario = $idU";
+            $resultado = mysqli_query($conexion, $sql);  
+        }
+
+        if (isset($nombreA)) {
+            $todoNombre = $nombreA . " " . $txt;
+            $sql = "UPDATE usuarios SET Nombre = '$todoNombre' WHERE ID_Usuario = $idU";
+            $resultado = mysqli_query($conexion, $sql); 
+        }
+
+        if (isset($apellidoD)) {
+            $todoNombre = $txt . " " . $apellidoD;
+            $sql = "UPDATE usuarios SET Nombre = '$todoNombre' WHERE ID_Usuario = $idU";
+            $resultado = mysqli_query($conexion, $sql);  
+        }
+
+        if (isset($nombreD)) {
+            $todoNombre = $nombreD . " " . $txt;
+            $sql = "UPDATE usuarios SET Nombre = '$todoNombre' WHERE ID_Usuario = $idU";
+            $resultado = mysqli_query($conexion, $sql); 
+        }
 
         if (isset($nombreOcu)) {
             $sql3 = "SELECT ID_Especializacion FROM especializacion_docente WHERE ID_Docente = $id AND Estado = 1";
