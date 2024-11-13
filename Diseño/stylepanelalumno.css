@@ -13,8 +13,6 @@ body {
     justify-content: center;
 }
 
-/* Panel */
-
 .panel {
     background-color: #ffffff;
     width: 70%;
@@ -94,8 +92,8 @@ ul {
 
 .listaInformes {
     display: block;
-    width: 100%; /* El ancho del <li> será del 100% del contenedor */
-    overflow: hidden; /* Evita que el contenido desborde el <li> */
+    width: 100%; 
+    overflow: hidden; 
 }
 
 .resultadoInforme {
@@ -144,8 +142,6 @@ ul {
     display: none;
 }
 
-/* Estilo del scroll de informes */
-
 .resultadosInformes::-webkit-scrollbar {
     width: 20px;
 }
@@ -164,10 +160,10 @@ ul {
     background-color: #a0a0a0;
 }
 
-/* Responsive */
 .informes{
     margin-bottom: 700px;
 }
+
 @media (max-width: 1100px) {
     .panelAlumnoMain {
         margin-top: 105px;

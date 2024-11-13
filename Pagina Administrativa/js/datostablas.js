@@ -8,7 +8,7 @@ var rollCallBackListaDocente =  function(row, data) {
 }
 window.tablas = tablas; 
 
-//POST
+
 document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('#tabla-clases')) {
         tablas['clases'] = iniciarTabla('tabla-clases', 'php/obtenertodasclases.php', obtenerColumnasClases(), "60vh");
@@ -152,7 +152,6 @@ function columnasListaDocente() {
     ]
 }
 
-//POST
 function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false, param = {}) {
     const config = {
         ...TablasConfig,
@@ -167,8 +166,7 @@ function iniciarTabla(tablaId, ajaxUrl, columnas, scroll, rollCall = false, para
             data: param,    
             error: function(xhr, error, code) {
                 console.log("ERROR")
-                console.error("Error en la respuesta JSON:", error); // Muestra el error si ocurre
-                console.log("Detalles de la respuesta:", xhr.responseText); // Muestra la respuesta del servidor
+                console.error("Error en la respuesta JSON:", error); 
             }
         },
         columns: columnas,

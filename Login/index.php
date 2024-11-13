@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso</title>
-    <link rel="stylesheet" href="Diseño/logincss.css?"> 
+    <link rel="stylesheet" href="Diseño/logincss.css"> 
     <link rel="shortcut icon" href="../Diseño/IMG/logocer-render.png" type="image/x-icon">
     <script src="JS/script.js"></script>
 </head>

@@ -13,7 +13,7 @@
    $cedula = $_POST['cedula'];
    
    $stmt = mysqli_prepare($conexion, "SELECT Contraseña, Tipo, Nombre FROM usuarios WHERE Cedula = ? AND Estado = 1");
-   mysqli_stmt_bind_param($stmt, "s", $cedula); // "s" indica que el parámetro es una cadena
+   mysqli_stmt_bind_param($stmt, "s", $cedula); 
    mysqli_stmt_execute($stmt);
    $resultado = mysqli_stmt_get_result($stmt);
    

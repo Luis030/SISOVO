@@ -2,15 +2,13 @@ document.addEventListener('DOMContentLoaded', function(){
     const botonesRadio = document.querySelectorAll('.checkfiltro');
     botonesRadio.forEach((botonRadio) => {
         botonRadio.addEventListener('change', function() {
-          // Cuando se selecciona uno, desactivar los demás
           if (this.checked) {
             botonesRadio.forEach((cb) => {
               if (cb !== this) {
-                cb.checked = false;  // Desactivar los demás
+                cb.checked = false; 
               }
             });
             
-            // Ejecutar una función específica dependiendo de cuál checkbox fue seleccionado
             filtrarListaDocente(this.value);
           }
         });

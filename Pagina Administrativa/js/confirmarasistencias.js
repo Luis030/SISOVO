@@ -95,7 +95,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const minutes = now.getMinutes().toString().padStart(2, '0');
         const seconds = now.getSeconds().toString().padStart(2, '0');
         const timeString = `${hours}:${minutes}:${seconds}`; 
-        document.getElementById('hora').textContent = timeString; // Actualiza la hora en el header  
+        document.getElementById('hora').textContent = timeString; 
     }
     
     updateTiempo();

@@ -43,7 +43,7 @@ function volverAtras() {
 
 let tipo = '';
 
-//POST
+
 function guardarNombre(id) {
     const nombreNuevo = document.getElementById('ingresarNombre');
     const spanNombre = document.getElementById('spanNombre');
@@ -83,7 +83,6 @@ function guardarNombre(id) {
     }
 }
 
-//POST
 function guardarDocente(id) {
     const docenteNuevo = document.getElementById('ingresarDocente');
     const spanDocente = document.getElementById('spanDocente');

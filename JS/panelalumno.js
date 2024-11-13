@@ -12,7 +12,6 @@ window.onload = function() {
         fetch("php/infouser.php")
         .then(respuesta => respuesta.json())
         .then(info => {
-            console.log(info);
             const clasesDiv = document.getElementById('clasesAsignadas');
             clasesDiv.innerHTML = '';
             if (info.length > 0) {
@@ -27,8 +26,6 @@ window.onload = function() {
                             clasesDiv.appendChild(p);
                         });
                     })
-                } else {
-                    console.log("ladron")
                 }
             }
         })
@@ -37,7 +34,6 @@ window.onload = function() {
         fetch("php/infouser.php")
         .then(respuesta => respuesta.json())
         .then(info => {
-            console.log(info);
             const listaInformes = document.getElementById('listaInformes');
             listaInformes.innerHTML = '';
             if (info.length > 0) {

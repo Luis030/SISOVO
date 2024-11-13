@@ -22,6 +22,8 @@
             <input type="radio" name="salida" id="salida">
         </div>
     </div>
+    <span>X - Salida</span>
+    <span>Z - Entrada</span>
     <div class="boton">
         <button class="btn" id="btn">Guardar</button>
     </div>

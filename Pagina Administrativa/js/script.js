@@ -36,7 +36,6 @@ window.onload = function (){
     let url = decodeURIComponent(window.location.href);
     let pagina = url.split('?')[0].split('/').pop();
 
-    console.log(pagina)
     switch(pagina){
         case 'listadocente.php':
             document.getElementById('lista-docente-li').classList.add('enlace-activo-sidebar');

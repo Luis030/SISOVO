@@ -66,9 +66,9 @@
             </div>
         </div>
         <div class="imagen-container">
-            <img src="Diseño/IMG/galeria5.jpg" alt="Descripción de la imagen" class="imagen">
+            <img src="Diseño/IMG/titulos.jpg" alt="Descripción de la imagen" class="imagen">
             <div class="info-box">
-                <p>Imagen repetida</p>
+                <p>Títulos profesionales</p>
             </div>
         </div>      
     </div>

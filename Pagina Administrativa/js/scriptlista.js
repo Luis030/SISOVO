@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function(){
             method: 'POST',
             data: { ID_Clase: idClase },
             success: function(response) {
-                $('#lista-alumnos').html(response); // Mostrar la lista de alumnos
+                $('#lista-alumnos').html(response); 
             }
         });
     }
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function(){
             method: 'POST',
             data: { fecha: fecha, idclase: idClase },
             success: function(response) {
-                $('#lista-alumnos').html(response); // Rellenar la tabla con la asistencia
+                $('#lista-alumnos').html(response); 
             }
         });
     }

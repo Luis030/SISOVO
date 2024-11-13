@@ -13,7 +13,6 @@ window.onload = function() {
         fetch("php/infouser.php")
         .then(respuesta => respuesta.json())
         .then(info => {
-            console.log(info);
             const resultadoDiv = document.getElementById('datosdiv');
             resultadoDiv.innerHTML = '';
             if(info.length > 0){
